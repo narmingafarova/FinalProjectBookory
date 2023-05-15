@@ -7,6 +7,8 @@ import Blog from './pages/Blog'
 import Vendor from './pages/Vendor'
 import Shop from './pages/Shop'
 import NotFound from './pages/NotFound'
+import Footer from './components/Footer'
+import Pages from './pages/Pages'
 
 const App: React.FC = () => {
   return (
@@ -15,11 +17,13 @@ const App: React.FC = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/shop' element={<Shop />} />
+        <Route path='/pages' element={<Pages />} />
         <Route path='/vendor' element={<Vendor />} />
         <Route path='/blog' element={<Blog />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   )
 }

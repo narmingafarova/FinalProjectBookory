@@ -1,15 +1,14 @@
 import React from 'react'
-import BreadCrumb from '../components/BreadCrumb'
 import ScrollToTop from '../components/ScrollToTop'
 
-const Shop: React.FC = () => {
+const Pages: React.FC = () => {
   return (
     <>
       <ScrollToTop />
       {/* Main part */}
-      <BreadCrumb page='Shop' />
-    </>
+      <div>Pages</div>
+      </>
   )
 }
 
-export default Shop
+export default Pages

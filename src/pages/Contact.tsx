@@ -1,10 +1,17 @@
 import React from 'react'
 import BreadCrumb from '../components/BreadCrumb'
+import BookStores from '../components/contact/BookStores'
+import ContactForm from '../components/contact/ContactForm'
+import ScrollToTop from '../components/ScrollToTop'
 
-const Contact = () => {
+const Contact: React.FC = () => {
   return (
     <>
-      <BreadCrumb page='Contact'/>
+      <ScrollToTop />
+      {/* Main part */}
+      <BreadCrumb page='Contact' />
+      <ContactForm />
+      <BookStores />
     </>
   )
 }

@@ -1,0 +1,12 @@
+.brands {
+  .row {
+    [class^="col"] {
+      img {
+        transition: 0.3s;
+        &:hover {
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+}

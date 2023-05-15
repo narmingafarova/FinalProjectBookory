@@ -1,0 +1,47 @@
+.contact-form {
+  font-family: sora, Sans-serif;
+  h3 {
+    font-size: 26px;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 32px;
+    letter-spacing: -1px;
+    color: $black;
+  }
+  p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 24px;
+    color: $text;
+  }
+  @include form;
+  form {
+    div {
+      margin-bottom: 38px;
+    }
+    input,
+    textarea {
+      padding: 16px 26px;
+      &:focus {
+        border-color: $black;
+      }
+    }
+    textarea {
+      resize: none;
+    }
+    .check {
+      input {
+        width: 20px;
+      }
+      label {
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 24px;
+        color: $text;
+      }
+    }
+    button {
+      padding: 17px 31px;
+    }
+  }
+}

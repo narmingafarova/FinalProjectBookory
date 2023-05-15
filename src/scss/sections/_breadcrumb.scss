@@ -6,22 +6,22 @@
     font-size: 64px;
     font-weight: 500;
     line-height: 1.125;
-    color: #000;
+    color: $black;
   }
   .breadcrumb-item {
     font-size: 12px;
     line-height: 1.6666666667;
     font-weight: 500;
     a {
-      color: #999;
+      color: $light_grey;
       text-decoration: none;
-      transition: .3s;
+      transition: 0.3s;
       &:hover {
-        color: #000;
+        color: $black;
       }
     }
     &:last-child {
-      color: #f65d4e;
+      color: $primary_orange;
     }
   }
   .breadcrumb-item + .breadcrumb-item::before {

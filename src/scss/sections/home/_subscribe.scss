@@ -1,0 +1,43 @@
+.subscribe {
+  .subscribe-bg {
+    background-image: url("https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/h6_bg1.jpg");
+    background-size: cover;
+    background-position: left;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    padding: 75px 30px;
+    font-family: "Sora", sans-serif;
+    h4 {
+      font-size: 36px;
+      font-weight: 500;
+      line-height: 44px;
+      letter-spacing: -2px;
+      color: $white;
+      span {
+        color: $primary_orange;
+      }
+    }
+    p {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 24px;
+      color: $white;
+    }
+    @include form;
+    form {
+      position: relative;
+      input {
+        padding: 12px 140px 12px 25px;
+        &:focus {
+          border-color: $primary_orange;
+        }
+      }
+      button {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 17px 20px;
+      }
+    }
+  }
+}

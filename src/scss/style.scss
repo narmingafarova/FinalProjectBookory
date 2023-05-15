@@ -1,12 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Sora:wght@300;500;700&display=swap");
 
+// Helpers
+@import "./helpers/var";
+@import "./helpers/mixin";
+
+// Layout Parts
 @import "./sections/header";
+@import "./sections/footer";
 
 // Home Page
 @import "./sections/home/carousel";
+@import "./sections/home/giftSaleCards";
+@import "./sections/home/saleInfoBar";
+@import "./sections/home/brands";
+@import "./sections/home/subscribe";
+@import "./sections/home/gallery";
+@import "./sections/home/opportunityCards";
 
 // Breadcrumb
 @import "./sections/breadcrumb";
 
+// Contact Page
+@import "./sections/contact/bookStores";
+@import "./sections/contact/contactForm";
+
 // Not Found
 @import "./sections/notfound/notFound";
+
+::selection {
+  color: $white;
+  background: $primary_orange;
+}

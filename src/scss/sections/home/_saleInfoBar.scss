@@ -1,0 +1,55 @@
+.sale-info-bar {
+  .bar-bg {
+    background-image: url("https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/h6_banner3.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    padding: 60px 40px;
+    font-family: "Sora", sans-serif;
+    color: $white;
+    h5 {
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 20px;
+    }
+    h3 {
+      font-size: 36px;
+      font-weight: 600;
+      line-height: 44px;
+      letter-spacing: -2px;
+    }
+    p {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+    }
+    .btn-part {
+      p {
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 24px;
+        color: $white;
+      }
+      a {
+        font-size: 14px;
+        font-weight: 500;
+        border-radius: 50px;
+        color: $black;
+        background-color: $white;
+        padding: 12px 30px;
+        transition: 0.3s;
+        svg {
+          fill: green;
+        }
+        &:hover {
+          background-color: $primary_orange;
+          color: $white;
+          svg {
+            fill: $white;
+          }
+        }
+      }
+    }
+  }
+}

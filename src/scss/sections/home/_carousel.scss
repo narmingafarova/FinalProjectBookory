@@ -62,7 +62,7 @@
           font-weight: 600;
           line-height: 67px;
           letter-spacing: -2.785px;
-          color: #fff;
+          color: $white;
           span {
             background: url("https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/revslider_vector.png")
               left bottom / auto no-repeat;
@@ -83,17 +83,17 @@
         letter-spacing: 0px;
         padding: 0px 30px;
         border-radius: 50px;
-        background-color: #fff;
-        color: #000;
+        background-color: $white;
+        color: $black;
         transition: 0.3s;
         svg {
-          fill: #f65d4e;
+          fill: $primary_orange;
         }
         &:hover {
-          background-color: #000;
-          color: #fff;
+          background-color: $black;
+          color: $white;
           svg {
-            fill: #f4402f;
+            fill: $primary_orange_hover;
           }
         }
       }
@@ -186,8 +186,8 @@
       &:hover {
         width: 8px;
         height: 8px;
-        background-color: #f65d4e;
-        outline: 2px solid #f65d4e;
+        background-color: $primary_orange;
+        outline: 2px solid $primary_orange;
         outline-offset: 3px;
       }
       &:first-child {

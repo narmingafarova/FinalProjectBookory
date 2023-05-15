@@ -6,7 +6,7 @@ import { ChevronRight } from 'react-bootstrap-icons';
 const HomeCarousel: React.FC = () => {
     return (
         <Carousel className='carousel-fade'>
-            <Carousel.Item interval={8000}>
+            <Carousel.Item interval={6000}>
                 <div className="main-slider-top-left">
                     <img className='animate__animated animate__fadeInDown' src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/rev_home6_7.png" alt="" />
                     <img className='animate__animated animate__fadeInDown' src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/rev_home6.png" alt="" />
@@ -33,7 +33,7 @@ const HomeCarousel: React.FC = () => {
                     </a>
                 </Carousel.Caption>
             </Carousel.Item>
-            <Carousel.Item interval={8000}>
+            <Carousel.Item interval={6000}>
                 <div className="second-slider-top-left">
                     <img className='animate__animated animate__fadeInDown' src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/rev_home6.png" alt="" />
                 </div>

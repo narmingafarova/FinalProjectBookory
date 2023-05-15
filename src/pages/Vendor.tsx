@@ -1,10 +1,13 @@
 import React from 'react'
 import BreadCrumb from '../components/BreadCrumb'
+import ScrollToTop from '../components/ScrollToTop'
 
-const Vendor = () => {
+const Vendor: React.FC = () => {
   return (
     <>
-    <BreadCrumb page='Store List'/>
+      <ScrollToTop />
+      {/* Main part */}
+      <BreadCrumb page='Store List' />
     </>
   )
 }

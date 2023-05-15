@@ -10,7 +10,7 @@
     font-size: 160px;
     font-style: norma;
     font-weight: 600;
-    color: #f65d4e;
+    color: $primary_orange;
     margin: 0;
   }
   h3 {
@@ -25,7 +25,7 @@
     font-size: 18px;
     font-weight: 300;
     margin: 0 auto 40px;
-    color: #444;
+    color: $text;
   }
   .error-btn {
     .btn-content {
@@ -33,17 +33,14 @@
       border-radius: 50px;
       font-size: 14px;
       font-weight: 600;
-      color: #fff;
-      background-color: #f65d4e;
+      color: $white;
+      background-color: $primary_orange;
       transition: 0.3s;
       cursor: pointer;
       &:hover {
-        background-color: #f4402f;
+        transition: 0.3s ease;
+        background-color: $primary_orange_hover;
       }
     }
-  }
-  ::selection {
-    color: #fff;
-    background: #f65d4e;
   }
 }

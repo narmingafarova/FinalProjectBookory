@@ -1,0 +1,51 @@
+@mixin form {
+  form {
+    max-width: 580px;
+    width: 580px;
+    input,
+    textarea {
+      width: 100%;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 2;
+      color: $black;
+      background-color: #fff;
+      border: 1px solid $milk_white;
+      &:focus {
+        &::placeholder {
+          color: transparent;
+        }
+      }
+      &::placeholder {
+        font-size: 13px;
+        font-weight: 300;
+        transition: 1s;
+      }
+    }
+    input {
+      border-radius: 50px;
+    }
+    textarea {
+      border-radius: 20px;
+    }
+    .form-control:focus {
+      box-shadow: none;
+    }
+    button {
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.2857142857;
+      padding: 17px 20px;
+      border-radius: 50px;
+      border: none;
+      background-color: $primary_orange;
+      transition: 0.3s;
+      &:hover {
+        background-color: $primary_orange_hover;
+      }
+    }
+    :not(.btn-check) + .btn:active {
+      background-color: $primary_orange;
+    }
+  }
+}
