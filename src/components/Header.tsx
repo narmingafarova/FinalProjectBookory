@@ -97,11 +97,11 @@ const Header: React.FC = () => {
                             <LinkContainer to="/vendor">
                                 <Nav.Link className='me-4'>Vendor</Nav.Link>
                             </LinkContainer>
-                            <LinkContainer to="/pages">
-                                <Nav.Link className='me-4'>Pages</Nav.Link>
-                            </LinkContainer>
                             <LinkContainer to="/blog">
                                 <Nav.Link className='me-4'>Blog</Nav.Link>
+                            </LinkContainer>
+                            <LinkContainer to="/about">
+                                <Nav.Link className='me-4'>About us</Nav.Link>
                             </LinkContainer>
                             <LinkContainer to="/contact">
                                 <Nav.Link>Contact</Nav.Link>
