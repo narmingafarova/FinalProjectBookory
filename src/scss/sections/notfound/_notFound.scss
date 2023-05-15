@@ -1,0 +1,49 @@
+.not-found {
+  width: 100%;
+  height: 80vh;
+  background-image: url("https://demo2.pavothemes.com/bookory/wp-content/themes/bookory/assets/images/404/404.png");
+  background-size: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: "Sora", sans-serif;
+  h2 {
+    font-size: 160px;
+    font-style: norma;
+    font-weight: 600;
+    color: #f65d4e;
+    margin: 0;
+  }
+  h3 {
+    font-size: 48px;
+    font-style: normal;
+    margin-bottom: 30px;
+    letter-spacing: -2px;
+  }
+  p {
+    max-width: 700px;
+    width: 680px;
+    font-size: 18px;
+    font-weight: 300;
+    margin: 0 auto 40px;
+    color: #444;
+  }
+  .error-btn {
+    .btn-content {
+      padding: 17px 31px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      background-color: #f65d4e;
+      transition: 0.3s;
+      cursor: pointer;
+      &:hover {
+        background-color: #f4402f;
+      }
+    }
+  }
+  ::selection {
+    color: #fff;
+    background: #f65d4e;
+  }
+}

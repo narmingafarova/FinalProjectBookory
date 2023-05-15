@@ -1,0 +1,30 @@
+.breadcrumb-bg {
+  background-color: #f0f0f0;
+  padding: 60px 0;
+  font-family: "Sora", sans-serif;
+  h2 {
+    font-size: 64px;
+    font-weight: 500;
+    line-height: 1.125;
+    color: #000;
+  }
+  .breadcrumb-item {
+    font-size: 12px;
+    line-height: 1.6666666667;
+    font-weight: 500;
+    a {
+      color: #999;
+      text-decoration: none;
+      transition: .3s;
+      &:hover {
+        color: #000;
+      }
+    }
+    &:last-child {
+      color: #f65d4e;
+    }
+  }
+  .breadcrumb-item + .breadcrumb-item::before {
+    content: "→";
+  }
+}

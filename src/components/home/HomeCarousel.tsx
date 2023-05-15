@@ -6,7 +6,7 @@ import { ChevronRight } from 'react-bootstrap-icons';
 const HomeCarousel: React.FC = () => {
     return (
         <Carousel className='carousel-fade'>
-            <Carousel.Item interval={10000}>
+            <Carousel.Item interval={8000}>
                 <div className="main-slider-top-left">
                     <img className='animate__animated animate__fadeInDown' src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/rev_home6_7.png" alt="" />
                     <img className='animate__animated animate__fadeInDown' src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/rev_home6.png" alt="" />
@@ -24,16 +24,16 @@ const HomeCarousel: React.FC = () => {
                 <Carousel.Caption>
                     <img className='pb-3' src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/rev_home6_9.png" alt="" />
                     <h1>
-                        <p className='mb-0 animate__animated animate__fadeInUp animate__delay-2s'><span>Christmas</span> Pop Up </p>
-                        <p className='mb-0 animate__animated animate__fadeInUp animate__delay-3s'>Book Gift Ideas</p>
+                        <p className='mb-0 animate__animated animate__fadeInUp animate__delay-1s'><span>Christmas</span> Pop Up </p>
+                        <p className='mb-0 slider-text-animate animate__animated animate__fadeInUp animate__delay-2s'>Book Gift Ideas</p>
                     </h1>
-                    <p className='mb-5 animate__animated animate__fadeInUp animate__delay-4s'>Find the perfect gift for everyone on your list</p>
-                    <a href="/" className='text-decoration-none animate__animated animate__fadeInUp animate__delay-5s'>
+                    <p className='mb-5 animate__animated animate__fadeInUp animate__delay-3s'>Find the perfect gift for everyone on your list</p>
+                    <a href="/" className='text-decoration-none animate__animated animate__fadeInUp animate__delay-4s'>
                         Shop Now &nbsp; <ChevronRight fontSize={11} />
                     </a>
                 </Carousel.Caption>
             </Carousel.Item>
-            <Carousel.Item interval={10000}>
+            <Carousel.Item interval={8000}>
                 <div className="second-slider-top-left">
                     <img className='animate__animated animate__fadeInDown' src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/rev_home6.png" alt="" />
                 </div>

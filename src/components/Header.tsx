@@ -3,8 +3,9 @@ import { Bag, ChevronDown, Facebook, GeoAlt, Grid3x3Gap, Heart, Instagram, Perso
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { LinkContainer } from 'react-router-bootstrap';
 
-const Header:React.FC = () => {
+const Header: React.FC = () => {
     return (
         <>
             {/* Top Nav */}
@@ -87,15 +88,27 @@ const Header:React.FC = () => {
                             style={{ maxHeight: '100px' }}
                             navbarScroll
                         >
-                            <Nav.Link href="/" className='me-4'>Home</Nav.Link>
-                            <Nav.Link href="/" className='me-4'>Shop</Nav.Link>
-                            <Nav.Link href="/" className='me-4'>Vendor</Nav.Link>
-                            <Nav.Link href="/" className='me-4'>Pages</Nav.Link>
-                            <Nav.Link href="/" className='me-4'>Blog</Nav.Link>
-                            <Nav.Link href="/">Contact</Nav.Link>
+                            <LinkContainer to="/">
+                                <Nav.Link className='me-4'>Home</Nav.Link>
+                            </LinkContainer>
+                            <LinkContainer to="/shop">
+                                <Nav.Link className='me-4'>Shop</Nav.Link>
+                            </LinkContainer>
+                            <LinkContainer to="/vendor">
+                                <Nav.Link className='me-4'>Vendor</Nav.Link>
+                            </LinkContainer>
+                            <LinkContainer to="/pages">
+                                <Nav.Link className='me-4'>Pages</Nav.Link>
+                            </LinkContainer>
+                            <LinkContainer to="/blog">
+                                <Nav.Link className='me-4'>Blog</Nav.Link>
+                            </LinkContainer>
+                            <LinkContainer to="/contact">
+                                <Nav.Link>Contact</Nav.Link>
+                            </LinkContainer>
                         </Nav>
                         <div className="support-center d-flex justify-content-center align-items-center">
-                            <div className="call-icon me-3"><TelephonePlus/></div>
+                            <div className="call-icon me-3"><TelephonePlus /></div>
                             <div className="support-context">
                                 <p className='mb-0'>+1 840 - 841 25 69</p>
                                 <span>24/7 Support Center</span>
