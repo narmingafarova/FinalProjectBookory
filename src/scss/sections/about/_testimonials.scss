@@ -1,0 +1,55 @@
+.testimonials {
+  font-family: "Sora", Sans-serif;
+  .test-header {
+    h4 {
+      font-size: 36px;
+      font-weight: 500;
+      font-style: normal;
+      line-height: 44px;
+      letter-spacing: -2px;
+      color: $black;
+    }
+    .divider-line {
+      width: 100%;
+      border: 1px solid $milk_white;
+    }
+  }
+  .slick-slider {
+    position: relative;
+    .slick-dots {
+      position: absolute;
+      top: -80px;
+      left: 600px;
+      li {
+        margin-right: 1px;
+        button {
+          &:hover {
+            &::before {
+              background-color: $primary_orange;
+            }
+          }
+        }
+      }
+      .slick-active {
+        margin-right: 4px;
+        button:before {
+          background-color: $primary_orange;
+          width: 20px;
+          border-radius: 10px;
+        }
+      }
+      li button:before {
+        content: "";
+        background-color: $milk_white;
+        border-radius: 50%;
+        width: 6px;
+        height: 6px;
+        opacity: 1;
+        transition: .3s;
+      }
+    }
+  }
+  .slick-slide {
+    margin: 0 20px 0 0;
+  }
+}

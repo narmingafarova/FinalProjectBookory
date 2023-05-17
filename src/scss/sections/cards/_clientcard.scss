@@ -1,0 +1,35 @@
+.client-card {
+  font-family: "Sora", sans-serif;
+  padding: 50px;
+  border-radius: 20px;
+  border: 1px solid $milk_white;
+  .client-img {
+    margin-bottom: 30px;
+  }
+  .client-content {
+    p {
+      color: $black;
+      font-size: 16px;
+      font-weight: 300;
+      font-style: normal;
+      line-height: 20px;
+      letter-spacing: 0.5px;
+      margin: 0 15px 20px;
+    }
+  }
+  .client-caption {
+    span {
+      font-size: 12px;
+      font-style: normal;
+      line-height: 20px;
+    }
+    .name {
+      font-weight: 400;
+      color: $black;
+    }
+    .job {
+      font-weight: 300;
+      color: $light_grey;
+    }
+  }
+}
