@@ -72,37 +72,9 @@ const TrendingNow: React.FC = () => {
                 </div>
                 <Row className='mode-cards'>
                     <Col sm={12} md={8}>
-                        {/* <Swiper
-                            slidesPerView={3}
-                            spaceBetween={30}
-                            freeMode={true}
-                            pagination={{
-                                clickable: true,
-                            }}
-                            modules={[Pagination]}
-                            className="mySwiper"
-                        >
-                            <SwiperSlide>
-                                <img src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/4.jpg" alt="" />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <img src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/4.jpg" alt="" />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <img src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/4.jpg" alt="" />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <img src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/4.jpg" alt="" />
-                            </SwiperSlide>
-                        </Swiper> */}
-                        {/* <Row>
-                            {trend.map((item: any) => {
-                                return <BookCard image={item.image} />
-                            })}
-                        </Row> */}
                         <Slider {...settings}>
                             {trend.map((item: any) => {
-                                return <BookCard image={item.image} title={item.title} author={item.author} price={item.price} star={item.vendorInfo.rating} />
+                                return <BookCard id={item.id} image={item.image} title={item.title} author={item.author} price={item.price} star={item.star} cutTitle={true}/>
                             })}
                         </Slider>
                     </Col>

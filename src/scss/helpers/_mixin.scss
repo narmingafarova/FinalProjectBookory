@@ -144,37 +144,22 @@
     .book-card {
       border-right: 1px solid $milk_white;
       .book-img {
-        img {
-          border-radius: 15px;
-        }
+        cursor: pointer;
+        width: 80%;
+        border-radius: 15px;
       }
       .book-info {
+        width: 80%;
+        margin: 0 auto;
         .book-name {
           font-size: 16px;
           font-weight: 500;
           line-height: 1.5;
           color: $black;
           transition: 0.3s;
+          cursor: pointer;
           &:hover {
             color: $primary_orange;
-          }
-        }
-        .rating {
-          margin: 3px 0;
-          span {
-            i {
-              font-size: 12px;
-            }
-            &:not(:last-child) {
-              i {
-                margin-right: 2px;
-              }
-            }
-          }
-          .total-star {
-            font-size: 12px;
-            line-height: 16px;
-            margin: 4px 0 0 6px;
           }
         }
         .author {
@@ -194,6 +179,27 @@
           color: $primary_orange;
         }
       }
+    }
+  }
+}
+
+@mixin rating {
+  .rating {
+    margin: 3px 0;
+    span {
+      i {
+        font-size: 12px;
+      }
+      &:not(:last-child) {
+        i {
+          margin-right: 2px;
+        }
+      }
+    }
+    .total-star {
+      font-size: 12px;
+      line-height: 16px;
+      margin: 4px 0 0 6px;
     }
   }
 }

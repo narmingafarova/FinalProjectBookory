@@ -10,6 +10,7 @@ import NotFound from './pages/NotFound'
 import Footer from './components/Footer'
 import About from './pages/About'
 import { BookProvider } from './context/BookContext'
+import ProductDetails from './pages/ProductDetails'
 
 const App: React.FC = () => {
   return (
@@ -19,6 +20,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/shop' element={<Shop />} />
+          <Route path='/shop/:id' element={<ProductDetails />} />
           <Route path='/about' element={<About />} />
           <Route path='/vendor' element={<Vendor />} />
           <Route path='/blog' element={<Blog />} />

@@ -1,0 +1,129 @@
+.shop-books {
+  @include modeCards;
+  @include rating;
+  .row {
+    margin: 0;
+    font-family: "Sora", sans-serif;
+    * {
+      padding: 0;
+    }
+    .book-card {
+      border-right: none;
+      margin: 30px 0;
+      .book-img {
+        width: 90% !important;
+      }
+      .book-info {
+        width: 90% !important;
+        margin: 0 auto;
+      }
+    }
+    .mode-cards {
+      .shop-title-filter {
+        border-bottom: 1px solid $milk_white;
+        padding-bottom: 15px;
+        .list-style-icon {
+          svg,
+          i {
+            cursor: pointer;
+            color: $black;
+          }
+        }
+        .sort-func {
+          select {
+            border: none;
+            outline: none;
+            font-size: 12px;
+            line-height: 24px;
+            padding: 0 5px 0 0;
+            background-position: 100% center;
+            background-size: 10px 10px;
+            text-align: right;
+            color: $black;
+            background-color: $white;
+          }
+          .page-item-count {
+            border-left: 1px solid $milk_white;
+            span {
+              font-size: 12px;
+              font-weight: 400;
+              color: $light_grey;
+            }
+          }
+        }
+      }
+      [class^="col-md"] {
+        border-bottom: 1px solid $milk_white;
+        &:not(:nth-child(3n)) {
+          .book-card {
+            border-right: 1px solid $milk_white;
+          }
+        }
+      }
+    }
+    .shop-category {
+      border: 1px solid $milk_white;
+      border-radius: 15px;
+      h4 {
+        font-size: 16px;
+        line-height: 1.5;
+        font-weight: 500;
+        padding: 25px 40px 15px 40px;
+        border-bottom: 1px solid $milk_white;
+        color: $black;
+      }
+      .categories {
+        padding: 30px 40px 40px;
+        .category {
+          color: $text;
+          transition: 0.3s;
+          label {
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 20px;
+            cursor: pointer;
+            &:hover {
+              color: $primary_orange;
+            }
+          }
+          input {
+            accent-color: $black;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .feature-category {
+      .categories {
+        padding: 30px 40px 24px !important;
+        .feature-img {
+          border-radius: 10px;
+          cursor: pointer;
+        }
+        .feature-name {
+          h5 {
+            font-size: 14px;
+            line-height: 1.5;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.3s;
+            &:hover {
+              color: $primary_orange;
+            }
+          }
+          span {
+            font-size: 12px;
+            font-weight: 300;
+            line-height: 21px;
+            color: $light_grey;
+            cursor: pointer;
+            transition: 0.3s;
+            &:hover {
+              color: $primary_orange;
+            }
+          }
+        }
+      }
+    }
+  }
+}

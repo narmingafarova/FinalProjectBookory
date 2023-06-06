@@ -1,10 +1,10 @@
 import React from 'react'
-import { Container } from 'react-bootstrap'
+import { Col, Container, Pagination, Row } from 'react-bootstrap'
 import { ChevronRight } from 'react-bootstrap-icons'
 
 const TopVendors = () => {
     return (
-        <div className="top-vendors pt-5">
+        <div className="top-vendors py-5">
             <Container>
                 <div className="section-header mb-5">
                     <div className="row">
@@ -21,6 +21,15 @@ const TopVendors = () => {
                         </div>
                     </div>
                 </div>
+                <div className="vendor-content">
+                    <Row>
+                        <Col sm={12} md={3}>hi</Col>
+                        <Col sm={12} md={3}>hi</Col>
+                        <Col sm={12} md={3}>hi</Col>
+                        <Col sm={12} md={3}>hi</Col>
+                    </Row>
+                </div>
+                <Pagination color='red'/>
             </Container>
         </div>
     )
