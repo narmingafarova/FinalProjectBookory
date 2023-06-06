@@ -49,3 +49,151 @@
     }
   }
 }
+
+@mixin sectionHeader {
+  .section-header {
+    font-family: "Sora", sans-serif;
+    h4 {
+      font-size: 33px;
+      font-weight: 500;
+      font-style: normal;
+      line-height: 44px;
+      letter-spacing: -2px;
+      color: $black;
+    }
+    .divider-line {
+      width: 100%;
+      border: 1px solid $milk_white;
+    }
+  }
+}
+
+@mixin sectionBtns {
+  .section-btn {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 52px;
+    letter-spacing: 0px;
+    padding: 0px 30px;
+    border-radius: 50px;
+    background-color: $primary_orange;
+    color: $white;
+    transition: 0.3s;
+    svg {
+      fill: $white;
+    }
+    &:hover {
+      background-color: $primary_orange_hover;
+      color: $white;
+      svg {
+        fill: $white;
+      }
+    }
+  }
+}
+
+@mixin sectionMainCards {
+  .section-main-card {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left center;
+    border-radius: 15px;
+    font-family: "Sora", sans-serif;
+    height: 395px;
+    .card-title {
+      h4 {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        color: $white;
+        margin-bottom: 10px;
+      }
+      h3 {
+        font-size: 48px;
+        font-weight: 500;
+        line-height: 58px;
+        letter-spacing: -2px;
+        color: $white;
+        margin-bottom: 0;
+      }
+    }
+    .card-foot {
+      p {
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 28px;
+        color: $white;
+      }
+    }
+    span {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 24px;
+      color: $white;
+    }
+  }
+}
+
+@mixin modeCards {
+  .mode-cards {
+    font-family: "Sora", sans-serif;
+    .slick-dots {
+      display: none !important;
+    }
+    .book-card {
+      border-right: 1px solid $milk_white;
+      .book-img {
+        img {
+          border-radius: 15px;
+        }
+      }
+      .book-info {
+        .book-name {
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 1.5;
+          color: $black;
+          transition: 0.3s;
+          &:hover {
+            color: $primary_orange;
+          }
+        }
+        .rating {
+          margin: 3px 0;
+          span {
+            i {
+              font-size: 12px;
+            }
+            &:not(:last-child) {
+              i {
+                margin-right: 2px;
+              }
+            }
+          }
+          .total-star {
+            font-size: 12px;
+            line-height: 16px;
+            margin: 4px 0 0 6px;
+          }
+        }
+        .author {
+          font-size: 12px;
+          font-weight: 300;
+          line-height: 1;
+          color: $light_grey;
+          transition: 0.3s;
+          &:hover {
+            color: $primary_orange;
+          }
+        }
+        .price {
+          font-size: 20px;
+          font-weight: 500;
+          line-height: 1.4;
+          color: $primary_orange;
+        }
+      }
+    }
+  }
+}

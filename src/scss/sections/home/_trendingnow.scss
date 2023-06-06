@@ -1,0 +1,10 @@
+.trending-now {
+  @include sectionHeader;
+  @include sectionBtns;
+  @include sectionMainCards;
+  .trend-main-card {
+    background-image: url("https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/h6_banner4.jpg");
+    padding: 50px;
+  }
+  @include modeCards;
+}

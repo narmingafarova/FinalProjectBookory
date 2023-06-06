@@ -1,0 +1,14 @@
+.popular {
+  @include sectionHeader;
+  @include sectionBtns;
+  @include sectionMainCards;
+  .popular-main-card {
+    background-image: url("https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/h6_banner6.jpg");
+    padding: 50px;
+    h3 {
+      font-size: 38px !important;
+      line-height: 44px !important;
+    }
+  }
+  @include modeCards;
+}

@@ -1,0 +1,10 @@
+.bestselling {
+  @include sectionHeader;
+  @include sectionBtns;
+  @include sectionMainCards;
+  .bestselling-main-card {
+    background-image: url("https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/h6_banner5.jpg");
+    padding: 50px 50px 100px;
+  }
+  @include modeCards;
+}

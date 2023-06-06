@@ -1,0 +1,71 @@
+.swiper {
+  overflow: visible;
+  .swiper-wrapper {
+    height: 350px;
+    .swiper-slide {
+      height: 100%;
+      .category-card {
+        font-family: "Sora", sans-serif;
+        .category-img {
+          position: relative;
+          z-index: 3;
+          img {
+            position: inherit;
+            width: 150px;
+            object-fit: cover;
+            transform: scale(1);
+            z-index: 3;
+            transition: 0.3s;
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 160px;
+            height: 160px;
+            background-color: #f6f6f6;
+            border-radius: 50%;
+            z-index: 2;
+            transition: 0.3s;
+          }
+        }
+        .category-name {
+          padding: 50px 40px 40px;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 24px;
+          color: $black;
+        }
+        &:hover {
+          .category-img {
+            img {
+              transform: scale(1.3);
+            }
+            &::after {
+              background-color: $primary_orange;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+[class^="swiper-button"] {
+  color: $black;
+  &::after {
+    font-size: 25px !important;
+    transition: 0.3s;
+  }
+  &:hover {
+    color: $primary_orange !important;
+  }
+}
+.swiper-button-prev {
+  left: -40px;
+}
+
+.swiper-button-next {
+    right: -40px;
+  }

@@ -10,8 +10,14 @@
 
 // Home Page
 @import "./sections/home/carousel";
+@import "./sections/cards/categorycard";
 @import "./sections/home/giftSaleCards";
+@import "./sections/home/topvendors";
 @import "./sections/home/saleInfoBar";
+@import "./sections/home/favouritereads";
+@import "./sections/home/trendingnow";
+@import "./sections/home/bestselling";
+@import "./sections/home/popular";
 @import "./sections/home/brands";
 @import "./sections/home/subscribe";
 @import "./sections/home/gallery";
@@ -20,10 +26,13 @@
 // Breadcrumb
 @import "./sections/breadcrumb";
 
+@import "./sections/swiper";
+
 // About Page
 @import "./sections/about/story";
 @import "./sections/about/testimonials";
 @import "./sections/cards/clientcard";
+@import "./sections/about/community";
 
 // Contact Page
 @import "./sections/contact/bookStores";

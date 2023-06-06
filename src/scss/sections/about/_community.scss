@@ -1,0 +1,52 @@
+.community {
+  margin-bottom: 90px;
+  .community-bar {
+    background-color: #a1d0b9;
+    border-radius: 20px;
+    .community-text {
+      padding: 80px 30px 80px 80px;
+      font-family: "Sora", sans-serif;
+      h4 {
+        font-size: 36px;
+        font-weight: 600;
+        line-height: 44px;
+        letter-spacing: -2px;
+        color: #fff;
+      }
+      p {
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 24px;
+        color: #fff;
+      }
+      @include form;
+      form {
+        position: relative;
+        input {
+          padding: 12px 140px 12px 25px;
+          &:focus {
+            border-color: $primary_orange;
+          }
+        }
+        button {
+          position: absolute;
+          right: 0;
+          top: 0;
+          padding: 17px 20px;
+        }
+      }
+    }
+    .community-img {
+      background-image: url("https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/h2_bg.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: right center;
+      position: relative;
+      img {
+        position: absolute;
+        top: 50px;
+        left: 150px;
+      }
+    }
+  }
+}

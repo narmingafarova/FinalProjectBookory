@@ -1,25 +1,12 @@
 .testimonials {
   font-family: "Sora", Sans-serif;
-  .test-header {
-    h4 {
-      font-size: 36px;
-      font-weight: 500;
-      font-style: normal;
-      line-height: 44px;
-      letter-spacing: -2px;
-      color: $black;
-    }
-    .divider-line {
-      width: 100%;
-      border: 1px solid $milk_white;
-    }
-  }
+  @include sectionHeader;
   .slick-slider {
     position: relative;
     .slick-dots {
       position: absolute;
-      top: -80px;
-      left: 600px;
+     // top: -80px;
+     // left: 600px;
       li {
         margin-right: 1px;
         button {
