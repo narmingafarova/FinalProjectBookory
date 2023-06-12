@@ -1,0 +1,90 @@
+.details-page {
+  font-family: "Sora", sans-serif;
+  .book-detail {
+    .book-info,
+    .book-photo {
+      padding: 30px;
+      border-radius: 15px;
+      border: 1px solid $milk_white;
+    }
+    .book-info {
+      .info-title {
+        margin-bottom: 20px;
+        .stock-mode {
+          display: inline;
+          font-size: 12px;
+          line-height: 20px;
+          text-transform: uppercase;
+          padding: 2px 9px;
+          border-radius: 3px;
+          &.sale {
+            color: rgb(130, 209, 117);
+            background-color: rgba(130, 209, 117, 0.2);
+          }
+          &.sold {
+            color: $primary_orange;
+            background-color: rgb(246, 93, 78, 0.2);
+          }
+        }
+      }
+      .book-title {
+        .book-name {
+          font-size: 36px;
+          line-height: 1.2222222222;
+          margin-bottom: 10px;
+          font-weight: 500;
+        }
+        .book-author-rate {
+          padding-bottom: 15px;
+          border-bottom: 1px solid $milk_white;
+          div {
+            font-size: 12px;
+            font-weight: 300;
+            color: $light_grey;
+            span {
+              color: $black;
+            }
+            &:not(:last-child) {
+              padding-right: 20px;
+              margin-right: 20px;
+              border-right: 1px solid $milk_white;
+            }
+            &.author {
+              span {
+                cursor: pointer;
+                transition: 0.3s;
+                &:hover {
+                  color: $primary_orange;
+                }
+              }
+            }
+            &.rate {
+              .total-star {
+                padding-left: 4px;
+              }
+            }
+          }
+        }
+      }
+      .price-desc {
+        margin-top: 23px;
+        padding-bottom: 21px;
+        border-bottom: 1px solid $milk_white;
+        .price {
+          font-size: 20px;
+          font-weight: 500;
+          line-height: 1.4;
+          color: $primary_orange;
+          margin-bottom: 15px;
+        }
+        .brief-desc {
+          font-size: 14px;
+          line-height: 1.714;
+          font-weight: 300;
+          color: $text;
+          padding: 0 30px 0 0;
+        }
+      }
+    }
+  }
+}

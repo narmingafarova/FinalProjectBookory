@@ -8,7 +8,7 @@ const Shop: React.FC = () => {
     <>
       <ScrollToTop />
       {/* Main part */}
-      <BreadCrumb page='Shop' page2=''/>
+      <BreadCrumb page='Shop' />
       <ShopBooks/>
     </>
   )

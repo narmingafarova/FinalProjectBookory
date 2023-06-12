@@ -10,7 +10,7 @@ const About: React.FC = () => {
     <>
       <ScrollToTop />
       {/* Main part */}
-      <BreadCrumb page='About Us' page2=''/>
+      <BreadCrumb page='About Us'/>
       <Story />
       <Testimonials/>
       <Community/>

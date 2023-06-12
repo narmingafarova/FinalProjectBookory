@@ -9,7 +9,7 @@ const Contact: React.FC = () => {
     <>
       <ScrollToTop />
       {/* Main part */}
-      <BreadCrumb page='Contact' page2=''/>
+      <BreadCrumb page='Contact' />
       <ContactForm />
       <BookStores />
     </>

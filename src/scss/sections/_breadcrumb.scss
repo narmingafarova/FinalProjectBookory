@@ -8,23 +8,24 @@
     line-height: 1.125;
     color: $black;
   }
-  .breadcrumb-item {
-    font-size: 12px;
-    line-height: 1.6666666667;
-    font-weight: 500;
-    a {
-      color: $light_grey;
-      text-decoration: none;
-      transition: 0.3s;
-      &:hover {
-        color: $black;
-      }
-    }
-    &:last-child {
-      color: $primary_orange;
+}
+
+.breadcrumb-item {
+  font-size: 12px;
+  line-height: 1.6666666667;
+  font-weight: 500;
+  a {
+    color: $light_grey;
+    text-decoration: none;
+    transition: 0.3s;
+    &:hover {
+      color: $black;
     }
   }
-  .breadcrumb-item + .breadcrumb-item::before {
-    content: "→";
+  &:last-child {
+    color: $primary_orange;
   }
+}
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "→";
 }

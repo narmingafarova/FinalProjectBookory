@@ -7,7 +7,7 @@ const Vendor: React.FC = () => {
     <>
       <ScrollToTop />
       {/* Main part */}
-      <BreadCrumb page='Store List' page2=''/>
+      <BreadCrumb page='Store List' />
     </>
   )
 }

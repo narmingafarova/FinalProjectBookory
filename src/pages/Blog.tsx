@@ -7,7 +7,7 @@ const Blog: React.FC = () => {
     <>
       <ScrollToTop />
       {/* Main part */}
-      <BreadCrumb page='Blog' page2=''/>
+      <BreadCrumb page='Blog' />
     </>
   )
 }
