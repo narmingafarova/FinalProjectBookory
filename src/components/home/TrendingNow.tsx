@@ -3,6 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap'
 import { ChevronRight } from 'react-bootstrap-icons'
 import { BookContext } from '../../context/BookContext'
 import BookCard from '../cards/BookCard'
+import AOS from 'aos';
 
 import Slider from "react-slick";
 
@@ -13,6 +14,7 @@ const TrendingNow: React.FC = () => {
     useEffect(() => {
         const trendBooks = books.filter((item: any) => item.mode === "trend");
         setTrend(trendBooks);
+        AOS.init();
     }, [books])
 
     const settings = {
@@ -70,11 +72,11 @@ const TrendingNow: React.FC = () => {
                         </div>
                     </div>
                 </div>
-                <Row className='mode-cards'>
+                <Row className='mode-cards' data-aos="fade-up">
                     <Col sm={12} md={8}>
                         <Slider {...settings}>
                             {trend.map((item: any) => {
-                                return <BookCard id={item.id} image={item.image} title={item.title} author={item.author} price={item.price} star={item.star} cutTitle={true}/>
+                                return <BookCard id={item.id} image={item.image} title={item.title} author={item.author} price={item.price} star={item.star} cutTitle={true} flexStyle='flex-column' briefDesc={item.briefDescription} listChange={false}/>
                             })}
                         </Slider>
                     </Col>

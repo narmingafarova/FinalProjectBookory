@@ -143,10 +143,35 @@
     }
     .book-card {
       border-right: 1px solid $milk_white;
-      .book-img {
-        cursor: pointer;
-        width: 80%;
-        border-radius: 15px;
+      .book-img-div {
+        position: relative;
+        .book-img {
+          cursor: pointer;
+          width: 85%;
+          border-radius: 15px;
+        }
+        .book-img-hover {
+          position: absolute;
+          bottom: 10px;
+          right: 25px;
+          transition: all 0.3s ease-in-out;
+          visibility: hidden;
+          opacity: 0;
+          button {
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            border-radius: 50%;
+            border: none;
+            transition: all ease 0.3s;
+            color: $black;
+            background-color: $white;
+            &:hover {
+              background-color: $primary_orange;
+              color: $white;
+            }
+          }
+        }
       }
       .book-info {
         width: 80%;
@@ -177,6 +202,23 @@
           font-weight: 500;
           line-height: 1.4;
           color: $primary_orange;
+        }
+      }
+      &:hover {
+        .book-img-hover {
+          visibility: visible;
+          opacity: 1;
+          button {
+            animation-name: hoverBtns;
+            animation-duration: 250ms;
+            animation-fill-mode: both;
+            &:nth-child(2) {
+              animation-delay: 100ms;
+            }
+            &:nth-child(3) {
+              animation-delay: 200ms;
+            }
+          }
         }
       }
     }

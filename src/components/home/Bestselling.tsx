@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { ChevronRight } from 'react-bootstrap-icons'
 import { BookContext } from '../../context/BookContext'
+import AOS from 'aos';
 
 import Slider from "react-slick";
 import BookCard from '../cards/BookCard';
@@ -13,6 +14,7 @@ const Bestselling: React.FC = () => {
     useEffect(() => {
         const bestBooks = books.filter((item: any) => item.mode === "best");
         setBest(bestBooks);
+        AOS.init()
     }, [books])
 
     const settings = {
@@ -70,11 +72,11 @@ const Bestselling: React.FC = () => {
                         </div>
                     </div>
                 </div>
-                <Row className='mode-cards'>
+                <Row className='mode-cards' data-aos="fade-up">
                     <Col sm={12} md={8}>
                         <Slider {...settings}>
                             {best.map((item: any) => {
-                                return <BookCard id={item.id} image={item.image} title={item.title} author={item.author} price={item.price} star={item.star} cutTitle={true}/>
+                                return <BookCard id={item.id} image={item.image} title={item.title} author={item.author} price={item.price} star={item.star} cutTitle={true} flexStyle='flex-column' briefDesc={item.briefDescription} listChange={false}/>
                             })}
                         </Slider>
                     </Col>
