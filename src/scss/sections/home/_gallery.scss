@@ -1,9 +1,13 @@
 .gallery {
+  margin: 0 auto;
+  .lg-react-element {
+    text-align: center;
+  }
   a {
     position: relative;
     img {
-      width: 240px;
-      height: 240px;
+      width: 235px;
+      height: 235px;
       transition: 0.5s;
       &:hover {
         filter: grayscale(24%) sepia(29%) brightness(40%) saturate(156%)

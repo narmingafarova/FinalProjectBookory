@@ -5,6 +5,7 @@ import { BookContext } from '../context/BookContext'
 import Rating from '../components/Rating'
 import ScrollToTop from '../components/ScrollToTop'
 import { LinkContainer } from 'react-router-bootstrap'
+import Magnifier from 'react-magnifier';
 
 const ProductDetails = () => {
   const [books] = useContext(BookContext);
@@ -28,6 +29,7 @@ const ProductDetails = () => {
             <Row>
               <Col sm={12} md={6} className='book-photo'>
                 <img src={details.image} alt="book" width="600px" />
+                {/* <Magnifier src={details.image} width="600px" /> */}
               </Col>
               <Col sm={12} md={6} className='book-info'>
                 <div className="info-title">

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Col, Container, Pagination, Row } from 'react-bootstrap'
 import { ChevronRight } from 'react-bootstrap-icons'
+import { LinkContainer } from 'react-router-bootstrap'
 
 const TopVendors = () => {
     return (
@@ -15,9 +16,11 @@ const TopVendors = () => {
                             <div className="divider-line"></div>
                         </div>
                         <div className="col-4 col-sm-4 col-md-2 d-flex justify-content-end">
-                            <a href="/" className='text-decoration-none section-btn'>
-                                View All &nbsp; <ChevronRight fontSize={11} />
-                            </a>
+                            <LinkContainer to="/shop">
+                                <a href="/" className='text-decoration-none section-btn'>
+                                    View All &nbsp; <ChevronRight fontSize={11} />
+                                </a>
+                            </LinkContainer>
                         </div>
                     </div>
                 </div>
@@ -29,7 +32,7 @@ const TopVendors = () => {
                         <Col sm={12} md={3}>hi</Col>
                     </Row>
                 </div>
-                <Pagination color='red'/>
+                <Pagination color='red' />
             </Container>
         </div>
     )

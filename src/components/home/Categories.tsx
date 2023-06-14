@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 // import required modules
-import { Navigation, Pagination } from "swiper";
+import { Autoplay, Navigation, Pagination } from "swiper";
 import CategoryCard from '../cards/CategoryCard';
 import { Container } from 'react-bootstrap';
 
@@ -21,7 +21,11 @@ const Categories = () => {
                     rewind={true}
                     pagination={false}
                     navigation={true}
-                    modules={[Pagination, Navigation]}
+                    modules={[Autoplay, Pagination, Navigation]}
+                    autoplay={{
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    }}
                     className="mySwiper"
                 >
                     <SwiperSlide><CategoryCard image='https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/h6_cat1.png' category='Biographies & Memoirs' /></SwiperSlide>

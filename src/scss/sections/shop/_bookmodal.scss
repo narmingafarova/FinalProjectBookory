@@ -1,0 +1,150 @@
+.modal {
+  font-family: "Sora", sans-serif;
+  .modal-header {
+    border-bottom: 0;
+    padding: 10px;
+    .btn-close:focus {
+      box-shadow: none;
+    }
+  }
+  .modal-body {
+    padding-top: 0;
+    .row {
+      * {
+        padding: 10px 0;
+      }
+      .modal-img {
+        background-color: #f9f9f9;
+      }
+      .book-info {
+        padding: 0 40px 0 50px;
+        @include rating;
+        .book-name {
+          font-size: 36px;
+          line-height: 1.2222222222;
+          margin-bottom: 10px;
+          font-weight: 600;
+          cursor: pointer;
+        }
+        .rating {
+          height: 30px;
+          margin-bottom: 10px;
+        }
+        .book-price {
+          font-size: 20px;
+          font-weight: 500;
+          line-height: 1.4;
+          color: $primary_orange;
+          padding: 0;
+          margin-bottom: 15px;
+        }
+        .book-desc {
+          font-size: 14px;
+          line-height: 1.714;
+          font-weight: 300;
+          color: $text;
+          padding: 0 0 20px;
+          border-bottom: 1px solid $milk_white;
+        }
+        label {
+          font-size: 12px;
+          color: $light_grey;
+          font-weight: 300;
+          padding: 0;
+          display: block;
+        }
+        .modal-actions {
+          @include sectionBtns;
+          padding-bottom: 30px;
+          border-bottom: 1px solid $milk_white;
+          .modal-quantity {
+            width: 70px;
+            height: unset;
+            border-radius: 50px;
+            border: 1px solid $milk_white;
+            overflow: hidden;
+            padding: 0;
+            input {
+              width: 30px;
+              height: 40px;
+              text-align: center;
+              border: none;
+              outline: none;
+            }
+            button {
+              width: 30%;
+              height: 40px;
+              border-radius: 0;
+              border: none;
+              height: 52px;
+              background-color: $white;
+              transition: .3s;
+              &:hover {
+                background-color: $primary_orange;
+                color: $white;
+              }
+            }
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+              -webkit-appearance: none;
+              margin: 0;
+            }
+          }
+          .add-wish {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            letter-spacing: 0;
+            border-radius: 50%;
+            color: $black;
+            border: 1px solid $milk_white;
+            margin-left: 5px;
+            transition: 0.3s;
+            background-color: transparent;
+            i {
+              margin: 4px 0;
+              font-weight: 500;
+            }
+            &:hover {
+              background-color: $primary_orange;
+              color: #fff;
+            }
+          }
+        }
+        .modal-cat-tag {
+          margin-top: 20px;
+          div {
+            padding: 0;
+            span {
+              display: block;
+              color: $light_grey;
+              font-weight: 300;
+              font-size: 13px;
+              line-height: 1.8461538462;
+              padding: 0;
+            }
+            .list {
+              span {
+                color: $black;
+                transition: 0.3s;
+                cursor: pointer;
+                &:hover {
+                  color: $primary_orange;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 900px;
+  }
+}

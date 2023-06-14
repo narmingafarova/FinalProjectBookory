@@ -2,6 +2,7 @@ import React from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 import 'animate.css';
 import { ChevronRight } from 'react-bootstrap-icons';
+import { LinkContainer } from 'react-router-bootstrap';
 
 const HomeCarousel: React.FC = () => {
     return (
@@ -28,9 +29,11 @@ const HomeCarousel: React.FC = () => {
                         <p className='mb-0 slider-text-animate animate__animated animate__fadeInUp animate__delay-2s'>Book Gift Ideas</p>
                     </h1>
                     <p className='mb-5 animate__animated animate__fadeInUp animate__delay-3s'>Find the perfect gift for everyone on your list</p>
-                    <a href="/" className='text-decoration-none animate__animated animate__fadeInUp animate__delay-4s'>
-                        Shop Now &nbsp; <ChevronRight fontSize={11} />
-                    </a>
+                    <LinkContainer to="/shop">
+                        <a href="/" className='text-decoration-none animate__animated animate__fadeInUp animate__delay-4s'>
+                            Shop Now &nbsp; <ChevronRight fontSize={11} />
+                        </a>
+                    </LinkContainer>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item interval={6000}>
@@ -53,9 +56,11 @@ const HomeCarousel: React.FC = () => {
                         <p className='mb-0 animate__animated animate__fadeInUp animate__delay-3s'>all Ages</p>
                     </h1>
                     <p className='mb-5 animate__animated animate__fadeInUp animate__delay-4s'>Buy your books in a store</p>
-                    <a href="/" className='text-decoration-none animate__animated animate__fadeInUp animate__delay-5s'>
-                        Shop Now &nbsp; <ChevronRight fontSize={11} />
-                    </a>
+                    <LinkContainer to="/shop">
+                        <a href='/' className='text-decoration-none animate__animated animate__fadeInUp animate__delay-5s'>
+                            Shop Now &nbsp; <ChevronRight fontSize={11} />
+                        </a>
+                    </LinkContainer>
                 </Carousel.Caption>
             </Carousel.Item>
         </Carousel>

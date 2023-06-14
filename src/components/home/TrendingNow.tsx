@@ -6,6 +6,7 @@ import BookCard from '../cards/BookCard'
 import AOS from 'aos';
 
 import Slider from "react-slick";
+import { LinkContainer } from 'react-router-bootstrap'
 
 const TrendingNow: React.FC = () => {
     const [books] = useContext(BookContext)
@@ -66,9 +67,11 @@ const TrendingNow: React.FC = () => {
                             <div className="divider-line"></div>
                         </div>
                         <div className="col-4 col-sm-4 col-md-2 d-flex justify-content-end">
-                            <a href="/" className='text-decoration-none section-btn'>
-                                View All &nbsp; <ChevronRight fontSize={11} />
-                            </a>
+                            <LinkContainer to="/shop">
+                                <a href="/" className='text-decoration-none section-btn'>
+                                    View All &nbsp; <ChevronRight fontSize={11} />
+                                </a>
+                            </LinkContainer>
                         </div>
                     </div>
                 </div>
@@ -76,7 +79,7 @@ const TrendingNow: React.FC = () => {
                     <Col sm={12} md={8}>
                         <Slider {...settings}>
                             {trend.map((item: any) => {
-                                return <BookCard id={item.id} image={item.image} title={item.title} author={item.author} price={item.price} star={item.star} cutTitle={true} flexStyle='flex-column' briefDesc={item.briefDescription} listChange={false}/>
+                                return <BookCard id={item.id} image={item.image} title={item.title} author={item.author} price={item.price} star={item.star} category={item.category} tags={item.tags} cutTitle={true} flexStyle='flex-column' briefDesc={item.briefDescription} listChange={false} />
                             })}
                         </Slider>
                     </Col>

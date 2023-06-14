@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
 import { ChevronRight } from 'react-bootstrap-icons'
+import { LinkContainer } from 'react-router-bootstrap'
 
 const GiftSaleCards: React.FC = () => {
     return (
@@ -25,9 +26,11 @@ const GiftSaleCards: React.FC = () => {
                             <h4 className='text-uppercase'>Novels every day!</h4>
                             <h3 className='text-capitalize'>Sale 10% off</h3>
                             <p className='mb-3'>It all begins with a great book!</p>
-                            <a href="/" className='text-decoration-none'>
-                                Shop Now <ChevronRight fontSize={12} />
-                            </a>
+                            <LinkContainer to="/shop">
+                                <a href="/" className='text-decoration-none'>
+                                    Shop Now <ChevronRight fontSize={12} />
+                                </a>
+                            </LinkContainer>
                         </div>
                     </div>
                 </div>
