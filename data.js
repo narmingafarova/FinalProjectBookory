@@ -1,6 +1,6 @@
 export const data = [
   {
-    id: 0,
+    id: 1,
     title: "The Book of Five Rings",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/18.jpg",
@@ -27,7 +27,7 @@ export const data = [
     mode: "best",
   },
   {
-    id: 1,
+    id: 2,
     title: "Treachery: Alpha Colony Book 8",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/29.jpg",
@@ -64,7 +64,7 @@ export const data = [
     mode: "trend",
   },
   {
-    id: 2,
+    id: 3,
     title: "Blood on the Snow",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/19.jpg",
@@ -94,7 +94,7 @@ export const data = [
     sku: "13230906",
   },
   {
-    id: 3,
+    id: 4,
     title: "The Girl and the Last Sleepover",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/12.jpg",
@@ -125,7 +125,7 @@ export const data = [
     mode: "best",
   },
   {
-    id: 4,
+    id: 5,
     title: "Feral: Shadow Bred: Book 3",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/2.jpg",
@@ -156,7 +156,7 @@ export const data = [
   },
   // sold
   {
-    id: 5,
+    id: 6,
     title: "The Story of Success",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/34.jpg",
@@ -192,7 +192,7 @@ export const data = [
     mode: "trend",
   },
   {
-    id: 6,
+    id: 7,
     title: "The Murder of Roger Ackroyd",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/17.jpg",
@@ -222,7 +222,7 @@ export const data = [
     sku: "29353835",
   },
   {
-    id: 7,
+    id: 8,
     title: "City of the Dead",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/23.jpg",
@@ -252,7 +252,7 @@ export const data = [
     sku: "8031111",
   },
   {
-    id: 8,
+    id: 9,
     title: "The Dirty and the Dead",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/22.jpg",
@@ -284,7 +284,7 @@ export const data = [
     sku: "97712725",
   },
   {
-    id: 9,
+    id: 10,
     title: "The Beatles: GetBack",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/8.jpg",
@@ -311,7 +311,7 @@ export const data = [
     sku: "41966075",
   },
   {
-    id: 10,
+    id: 11,
     title: "All The Colors of Life",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/6.jpg",
@@ -338,7 +338,7 @@ export const data = [
   },
   //   Sale
   {
-    id: 11,
+    id: 12,
     title: "House of Sky and Breath",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/31.jpg",
@@ -366,7 +366,7 @@ export const data = [
     mode: "trend",
   },
   {
-    id: 12,
+    id: 13,
     title: "Heartland Stars",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/15.jpg",
@@ -398,7 +398,7 @@ export const data = [
     mode: "popular",
   },
   {
-    id: 13,
+    id: 14,
     title: "My Dearest Darkest",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/32.jpg",
@@ -430,7 +430,7 @@ export const data = [
     mode: "trend",
   },
   {
-    id: 14,
+    id: 15,
     title: "Life Flight",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/25.jpg",
@@ -467,7 +467,7 @@ export const data = [
   },
   //   Sale
   {
-    id: 15,
+    id: 16,
     title: "His Saving Grace",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/24.jpg",
@@ -494,7 +494,7 @@ export const data = [
     mode: "popular",
   },
   {
-    id: 16,
+    id: 17,
     title: "Mask of Death",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/11.jpg",
@@ -525,7 +525,7 @@ export const data = [
     mode: "best",
   },
   {
-    id: 17,
+    id: 18,
     title: "Heavenly Bodies",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/26.jpg",
@@ -561,7 +561,7 @@ export const data = [
   },
   //   sold
   {
-    id: 18,
+    id: 19,
     title: "The Demonslayer",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/7.jpg",
@@ -592,7 +592,7 @@ export const data = [
   },
   //   sold
   {
-    id: 19,
+    id: 20,
     title: "Annie Leibovitz: Wonderland",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/16.jpg",
@@ -619,7 +619,7 @@ export const data = [
     mode: "popular",
   },
   {
-    id: 20,
+    id: 21,
     title: "Christmas Short Stories to read For Kids",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/21.jpg",
@@ -646,7 +646,7 @@ export const data = [
     mode: "best",
   },
   {
-    id: 21,
+    id: 22,
     title: "Rich Dad Poor Dad",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/35.jpg",
@@ -678,7 +678,7 @@ export const data = [
     mode: "trend",
   },
   {
-    id: 22,
+    id: 23,
     title: "Goodbye Again",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/5.jpg",
@@ -705,7 +705,7 @@ export const data = [
     mode: "popular",
   },
   {
-    id: 23,
+    id: 24,
     title: "Vampire Sire 2",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/20.jpg",
@@ -732,7 +732,7 @@ export const data = [
     mode: "popular",
   },
   {
-    id: 24,
+    id: 25,
     title: "Her Final Goodbye",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/4.jpg",
@@ -758,7 +758,7 @@ export const data = [
     sku: "31047012",
   },
   {
-    id: 25,
+    id: 26,
     title: "Kemp: Warriors in the Snow",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/1.jpg",
@@ -785,7 +785,7 @@ export const data = [
     sku: "76360237",
   },
   {
-    id: 26,
+    id: 27,
     title: "The Good Egg",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/9.jpg",
@@ -816,7 +816,7 @@ export const data = [
     mode: "popular",
   },
   {
-    id: 27,
+    id: 28,
     title: "The Bear of Byzantium",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/13.jpg",
@@ -845,7 +845,7 @@ export const data = [
   },
   //   sold
   {
-    id: 28,
+    id: 29,
     title: "A Crown of Petals and Ice",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/28.jpg",
@@ -872,7 +872,7 @@ export const data = [
     mode: "trend",
   },
   {
-    id: 29,
+    id: 30,
     title: "Surrounded by Idiots",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/30.jpg",
@@ -900,7 +900,7 @@ export const data = [
     mode: "trend",
   },
   {
-    id: 30,
+    id: 31,
     title: "Dire Wolf Stakes",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/10.jpg",
@@ -926,7 +926,7 @@ export const data = [
     sku: "65377017",
   },
   {
-    id: 31,
+    id: 32,
     title: "The Silent Sisters 3",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/14.jpg",
@@ -952,7 +952,7 @@ export const data = [
     sku: "63285161",
   },
   {
-    id: 32,
+    id: 33,
     title: "Annie Leibovitz: Wonderland",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/33.jpg",
@@ -980,7 +980,7 @@ export const data = [
   },
   //   review
   {
-    id: 33,
+    id: 34,
     title: "The Girlfriend Arrangement",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/3.jpg",
@@ -1006,7 +1006,7 @@ export const data = [
     sku: "03081341",
   },
   {
-    id: 34,
+    id: 35,
     title: "P.S. Never in a Million Years",
     image:
       "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/27.jpg",

@@ -1,4 +1,50 @@
 .favourite-reads {
   @include sectionHeader;
   @include sectionBtns;
+  @include modeCards;
+  @include rating;
+  .row > * {
+    padding: 0;
+    justify-content: center;
+  }
+  .favourite-cards {
+    border: 1px solid $milk_white;
+    border-radius: 15px;
+    padding: 30px !important;
+    [class^="col"] {
+      &:not(:last-child) {
+        border-right: 1px solid $milk_white;
+      }
+      img {
+        width: 80px !important;
+        margin-right: 20px;
+      }
+      .main-fav-card {
+        padding-right: 0 !important;
+        img {
+          width: 100% !important;
+          margin-right: 0;
+        }
+      }
+      .fav-card-div {
+        margin: 0 15px;
+        .book-card {
+          border-right: 0 !important;
+          .book-info {
+            padding-top: 0 !important;
+          }
+          .book-name {
+            margin-bottom: 0 !important;
+          }
+        }
+        &:not(:last-child) {
+          border-bottom: 1px solid $milk_white;
+          padding-bottom: 15px;
+        }
+        &:not(:first-child) {
+          padding-top: 15px;
+        }
+      }
+    }
+  }
 }

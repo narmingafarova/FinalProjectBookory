@@ -1,0 +1,10 @@
+.add-cart {
+  @include sectionBtns;
+  h5 {
+    font-size: 18px;
+    font-weight: 300;
+    color: $black;
+    background-color: transparent;
+    border: none;
+  }
+}

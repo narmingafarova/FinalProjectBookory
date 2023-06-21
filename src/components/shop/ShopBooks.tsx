@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { BookContext } from "../../context/BookContext";
 import BookCard from "../cards/BookCard";
-import { GridFill } from "react-bootstrap-icons";
+import { GridFill, Dot } from "react-bootstrap-icons";
 import Rating from "../Rating";
 import { LinkContainer } from "react-router-bootstrap";
 import Pagination from "../Pagination";
@@ -13,11 +13,12 @@ const ShopBooks = () => {
 
   // For categories
   const [category, setCategory] = useState<any>();
-  const [catCheck, setCatCheck] = useState<string>("");
 
   // For authors
   const [authors, setAuthors] = useState<any>();
-  const [authorCheck, setAuthorCheck] = useState<string>("");
+
+  // For checked catgeory
+  const [activeCat, setActiveCat] = useState<number | null>()
 
   // For ratings
   const [five, setFive] = useState<number>();
@@ -47,7 +48,9 @@ const ShopBooks = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [postsPerPage, setPostsPerPage] = useState<number>(12);
 
-  const [range, setRange] = React.useState([0, 100]);
+  // For price filter
+  const [range, setRange] = React.useState<any>([0, 100]);
+  const [priceFilter, setPriceFilter] = useState<any>();
 
   useEffect(() => {
     // For ratings
@@ -91,7 +94,7 @@ const ShopBooks = () => {
     setAuthors(newAuthor);
   };
 
-  function priceChanges(event: any, newValue: any) {
+  const priceChanges = (e: any, newValue: any) => {
     setRange(newValue);
   }
 
@@ -117,10 +120,18 @@ const ShopBooks = () => {
     }
   };
 
+  const filterPrice = () => {
+    const price = books.filter((item: any) => {
+      return item.price >= range[0] * 10 && item.price <= range[1] * 10;
+    })
+    setPriceFilter(price);
+  }
+
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
   const currentBooks = books.slice(firstPostIndex, lastPostIndex);
   const currentCategories = category?.slice(firstPostIndex, lastPostIndex);
+  const currentFilters = priceFilter?.slice(firstPostIndex, lastPostIndex);
   const currentAuthors = authors?.slice(firstPostIndex, lastPostIndex);
   const currentRates = rateBooks?.slice(firstPostIndex, lastPostIndex);
 
@@ -136,237 +147,69 @@ const ShopBooks = () => {
                   variant="none"
                   className="text-decoration-underline text-danger"
                   onClick={() => {
-                    setCatCheck("");
                     setCategory(undefined);
+                    setActiveCat(null)
                   }}
                 >
                   Reset
                 </Button>
               </div>
               <div className="categories d-flex flex-column align-items-start">
-                <div className="category mb-3 d-flex w-100 align-items-center">
-                  <input
-                    className="me-2"
-                    type="checkbox"
-                    name="action"
-                    id="action"
-                    onChange={() => {
-                      filterCategory("Action & Adventure");
-                      setCatCheck("action");
-                      setAuthorCheck("");
-                      setAuthors(undefined);
-                    }}
-                    checked={catCheck === "action" ? true : false}
-                  />
-                  <label htmlFor="action">Action & Adventure</label>
+                <div className={`category mb-3 d-flex w-100 align-items-center ${activeCat === 1 ? "activeCat" : ""}`}>
+                  <Dot />
+                  <label htmlFor="action" onClick={() => { setAuthors(undefined); setActiveCat(1); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Action & Adventure") }}>Action & Adventure</label>
                 </div>
-                <div className="category mb-3 d-flex w-100 align-items-center">
-                  <input
-                    className="me-2"
-                    type="checkbox"
-                    name="activity"
-                    id="activity"
-                    onChange={() => {
-                      filterCategory("Activity Books");
-                      setCatCheck("activity");
-                      setAuthorCheck("");
-                      setAuthors(undefined);
-                    }}
-                    checked={catCheck === "activity" ? true : false}
-                  />
-                  <label htmlFor="activity">Activity Books</label>
+                <div className={`category mb-3 d-flex w-100 align-items-center ${activeCat === 2 ? "activeCat" : ""}`}>
+                  <Dot />
+                  <label htmlFor="activity" onClick={() => { setAuthors(undefined); setActiveCat(2); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Activity Books"); }}>Activity Books</label>
                 </div>
-                <div className="category mb-3 d-flex w-100 align-items-center">
-                  <input
-                    className="me-2"
-                    type="checkbox"
-                    name="animals"
-                    id="animals"
-                    onChange={() => {
-                      filterCategory("Animals");
-                      setCatCheck("animals");
-                      setAuthorCheck("");
-                      setAuthors(undefined);
-                    }}
-                    checked={catCheck === "animals" ? true : false}
-                  />
-                  <label htmlFor="animals">Animals</label>
+                <div className={`category mb-3 d-flex w-100 align-items-center ${activeCat === 3 ? "activeCat" : ""}`}>
+                  <Dot />
+                  <label htmlFor="animals" onClick={() => { setAuthors(undefined); setActiveCat(3); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Animals"); }}>Animals</label>
                 </div>
-                <div className="category mb-3 d-flex w-100 align-items-center">
-                  <input
-                    className="me-2"
-                    type="checkbox"
-                    name="anthologies"
-                    id="anthologies"
-                    onChange={() => {
-                      filterCategory("Anthologies");
-                      setCatCheck("anthologies");
-                      setAuthorCheck("");
-                      setAuthors(undefined);
-                    }}
-                    checked={catCheck === "anthologies" ? true : false}
-                  />
-                  <label htmlFor="anthologies">Anthologies</label>
+                <div className={`category mb-3 d-flex w-100 align-items-center ${activeCat === 4 ? "activeCat" : ""}`}>
+                  <Dot />
+                  <label htmlFor="anthologies" onClick={() => { setAuthors(undefined); setActiveCat(4); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Anthologies"); }}>Anthologies</label>
                 </div>
-                <div className="category mb-3 d-flex w-100 align-items-center">
-                  <input
-                    className="me-2"
-                    type="checkbox"
-                    name="art"
-                    id="art"
-                    onChange={() => {
-                      filterCategory("Arts & Literature");
-                      setCatCheck("art");
-                      setAuthorCheck("");
-                      setAuthors(undefined);
-                    }}
-                    checked={catCheck === "art" ? true : false}
-                  />
-                  <label htmlFor="art">Arts & Literature</label>
+                <div className={`category mb-3 d-flex w-100 align-items-center ${activeCat === 5 ? "activeCat" : ""}`}>
+                  <Dot />
+                  <label htmlFor="art" onClick={() => { setAuthors(undefined); setActiveCat(5); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Arts & Literature"); }}>Arts & Literature</label>
                 </div>
-                <div className="category mb-3 d-flex w-100 align-items-center">
-                  <input
-                    className="me-2"
-                    type="checkbox"
-                    name="cars"
-                    id="cars"
-                    onChange={() => {
-                      filterCategory("Cars & Trucks");
-                      setCatCheck("cars");
-                      setAuthorCheck("");
-                      setAuthors(undefined);
-                    }}
-                    checked={catCheck === "cars" ? true : false}
-                  />
-                  <label htmlFor="cars">Cars & Trucks</label>
+                <div className={`category mb-3 d-flex w-100 align-items-center ${activeCat === 6 ? "activeCat" : ""}`}>
+                  <Dot />
+                  <label htmlFor="cars" onClick={() => { setAuthors(undefined); setActiveCat(6); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Cars & Trucks"); }}>Cars & Trucks</label>
                 </div>
-                <div className="category mb-3 d-flex w-100 align-items-center">
-                  <input
-                    className="me-2"
-                    type="checkbox"
-                    name="classics"
-                    id="classics"
-                    onChange={() => {
-                      filterCategory("Classics");
-                      setCatCheck("classics");
-                      setAuthorCheck("");
-                      setAuthors(undefined);
-                    }}
-                    checked={catCheck === "classics" ? true : false}
-                  />
-                  <label htmlFor="classics">Classics</label>
+                <div className={`category mb-3 d-flex w-100 align-items-center ${activeCat === 7 ? "activeCat" : ""}`}>
+                  <Dot />
+                  <label htmlFor="classics" onClick={() => { setAuthors(undefined); setActiveCat(7); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Classics"); }}>Classics</label>
                 </div>
-                <div className="category mb-3 d-flex w-100 align-items-center">
-                  <input
-                    className="me-2"
-                    type="checkbox"
-                    name="contemporary"
-                    id="contemporary"
-                    onChange={() => {
-                      filterCategory("Contemporary");
-                      setCatCheck("contemporary");
-                      setAuthorCheck("");
-                      setAuthors(undefined);
-                    }}
-                    checked={catCheck === "contemporary" ? true : false}
-                  />
-                  <label htmlFor="contemporary">Contemporary</label>
+                <div className={`category mb-3 d-flex w-100 align-items-center ${activeCat === 8 ? "activeCat" : ""}`}>
+                  <Dot />
+                  <label htmlFor="contemporary" onClick={() => { setAuthors(undefined); setActiveCat(8); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Contemporary"); }}>Contemporary</label>
                 </div>
-                <div className="category mb-3 d-flex w-100 align-items-center">
-                  <input
-                    className="me-2"
-                    type="checkbox"
-                    name="cultural"
-                    id="cultural"
-                    onChange={() => {
-                      filterCategory("Cultural");
-                      setCatCheck("cultural");
-                      setAuthorCheck("");
-                      setAuthors(undefined);
-                    }}
-                    checked={catCheck === "cultural" ? true : false}
-                  />
-                  <label htmlFor="cultural">Cultural</label>
+                <div className={`category mb-3 d-flex w-100 align-items-center ${activeCat === 9 ? "activeCat" : ""}`}>
+                  <Dot />
+                  <label htmlFor="cultural" onClick={() => { setAuthors(undefined); setActiveCat(9); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Cultural"); }}>Cultural</label>
                 </div>
-                <div className="category mb-3 d-flex w-100 align-items-center">
-                  <input
-                    className="me-2"
-                    type="checkbox"
-                    name="european"
-                    id="european"
-                    onChange={() => {
-                      filterCategory("European");
-                      setCatCheck("european");
-                      setAuthorCheck("");
-                      setAuthors(undefined);
-                    }}
-                    checked={catCheck === "european" ? true : false}
-                  />
-                  <label htmlFor="european">European</label>
+                <div className={`category mb-3 d-flex w-100 align-items-center ${activeCat === 10 ? "activeCat" : ""}`}>
+                  <Dot />
+                  <label htmlFor="european" onClick={() => { setAuthors(undefined); setActiveCat(10); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("European"); }}>European</label>
                 </div>
-                <div className="category mb-3 d-flex w-100 align-items-center">
-                  <input
-                    className="me-2"
-                    type="checkbox"
-                    name="foreign"
-                    id="foreign"
-                    onChange={() => {
-                      filterCategory("Foreign Language");
-                      setCatCheck("foreign");
-                      setAuthorCheck("");
-                      setAuthors(undefined);
-                    }}
-                    checked={catCheck === "foreign" ? true : false}
-                  />
-                  <label htmlFor="foreign">Foreign Language</label>
+                <div className={`category mb-3 d-flex w-100 align-items-center ${activeCat === 11 ? "activeCat" : ""}`}>
+                  <Dot />
+                  <label htmlFor="foreign" onClick={() => { setAuthors(undefined); setActiveCat(11); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Foreign Language"); }}>Foreign Language</label>
                 </div>
-                <div className="category mb-3 d-flex w-100 align-items-center">
-                  <input
-                    className="me-2"
-                    type="checkbox"
-                    name="fiction"
-                    id="fiction"
-                    onChange={() => {
-                      filterCategory("Genre Fiction");
-                      setCatCheck("fiction");
-                      setAuthorCheck("");
-                      setAuthors(undefined);
-                    }}
-                    checked={catCheck === "fiction" ? true : false}
-                  />
-                  <label htmlFor="fiction">Genre Fiction</label>
+                <div className={`category mb-3 d-flex w-100 align-items-center ${activeCat === 12 ? "activeCat" : ""}`}>
+                  <Dot />
+                  <label htmlFor="fiction" onClick={() => { setAuthors(undefined); setActiveCat(12); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Genre Fiction"); }}>Genre Fiction</label>
                 </div>
-                <div className="category mb-3 d-flex w-100 align-items-center">
-                  <input
-                    className="me-2"
-                    type="checkbox"
-                    name="historical"
-                    id="historical"
-                    onChange={() => {
-                      filterCategory("Historical");
-                      setCatCheck("historical");
-                      setAuthorCheck("");
-                      setAuthors(undefined);
-                    }}
-                    checked={catCheck === "historical" ? true : false}
-                  />
-                  <label htmlFor="historical">Historical</label>
+                <div className={`category mb-3 d-flex w-100 align-items-center ${activeCat === 13 ? "activeCat" : ""}`}>
+                  <Dot />
+                  <label htmlFor="historical" onClick={() => { setAuthors(undefined); setActiveCat(13); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Historical"); }}>Historical</label>
                 </div>
-                <div className="category">
-                  <input
-                    className="me-2"
-                    type="checkbox"
-                    name="uncategorized"
-                    id="uncategorized"
-                    onChange={() => {
-                      filterCategory("Uncategorized");
-                      setCatCheck("uncategorized");
-                      setAuthorCheck("");
-                      setAuthors(undefined);
-                    }}
-                    checked={catCheck === "uncategorized" ? true : false}
-                  />
-                  <label htmlFor="uncategorized">Uncategorized</label>
+                <div className={`category ${activeCat === 14 ? "activeCat" : ""}`}>
+                  <Dot />
+                  <label htmlFor="uncategorized" onClick={() => { setAuthors(undefined); setActiveCat(14); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Uncategorized"); }}>Uncategorized</label>
                 </div>
               </div>
             </div>
@@ -377,109 +220,55 @@ const ShopBooks = () => {
                   variant="none"
                   className="text-decoration-underline text-danger"
                   onClick={() => {
-                    setAuthorCheck("");
                     setAuthors(undefined);
+                    setActiveCat(null);
                   }}
                 >
                   Reset
                 </Button>
               </div>
               <div className="categories d-flex flex-column align-items-start">
-                <div className="category mb-3 d-flex w-100 align-items-center">
-                  <input
-                    className="me-2"
-                    type="checkbox"
-                    name="arthur"
-                    id="arthur"
-                    onChange={() => {
-                      filterAuthor("Arthur Gonzalez");
-                      setAuthorCheck("arthur");
-                      setCategory(undefined);
-                      setCatCheck("");
-                    }}
-                    checked={authorCheck === "arthur" ? true : false}
-                  />
-                  <label htmlFor="arthur">Arthur Gonzalez</label>
+                <div className={`category mb-3 d-flex w-100 align-items-center ${activeCat === 15 ? "activeCat" : ""}`}>
+                  <Dot />
+                  <label htmlFor="arthur" onClick={() => {
+                    setCategory(undefined);
+                    setActiveCat(null); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); setActiveCat(15); filterAuthor("Arthur Gonzalez");
+                  }}>Arthur Gonzalez</label>
                 </div>
-                <div className="category mb-3 d-flex w-100 align-items-center">
-                  <input
-                    className="me-2"
-                    type="checkbox"
-                    name="dana"
-                    id="dana"
-                    onChange={() => {
-                      filterAuthor("Dana Chambers");
-                      setAuthorCheck("dana");
-                      setCategory(undefined);
-                      setCatCheck("");
-                    }}
-                    checked={authorCheck === "dana" ? true : false}
-                  />
-                  <label htmlFor="dana">Dana Chambers</label>
+                <div className={`category mb-3 d-flex w-100 align-items-center ${activeCat === 16 ? "activeCat" : ""}`}>
+                  <Dot />
+                  <label htmlFor="dana" onClick={() => {
+                    setCategory(undefined);
+                    setActiveCat(null); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); setActiveCat(16); filterAuthor("Dana Chambers");
+                  }}>Dana Chambers</label>
                 </div>
-                <div className="category mb-3 d-flex w-100 align-items-center">
-                  <input
-                    className="me-2"
-                    type="checkbox"
-                    name="ernesto"
-                    id="ernesto"
-                    onChange={() => {
-                      filterAuthor("Ernesto Wade");
-                      setAuthorCheck("ernesto");
-                      setCategory(undefined);
-                      setCatCheck("");
-                    }}
-                    checked={authorCheck === "ernesto" ? true : false}
-                  />
-                  <label htmlFor="ernesto">Ernesto Wade</label>
+                <div className={`category mb-3 d-flex w-100 align-items-center ${activeCat === 17 ? "activeCat" : ""}`}>
+                  <Dot />
+                  <label htmlFor="ernesto" onClick={() => {
+                    setCategory(undefined);
+                    setActiveCat(null); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); setActiveCat(17); filterAuthor("Ernesto Wade");
+                  }}>Ernesto Wade</label>
                 </div>
-                <div className="category mb-3 d-flex w-100 align-items-center">
-                  <input
-                    className="me-2"
-                    type="checkbox"
-                    name="karla"
-                    id="karla"
-                    onChange={() => {
-                      filterAuthor("Karla Newman");
-                      setAuthorCheck("karla");
-                      setCategory(undefined);
-                      setCatCheck("");
-                    }}
-                    checked={authorCheck === "karla" ? true : false}
-                  />
-                  <label htmlFor="karla">Karla Newman</label>
+                <div className={`category mb-3 d-flex w-100 align-items-center ${activeCat === 18 ? "activeCat" : ""}`}>
+                  <Dot />
+                  <label htmlFor="karla" onClick={() => {
+                    setCategory(undefined);
+                    setActiveCat(null); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); setActiveCat(18); filterAuthor("Karla Newman");
+                  }}>Karla Newman</label>
                 </div>
-                <div className="category mb-3 d-flex w-100 align-items-center">
-                  <input
-                    className="me-2"
-                    type="checkbox"
-                    name="misty"
-                    id="misty"
-                    onChange={() => {
-                      filterAuthor("Misty Figueroa");
-                      setAuthorCheck("misty");
-                      setCategory(undefined);
-                      setCatCheck("");
-                    }}
-                    checked={authorCheck === "misty" ? true : false}
-                  />
-                  <label htmlFor="misty">Misty Figueroa</label>
+                <div className={`category mb-3 d-flex w-100 align-items-center ${activeCat === 19 ? "activeCat" : ""}`}>
+                  <Dot />
+                  <label htmlFor="misty" onClick={() => {
+                    setCategory(undefined);
+                    setActiveCat(null); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); setActiveCat(19); filterAuthor("Misty Figueroa");
+                  }}>Misty Figueroa</label>
                 </div>
-                <div className="category d-flex w-100 align-items-center">
-                  <input
-                    className="me-2"
-                    type="checkbox"
-                    name="suzanne"
-                    id="suzanne"
-                    onChange={() => {
-                      filterAuthor("Suzanne Casey");
-                      setAuthorCheck("suzanne");
-                      setCategory(undefined);
-                      setCatCheck("");
-                    }}
-                    checked={authorCheck === "suzanne" ? true : false}
-                  />
-                  <label htmlFor="suzanne">Suzanne Casey</label>
+                <div className={`category d-flex w-100 align-items-center ${activeCat === 20 ? "activeCat" : ""}`}>
+                  <Dot />
+                  <label htmlFor="suzanne" onClick={() => {
+                    setCategory(undefined);
+                    setActiveCat(null); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); setActiveCat(20); filterAuthor("Suzanne Casey");
+                  }}>Suzanne Casey</label>
                 </div>
               </div>
             </div>
@@ -489,6 +278,10 @@ const ShopBooks = () => {
                 <Button
                   variant="none"
                   className="text-decoration-underline text-danger"
+                  onClick={() => {
+                    setRange([0, 100])
+                    setPriceFilter(undefined);
+                  }}
                 >
                   Reset
                 </Button>
@@ -496,7 +289,7 @@ const ShopBooks = () => {
               <div className="categories price-filter d-flex flex-column align-items-start">
                 <Slider value={range} onChange={priceChanges} />
                 <div className="range-show">Price: <span>${range[0] === 0 ? 10 : range[0] * 10}</span> - <span>${range[1] * 10}</span></div>
-                <p className="text-decoration-underline mb-0">Filter</p>
+                <p className="text-decoration-underline mb-0" onClick={() => { filterPrice(); setAuthors(undefined); setCategory(undefined); setRateBooks(undefined); setActiveCat(null) }}>Filter</p>
               </div>
             </div>
             <div className="shop-category mb-4">
@@ -518,9 +311,10 @@ const ShopBooks = () => {
                   onClick={() => {
                     setRateBooks(fiveBook);
                     setAuthors(undefined);
-                    setAuthorCheck("");
                     setCategory(undefined);
-                    setCatCheck("");
+                    setActiveCat(null);
+                    setPriceFilter(undefined);
+                    setRange([0, 100]);
                   }}
                 >
                   <Rating star={5} count={five} />
@@ -530,9 +324,10 @@ const ShopBooks = () => {
                   onClick={() => {
                     setRateBooks(fourBook);
                     setAuthors(undefined);
-                    setAuthorCheck("");
                     setCategory(undefined);
-                    setCatCheck("");
+                    setActiveCat(null);
+                    setPriceFilter(undefined);
+                    setRange([0, 100]);
                   }}
                 >
                   <Rating star={4} count={four} />
@@ -542,9 +337,10 @@ const ShopBooks = () => {
                   onClick={() => {
                     setRateBooks(threeBook);
                     setAuthors(undefined);
-                    setAuthorCheck("");
                     setCategory(undefined);
-                    setCatCheck("");
+                    setActiveCat(null);
+                    setPriceFilter(undefined);
+                    setRange([0, 100]);
                   }}
                 >
                   <Rating star={3} count={three} />
@@ -655,6 +451,7 @@ const ShopBooks = () => {
                   return (
                     <Col sm={12} md={colValue} key={item.id}>
                       <BookCard
+                        item={item}
                         id={item.id}
                         image={item.image}
                         title={item.title}
@@ -676,6 +473,7 @@ const ShopBooks = () => {
                     return (
                       <Col sm={12} md={colValue} key={item.id}>
                         <BookCard
+                          item={item}
                           id={item.id}
                           image={item.image}
                           title={item.title}
@@ -697,6 +495,7 @@ const ShopBooks = () => {
                       return (
                         <Col sm={12} md={colValue} key={item.id}>
                           <BookCard
+                            item={item}
                             id={item.id}
                             image={item.image}
                             title={item.title}
@@ -713,26 +512,49 @@ const ShopBooks = () => {
                         </Col>
                       );
                     })
-                    : currentBooks.map((item: any) => {
-                      return (
-                        <Col sm={12} md={colValue} key={item.id}>
-                          <BookCard
-                            id={item.id}
-                            image={item.image}
-                            title={item.title}
-                            author={item.author}
-                            price={item.price}
-                            star={item.star}
-                            category={item.category}
-                            tags={item.tags}
-                            cutTitle={false}
-                            flexStyle={flexMode}
-                            briefDesc={item.briefDescription}
-                            listChange={flexMode === "flex-column" ? false : true}
-                          />
-                        </Col>
-                      );
-                    })}
+                    : priceFilter !== undefined ?
+                      currentFilters.map((item: any) => {
+                        return (
+                          <Col sm={12} md={colValue} key={item.id}>
+                            <BookCard
+                              item={item}
+                              id={item.id}
+                              image={item.image}
+                              title={item.title}
+                              author={item.author}
+                              price={item.price}
+                              star={item.star}
+                              category={item.category}
+                              tags={item.tags}
+                              cutTitle={false}
+                              flexStyle={flexMode}
+                              briefDesc={item.briefDescription}
+                              listChange={flexMode === "flex-column" ? false : true}
+                            />
+                          </Col>
+                        );
+                      })
+                      : currentBooks.map((item: any) => {
+                        return (
+                          <Col sm={12} md={colValue} key={item.id}>
+                            <BookCard
+                              item={item}
+                              id={item.id}
+                              image={item.image}
+                              title={item.title}
+                              author={item.author}
+                              price={item.price}
+                              star={item.star}
+                              category={item.category}
+                              tags={item.tags}
+                              cutTitle={false}
+                              flexStyle={flexMode}
+                              briefDesc={item.briefDescription}
+                              listChange={flexMode === "flex-column" ? false : true}
+                            />
+                          </Col>
+                        );
+                      })}
             </Row>
             <Pagination
               totalPosts={
@@ -742,7 +564,10 @@ const ShopBooks = () => {
                     ? authors?.length
                     : rateBooks?.length
                       ? rateBooks?.length
-                      : books.length
+                      : priceFilter?.length
+                        ? priceFilter?.length
+                        : category?.length === 0 ?
+                          0 : books.length
               }
               postsPerPage={postsPerPage}
               setCurrentPage={setCurrentPage}

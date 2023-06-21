@@ -49,9 +49,15 @@
         border-radius: 50px;
         background-color: #f6f6f6;
         border-color: #f6f6f6;
-        padding: 15px 55px 15px 20px;
+        padding: 15px 80px 15px 20px;
+        &::placeholder {
+          transition: 1s;
+        }
         &:focus {
           box-shadow: none;
+          &::placeholder {
+            color: transparent;
+          }
         }
       }
       button {
@@ -71,53 +77,309 @@
           background-color: $primary_orange_hover;
         }
       }
-    }
-    .admin-panel-icons {
-      .find-location {
-        font-size: 12px;
-        font-weight: 500;
-        line-height: 12px;
-        color: $black;
-        transition: 0.3s;
-        span {
-          border-bottom: 1px solid $black;
+      .searching-result {
+        position: absolute;
+        top: 60px;
+        width: 100%;
+        height: auto;
+        max-height: 350px;
+        background-color: #f6f6f6;
+        padding: 20px;
+        border-radius: 10px;
+        z-index: 1030;
+        overflow-y: auto;
+        &::before {
+          position: absolute;
+          content: "";
+          width: 10px;
+          height: 10px;
+          background: #f6f6f6;
+          top: -6px;
+          left: 50%;
+          transform: rotate(45deg);
         }
-        svg {
-          transition: 0.3s;
-        }
-        &:hover {
-          span {
-            color: $primary_orange;
-            border-bottom: 1px solid $primary_orange;
+        .search-item {
+          .book-data {
+            .book-name {
+              font-size: 16px;
+              font-weight: 500;
+              line-height: 1.5;
+              color: $black;
+              transition: 0.3s;
+              cursor: pointer;
+              transition: 0.3s;
+              &:hover {
+                color: $primary_orange;
+              }
+            }
+            .book-info {
+              font-size: 12px;
+              font-weight: 300;
+              line-height: 1;
+              color: $light_grey;
+              transition: 0.3s;
+            }
+            .price {
+              font-size: 16px;
+              font-weight: 500;
+              line-height: 1.4;
+              color: #f65d4e;
+            }
           }
-          svg {
-            transform: scale(0.8);
-          }
-        }
-      }
-      ul {
-        li {
-          a {
-            color: $black;
-            position: relative;
-            transition: 0.3s;
-            span {
-              font-size: 9px;
-              position: absolute;
-              top: -9px;
-              right: -8px;
-              color: $white;
-              background-color: $primary_orange;
-              padding: 2px 4px;
-              border-radius: 50px;
+          .book-actions {
+            button {
+              padding: 5px 17px;
+              i {
+                font-size: 15px;
+                color: $white;
+              }
             }
           }
           &:not(:last-child) {
-            border-right: 1px solid $milk_white;
+            padding-bottom: 10px;
+            border-bottom: 1px solid $primary_orange;
+          }
+          &:not(:first-child) {
+            padding-top: 10px;
+          }
+        }
+        .no-book {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
+
+.admin-panel-icons {
+  .find-location {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 12px;
+    color: $black;
+    transition: 0.3s;
+    span {
+      border-bottom: 1px solid $black;
+    }
+    svg {
+      transition: 0.3s;
+    }
+    &:hover {
+      span {
+        color: $primary_orange;
+        border-bottom: 1px solid $primary_orange;
+      }
+      svg {
+        transform: scale(0.8);
+      }
+    }
+  }
+  ul {
+    li {
+      a {
+        span {
+          top: -9px;
+        }
+      }
+      div {
+        span {
+          top: -7px;
+        }
+      }
+      a,
+      div {
+        color: $black;
+        position: relative;
+        transition: 0.3s;
+        cursor: pointer;
+        span {
+          font-size: 9px;
+          position: absolute;
+          right: -8px;
+          color: $white;
+          background-color: $primary_orange;
+          padding: 2px 5px;
+          border-radius: 50px;
+        }
+      }
+      &:not(:last-child) {
+        border-right: 1px solid $milk_white;
+      }
+      &:hover {
+        a,
+        div {
+          color: $primary_orange;
+        }
+      }
+    }
+  }
+}
+
+.offcanvas {
+  font-family: "Sora", sans-serif;
+  .offcanvas-header {
+    color: $black;
+    border-bottom: 1px solid $milk_white;
+    .offcanvas-title {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 30px;
+      padding-right: 18px;
+    }
+    .closeBtn {
+      font-weight: 500;
+      font-size: 13px;
+      letter-spacing: 0.3px;
+      padding-right: 18px;
+      position: relative;
+      cursor: pointer;
+      &::before {
+        content: " ";
+        position: absolute;
+        top: 50%;
+        display: inline-block;
+        margin-top: -1px;
+        width: 12px;
+        height: 2px;
+        background-color: $black;
+        right: 0;
+        transform: rotate(45deg);
+        transition: 0.3s;
+      }
+      &::after {
+        content: " ";
+        position: absolute;
+        top: 50%;
+        display: inline-block;
+        margin-top: -1px;
+        width: 12px;
+        height: 2px;
+        background-color: $black;
+        right: 0;
+        transform: rotate(-45deg);
+        transition: 0.3s;
+      }
+      &:hover {
+        &::before {
+          transform: rotate(0);
+        }
+        &::after {
+          transform: rotate(0);
+        }
+      }
+    }
+  }
+  .offcanvas-body {
+    padding: 0;
+    .no-cart {
+      p {
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 30px;
+        text-align: center;
+        margin: 25px 0;
+      }
+    }
+    .shop-cart {
+      .shop-item-cards {
+        .shop-cart {
+          .remove-item {
+            padding: 10px 10px 0 0;
+            font-size: 13px;
+            font-weight: 400;
+            color: $black;
+            cursor: pointer;
+            &:hover {
+              color: $primary_orange;
+            }
+          }
+          .shop-item {
+            padding: 0 30px 15px 15px;
+            .item-img {
+              margin-right: 15px;
+              img {
+                border-radius: 10px;
+              }
+            }
+            .item-info {
+              h5 {
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 1.41575em;
+                color: $black;
+                margin-bottom: 3px;
+                cursor: pointer;
+                transition: 0.3s;
+                &:hover {
+                  color: $primary_orange;
+                }
+              }
+              .vendor-info {
+                font-size: 12px;
+                font-weight: 500;
+                line-height: 21px;
+                color: $black;
+                span {
+                  font-weight: 300;
+                  color: $text;
+                }
+              }
+              .quantity-price {
+                font-size: 14px;
+                line-height: 24px;
+                .quantity {
+                  font-weight: 300;
+                  color: $black;
+                }
+                .price {
+                  font-weight: 500;
+                  color: $light_grey;
+                }
+              }
+            }
           }
           &:hover {
-            a {
-              color: $primary_orange;
+            background-color: #f9f9f9;
+          }
+        }
+      }
+      .shop-submit {
+        border-top: 1px solid $milk_white;
+        .total-price {
+          padding: 12px 15px;
+          font-size: 18px;
+          font-weight: 300;
+          color: $black;
+          .total {
+            font-size: 18px;
+            font-weight: 500;
+            color: $black;
+          }
+        }
+        .cart-btns {
+          margin: 0 15px;
+          button {
+            width: 100%;
+            font-size: 13px;
+            letter-spacing: 0.3px;
+            padding: 10px 20px;
+            border: 0;
+            border-radius: 50px;
+            margin-bottom: 10px;
+            transition: 0.2s;
+            &:first-child {
+              color: $black;
+              background-color: #f7f7f7;
+              &:hover {
+                background-color: #efefef;
+              }
+            }
+            &:last-child {
+              color: $white;
+              background-color: $primary_orange;
+              &:hover {
+                background-color: $primary_orange_hover;
+              }
             }
           }
         }
@@ -134,14 +396,90 @@
     max-width: 250px;
     background-color: $primary_orange;
     border-radius: 50px;
-    padding: 15px 30px;
-    svg {
-      fill: $white;
+    cursor: pointer;
+    position: relative;
+    .cat-relative {
+      padding: 15px 30px;
+      overflow: hidden;
+      svg {
+        fill: $white;
+        transition: 0.3s;
+        &:nth-child(2) {
+          transform: translate(40px, 0);
+        }
+        &:nth-child(3) {
+          transform: translateY(40px);
+        }
+      }
+      .main-part {
+        font-size: 15px;
+        font-weight: 400;
+        color: $white;
+      }
+      &:hover {
+        & + .category-hover {
+          display: block;
+        }
+      }
     }
-    .main-part {
-      font-size: 15px;
-      font-weight: 400;
-      color: $white;
+    .category-hover {
+      width: 100%;
+      background-color: $white;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      border-radius: 10px;
+      border: 1px solid $milk_white;
+      display: none;
+      &::before {
+        position: absolute;
+        content: "";
+        width: 10px;
+        height: 10px;
+        background: #fff;
+        top: -6px;
+        left: 50%;
+        transform: rotate(45deg);
+      }
+      ul {
+        padding: 10px 0;
+        li {
+          margin: 0 30px;
+          font-size: 12px;
+          font-weight: 300;
+          line-height: 1.4;
+          padding: 10px 0;
+          color: $text;
+          transition: 0.3s;
+          i {
+            font-size: 20px;
+            color: #cecece;
+            transition: 0.3s;
+          }
+          &:not(:last-child) {
+            border-bottom: 1px solid $milk_white;
+          }
+          &:hover {
+            color: $primary_orange;
+            i {
+              color: $primary_orange;
+            }
+          }
+        }
+      }
+      &:hover {
+        display: block;
+      }
+    }
+    &:hover {
+      svg {
+        &:nth-child(2) {
+          transform: translate(40px, -40px);
+        }
+        &:nth-child(3) {
+          transform: translate(0, 0);
+        }
+      }
     }
   }
   .navbar-nav {

@@ -3,8 +3,13 @@ import Rating from "../Rating";
 import { LinkContainer } from "react-router-bootstrap";
 import { Basket } from "react-bootstrap-icons";
 import { Button, Col, Modal, Row } from "react-bootstrap";
+import 'animate.css';
+import { useCart } from "react-use-cart";
+import useSharedCanvas from "../sharedHook/useSharedCanvas";
+import { useBetween } from "use-between";
 
 interface Book {
+  item: any;
   id: number;
   image: string;
   title: string;
@@ -19,10 +24,12 @@ interface Book {
   listChange: boolean;
 }
 
-const BookCard: React.FC<Book> = ({ id, image, title, author, price, star, category, tags, cutTitle, flexStyle, briefDesc, listChange }) => {
+const BookCard: React.FC<Book> = ({ item, id, image, title, author, price, star, category, tags, cutTitle, flexStyle, briefDesc, listChange }) => {
   const [show, setShow] = useState(false);
   const [quantity, setQuantity] = useState<number>(1);
+  const { addItem } = useCart();
 
+  const { setShowCanvas } = useBetween(useSharedCanvas);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   return (
@@ -35,25 +42,25 @@ const BookCard: React.FC<Book> = ({ id, image, title, author, price, star, categ
           >
             <img src={image} alt="book" />
           </LinkContainer>
-          <div className={`book-img-hover d-flex flex-column ${flexStyle === "flex-column" ? "" : "d-none"}`}>
+          <div className={`book-img-hover flex-column ${flexStyle === "flex-column" ? "d-flex" : "d-none"}`}>
             <Button variant="none" className="wish-icon mb-2">
               <i className="fa-regular fa-heart"></i>
             </Button>
             <Button variant="none" className="view-icon mb-2" onClick={handleShow}>
               <i className="fa-regular fa-eye" />
             </Button>
-            <Button variant="none" className="add-cart-icon">
+            <Button variant="none" className="add-cart-icon" onClick={() => { addItem(item); setShowCanvas(true); }}>
               <Basket />
             </Button>
           </div>
         </div>
         <div className={`book-info pt-3 ${listChange ? "ps-4 pe-5" : ""}`}>
           <LinkContainer to={`/shop/${id}`} className="book-name text-decoration-none mb-2">
-            <p>{cutTitle && title.length > 20
+            <p>{cutTitle && title.length > 15
               ? title.substring(0, 15).concat("...")
               : title}</p>
           </LinkContainer>
-          <Rating star={star} count={5} />
+          <Rating star={star} count={star} />
           <a href="/" className="author text-decoration-none">
             {author}
           </a>
@@ -67,15 +74,17 @@ const BookCard: React.FC<Book> = ({ id, image, title, author, price, star, categ
                 : price}
           </div>
           <div className={`cart-footer d-flex align-items-center ${listChange ? "" : "d-none"}`}>
-            <a href="/" className='text-decoration-none section-btn me-4'>
-              <Basket /> &nbsp; Add to cart
-            </a>
+            <LinkContainer to="/shop">
+              <a href="/" className='text-decoration-none section-btn me-4' onClick={() => { addItem(item); setShowCanvas(true); }}>
+                <Basket /> &nbsp; Add to cart
+              </a>
+            </LinkContainer>
             <Button variant="none" className="add-wish">
               <i className="fa-regular fa-heart"></i>
             </Button>
           </div>
         </div>
-        <Modal show={show} onHide={handleClose} animation={true} data-aos="flip-right" centered>
+        <Modal show={show} onHide={handleClose} animation={false} className='animate__animated animate__rotateInDownRight' centered>
           <Modal.Header closeButton></Modal.Header>
           <Modal.Body>
             <Row>
@@ -98,9 +107,11 @@ const BookCard: React.FC<Book> = ({ id, image, title, author, price, star, categ
                     <input type="number" id="quantity" name="quantity" min="1" max="999" value={quantity} />
                     <button className="d-flex align-items-center justify-content-center" onClick={() => { setQuantity(quantity + 1) }}>+</button>
                   </div>
-                  <a href="/" className='text-decoration-none section-btn me-3'>
-                    <Basket /> &nbsp; Add to cart
-                  </a>
+                  <LinkContainer to="/">
+                    <a href="/" className='text-decoration-none section-btn me-3' onClick={() => { addItem(item, quantity); setShow(false); setShowCanvas(true); }}>
+                      <i className="fas fa-shopping-basket"></i> &nbsp; Add to cart
+                    </a>
+                  </LinkContainer>
                   <Button variant="none" className="add-wish">
                     <i className="fa-regular fa-heart"></i>
                   </Button>

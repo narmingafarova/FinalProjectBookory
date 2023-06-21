@@ -1,8 +1,9 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
 import { ChevronRight } from 'react-bootstrap-icons'
+import { LinkContainer } from 'react-router-bootstrap'
 
-const SaleInfoBar:React.FC = () => {
+const SaleInfoBar: React.FC = () => {
     return (
         <div className="sale-info-bar py-3">
             <Container>
@@ -17,9 +18,11 @@ const SaleInfoBar:React.FC = () => {
                             </div>
                             <div className="col-12 col-sm 6 col-md-4 btn-part d-flex flex-column align-items-end justify-content-center">
                                 <p className='mb-2'>Online Book’s store! </p>
-                                <a href="/" className='text-decoration-none'>
-                                    Shop Now <ChevronRight fontSize={12}/>
-                                </a>
+                                <LinkContainer to="/shop">
+                                    <a href="/" className='text-decoration-none'>
+                                        Shop Now <ChevronRight fontSize={12} />
+                                    </a>
+                                </LinkContainer>
                             </div>
                         </div>
                     </div>

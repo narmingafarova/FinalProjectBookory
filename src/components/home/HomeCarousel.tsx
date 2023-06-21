@@ -25,12 +25,12 @@ const HomeCarousel: React.FC = () => {
                 <Carousel.Caption>
                     <img className='pb-3' src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/rev_home6_9.png" alt="" />
                     <h1>
-                        <p className='mb-0 animate__animated animate__fadeInUp animate__delay-1s'><span>Christmas</span> Pop Up </p>
-                        <p className='mb-0 slider-text-animate animate__animated animate__fadeInUp animate__delay-2s'>Book Gift Ideas</p>
+                        <p className='mb-0 animate__animated animate__fadeInUp'><span>Christmas</span> Pop Up </p>
+                        <p className='mb-0 slider-text-animate animate__animated animate__fadeInUp animate__delay-1s'>Book Gift Ideas</p>
                     </h1>
-                    <p className='mb-5 animate__animated animate__fadeInUp animate__delay-3s'>Find the perfect gift for everyone on your list</p>
+                    <p className='mb-5 animate__animated animate__fadeInUp animate__delay-2s'>Find the perfect gift for everyone on your list</p>
                     <LinkContainer to="/shop">
-                        <a href="/" className='text-decoration-none animate__animated animate__fadeInUp animate__delay-4s'>
+                        <a href="/" className='text-decoration-none animate__animated animate__fadeInUp animate__delay-3s'>
                             Shop Now &nbsp; <ChevronRight fontSize={11} />
                         </a>
                     </LinkContainer>
@@ -50,14 +50,14 @@ const HomeCarousel: React.FC = () => {
                     </div>
                 </div>
                 <Carousel.Caption>
-                    <p className='animate__animated animate__fadeInUp animate__delay-1s text-uppercase mb-2 sub-title'>Special Offer</p>
+                    <p className='animate__animated animate__fadeInUp text-uppercase mb-2 sub-title'>Special Offer</p>
                     <h1>
-                        <p className='mb-0 animate__animated animate__fadeInUp animate__delay-2s'><span>Reading</span> is for </p>
-                        <p className='mb-0 animate__animated animate__fadeInUp animate__delay-3s'>all Ages</p>
+                        <p className='mb-0 animate__animated animate__fadeInUp animate__delay-1s'><span>Reading</span> is for </p>
+                        <p className='mb-0 animate__animated animate__fadeInUp animate__delay-2s'>all Ages</p>
                     </h1>
-                    <p className='mb-5 animate__animated animate__fadeInUp animate__delay-4s'>Buy your books in a store</p>
+                    <p className='mb-5 animate__animated animate__fadeInUp animate__delay-3s'>Buy your books in a store</p>
                     <LinkContainer to="/shop">
-                        <a href='/' className='text-decoration-none animate__animated animate__fadeInUp animate__delay-5s'>
+                        <a href='/' className='text-decoration-none animate__animated animate__fadeInUp animate__delay-4s'>
                             Shop Now &nbsp; <ChevronRight fontSize={11} />
                         </a>
                     </LinkContainer>

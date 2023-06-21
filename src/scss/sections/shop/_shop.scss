@@ -179,14 +179,19 @@
             font-weight: 300;
             line-height: 20px;
             cursor: pointer;
-            &:hover {
+          }
+          &:hover {
+            label,
+            svg {
               color: $primary_orange;
             }
           }
-          input {
-            accent-color: $black;
-            cursor: pointer;
-          }
+        }
+      }
+      .activeCat {
+        label,
+        svg {
+          color: $primary_orange;
         }
       }
       .price-filter {
@@ -204,7 +209,7 @@
           margin-top: 10px;
           color: $black;
           cursor: pointer;
-          transition: .3s;
+          transition: 0.3s;
           &:hover {
             color: $primary_orange;
           }

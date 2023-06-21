@@ -3,10 +3,11 @@
   @include sectionHeader;
   .slick-slider {
     position: relative;
+    height: 370px;
     .slick-dots {
       position: absolute;
-     // top: -80px;
-     // left: 600px;
+      top: -80px;
+      left: 550px;
       li {
         margin-right: 1px;
         button {
@@ -32,7 +33,7 @@
         width: 6px;
         height: 6px;
         opacity: 1;
-        transition: .3s;
+        transition: 0.3s;
       }
     }
   }

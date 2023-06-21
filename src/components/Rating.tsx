@@ -68,7 +68,7 @@ const Rating: React.FC<StarType> = ({ star, count }) => {
                     }
                 ></i>
             </span>
-            <span className='total-star'>{count}</span>
+            <span className='total-star'>{count === 0 ? "" : count}</span>
         </div>
     )
 }

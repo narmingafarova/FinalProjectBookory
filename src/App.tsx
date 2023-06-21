@@ -11,24 +11,29 @@ import Footer from './components/Footer'
 import About from './pages/About'
 import { BookProvider } from './context/BookContext'
 import ProductDetails from './pages/ProductDetails'
+import { CartProvider } from 'react-use-cart'
+import Cart from './pages/Cart'
 
 const App: React.FC = () => {
   return (
     <BrowserRouter>
-      <BookProvider>
-        <Header />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/shop' element={<Shop />} />
-          <Route path='/shop/:id' element={<ProductDetails />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/vendor' element={<Vendor />} />
-          <Route path='/blog' element={<Blog />} />
-          <Route path='/contact' element={<Contact />} />
-          <Route path='*' element={<NotFound />} />
-        </Routes>
-        <Footer />
-      </BookProvider>
+      <CartProvider>
+        <BookProvider>
+          <Header />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/shop' element={<Shop />} />
+            <Route path='/shop/:id' element={<ProductDetails />} />
+            <Route path='/cart' element={<Cart />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/vendor' element={<Vendor />} />
+            <Route path='/blog' element={<Blog />} />
+            <Route path='/contact' element={<Contact />} />
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+          <Footer />
+        </BookProvider>
+      </CartProvider>
     </BrowserRouter>
   )
 }
