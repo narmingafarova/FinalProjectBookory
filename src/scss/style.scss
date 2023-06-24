@@ -6,6 +6,7 @@
 
 // Layout Parts
 @import "./sections/header";
+@import "./sections/login";
 @import "./sections/footer";
 
 // Home Page
@@ -34,6 +35,7 @@
 
 // Cart Page
 @import "./sections/cart/shopcart";
+@import "./sections/cards/shoppingcard";
 
 // Breadcrumb
 @import "./sections/breadcrumb";

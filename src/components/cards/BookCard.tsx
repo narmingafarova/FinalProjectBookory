@@ -95,7 +95,7 @@ const BookCard: React.FC<Book> = ({ item, id, image, title, author, price, star,
                 <LinkContainer to={`/shop/${id}`} className="book-name mb-0 pb-0">
                   <p>{title}</p>
                 </LinkContainer>
-                <Rating star={star} count="5" />
+                <Rating star={star} count={0} />
                 <div className="book-price">${price}</div>
                 <div className="book-desc mb-3">{briefDesc}</div>
                 <label htmlFor="quantity">Quantity</label>
@@ -104,10 +104,10 @@ const BookCard: React.FC<Book> = ({ item, id, image, title, author, price, star,
                     <button className="d-flex align-items-center justify-content-center" onClick={() => {
                       quantity === 1 ? setQuantity(1) : setQuantity(quantity - 1);
                     }}>-</button>
-                    <input type="number" id="quantity" name="quantity" min="1" max="999" value={quantity} />
+                    <input type="number" readOnly id="quantity" name="quantity" min="1" max="999" value={quantity} />
                     <button className="d-flex align-items-center justify-content-center" onClick={() => { setQuantity(quantity + 1) }}>+</button>
                   </div>
-                  <LinkContainer to="/">
+                  <LinkContainer to="/shop">
                     <a href="/" className='text-decoration-none section-btn me-3' onClick={() => { addItem(item, quantity); setShow(false); setShowCanvas(true); }}>
                       <i className="fas fa-shopping-basket"></i> &nbsp; Add to cart
                     </a>

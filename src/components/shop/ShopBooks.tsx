@@ -207,7 +207,7 @@ const ShopBooks = () => {
                   <Dot />
                   <label htmlFor="historical" onClick={() => { setAuthors(undefined); setActiveCat(13); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Historical"); }}>Historical</label>
                 </div>
-                <div className={`category ${activeCat === 14 ? "activeCat" : ""}`}>
+                <div className={`category d-flex w-100 align-items-center ${activeCat === 14 ? "activeCat" : ""}`}>
                   <Dot />
                   <label htmlFor="uncategorized" onClick={() => { setAuthors(undefined); setActiveCat(14); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Uncategorized"); }}>Uncategorized</label>
                 </div>
@@ -430,13 +430,14 @@ const ShopBooks = () => {
                   <select
                     name="pageitem"
                     id="pageitem"
+                    defaultValue={"12"}
                     onChange={(e: any) => {
                       setPostsPerPage(e.target.value);
                     }}
                   >
                     <option value="6">6</option>
                     <option value="9">9</option>
-                    <option value="12" selected>
+                    <option value="12">
                       12
                     </option>
                     <option value="15">15</option>

@@ -9,12 +9,20 @@ import { useCart } from 'react-use-cart';
 import { useBetween } from 'use-between';
 import useSharedCanvas from './sharedHook/useSharedCanvas';
 import { BookContext } from '../context/BookContext';
+import useSharedLogin from './sharedHook/useSharedLogin';
+import Login from './login/Login';
+import useSharedUser from './sharedHook/useSharedUser';
+import Swal from 'sweetalert2';
 
 const Header: React.FC = () => {
     const { showCanvas, setShowCanvas } = useBetween(useSharedCanvas);
+    const { setShowLogin } = useBetween(useSharedLogin);
+    const { userStatus, setUserStatus, userName } = useBetween(useSharedUser);
+    const [logout, setLogout] = useState<string>("d-none");
+
     const [books] = useContext(BookContext);
 
-    const { addItem, totalItems, items, removeItem, cartTotal } = useCart();
+    const { totalItems, items, removeItem, cartTotal, emptyCart } = useCart();
     const [navbarAdd, setNavbarAdd] = useState(false)
     const navbarExtra = () => {
         if (window.scrollY >= 137.5) {
@@ -31,8 +39,33 @@ const Header: React.FC = () => {
 
     const [searchValue, setSearchValue] = useState<string>("");
     const searchResult = books.filter((value: any) => value.title.toLocaleLowerCase().includes(searchValue));
-    console.log(searchResult);
-    
+
+    const cartCheckout = () => {
+        if (userStatus !== "") {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'The order of the books has been accepted',
+                showConfirmButton: false,
+                timer: 1000
+            })
+            emptyCart();
+            setTimeout(() => {
+                setShowCanvas(false);
+            }, 1000);
+        } else {
+            Swal.fire({
+                title: 'Please login first!',
+                timer: 1000,
+                timerProgressBar: false,
+                showConfirmButton: false,
+            })
+            setTimeout(() => {
+                setShowLogin(true);
+            }, 1200);
+        }
+    }
+
     return (
         <>
             {/* Top Nav */}
@@ -81,7 +114,7 @@ const Header: React.FC = () => {
                                 <Button className='d-flex align-items-center position-absolute'><Search /></Button>
                                 <div className={`searching-result ${searchValue === "" ? "d-none" : "d-block"}`}>
                                     {searchResult.length !== 0 ? searchResult.map((item: any) => {
-                                        return <div className="search-item d-flex align-items-center justify-content-between">
+                                        return <div className="search-item d-flex align-items-center justify-content-between" key={item.id}>
                                             <div className="book-img-info d-flex align-items-center">
                                                 <div className="search-img">
                                                     <img src={item.image} alt="book" width="60px" />
@@ -94,14 +127,6 @@ const Header: React.FC = () => {
                                                     <span className='price'>${item.price}</span>
                                                 </div>
                                             </div>
-                                            <div className="book-actions d-flex align-items-center">
-                                                <Button variant='none' className="add-cart me-2" onClick={() => { addItem(item); setShowCanvas(true); }}>
-                                                    <i className="fas fa-shopping-basket"></i>
-                                                </Button>
-                                                <Button variant="none" className="add-wish">
-                                                    <i className="fa-regular fa-heart"></i>
-                                                </Button>
-                                            </div>
                                         </div>
                                     }) : <p className='no-book mb-0'>No such book was found</p>}
                                 </div>
@@ -111,9 +136,31 @@ const Header: React.FC = () => {
                                     <GeoAlt className='me-2' fontSize={16} /> <span>Find a Book Store</span>
                                 </a>
                                 <ul className='d-flex justify-content-center align-items-center mb-0'>
-                                    <li className='list-unstyled pe-3'>
-                                        <a href="/"><Person fontSize={18} /></a>
-                                    </li>
+                                    {!userStatus ?
+                                        <li className='list-unstyled pe-3' onClick={() => { setShowLogin(true) }}>
+                                            <LinkContainer to="/">
+                                                <a href="/"><Person fontSize={18} /></a>
+                                            </LinkContainer>
+                                        </li>
+                                        : userStatus === "admin" ?
+                                            <li className='list-unstyled pe-3' onMouseEnter={() => { setLogout("d-block") }} onMouseLeave={() => { setLogout("d-none") }}>
+                                                <LinkContainer to="/">
+                                                    <a href="/" className='d-flex align-items-center text-decoration-none'><p className='mb-0 me-1'>Hi, admin</p> <Person fontSize={18} /></a>
+                                                </LinkContainer>
+                                                <div className={`log-out ${logout}`} onClick={() => { setUserStatus("") }}>
+                                                    <span>Log out</span>
+                                                </div>
+                                            </li>
+                                            :
+                                            <li className='list-unstyled pe-3' onMouseEnter={() => { setLogout("d-block") }} onMouseLeave={() => { setLogout("d-none") }}>
+                                                <LinkContainer to="/">
+                                                    <a href="/" className='d-flex align-items-center text-decoration-none'><p className='mb-0 me-1'>Hi, {userName}</p> <Person fontSize={18} /></a>
+                                                </LinkContainer>
+                                                <div className={`log-out ${logout}`} onClick={() => { setUserStatus("") }}>
+                                                    <span>Log out</span>
+                                                </div>
+                                            </li>
+                                    }
                                     <li className='list-unstyled px-3'>
                                         <a href="/"><Heart fontSize={14} /><span>0</span></a>
                                     </li>
@@ -226,9 +273,31 @@ const Header: React.FC = () => {
                         </div>
                         <div className={`admin-panel-icons ${navbarAdd ? "" : "d-none"}`}>
                             <ul className='d-flex justify-content-center align-items-center mb-0'>
-                                <li className='list-unstyled pe-3'>
-                                    <a href="/"><Person fontSize={18} /></a>
-                                </li>
+                                {!userStatus ?
+                                    <li className='list-unstyled pe-3' onClick={() => { setShowLogin(true) }}>
+                                        <LinkContainer to="/">
+                                            <a href="/"><Person fontSize={18} /></a>
+                                        </LinkContainer>
+                                    </li>
+                                    : userStatus === "admin" ?
+                                        <li className='list-unstyled pe-3' onMouseEnter={() => { setLogout("d-block") }} onMouseLeave={() => { setLogout("d-none") }}>
+                                            <LinkContainer to="/">
+                                                <a href="/" className='d-flex align-items-center text-decoration-none'><p className='mb-0 me-1'>Hi, admin</p> <Person fontSize={18} /></a>
+                                            </LinkContainer>
+                                            <div className={`log-out ${logout}`} onClick={() => { setUserStatus("") }}>
+                                                <span>Log out</span>
+                                            </div>
+                                        </li>
+                                        :
+                                        <li className='list-unstyled pe-3' onMouseEnter={() => { setLogout("d-block") }} onMouseLeave={() => { setLogout("d-none") }}>
+                                            <LinkContainer to="/">
+                                                <a href="/" className='d-flex align-items-center text-decoration-none'><p className='mb-0 me-1'>Hi, {userName}</p> <Person fontSize={18} /></a>
+                                            </LinkContainer>
+                                            <div className={`log-out ${logout}`} onClick={() => { setUserStatus("") }}>
+                                                <span>Log out</span>
+                                            </div>
+                                        </li>
+                                }
                                 <li className='list-unstyled px-3'>
                                     <a href="/"><Heart fontSize={14} /><span>0</span></a>
                                 </li>
@@ -241,6 +310,7 @@ const Header: React.FC = () => {
                 </Container>
             </Navbar>
 
+            {/* Add to cart */}
             <Offcanvas show={showCanvas} onHide={handleClose} placement='end'>
                 <Offcanvas.Header>
                     <Offcanvas.Title>Shopping cart</Offcanvas.Title>
@@ -288,7 +358,7 @@ const Header: React.FC = () => {
                                             View Cart
                                         </button>
                                     </LinkContainer>
-                                    <button className="view-cart text-uppercase">
+                                    <button className="view-cart text-uppercase" onClick={cartCheckout}>
                                         Checkout
                                     </button>
                                 </div>
@@ -297,6 +367,8 @@ const Header: React.FC = () => {
                     }
                 </Offcanvas.Body>
             </Offcanvas>
+
+            <Login />
         </>
     );
 }

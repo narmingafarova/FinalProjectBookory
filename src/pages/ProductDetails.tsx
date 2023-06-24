@@ -20,13 +20,25 @@ const ProductDetails = () => {
 
   const [activeTitle, setActiveTitle] = useState<number>(1);
 
+  const random = Math.floor(Math.random() * (30 - 0 + 1)) + 0;
+
   const { id } = useParams();
   const details = books.find((item: any) => item.id.toString() === id);
   return (
     <>
       <ScrollToTop />
       {!details ?
-        "empty"
+        <Container className='my-5 no-details'>
+          <div className="no-details-content d-flex align-items-center mb-3">
+            <i className="fa-regular fa-calendar me-3"></i>
+            <p className='mb-0'>We don't have such a book</p>
+          </div>
+          <LinkContainer to="/shop">
+            <a href="/" className='text-decoration-none section-btn'>
+              Return to shop
+            </a>
+          </LinkContainer>
+        </Container>
         :
         <Container className='details-page mb-5'>
           <div className="details-breadcrumb">
@@ -74,7 +86,7 @@ const ProductDetails = () => {
                     <button className="d-flex align-items-center justify-content-center" onClick={() => {
                       quantity === 1 ? setQuantity(1) : setQuantity(quantity - 1);
                     }}>-</button>
-                    <input type="number" id="quantity" name="quantity" min="1" max="999" value={quantity} />
+                    <input type="number" readOnly id="quantity" name="quantity" min="1" max="999" value={quantity} />
                     <button className="d-flex align-items-center justify-content-center" onClick={() => { setQuantity(quantity + 1) }}>+</button>
                   </div>
                   <LinkContainer to={`/shop/${details.id}`}>
@@ -228,7 +240,7 @@ const ProductDetails = () => {
             </div>
           </div>
           <Row className='mode-cards'>
-            {books.slice(0, 6).map((item: any) => {
+            {books.slice(random, random + 6).map((item: any) => {
               return (<Col sm={12} md={2} className='px-0'>
                 <BookCard key={item.id} item={item} id={item.id} image={item.image} title={item.title} author={item.author} price={item.price} star={item.star} category={item.category} tags={item.tags} cutTitle={true} flexStyle='flex-column' briefDesc={item.briefDescription} listChange={false} />
               </Col>)

@@ -5,9 +5,10 @@
     position: relative;
     height: 370px;
     .slick-dots {
+      width: 110px;
       position: absolute;
       top: -80px;
-      left: 550px;
+      right: 30px;
       li {
         margin-right: 1px;
         button {

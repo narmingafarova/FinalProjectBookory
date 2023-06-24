@@ -137,7 +137,7 @@
           }
           &:not(:last-child) {
             padding-bottom: 10px;
-            border-bottom: 1px solid $primary_orange;
+            border-bottom: 1px solid $milk_white;
           }
           &:not(:first-child) {
             padding-top: 10px;
@@ -180,6 +180,10 @@
         span {
           top: -9px;
         }
+        p {
+          font-size: 12px;
+          font-weight: 300;
+        }
       }
       div {
         span {
@@ -198,7 +202,7 @@
           right: -8px;
           color: $white;
           background-color: $primary_orange;
-          padding: 2px 5px;
+          padding: 2px 6px;
           border-radius: 50px;
         }
       }
@@ -209,6 +213,33 @@
         a,
         div {
           color: $primary_orange;
+        }
+      }
+      &:first-child {
+        position: relative;
+        .log-out {
+          width: 100%;
+          position: absolute;
+          top: 28px;
+          right: 40px;
+          &:hover {
+            &::before {
+              background-color: $text;
+            }
+            span {
+              background-color: $text;
+            }
+          }
+          &::before {
+            position: absolute;
+            content: "";
+            width: 10px;
+            height: 10px;
+            background: $primary_orange;
+            top: -11px;
+            left: 77%;
+            transform: rotate(45deg);
+          }
         }
       }
     }

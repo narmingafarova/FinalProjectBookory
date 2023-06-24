@@ -9,7 +9,7 @@
     }
     .book-info {
       height: 550px;
-      min-height: 550px;
+      min-height: 650px;
       .info-title {
         margin-bottom: 20px;
         .stock-mode {
@@ -223,6 +223,7 @@
     }
   }
   @include sectionHeader;
+  @include rating;
   .section-header {
     h4 {
       font-size: 26px;
@@ -230,4 +231,17 @@
     }
   }
   @include modeCards;
+}
+
+.no-details {
+  .no-details-content {
+    background-color: #f6f6f6;
+    padding: 20px 30px;
+    border-left: 8px solid $primary_orange;
+    p {
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
+  @include sectionBtns;
 }

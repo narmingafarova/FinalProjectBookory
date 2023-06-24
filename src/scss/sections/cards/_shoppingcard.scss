@@ -1,0 +1,157 @@
+.shopping-card {
+  font-family: "Sora", sans-serif;
+  .add-table {
+    .shop-cart-items {
+      thead {
+        tr {
+          background-color: #f4f6fa;
+          border-collapse: collapse;
+          border-radius: 20px;
+        }
+        th {
+          font-size: 15px;
+          font-weight: 500;
+          color: $black;
+          padding: 15px 20px;
+          border: 0px !important;
+          &:first-child {
+            border-radius: 20px 0 0 20px;
+          }
+          &:last-child {
+            border-radius: 0 20px 20px 0;
+          }
+        }
+      }
+      tbody {
+        tr {
+          border-bottom: 1px solid $milk_white;
+          td {
+            font-size: 13px;
+            font-weight: 500;
+            line-height: 45px;
+            color: $light_grey;
+            padding: 15px 20px;
+            a {
+              font-size: 13px;
+              font-weight: 500;
+              color: $primary_orange;
+            }
+            .delete-btn {
+              font-size: 12px;
+              font-weight: 600;
+              line-height: 21px;
+              display: inline-block;
+              width: 25px;
+              height: 25px;
+              color: red;
+              border-radius: 30px;
+              border: 1px solid $milk_white;
+              text-align: center;
+              transition: 0.5s;
+              &:hover {
+                background-color: $primary_orange;
+                color: #fff;
+              }
+            }
+            .quantity {
+              font-size: 16px;
+              font-weight: 700;
+              width: 90px;
+              height: 50px;
+              background: #fff;
+              border: 2px solid $primary_orange;
+              color: $primary_orange;
+              border-radius: 5px;
+              margin: 0 6px 15px 0;
+              padding: 10px 30px 10px 10px;
+              outline: none;
+              &::-webkit-inner-spin-button {
+                display: none;
+              }
+            }
+            .input-btns {
+              top: 15px;
+              left: 75px;
+              button {
+                background-color: transparent;
+                border: none;
+              }
+              .btn:first-child:active,
+              :not(.btn-check) + .btn:active {
+                background-color: transparent;
+                border-color: transparent;
+              }
+            }
+            .coupon-update {
+              input {
+                font-size: 13px;
+                line-height: 1.15;
+                height: 40px;
+                border-radius: 5px;
+                padding: 0 15px;
+                border: 1px solid $milk_white;
+                &:focus-visible {
+                  outline: none;
+                }
+              }
+            }
+          }
+        }
+      }
+      td {
+        border-bottom: 0;
+        padding: 15px 20px;
+      }
+    }
+    .row {
+      h5 {
+        font-size: 20px;
+        line-height: 34px;
+        font-weight: 500;
+        margin-bottom: 20px;
+      }
+    }
+    .totals {
+      border-color: $milk_white;
+      width: 50%;
+      tr {
+        td {
+          padding: 15px 20px;
+          &:first-child {
+            font-size: 15px;
+            font-weight: 600;
+            color: $black;
+            width: 40%;
+          }
+          &:last-child {
+            font-size: 14px;
+            font-weight: 500;
+            color: $primary_orange;
+          }
+          span {
+            color: $light_grey;
+          }
+        }
+      }
+    }
+    .add-cart-btn {
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 26px;
+      padding: 10px 20px;
+      border-radius: 4px;
+      color: #fff;
+      border: 1px solid transparent;
+      background-color: $primary_orange;
+      letter-spacing: 0.5px;
+      height: 40px;
+      transition: 0.5s;
+      &:hover {
+        background-color: $primary_orange_hover;
+        color: #fff;
+        border-color: transparent;
+      }
+    }
+  }
+  @include sectionBtns;
+}
