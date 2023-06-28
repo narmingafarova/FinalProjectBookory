@@ -1,16 +1,24 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import App from './App';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.js";
 import "./scss/style.scss";
-import 'aos/dist/aos.css'; 
+import 'aos/dist/aos.css';
+import configureStore from './managers/store/configureStore';
+import { Provider } from 'react-redux';
+import { getBlogsFromDatabase } from './managers/action/blogAction';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <React.StrictMode>
+const store:any = configureStore();
+
+const result = (
+  <Provider store={store}>
     <App />
-  </React.StrictMode>
+  </Provider>
 );
+
+ReactDOM.render(<p>Loading...</p>, document.getElementById("root"));
+
+store.dispatch(getBlogsFromDatabase()).then(() => {
+  ReactDOM.render(result, document.getElementById("root"));
+});

@@ -1,19 +1,39 @@
 #top-nav {
   border-bottom: 1px solid $milk_white;
   font-family: "Sora", sans-serif;
+  background-color: $white;
   .navbar-nav {
-    .nav-link {
-      font-size: 12px;
+    .lang-btn {
+      font-size: 14px;
       font-weight: 300;
       line-height: 6px;
       color: $black;
-      transition: 0.3s;
-      &:not(:last-child) {
-        border-right: 1px solid $milk_white;
+      background-color: $milk_white;
+      padding: 13px 15px;
+      border: none;
+    }
+    .mode-btn {
+      padding: 3px 18px;
+      background: radial-gradient(
+        circle,
+        rgb(223, 223, 0, 1) -6%,
+        rgb(6, 35, 41, 1) 97%
+      );
+      svg {
+        color: rgb(223, 223, 44);
       }
-      &:hover {
-        color: $primary_orange;
-      }
+    }
+  }
+  .admin-dash {
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 6px;
+    color: $black;
+    transition: 0.3s;
+    text-decoration: underline;
+    cursor: pointer;
+    &:hover {
+      color: $primary_orange;
     }
   }
   .social-icons {
@@ -37,6 +57,7 @@
 #search-nav {
   border-bottom: 1px solid $milk_white;
   font-family: "Sora", sans-serif;
+  background-color: $white;
   .search-and-panel {
     form {
       width: 600px;
@@ -422,6 +443,7 @@
 #menu-nav {
   font-family: "Sora", sans-serif;
   border-bottom: 1px solid $milk_white;
+  background-color: $white;
   .categories {
     width: 250px;
     max-width: 250px;
@@ -561,6 +583,155 @@
   #top-nav {
     .navbar-nav {
       display: none;
+    }
+  }
+}
+
+.dark {
+  #top-nav {
+    background-color: $dark_bg;
+    border-bottom: 1px solid $text;
+    .navbar-nav {
+      .mode-btn {
+        background: rgb(223, 223, 44);
+        background: radial-gradient(
+          circle,
+          rgba(223, 223, 44, 1) 34%,
+          rgba(142, 216, 231, 1) 86%
+        );
+        padding: 3px 18px;
+      }
+    }
+    .admin-dash {
+      color: $white;
+      &:hover {
+        color: $primary_orange;
+      }
+    }
+    .social-icons {
+      li {
+        svg {
+          color: $white;
+        }
+      }
+    }
+  }
+  #search-nav {
+    background-color: $dark_bg;
+    border-bottom: 1px solid $text;
+  }
+  .admin-panel-icons {
+    .find-location {
+      color: $white;
+      span {
+        border-bottom: 1px solid $white;
+      }
+      &:hover {
+        span {
+          color: $primary_orange;
+          border-bottom: 1px solid $primary_orange;
+        }
+      }
+    }
+    ul {
+      li {
+        a,
+        div {
+          color: $white;
+        }
+        &:hover {
+          a,
+          div {
+            color: $primary_orange;
+          }
+        }
+      }
+    }
+  }
+  #menu-nav {
+    background-color: $dark_bg;
+    border-bottom: 1px solid $text;
+    .navbar-nav {
+      .nav-link {
+        color: $white;
+        &:hover {
+          color: $primary_orange;
+        }
+      }
+    }
+    .support-center {
+      .support-context {
+        p {
+          color: $primary_orange;
+        }
+        span {
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+.off-dark {
+  background-color: $black !important;
+  .offcanvas-header {
+    color: $white;
+    .closeBtn {
+      &::before {
+        background-color: $white;
+      }
+      &::after {
+        background-color: $white;
+      }
+    }
+  }
+  .offcanvas-body {
+    .no-cart {
+      p {
+        color: $white;
+      }
+    }
+    .shop-cart {
+      .shop-item-cards {
+        .shop-cart {
+          .remove-item {
+            color: $white;
+          }
+          .shop-item {
+            padding: 0 30px 15px 15px;
+            .item-info {
+              h5 {
+                color: $white;
+              }
+              .vendor-info {
+                color: $white;
+                span {
+                  color: $light_grey;
+                }
+              }
+              .quantity-price {
+                .quantity {
+                  color: $white;
+                }
+                .price {
+                  color: $light_grey;
+                }
+              }
+            }
+          }
+          &:hover {
+            background-color: transparent;
+          }
+        }
+      }
+      .shop-submit {
+        .total-price {
+          color: $white;
+          .total {
+            color: $white;
+          }
+        }
+      }
     }
   }
 }

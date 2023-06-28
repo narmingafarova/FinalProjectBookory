@@ -46,3 +46,27 @@
     }
   }
 }
+
+.dark {
+  .contact-form {
+    h3 {
+      color: $white;
+    }
+    p {
+      color: $light_grey;
+    }
+    form {
+      input,
+      textarea {
+        &:focus {
+          border-color: $text;
+        }
+      }
+      .check {
+        label {
+          color: $light_grey;
+        }
+      }
+    }
+  }
+}

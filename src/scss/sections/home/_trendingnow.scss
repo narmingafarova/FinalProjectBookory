@@ -9,3 +9,10 @@
   @include modeCards;
   @include rating;
 }
+
+.dark {
+  .trending-now {
+    @include sectionHeaderDark;
+    @include modeCardsDark;
+  }
+}

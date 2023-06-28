@@ -13,3 +13,10 @@
   @include modeCards;
   @include rating;
 }
+
+.dark {
+  .popular {
+    @include sectionHeaderDark;
+    @include modeCardsDark;
+  }
+}

@@ -13,7 +13,7 @@ import { Container } from 'react-bootstrap';
 
 const Categories = () => {
     return (
-        <div className='pt-5 pb-0 categories'>
+        <div className='pt-5 pb-0 home-categories'>
             <Container>
                 <Swiper
                     slidesPerView={6}

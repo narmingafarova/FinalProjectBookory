@@ -33,3 +33,19 @@
     }
   }
 }
+
+.dark {
+  .client-card {
+    border: 1px solid $text;
+    .client-content {
+      p {
+        color: $white;
+      }
+    }
+    .client-caption {
+      .name {
+        color: $white;
+      }
+    }
+  }
+}

@@ -1,13 +1,15 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Button, Form, InputGroup, Modal } from 'react-bootstrap'
 import { useBetween } from 'use-between';
 import useSharedLogin from '../sharedHook/useSharedLogin';
 import { users } from '../../users/user';
 import useSharedUser from '../sharedHook/useSharedUser';
+import { ThemeContext } from '../../context/ThemeContext';
 
 const Login: React.FC = () => {
     const { showLogin, setShowLogin } = useBetween(useSharedLogin);
     const { setUserStatus, setUserName } = useBetween(useSharedUser);
+    const [mode] = useContext(ThemeContext);
 
     // For login
     const [username, setUsername] = useState<string>("");
@@ -30,12 +32,14 @@ const Login: React.FC = () => {
             setShowLogin(false);
             setUsername("");
             setPassword("");
+            localStorage.setItem("user", "admin");
         } else if (user && !user.isAdmin) {
             setUserStatus("user");
             setUserName(user.user);
             setShowLogin(false);
             setUsername("");
             setPassword("");
+            localStorage.setItem("user", user.user);
         }
         else {
             setUserStatus("");
@@ -53,7 +57,7 @@ const Login: React.FC = () => {
     }
 
     return (
-        <Modal className='login-modal' centered show={showLogin} onHide={() => { setShowLogin(false); setForgotPass("d-none") }}>
+        <Modal className={`login-modal ${mode === "dark" ? "login-dark" : ""}`} centered show={showLogin} onHide={() => { setShowLogin(false); setForgotPass("d-none") }}>
             <Modal.Header>
                 <Modal.Title>{forgotPass === "d-none" ? "Sign in" : "Forgot password"}</Modal.Title>
             </Modal.Header>

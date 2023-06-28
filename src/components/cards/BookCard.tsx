@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Rating from "../Rating";
 import { LinkContainer } from "react-router-bootstrap";
 import { Basket } from "react-bootstrap-icons";
@@ -7,6 +7,7 @@ import 'animate.css';
 import { useCart } from "react-use-cart";
 import useSharedCanvas from "../sharedHook/useSharedCanvas";
 import { useBetween } from "use-between";
+import { ThemeContext } from "../../context/ThemeContext";
 
 interface Book {
   item: any;
@@ -32,6 +33,8 @@ const BookCard: React.FC<Book> = ({ item, id, image, title, author, price, star,
   const { setShowCanvas } = useBetween(useSharedCanvas);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const [mode] = useContext(ThemeContext)
   return (
     <>
       <div className={`book-card d-flex ${flexStyle} justify-content-center ${listChange ? "align-items-center list-change" : ""}`}>
@@ -84,7 +87,7 @@ const BookCard: React.FC<Book> = ({ item, id, image, title, author, price, star,
             </Button>
           </div>
         </div>
-        <Modal show={show} onHide={handleClose} animation={false} className='animate__animated animate__rotateInDownRight' centered>
+        <Modal show={show} onHide={handleClose} animation={false} className={`animate__animated animate__rotateInDownRight ${mode === "dark" ? "dark-modal" : ""}`} centered>
           <Modal.Header closeButton></Modal.Header>
           <Modal.Body>
             <Row>
@@ -107,7 +110,7 @@ const BookCard: React.FC<Book> = ({ item, id, image, title, author, price, star,
                     <input type="number" readOnly id="quantity" name="quantity" min="1" max="999" value={quantity} />
                     <button className="d-flex align-items-center justify-content-center" onClick={() => { setQuantity(quantity + 1) }}>+</button>
                   </div>
-                  <LinkContainer to="/shop">
+                  <LinkContainer to={window.location.pathname}>
                     <a href="/" className='text-decoration-none section-btn me-3' onClick={() => { addItem(item, quantity); setShow(false); setShowCanvas(true); }}>
                       <i className="fas fa-shopping-basket"></i> &nbsp; Add to cart
                     </a>

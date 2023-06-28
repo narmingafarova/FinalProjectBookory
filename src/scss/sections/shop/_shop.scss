@@ -107,9 +107,10 @@
             outline: none;
             font-size: 12px;
             line-height: 24px;
-            padding: 0 5px 0 0;
+            padding: 4px 5px 4px 3px;
             background-position: 100% center;
             background-size: 10px 10px;
+            border-radius: 3px;
             text-align: right;
             color: $black;
             background-color: $white;
@@ -133,112 +134,6 @@
           .list-change {
             border-right: none !important;
           }
-        }
-      }
-    }
-    .shop-category {
-      border: 1px solid $milk_white;
-      border-radius: 15px;
-      .cat-title {
-        padding: 25px 40px 15px 40px;
-        border-bottom: 1px solid $milk_white;
-        .btn {
-          border: none;
-          font-size: 12px;
-        }
-        h4 {
-          font-size: 16px;
-          line-height: 1.5;
-          font-weight: 500;
-          color: $black;
-        }
-      }
-      .categories {
-        padding: 30px 40px 40px;
-        .rate-div {
-          .total-star {
-            transition: 0.3s;
-          }
-          &:hover {
-            cursor: pointer;
-            .rating {
-              .total-star {
-                color: $primary_orange;
-              }
-            }
-          }
-          &.active-rate {
-            color: $primary_orange;
-          }
-        }
-        .category {
-          color: $text;
-          transition: 0.3s;
-          label {
-            font-size: 14px;
-            font-weight: 300;
-            line-height: 20px;
-            cursor: pointer;
-          }
-          &:hover {
-            label,
-            svg {
-              color: $primary_orange;
-            }
-          }
-        }
-      }
-      .activeCat {
-        label,
-        svg {
-          color: $primary_orange;
-        }
-      }
-      .price-filter {
-        color: $light_grey;
-        font-size: 12px;
-        font-weight: 300;
-        .range-show {
-          margin-top: 25px;
-          span {
-            color: $black;
-          }
-        }
-        p {
-          font-weight: 500;
-          margin-top: 10px;
-          color: $black;
-          cursor: pointer;
-          transition: 0.3s;
-          &:hover {
-            color: $primary_orange;
-          }
-        }
-        .css-eg0mwd-MuiSlider-thumb {
-          width: 12px;
-          height: 12px;
-          background-color: $white;
-          border: 2px solid $black;
-          cursor: ew-resize;
-          &:hover {
-            box-shadow: 0 0 0 0.236em rgba(0, 0, 0, 0.1);
-          }
-        }
-        .css-187mznn-MuiSlider-root {
-          color: $black;
-          cursor: default;
-        }
-        .css-1gv0vcd-MuiSlider-track,
-        .css-14pt78w-MuiSlider-rail {
-          height: 2px;
-          border: 0;
-        }
-        .css-1gv0vcd-MuiSlider-track {
-          background-color: $black;
-        }
-        .css-14pt78w-MuiSlider-rail {
-          background-color: #e5e5e5;
-          cursor: default;
         }
       }
     }
@@ -285,6 +180,113 @@
   }
 }
 
+.shop-category {
+  border: 1px solid $milk_white;
+  border-radius: 15px;
+  .cat-title {
+    padding: 25px 40px 15px 40px;
+    border-bottom: 1px solid $milk_white;
+    .btn {
+      border: none;
+      font-size: 12px;
+    }
+    h4 {
+      font-size: 16px;
+      line-height: 1.5;
+      font-weight: 500;
+      color: $black;
+    }
+  }
+  .categories {
+    padding: 30px 40px 40px;
+    .rate-div {
+      .total-star {
+        transition: 0.3s;
+      }
+      &:hover {
+        cursor: pointer;
+        .rating {
+          .total-star {
+            color: $primary_orange;
+          }
+        }
+      }
+      &.active-rate {
+        color: $primary_orange;
+      }
+    }
+    .category {
+      color: $text;
+      transition: 0.3s;
+      label {
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 20px;
+        cursor: pointer;
+      }
+      &:hover {
+        label,
+        svg {
+          color: $primary_orange;
+        }
+      }
+    }
+  }
+  .activeCat {
+    label,
+    svg {
+      color: $primary_orange;
+    }
+  }
+  .price-filter {
+    color: $light_grey;
+    font-size: 12px;
+    font-weight: 300;
+    .range-show {
+      margin-top: 25px;
+      span {
+        color: $black;
+      }
+    }
+    p {
+      font-weight: 500;
+      margin-top: 10px;
+      color: $black;
+      cursor: pointer;
+      transition: 0.3s;
+      &:hover {
+        color: $primary_orange;
+      }
+    }
+    .css-eg0mwd-MuiSlider-thumb {
+      width: 12px;
+      height: 12px;
+      background-color: $white;
+      border: 2px solid $black;
+      cursor: ew-resize;
+      &:hover {
+        box-shadow: 0 0 0 0.236em rgba(0, 0, 0, 0.1);
+      }
+    }
+    .css-187mznn-MuiSlider-root {
+      color: $black;
+      cursor: default;
+    }
+    .css-1gv0vcd-MuiSlider-track,
+    .css-14pt78w-MuiSlider-rail {
+      height: 2px;
+      border: 0;
+    }
+    .css-1gv0vcd-MuiSlider-track {
+      background-color: $black;
+    }
+    .css-14pt78w-MuiSlider-rail {
+      background-color: #e5e5e5;
+      cursor: default;
+    }
+  }
+}
+
 @keyframes hoverBtns {
   0% {
     opacity: 0;
@@ -293,5 +295,159 @@
   100% {
     opacity: 1;
     transform: translate(0, 0);
+  }
+}
+
+.dark {
+  .shop-books {
+    @include modeCardsDark;
+    .row {
+      .list-change {
+        .book-info {
+          .brief-desc {
+            color: $light_grey;
+          }
+          .cart-footer {
+            .add-wish {
+              color: $white;
+              background-color: transparent;
+              &:hover {
+                background-color: $primary_orange;
+                color: $white;
+              }
+            }
+          }
+        }
+        @include sectionBtns;
+      }
+      .mode-cards {
+        .shop-title-filter {
+          border-bottom: 1px solid $text;
+          .list-style-icon {
+            svg,
+            i {
+              color: $white;
+            }
+            .btn {
+              svg,
+              i {
+                color: $text;
+                &:hover {
+                  color: $white;
+                }
+              }
+              &.active {
+                svg,
+                i {
+                  color: $white;
+                }
+              }
+            }
+          }
+          .sort-func {
+            select {
+              color: $black;
+              background-color: $white;
+            }
+            .page-item-count {
+              border-left: 1px solid $light_grey;
+              span {
+                color: $light_grey;
+              }
+            }
+          }
+        }
+        [class^="col-md"] {
+          border-bottom: 1px solid $text;
+          &:not(:nth-child(3n)) {
+            .book-card {
+              border-right: 1px solid $text;
+            }
+            .list-change {
+              border-right: none !important;
+            }
+          }
+        }
+      }
+      .feature-category {
+        h4 {
+          border-bottom: 1px solid $text;
+          color: $white;
+        }
+        .categories {
+          .feature-name {
+            h5 {
+              color: $white;
+              &:hover {
+                color: $primary_orange;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .shop-category {
+    border: 1px solid $text;
+    .cat-title {
+      border-bottom: 1px solid $text;
+      h4 {
+        color: $white;
+      }
+    }
+    .categories {
+      .rate-div {
+        &:hover {
+          cursor: pointer;
+          .rating {
+            .total-star {
+              color: $primary_orange;
+            }
+          }
+        }
+        &.active-rate {
+          color: $primary_orange;
+        }
+      }
+      .category {
+        color: $white;
+        &:hover {
+          label,
+          svg {
+            color: $primary_orange;
+          }
+        }
+      }
+    }
+    @include ratingDark;
+    .activeCat {
+      label,
+      svg {
+        color: $primary_orange;
+      }
+    }
+    .price-filter {
+      color: $white;
+      .range-show {
+        span {
+          color: $white;
+        }
+      }
+      p {
+        color: $white;
+        &:hover {
+          color: $primary_orange;
+        }
+      }
+      .css-187mznn-MuiSlider-root {
+        color: $white;
+      }
+      .css-1gv0vcd-MuiSlider-track {
+        background-color: $white;
+      }
+      .css-14pt78w-MuiSlider-rail {
+        background-color: #e5e5e5;
+      }
+    }
   }
 }

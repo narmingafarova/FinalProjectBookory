@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Container } from 'react-bootstrap'
 import { Facebook, Instagram, Pinterest, Twitter } from 'react-bootstrap-icons'
+import { ThemeContext } from '../context/ThemeContext'
 
-const Footer:React.FC = () => {
+const Footer: React.FC = () => {
+    const [mode] = useContext(ThemeContext);
     return (
         <>
             <div className="footer">
@@ -12,7 +14,7 @@ const Footer:React.FC = () => {
                             <div className="row info-part">
                                 <div className="col-12 col-sm-6 col-md-6 d-flex flex-column align-items-start pb-4">
                                     <div className="foot-logo">
-                                        <img src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/logo-1.svg" alt="logo" />
+                                        <img src={mode === "light" ? "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/logo-1.svg" : "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/logo.svg"} alt="" />
                                     </div>
                                     <p className='mb-2'>Got Questions ? Call us 24/7!</p>
                                     <h4 className='pb-4 mb-0'>+(84) - 1800 - 4635</h4>

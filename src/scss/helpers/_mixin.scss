@@ -66,6 +66,27 @@
       border: 1px solid $milk_white;
     }
   }
+  .dark {
+    .section-header {
+      h4 {
+        color: $white;
+      }
+      .divider-line {
+        border: 1px solid $white;
+      }
+    }
+  }
+}
+
+@mixin sectionHeaderDark {
+  .section-header {
+    h4 {
+      color: $white;
+    }
+    .divider-line {
+      border: 1px solid $light_grey;
+    }
+  }
 }
 
 @mixin sectionBtns {
@@ -139,6 +160,9 @@
   .mode-cards {
     font-family: "Sora", sans-serif;
     .slick-dots {
+      display: none !important;
+    }
+    .slick-arrow {
       display: none !important;
     }
     .book-card {
@@ -225,6 +249,22 @@
   }
 }
 
+@mixin modeCardsDark {
+  .mode-cards {
+    .book-card {
+      border-right: 1px solid $text;
+      .book-info {
+        .book-name {
+          color: $white;
+          &:hover {
+            color: $primary_orange;
+          }
+        }
+      }
+    }
+  }
+}
+
 @mixin rating {
   .rating {
     margin: 3px 0;
@@ -242,6 +282,14 @@
       font-size: 12px;
       line-height: 16px;
       margin: 4px 0 0 6px;
+    }
+  }
+}
+
+@mixin ratingDark {
+  .rating {
+    .total-star {
+      color: $white;
     }
   }
 }

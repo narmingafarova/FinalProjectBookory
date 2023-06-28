@@ -42,3 +42,25 @@
     margin: 0 20px 0 0;
   }
 }
+
+.dark {
+  .testimonials {
+    @include sectionHeaderDark;
+    .slick-slider {
+      .slick-arrow {
+        display: none !important; 
+      }
+      .slick-dots {
+        li {
+          button {
+            &:hover {
+              &::before {
+                background-color: $primary_orange;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

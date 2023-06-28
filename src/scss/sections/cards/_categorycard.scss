@@ -67,5 +67,16 @@
 }
 
 .swiper-button-next {
-    right: -40px;
+  right: -40px;
+}
+
+.dark {
+  .swiper-slide {
+    background-color: $dark_bg;
+    .category-card {
+      .category-name {
+        color: $white !important;
+      }
+    }
   }
+}

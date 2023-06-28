@@ -9,7 +9,6 @@
     color: $black;
   }
 }
-
 .breadcrumb-item {
   font-size: 12px;
   line-height: 1.6666666667;
@@ -28,4 +27,13 @@
 }
 .breadcrumb-item + .breadcrumb-item::before {
   content: "→";
+}
+
+.dark {
+  .breadcrumb-bg {
+    background-color: $text;
+    h2 {
+      color: $white;
+    }
+  }
 }

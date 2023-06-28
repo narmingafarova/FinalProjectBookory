@@ -155,3 +155,44 @@
   }
   @include sectionBtns;
 }
+
+.dark {
+  .shopping-card {
+    .add-table {
+      .shop-cart-items {
+        thead {
+          tr {
+            background-color: $text;
+          }
+          th {
+            color: $white;
+          }
+        }
+        tbody {
+          tr {
+            border-bottom: 1px solid $text;
+            td {
+              color: $light_grey;
+            }
+          }
+        }
+      }
+      .row {
+        h5 {
+          color: $white;
+        }
+      }
+      .totals {
+        border-color: $text;
+        tr {
+          td {
+            &:first-child {
+              color: $milk_white;
+            }
+          }
+        }
+      }
+    }
+    @include sectionBtns;
+  }
+}

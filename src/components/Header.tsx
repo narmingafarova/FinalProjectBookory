@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import { Button, Form, Offcanvas } from 'react-bootstrap';
-import { Bag, ChevronDown, ChevronUp, Facebook, GeoAlt, Grid3x3Gap, Heart, Instagram, Person, Pinterest, Search, TelephonePlus, Twitter } from 'react-bootstrap-icons';
+import { Bag, ChevronDown, ChevronUp, Facebook, GeoAlt, Grid3x3Gap, Heart, Instagram, MoonFill, Person, Pinterest, Search, TelephonePlus, Twitter } from 'react-bootstrap-icons';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -13,11 +13,14 @@ import useSharedLogin from './sharedHook/useSharedLogin';
 import Login from './login/Login';
 import useSharedUser from './sharedHook/useSharedUser';
 import Swal from 'sweetalert2';
+import useSharedCategory from './sharedHook/useSharedCategory';
+import { ThemeContext } from '../context/ThemeContext';
 
 const Header: React.FC = () => {
     const { showCanvas, setShowCanvas } = useBetween(useSharedCanvas);
     const { setShowLogin } = useBetween(useSharedLogin);
     const { userStatus, setUserStatus, userName } = useBetween(useSharedUser);
+    const { setActiveCat } = useBetween(useSharedCategory);
     const [logout, setLogout] = useState<string>("d-none");
 
     const [books] = useContext(BookContext);
@@ -66,47 +69,73 @@ const Header: React.FC = () => {
         }
     }
 
+    const [mode, setMode] = useContext(ThemeContext);
+
+    const modeChange = () => {
+        if (mode === 'light') {
+            setMode("dark");
+            localStorage.setItem('mode', 'dark');
+        } else {
+            setMode("light");
+            localStorage.setItem('mode', 'light');
+        }
+    }
+
     return (
         <>
             {/* Top Nav */}
-            <Navbar bg="white" expand="lg" id='top-nav'>
+            <Navbar expand="lg" id='top-nav'>
                 <Container>
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
-                            className="me-auto my-2 my-lg-0"
+                            className="me-auto my-2 my-lg-0 d-flex align-items-center"
                             style={{ maxHeight: '100px' }}
                             navbarScroll
                         >
-                            <LinkContainer to="/about">
-                                <Nav.Link>About Us</Nav.Link>
-                            </LinkContainer>
-                            <Nav.Link href="/">My Account</Nav.Link>
-                            <Nav.Link href="/">Wishlist</Nav.Link>
+                            <button
+                                className="btn btn-func mode-btn ms-3"
+                                type="submit"
+                                onClick={modeChange}
+                            >
+                                {mode === "dark" ? "🌞" : <MoonFill />}
+                            </button>
+                            <button
+                                className="btn btn-func lang-btn ms-3"
+                                type="submit"
+                            >
+                                AZ
+                            </button>
                         </Nav>
-                        <ul className="social-icons d-flex justify-content-center align-items-center ps-0 mb-0">
-                            <li className='list-unstyled me-3'>
-                                <a href="/" className='d-flex justify-content-center align-items-center'><Facebook /></a>
-                            </li>
-                            <li className='list-unstyled me-3'>
-                                <a href="/" className='d-flex justify-content-center align-items-center'><Twitter /></a>
-                            </li>
-                            <li className='list-unstyled me-3'>
-                                <a href="/" className='d-flex justify-content-center align-items-center'><Instagram /></a>
-                            </li>
-                            <li className='list-unstyled'>
-                                <a href="/" className='d-flex justify-content-center align-items-center'><Pinterest /></a>
-                            </li>
-                        </ul>
+                        {userStatus === "admin" ?
+                            <LinkContainer to="/dashboard">
+                                <span className='admin-dash'>Dashboard</span>
+                            </LinkContainer>
+                            :
+                            <ul className="social-icons d-flex justify-content-center align-items-center ps-0 mb-0">
+                                <li className='list-unstyled me-3'>
+                                    <a href="/" className='d-flex justify-content-center align-items-center'><Facebook /></a>
+                                </li>
+                                <li className='list-unstyled me-3'>
+                                    <a href="/" className='d-flex justify-content-center align-items-center'><Twitter /></a>
+                                </li>
+                                <li className='list-unstyled me-3'>
+                                    <a href="/" className='d-flex justify-content-center align-items-center'><Instagram /></a>
+                                </li>
+                                <li className='list-unstyled'>
+                                    <a href="/" className='d-flex justify-content-center align-items-center'><Pinterest /></a>
+                                </li>
+                            </ul>
+                        }
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
 
             {/* Search Nav */}
-            <Navbar bg="white" expand="lg" id='search-nav' className='py-4'>
+            <Navbar expand="lg" id='search-nav' className='py-4'>
                 <Container>
                     <Navbar.Collapse id="navbarScroll">
                         <Navbar.Brand href="/">
-                            <img src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/logo-1.svg" alt="" />
+                            <img src={mode === "light" ? "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/logo-1.svg" : "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/logo.svg"} alt="" />
                         </Navbar.Brand>
                         <div className="search-and-panel ms-auto d-flex justify-content-center align-items-center">
                             <Form className='position-relative'>
@@ -138,25 +167,25 @@ const Header: React.FC = () => {
                                 <ul className='d-flex justify-content-center align-items-center mb-0'>
                                     {!userStatus ?
                                         <li className='list-unstyled pe-3' onClick={() => { setShowLogin(true) }}>
-                                            <LinkContainer to="/">
+                                            <LinkContainer to={window.location.pathname}>
                                                 <a href="/"><Person fontSize={18} /></a>
                                             </LinkContainer>
                                         </li>
                                         : userStatus === "admin" ?
                                             <li className='list-unstyled pe-3' onMouseEnter={() => { setLogout("d-block") }} onMouseLeave={() => { setLogout("d-none") }}>
-                                                <LinkContainer to="/">
+                                                <LinkContainer to={window.location.pathname}>
                                                     <a href="/" className='d-flex align-items-center text-decoration-none'><p className='mb-0 me-1'>Hi, admin</p> <Person fontSize={18} /></a>
                                                 </LinkContainer>
-                                                <div className={`log-out ${logout}`} onClick={() => { setUserStatus("") }}>
+                                                <div className={`log-out ${logout}`} onClick={() => { setUserStatus(""); localStorage.removeItem("user") }}>
                                                     <span>Log out</span>
                                                 </div>
                                             </li>
                                             :
                                             <li className='list-unstyled pe-3' onMouseEnter={() => { setLogout("d-block") }} onMouseLeave={() => { setLogout("d-none") }}>
-                                                <LinkContainer to="/">
+                                                <LinkContainer to={window.location.pathname}>
                                                     <a href="/" className='d-flex align-items-center text-decoration-none'><p className='mb-0 me-1'>Hi, {userName}</p> <Person fontSize={18} /></a>
                                                 </LinkContainer>
-                                                <div className={`log-out ${logout}`} onClick={() => { setUserStatus("") }}>
+                                                <div className={`log-out ${logout}`} onClick={() => { setUserStatus(""); localStorage.removeItem("user") }}>
                                                     <span>Log out</span>
                                                 </div>
                                             </li>
@@ -175,7 +204,7 @@ const Header: React.FC = () => {
             </Navbar>
 
             {/* Menu Nav */}
-            <Navbar bg="white" expand="lg" id='menu-nav' sticky='top'>
+            <Navbar expand="lg" id='menu-nav' sticky='top'>
                 <Container>
                     <Navbar.Collapse id="navbarScroll">
                         <div className="categories d-flex justify-content-between align-items-center">
@@ -190,7 +219,7 @@ const Header: React.FC = () => {
                                 <ul className='category-list ps-0 mb-0'>
                                     <li className='list-unstyled'>
                                         <LinkContainer to="/shop">
-                                            <div className="cat-item d-flex align-items-center">
+                                            <div className="cat-item d-flex align-items-center" onClick={() => { setActiveCat(1) }}>
                                                 <i className="fa-sharp fa-solid fa-mountain-sun me-2"></i>
                                                 Action & Adventure
                                             </div>
@@ -198,7 +227,7 @@ const Header: React.FC = () => {
                                     </li>
                                     <li className='list-unstyled'>
                                         <LinkContainer to="/shop">
-                                            <div className="cat-item d-flex align-items-center">
+                                            <div className="cat-item d-flex align-items-center" onClick={() => { setActiveCat(5) }}>
                                                 <i className="fa-solid fa-feather me-2"></i>
                                                 Arts & Photography
                                             </div>
@@ -206,7 +235,7 @@ const Header: React.FC = () => {
                                     </li>
                                     <li className='list-unstyled'>
                                         <LinkContainer to="/shop">
-                                            <div className="cat-item d-flex align-items-center">
+                                            <div className="cat-item d-flex align-items-center" onClick={() => { setActiveCat(8) }}>
                                                 <i className="fa-regular fa-flag me-2"></i>
                                                 Contemporary
                                             </div>
@@ -214,7 +243,7 @@ const Header: React.FC = () => {
                                     </li>
                                     <li className='list-unstyled'>
                                         <LinkContainer to="/shop">
-                                            <div className="cat-item d-flex align-items-center">
+                                            <div className="cat-item d-flex align-items-center" onClick={() => { setActiveCat(11) }}>
                                                 <i className="fas fa-book-open me-2"></i>
                                                 Foreign Language
                                             </div>
@@ -222,7 +251,7 @@ const Header: React.FC = () => {
                                     </li>
                                     <li className='list-unstyled'>
                                         <LinkContainer to="/shop">
-                                            <div className="cat-item d-flex align-items-center">
+                                            <div className="cat-item d-flex align-items-center" onClick={() => { setActiveCat(12) }}>
                                                 <i className="fa-solid fa-fan me-2"></i>
                                                 Genre Fiction
                                             </div>
@@ -230,7 +259,7 @@ const Header: React.FC = () => {
                                     </li>
                                     <li className='list-unstyled'>
                                         <LinkContainer to="/shop">
-                                            <div className="cat-item d-flex align-items-center">
+                                            <div className="cat-item d-flex align-items-center" onClick={() => { setActiveCat(13) }}>
                                                 <i className="fa-brands fa-canadian-maple-leaf me-2"></i>
                                                 Historical
                                             </div>
@@ -311,7 +340,7 @@ const Header: React.FC = () => {
             </Navbar>
 
             {/* Add to cart */}
-            <Offcanvas show={showCanvas} onHide={handleClose} placement='end'>
+            <Offcanvas show={showCanvas} onHide={handleClose} placement='end' className={mode === "dark" ? "off-dark" : ""}>
                 <Offcanvas.Header>
                     <Offcanvas.Title>Shopping cart</Offcanvas.Title>
                     <div className="closeBtn text-uppercase" onClick={handleClose}>Close</div>

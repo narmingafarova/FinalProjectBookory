@@ -97,9 +97,56 @@
       }
     }
     .foot-img {
-        position: absolute;
-        bottom: -105px;
-        left: 0;
+      position: absolute;
+      bottom: -105px;
+      left: 0;
+    }
+  }
+}
+
+.dark {
+  .about-story {
+    .init-about {
+      h4 {
+        color: $white;
+      }
+    }
+    .our-story {
+      background-color: $text;
+      .story-cards-part {
+        h3 {
+          color: $white;
+        }
+        .row {
+          .story-card {
+            h5 {
+              color: $white;
+            }
+            p {
+              color: $light_grey;
+            }
+          }
+        }
+      }
+      .quote-story {
+        .row {
+          [class^="col"] {
+            &:first-child {
+              h5 {
+                color: $white;
+              }
+              p {
+                color: $light_grey;
+              }
+            }
+            &:last-child {
+              p {
+                color: $light_grey;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

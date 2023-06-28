@@ -29,3 +29,19 @@
   background-color: $primary_orange;
   color: $white;
 }
+
+.dark {
+  .pagination button {
+    background: transparent;
+    color: $white;
+    &:hover {
+      background-color: $primary_orange;
+      color: $white;
+    }
+  }
+
+  .pagination button.active {
+    background-color: $primary_orange;
+    color: $white;
+  }
+}

@@ -33,7 +33,7 @@
             line-height: 1.25;
             color: $black;
             cursor: pointer;
-            transition: .3s;
+            transition: 0.3s;
             &:hover {
               color: $primary_orange;
             }
@@ -49,4 +49,24 @@
       }
     }
   }
+}
+
+.dark {
+  .top-vendors {
+    .vendor-content {
+      .vendor-info {
+        .vendor-data {
+          .vendor-title {
+            .vendor-name {
+              color: $white;
+              &:hover {
+                color: $primary_orange;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @include sectionHeaderDark;
 }

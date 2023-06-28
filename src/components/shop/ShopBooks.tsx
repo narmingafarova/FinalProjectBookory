@@ -7,6 +7,8 @@ import Rating from "../Rating";
 import { LinkContainer } from "react-router-bootstrap";
 import Pagination from "../Pagination";
 import { Slider } from "@mui/material";
+import { useBetween } from "use-between";
+import useSharedCategory from "../sharedHook/useSharedCategory";
 
 const ShopBooks = () => {
   const [books, setBooks] = useContext(BookContext);
@@ -18,7 +20,7 @@ const ShopBooks = () => {
   const [authors, setAuthors] = useState<any>();
 
   // For checked catgeory
-  const [activeCat, setActiveCat] = useState<number | null>()
+  const { activeCat, setActiveCat } = useBetween(useSharedCategory);
 
   // For ratings
   const [five, setFive] = useState<number>();
@@ -67,16 +69,22 @@ const ShopBooks = () => {
     setFourBook(fourStar);
     setThree(threeStar.length);
     setThreeBook(threeStar);
+    if (activeCat === 1) {
+      filterCategory("Action & Adventure")
+    } else if (activeCat === 5) {
+      filterCategory("Arts & Literature")
+    } else if (activeCat === 8) {
+      filterCategory("Contemporary")
+    } else if (activeCat === 11) {
+      filterCategory("Foreign Language")
+    } else if (activeCat === 12) {
+      filterCategory("Genre Fiction")
+    } else if (activeCat === 13) {
+      filterCategory("Historical")
+    } 
   }, [books]);
 
   const filterCategory = (cat: string) => {
-    // const catItem = books.filter((item: any) => item.category.map((itemCat: any) => itemCat) === cat);
-    // const catItem = books.filter((item: any) => {
-    // for (let i = 0; i < item.category.length; i++) {
-    //     let res = item.category[i] === cat ? item : ""
-    // }
-    // return res;
-    // });
     const catItem = books.filter(
       (item: any) =>
         item.category[0] === cat ||
@@ -157,7 +165,7 @@ const ShopBooks = () => {
               <div className="categories d-flex flex-column align-items-start">
                 <div className={`category mb-3 d-flex w-100 align-items-center ${activeCat === 1 ? "activeCat" : ""}`}>
                   <Dot />
-                  <label htmlFor="action" onClick={() => { setAuthors(undefined); setActiveCat(1); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Action & Adventure") }}>Action & Adventure</label>
+                  <label htmlFor="action" onClick={() => { setAuthors(undefined); setActiveCat(1); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Action & Adventure"); }}>Action & Adventure</label>
                 </div>
                 <div className={`category mb-3 d-flex w-100 align-items-center ${activeCat === 2 ? "activeCat" : ""}`}>
                   <Dot />
@@ -430,6 +438,7 @@ const ShopBooks = () => {
                   <select
                     name="pageitem"
                     id="pageitem"
+                    className="ms-2"
                     defaultValue={"12"}
                     onChange={(e: any) => {
                       setPostsPerPage(e.target.value);
@@ -437,9 +446,7 @@ const ShopBooks = () => {
                   >
                     <option value="6">6</option>
                     <option value="9">9</option>
-                    <option value="12">
-                      12
-                    </option>
+                    <option value="12">12</option>
                     <option value="15">15</option>
                     <option value="18">18</option>
                   </select>

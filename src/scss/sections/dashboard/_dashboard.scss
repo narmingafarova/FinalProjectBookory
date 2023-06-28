@@ -1,0 +1,133 @@
+.dashboard {
+  font-family: "Sora", sans-serif;
+  h1 {
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: $black;
+  }
+  table {
+    th {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: $black;
+    }
+    td {
+      max-width: 200px;
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 1.5;
+      color: $black;
+    }
+  }
+  .add-btn {
+    background-color: $primary_orange;
+    color: $white;
+    font-size: 15px;
+    font-weight: 300;
+  }
+  :not(.btn-check) + .btn:active {
+    background-color: $primary_orange;
+    color: $white;
+  }
+  .edit-btn,
+  .rmv-btn {
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.5;
+  }
+  .rmv-btn {
+    color: $white;
+  }
+}
+
+.add-dashboard {
+  font-family: "Sora", sans-serif;
+  .empty-form {
+    color: $primary_orange;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  h1 {
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: $black;
+  }
+  .blog-btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .add-btn {
+      color: $white;
+      width: 40%;
+      font-size: 15px;
+      font-weight: 300;
+      &:nth-child(1) {
+        background-color: $text;
+      }
+      &:nth-child(2) {
+        background-color: $primary_orange;
+      }
+    }
+  }
+  :not(.btn-check) + .btn:active {
+    background-color: $primary_orange;
+    color: $white;
+  }
+  .form-control {
+    border: 1px solid $milk_white;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: $black;
+    &::placeholder {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.5;
+      color: $text;
+      transition: 0.5s;
+      opacity: 0.4;
+    }
+    &:focus {
+      border-color: $primary_orange;
+      outline: 0;
+      box-shadow: 0px 0px 20px -12px $primary_orange;
+      &::placeholder {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.dark {
+  .dashboard {
+    h1 {
+      color: $white;
+    }
+    table {
+      th {
+        color: $white;
+      }
+      td {
+        color: $light_grey;
+      }
+    }
+  }
+  .add-dashboard {
+    h1 {
+      color: $white;
+    }
+    .form-control {
+      border: 1px solid $text;
+      color: $black;
+      &:focus {
+        border-color: $primary_orange;
+        &::placeholder {
+          opacity: 0;
+        }
+      }
+    }
+  }
+}

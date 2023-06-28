@@ -8,3 +8,15 @@
     border: none;
   }
 }
+
+.dark {
+  .add-cart {
+    img {
+      filter: brightness(0) saturate(100%) invert(100%) sepia(0%)
+        saturate(7440%) hue-rotate(152deg) brightness(93%) contrast(91%);
+    }
+    h5 {
+      color: $white;
+    }
+  }
+}

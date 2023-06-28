@@ -240,6 +240,135 @@ label {
   }
 }
 
+.dark-modal {
+  .modal-content {
+    background-color: $dark_bg;
+  }
+  .modal-header {
+    .btn-close {
+      color: $white;
+    }
+    .btn-close:focus {
+      box-shadow: none;
+    }
+  }
+  .modal-body {
+    .row {
+      * {
+        padding: 10px 0;
+      }
+      .modal-img {
+        background-color: $dark_bg;
+      }
+      .book-info {
+        @include rating;
+        .book-name {
+          color: $white;
+        }
+        .book-desc {
+          color: $light_grey;
+          border-bottom: 1px solid $text;
+        }
+      }
+      label {
+        color: $light_grey;
+      }
+
+      .modal-actions {
+        border-bottom: 1px solid $text;
+        .modal-quantity {
+          border: 1px solid $text;
+          input {
+            height: 52px;
+          }
+          button {
+            background-color: $white;
+            transition: 0.3s;
+            &:hover {
+              background-color: $primary_orange;
+              color: $white;
+            }
+          }
+        }
+        .add-wish {
+          border: 1px solid $text;
+          background-color: transparent;
+          i {
+            color: $white;
+          }
+          &:hover {
+            background-color: $primary_orange;
+            color: #fff;
+          }
+        }
+      }
+
+      .modal-cat-tag {
+        div {
+          span {
+            color: $white;
+          }
+          .list {
+            span {
+              color: $light_grey;
+              &:hover {
+                color: $primary_orange;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.dark {
+  .modal-actions {
+    border-bottom: 1px solid $text;
+    .modal-quantity {
+      border: 1px solid $text;
+      input {
+        height: 52px;
+      }
+      button {
+        background-color: $white;
+        transition: 0.3s;
+        &:hover {
+          background-color: $primary_orange;
+          color: $white;
+        }
+      }
+    }
+    .add-wish {
+      border: 1px solid $text;
+      background-color: transparent;
+      i {
+        color: $white;
+      }
+      &:hover {
+        background-color: $primary_orange;
+        color: #fff;
+      }
+    }
+  }
+
+  .modal-cat-tag {
+    div {
+      span {
+        color: $white;
+      }
+      .list {
+        span {
+          color: $light_grey;
+          &:hover {
+            color: $primary_orange;
+          }
+        }
+      }
+    }
+  }
+}
+
 @media (min-width: 576px) {
   .modal-dialog {
     max-width: 900px;

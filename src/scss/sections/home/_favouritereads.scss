@@ -48,3 +48,23 @@
     }
   }
 }
+
+.dark {
+  .favourite-reads {
+    @include sectionHeaderDark;
+    @include modeCardsDark;
+    .favourite-cards {
+      border: 1px solid $text;
+      [class^="col"] {
+        &:not(:last-child) {
+          border-right: 1px solid $text;
+        }
+        .fav-card-div {
+          &:not(:last-child) {
+            border-bottom: 1px solid $text;
+          }
+        }
+      }
+    }
+  }
+}

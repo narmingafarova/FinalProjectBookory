@@ -30,3 +30,13 @@
     }
   }
 }
+
+.dark {
+  .opp-cards {
+    .opp-card-item {
+      h4 {
+        color: $white;
+      }
+    }
+  }
+}

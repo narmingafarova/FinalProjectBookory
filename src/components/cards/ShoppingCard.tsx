@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button } from 'react-bootstrap';
 import { ChevronDown, ChevronUp } from 'react-bootstrap-icons';
+import { LinkContainer } from 'react-router-bootstrap';
 import { useCart } from 'react-use-cart';
 
 const ShoppingCard = ({ item }: any) => {
@@ -8,15 +9,17 @@ const ShoppingCard = ({ item }: any) => {
     return (
         <tr key={item.id}>
             <td>
-                <a
-                    href="/cart"
-                    className="text-decoration-none delete-btn"
-                    onClick={() => {
-                        removeItem(item.id);
-                    }}
-                >
-                    x
-                </a>
+                <LinkContainer to="/cart">
+                    <a
+                        href="/cart"
+                        className="text-decoration-none delete-btn"
+                        onClick={() => {
+                            removeItem(item.id);
+                        }}
+                    >
+                        x
+                    </a>
+                </LinkContainer>
             </td>
             <td>
                 <a href="/">

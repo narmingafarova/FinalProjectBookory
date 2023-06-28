@@ -32,3 +32,23 @@
     }
   }
 }
+
+.dark {
+  .book-stores {
+    border-top: 1px solid $text;
+    h3 {
+      color: $white;
+    }
+    .row {
+      h4 {
+        color: $white;
+      }
+      h6 {
+        color: $milk_white;
+      }
+      p {
+        color: $light_grey;
+      }
+    }
+  }
+}

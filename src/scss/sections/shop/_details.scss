@@ -39,6 +39,7 @@
         .book-author-rate {
           padding-bottom: 15px;
           border-bottom: 1px solid $milk_white;
+          align-items: center;
           div {
             font-size: 12px;
             font-weight: 300;
@@ -52,6 +53,7 @@
               border-right: 1px solid $milk_white;
             }
             &.author {
+              line-height: 27px;
               span {
                 cursor: pointer;
                 transition: 0.3s;
@@ -244,4 +246,132 @@
     }
   }
   @include sectionBtns;
+}
+
+.dark {
+  .details-page {
+    .book-detail {
+      .book-info,
+      .book-photo {
+        border: 1px solid $text;
+      }
+      .book-info {
+        .book-title {
+          .book-name {
+            color: $white;
+          }
+          .book-author-rate {
+            border-bottom: 1px solid $text;
+            align-items: center;
+            div {
+              color: $light_grey;
+              span {
+                color: $milk_white;
+              }
+              &:not(:last-child) {
+                border-right: 1px solid $text;
+              }
+              &.author {
+                span {
+                  &:hover {
+                    color: $primary_orange;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .price-desc {
+          border-bottom: 1px solid $text;
+          .brief-desc {
+            color: $light_grey;
+          }
+        }
+        .modal-actions {
+          .modal-quantity {
+            input {
+              height: 52px;
+            }
+          }
+          .detail-wish {
+            color: $light_grey;
+            &:hover {
+              color: $white;
+            }
+            i {
+              color: $white;
+            }
+          }
+        }
+      }
+    }
+    .additional-data {
+      .data-titles {
+        h3 {
+          color: $white;
+          &:not(.active-title) {
+            color: $light_grey;
+            transition: 0.3s;
+            &:hover {
+              color: $white;
+              &::before {
+                opacity: 1;
+                transform: scale(1);
+              }
+            }
+          }
+          &.active-title {
+            &::before {
+              opacity: 1;
+              transform: none;
+            }
+          }
+        }
+      }
+      .data-content {
+        border: 1px solid $text;
+        .desc-data {
+          p {
+            color: $light_grey;
+          }
+        }
+        .review-data {
+          .review-item {
+            .person-info {
+              @include rating;
+              .person-name {
+                h4 {
+                  color: $white;
+                }
+              }
+            }
+            .person-review {
+              color: $milk_white;
+            }
+          }
+        }
+        .vendor-data {
+          div {
+            color: $white;
+            span {
+              color: $light_grey;
+            }
+            &:not(:last-child) {
+              margin-bottom: 5px;
+            }
+            @include rating;
+          }
+        }
+      }
+    }
+    @include sectionHeaderDark;
+    @include rating;
+    .section-header {
+      h4 {
+        font-size: 26px;
+        line-height: 1.2307692308;
+      }
+    }
+    @include modeCardsDark;
+  }
 }

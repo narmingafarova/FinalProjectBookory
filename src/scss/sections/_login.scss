@@ -42,7 +42,7 @@
               outline: 0;
               border: 1px solid $black;
               box-shadow: none;
-              &+button {
+              & + button {
                 border: 1px solid $black;
               }
               &::placeholder {
@@ -61,7 +61,7 @@
             }
             button {
               border-left: none;
-              transition: .3s;
+              transition: 0.3s;
             }
           }
         }
@@ -103,6 +103,73 @@
           color: $light_grey;
           border-bottom: 1px dashed $light_grey;
           cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.login-dark {
+  &.login-modal {
+    .modal-content {
+      background-color: $dark_bg;
+      border-top: 2px solid $primary_orange;
+      .modal-header {
+        .modal-title {
+          color: $white;
+        }
+      }
+      .modal-body {
+        form {
+          div {
+            label {
+              color: $light_grey;
+            }
+            input {
+              border: 1px solid $text;
+              &::placeholder {
+                transition: 1s;
+              }
+              &:focus {
+                outline: 0;
+                border: 1px solid $text;
+                box-shadow: none;
+                & + button {
+                  border: 1px solid $text;
+                }
+                &::placeholder {
+                  opacity: 0;
+                }
+              }
+            }
+            &:not(:last-child) {
+              input {
+                margin-bottom: 15px;
+              }
+            }
+            &:nth-child(2) {
+              input {
+                border-right: none;
+              }
+              button {
+                border-left: none;
+                transition: 0.3s;
+              }
+            }
+          }
+          .pass-btn {
+            border: 1px solid $text;
+            background-color: $white;
+            i {
+              color: $light_grey;
+            }
+            &:hover {
+              background-color: $white;
+              i {
+                color: $light_grey;
+              }
+            }
+          }
         }
       }
     }

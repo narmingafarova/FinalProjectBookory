@@ -53,7 +53,7 @@
       border-radius: 3px;
       border: 1px solid $milk_white;
       outline: none;
-      transition: .3s;
+      transition: 0.3s;
       &::placeholder {
         transition: 1s;
       }
@@ -183,6 +183,74 @@
         @include rating;
         .vendor-info {
           width: 300px;
+        }
+      }
+    }
+  }
+}
+
+.dark {
+  .vendor-page {
+    .vendor-filter {
+      background-color: $text;
+      .total-vendor {
+        color: $white;
+      }
+      .vendor-filter-icons {
+        .vendor-list {
+          button {
+            background-color: $text;
+          }
+        }
+        .active-filter {
+          color: $white;
+        }
+      }
+    }
+    .vendor-search {
+      background-color: $text;
+      input {
+        color: $text;
+        border: 1px solid $text;
+      }
+    }
+    .vendors {
+      [class^="col"] {
+        .vendor-card {
+          .vendor-header {
+            background-color: $text;
+            @include rating;
+          }
+          .vendor-name {
+            color: $white;
+          }
+          .rating {
+            margin-bottom: 15px;
+          }
+          .address,
+          .contact {
+            color: $white;
+          }
+          .vendor-footer {
+            background-color: $light_grey;
+            .vendor-logo {
+              background: $light_grey;
+              border: 3px solid $light_grey;
+            }
+          }
+          &:hover {
+            .vendor-header {
+              background: linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 1.6),
+                rgba(0, 0, 0, 1.6)
+              );
+            }
+          }
+        }
+        .inline-card {
+          background-color: $text;
+          @include rating;
         }
       }
     }

@@ -9,3 +9,10 @@
   @include modeCards;
   @include rating;
 }
+
+.dark {
+  .bestselling {
+    @include sectionHeaderDark;
+    @include modeCardsDark;
+  }
+}
