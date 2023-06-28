@@ -17,7 +17,7 @@ const result = (
   </Provider>
 );
 
-ReactDOM.render(<p>Loading...</p>, document.getElementById("root"));
+ReactDOM.render(<div className='loading-gif d-flex align-items-center justify-content-center'><img src="https://media.tenor.com/dHAJxtIpUCoAAAAi/loading-animation.gif" alt="loading" width="100px"/></div>, document.getElementById("root"));
 
 store.dispatch(getBlogsFromDatabase()).then(() => {
   ReactDOM.render(result, document.getElementById("root"));

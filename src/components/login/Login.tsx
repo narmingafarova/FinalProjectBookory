@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { Button, Form, InputGroup, Modal } from 'react-bootstrap'
 import { useBetween } from 'use-between';
 import useSharedLogin from '../sharedHook/useSharedLogin';
-import { users } from '../../users/user';
+import { users } from '../../data/user';
 import useSharedUser from '../sharedHook/useSharedUser';
 import { ThemeContext } from '../../context/ThemeContext';
 

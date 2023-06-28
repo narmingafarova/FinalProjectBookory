@@ -4,6 +4,7 @@ import { ChevronRight } from 'react-bootstrap-icons'
 import { LinkContainer } from 'react-router-bootstrap'
 import { BookContext } from '../../context/BookContext'
 import Rating from '../Rating'
+import { LangContext } from '../../context/LangContext'
 
 const TopVendors: React.FC = () => {
     const [books] = useContext(BookContext);
@@ -13,6 +14,7 @@ const TopVendors: React.FC = () => {
     const [arlene, setArlene] = useState<any>(books)
     const [house, setHouse] = useState<any>(books)
 
+    const [lang] = useContext(LangContext);
     useEffect(() => {
         const findBarone = books.filter((item: any) => { return item.vendorInfo.storeName === "Barone LLC." });
         const findGreg = books.filter((item: any) => { return item.vendorInfo.storeName === "Gregstore" });
@@ -31,7 +33,7 @@ const TopVendors: React.FC = () => {
                 <div className="section-header mb-4">
                     <div className="row">
                         <div className="col-4 col-sm-4 col-md-3">
-                            <h4 className='text-capitalize mb-0'>Top Selling Vendor</h4>
+                            <h4 className='text-capitalize mb-0'>{lang === "en" ? "Top Selling Vendor" : "Çox satılan satıcı"}</h4>
                         </div>
                         <div className="col-4 col-sm-4 col-md-7 d-flex justify-content-center align-items-center">
                             <div className="divider-line"></div>
@@ -39,7 +41,7 @@ const TopVendors: React.FC = () => {
                         <div className="col-4 col-sm-4 col-md-2 d-flex justify-content-end">
                             <LinkContainer to="/vendor">
                                 <a href="/" className='text-decoration-none section-btn'>
-                                    View All &nbsp; <ChevronRight fontSize={11} />
+                                    {lang === "en" ? "View All" : "Hamısına bax"} &nbsp; <ChevronRight fontSize={11} />
                                 </a>
                             </LinkContainer>
                         </div>
@@ -70,7 +72,7 @@ const TopVendors: React.FC = () => {
                                         <LinkContainer to="/shop">
                                             <div className="vendor-name me-2">Barone LLC.</div>
                                         </LinkContainer>
-                                        <div className="products-length">({barone.length} products)</div>
+                                        <div className="products-length">({barone.length} { lang === "en" ? "products" : "kitab"})</div>
                                     </div>
                                     <Rating star={4} count={0} />
                                 </div>
@@ -99,7 +101,7 @@ const TopVendors: React.FC = () => {
                                         <LinkContainer to="/shop">
                                             <div className="vendor-name me-2">Gregstore</div>
                                         </LinkContainer>
-                                        <div className="products-length">({greg.length} products)</div>
+                                        <div className="products-length">({greg.length} { lang === "en" ? "products" : "kitab"})</div>
                                     </div>
                                     <Rating star={4.6} count={0} />
                                 </div>
@@ -128,7 +130,7 @@ const TopVendors: React.FC = () => {
                                         <LinkContainer to="/shop">
                                             <div className="vendor-name me-2">Arlene</div>
                                         </LinkContainer>
-                                        <div className="products-length">({arlene.length} products)</div>
+                                        <div className="products-length">({arlene.length} { lang === "en" ? "products" : "kitab"})</div>
                                     </div>
                                     <Rating star={4.6} count={0} />
                                 </div>
@@ -157,7 +159,7 @@ const TopVendors: React.FC = () => {
                                         <LinkContainer to="/shop">
                                             <div className="vendor-name me-2">BookPlace</div>
                                         </LinkContainer>
-                                        <div className="products-length">({house.length} products)</div>
+                                        <div className="products-length">({house.length} { lang === "en" ? "products" : "kitab"})</div>
                                     </div>
                                     <Rating star={4.6} count={0} />
                                 </div>

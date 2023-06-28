@@ -2,9 +2,12 @@ import React, { useContext } from 'react'
 import { Container } from 'react-bootstrap'
 import { Facebook, Instagram, Pinterest, Twitter } from 'react-bootstrap-icons'
 import { ThemeContext } from '../context/ThemeContext'
+import { LangContext } from '../context/LangContext'
+import { LinkContainer } from 'react-router-bootstrap'
 
 const Footer: React.FC = () => {
     const [mode] = useContext(ThemeContext);
+    const [lang] = useContext(LangContext)
     return (
         <>
             <div className="footer">
@@ -16,7 +19,7 @@ const Footer: React.FC = () => {
                                     <div className="foot-logo">
                                         <img src={mode === "light" ? "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/logo-1.svg" : "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/logo.svg"} alt="" />
                                     </div>
-                                    <p className='mb-2'>Got Questions ? Call us 24/7!</p>
+                                    <p className='mb-2'>{lang === "en" ? "Got Questions ? Call us 24/7!" : "Suallarınız var? 24/7 bizə zəng edin!"}</p>
                                     <h4 className='pb-4 mb-0'>+(84) - 1800 - 4635</h4>
                                     <ul className='social-icons ps-0 d-flex justify-content-center align-items-center'>
                                         <li className='list-unstyled me-3'><a href="/"><Facebook /></a></li>
@@ -106,7 +109,7 @@ const Footer: React.FC = () => {
             </div>
             <div className="sub-footer">
                 <Container className='d-flex justify-content-between align-items-center'>
-                    <p className='mb-0'>Copyright © 2023 <a href="/" className='text-decoration-none'>Bookory</a>. All rights reserved.</p>
+                    <p className='mb-0'>{lang === "en" ? "Copyright © 2023" : "Müəlliflik hüququ © 2023"} <LinkContainer to="/"><a href="/" className='text-decoration-none'>Bookory</a></LinkContainer>. {lang === "en" ? "All rights reserved." : "Bütün hüquqlar qorunur."}</p>
                     <div className="bank-cards">
                         <img src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/footer_img.png" alt="cards" />
                     </div>

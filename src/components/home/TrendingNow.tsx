@@ -7,10 +7,13 @@ import AOS from 'aos';
 
 import Slider from "react-slick";
 import { LinkContainer } from 'react-router-bootstrap'
+import { LangContext } from '../../context/LangContext'
 
 const TrendingNow: React.FC = () => {
     const [books] = useContext(BookContext)
     const [trend, setTrend] = useState([])
+
+    const [lang] = useContext(LangContext);
 
     useEffect(() => {
         const trendBooks = books.filter((item: any) => item.mode === "trend");
@@ -61,7 +64,7 @@ const TrendingNow: React.FC = () => {
                 <div className="section-header mb-4">
                     <div className="row">
                         <div className="col-4 col-sm-4 col-md-3">
-                            <h4 className='text-capitalize mb-0'>Trending Now</h4>
+                            <h4 className='text-capitalize mb-0'>{lang === "en" ? "Trending Now" : "İndi Trenddəkilər"}</h4>
                         </div>
                         <div className="col-4 col-sm-4 col-md-7 d-flex justify-content-center align-items-center">
                             <div className="divider-line"></div>
@@ -69,7 +72,7 @@ const TrendingNow: React.FC = () => {
                         <div className="col-4 col-sm-4 col-md-2 d-flex justify-content-end">
                             <LinkContainer to="/shop">
                                 <a href="/" className='text-decoration-none section-btn'>
-                                    View All &nbsp; <ChevronRight fontSize={11} />
+                                    {lang === "en" ? "View All" : "Hamısına bax"} &nbsp; <ChevronRight fontSize={11} />
                                 </a>
                             </LinkContainer>
                         </div>
@@ -86,12 +89,12 @@ const TrendingNow: React.FC = () => {
                     <Col sm={12} md={4}>
                         <div className="section-main-card trend-main-card d-flex flex-column justify-content-between">
                             <div className="card-title">
-                                <h4>Buy One, Get One 30% off</h4>
-                                <h3>30% Off</h3>
-                                <span>This offer is valid at Bookory <br /> from October 1, 2022</span>
+                                <h4>{lang === "en" ? "Buy One, Get One 30% off" : "Birini al, birini 30% endirimlə əldə et"}</h4>
+                                <h3>{lang === "en" ? "30% Off" : "30% Endirim"}</h3>
+                                <span>{lang === "en" ? "This offer is valid at Bookory" : "Bu təklif 1 oktyabr 2022-ci ildən"} <br /> {lang === "en" ? "from October 1, 2022" : "Bookory-də keçərlidir"}</span>
                             </div>
                             <div className="card-foot">
-                                <span>Got Questions ?</span>
+                                <span>{lang === "en" ? "Got Questions" : "Suallar var"} ?</span>
                                 <p className='mb-0'>+(84)-1800-4635</p>
                             </div>
                         </div>

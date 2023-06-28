@@ -53,21 +53,7 @@
   }
 }
 [class^="swiper-button"] {
-  color: $black;
-  &::after {
-    font-size: 25px !important;
-    transition: 0.3s;
-  }
-  &:hover {
-    color: $primary_orange !important;
-  }
-}
-.swiper-button-prev {
-  left: -40px;
-}
-
-.swiper-button-next {
-  right: -40px;
+  display: none !important;
 }
 
 .dark {

@@ -14,11 +14,7 @@
     }
     .mode-btn {
       padding: 3px 18px;
-      background: radial-gradient(
-        circle,
-        rgb(223, 223, 0, 1) -6%,
-        rgb(6, 35, 41, 1) 97%
-      );
+      background-color: $dark_bg;
       svg {
         color: rgb(223, 223, 44);
       }
@@ -109,16 +105,6 @@
         border-radius: 10px;
         z-index: 1030;
         overflow-y: auto;
-        &::before {
-          position: absolute;
-          content: "";
-          width: 10px;
-          height: 10px;
-          background: #f6f6f6;
-          top: -6px;
-          left: 50%;
-          transform: rotate(45deg);
-        }
         .search-item {
           .book-data {
             .book-name {
@@ -145,15 +131,6 @@
               font-weight: 500;
               line-height: 1.4;
               color: #f65d4e;
-            }
-          }
-          .book-actions {
-            button {
-              padding: 5px 17px;
-              i {
-                font-size: 15px;
-                color: $white;
-              }
             }
           }
           &:not(:last-child) {
@@ -593,12 +570,10 @@
     border-bottom: 1px solid $text;
     .navbar-nav {
       .mode-btn {
-        background: rgb(223, 223, 44);
-        background: radial-gradient(
-          circle,
-          rgba(223, 223, 44, 1) 34%,
-          rgba(142, 216, 231, 1) 86%
-        );
+        background-color: rgba(26, 228, 239, 0.743);
+        svg {
+          color: rgb(223, 223, 44);
+        }
         padding: 3px 18px;
       }
     }
@@ -619,6 +594,29 @@
   #search-nav {
     background-color: $dark_bg;
     border-bottom: 1px solid $text;
+    .search-and-panel {
+      form {
+        .searching-result {
+          background-color: $text;
+          .search-item {
+            .book-data {
+              .book-name {
+                color: $white;
+                &:hover {
+                  color: $primary_orange;
+                }
+              }
+            }
+            &:not(:last-child) {
+              border-bottom: 1px solid $light_grey;
+            }
+          }
+          .no-book {
+            color: $white;
+          }
+        }
+      }
+    }
   }
   .admin-panel-icons {
     .find-location {

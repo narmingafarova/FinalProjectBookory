@@ -7,10 +7,13 @@ import AOS from 'aos';
 import Slider from "react-slick";
 import BookCard from '../cards/BookCard';
 import { LinkContainer } from 'react-router-bootstrap';
+import { LangContext } from '../../context/LangContext';
 
 const Bestselling: React.FC = () => {
     const [books] = useContext(BookContext)
     const [best, setBest] = useState([])
+
+    const [lang] = useContext(LangContext);
 
     useEffect(() => {
         const bestBooks = books.filter((item: any) => item.mode === "best");
@@ -61,7 +64,7 @@ const Bestselling: React.FC = () => {
                 <div className="section-header mb-4">
                     <div className="row">
                         <div className="col-4 col-sm-4 col-md-3">
-                            <h4 className='text-capitalize mb-0'>Bestselling Books</h4>
+                            <h4 className='text-capitalize mb-0'>{lang === "en" ? "Bestselling Books" : "Ən çox satılanlar"}</h4>
                         </div>
                         <div className="col-4 col-sm-4 col-md-7 d-flex justify-content-center align-items-center">
                             <div className="divider-line"></div>
@@ -69,7 +72,7 @@ const Bestselling: React.FC = () => {
                         <div className="col-4 col-sm-4 col-md-2 d-flex justify-content-end">
                             <LinkContainer to="/shop">
                                 <a href="/" className='text-decoration-none section-btn'>
-                                    View All &nbsp; <ChevronRight fontSize={11} />
+                                    {lang === "en" ? "View All" : "Hamısına bax"} &nbsp; <ChevronRight fontSize={11} />
                                 </a>
                             </LinkContainer>
                         </div>
@@ -86,12 +89,12 @@ const Bestselling: React.FC = () => {
                     <Col sm={12} md={4}>
                         <div className="section-main-card bestselling-main-card d-flex flex-column justify-content-between">
                             <div className="card-title">
-                                <h4>Big Sale</h4>
-                                <h3>25% Off</h3>
+                                <h4>{lang === "en" ? "Big Sale" : "Böyük Satış"}</h4>
+                                <h3>{lang === "en" ? "25% Off" : "25% Endirim"}</h3>
                             </div>
                             <div className="card-foot">
-                                <p className='mb-0'>Kids Love <br /> Reading Books</p>
-                                <span>It all begins with a great book!</span>
+                                <p className='mb-0'>{lang === "en" ? "Kids Love" : "Uşaqlar Kitab"} <br />{lang === "en" ? "Reading Books" : "Oxumağı Sevir"}</p>
+                                <span>{lang === "en" ? "It all begins with a great book!" : "Hər şey gözəl bir kitabla başlayır!"}</span>
                             </div>
                         </div>
 

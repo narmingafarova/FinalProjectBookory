@@ -19,6 +19,8 @@ import useSharedUser from './components/sharedHook/useSharedUser'
 import AddDashboard from './pages/admin/AddDashboard'
 import EditDashboard from './pages/admin/EditDashboard'
 import { ThemeContext, ThemeProvider } from './context/ThemeContext'
+import Wishlist from './pages/Wishlist'
+import { LangProvider } from './context/LangContext'
 
 const Main = () => {
   const [mode] = useContext(ThemeContext)
@@ -30,6 +32,7 @@ const Main = () => {
         <Route path='/shop' element={<Shop />} />
         <Route path='/shop/:id' element={<ProductDetails />} />
         <Route path='/cart' element={<Cart />} />
+        <Route path='/wish' element={<Wishlist />} />
         <Route path='/about' element={<About />} />
         <Route path='/vendor' element={<Vendor />} />
         <Route path='/blog' element={<Blog />} />
@@ -57,14 +60,17 @@ const App: React.FC = () => {
         setUserName(user)
       }
     }
-  })
+  }, [])
+
 
   return (
     <BrowserRouter>
       <CartProvider>
         <BookProvider>
           <ThemeProvider>
-            <Main />
+            <LangProvider>
+              <Main />
+            </LangProvider>
           </ThemeProvider>
         </BookProvider>
       </CartProvider>

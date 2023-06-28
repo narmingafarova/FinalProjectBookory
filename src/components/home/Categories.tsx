@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -10,8 +10,16 @@ import "swiper/css/navigation";
 import { Autoplay, Navigation, Pagination } from "swiper";
 import CategoryCard from '../cards/CategoryCard';
 import { Container } from 'react-bootstrap';
+import { LangContext } from '../../context/LangContext';
+import { cat_card_az, cat_card_en } from '../../data/lang';
 
-const Categories = () => {
+const Categories: React.FC = () => {
+    const [lang] = useContext(LangContext);
+    const [catCards, setCatCards] = useState<any>([])
+    useEffect(() => {
+        const category = lang === "en" ? cat_card_en : cat_card_az;
+        setCatCards(category);
+    }, [lang])
     return (
         <div className='pt-5 pb-0 home-categories'>
             <Container>
@@ -28,15 +36,15 @@ const Categories = () => {
                     }}
                     className="mySwiper"
                 >
-                    <SwiperSlide><CategoryCard image='https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/h6_cat1.png' category='Biographies & Memoirs' /></SwiperSlide>
-                    <SwiperSlide><CategoryCard image='https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/h6_cat2.png' category="Children's Books" /></SwiperSlide>
-                    <SwiperSlide><CategoryCard image='https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/h6_cat3.png' category='Christian Living' /></SwiperSlide>
-                    <SwiperSlide><CategoryCard image='https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/h6_cat4.png' category='Church History' /></SwiperSlide>
-                    <SwiperSlide><CategoryCard image='https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/h6_cat5.png' category='Educational Curriculum' /></SwiperSlide>
-                    <SwiperSlide><CategoryCard image='https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/h6_cat6.png' category='Fiction & Fantasy' /></SwiperSlide>
-                    <SwiperSlide><CategoryCard image='https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/h6_cat7.png' category='Religion & Spirituality' /></SwiperSlide>
-                    <SwiperSlide><CategoryCard image='https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/h6_cat8.png' category='Romance Books' /></SwiperSlide>
-                    <SwiperSlide><CategoryCard image='https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/h6_cat9.png' category='Literature & Fiction' /></SwiperSlide>
+                    <SwiperSlide><CategoryCard image='https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/h6_cat1.png' category={catCards[0]} /></SwiperSlide>
+                    <SwiperSlide><CategoryCard image='https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/h6_cat2.png' category={catCards[1]}/></SwiperSlide>
+                    <SwiperSlide><CategoryCard image='https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/h6_cat3.png' category={catCards[2]} /></SwiperSlide>
+                    <SwiperSlide><CategoryCard image='https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/h6_cat4.png' category={catCards[3]} /></SwiperSlide>
+                    <SwiperSlide><CategoryCard image='https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/h6_cat5.png' category={catCards[4]} /></SwiperSlide>
+                    <SwiperSlide><CategoryCard image='https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/h6_cat6.png' category={catCards[5]} /></SwiperSlide>
+                    <SwiperSlide><CategoryCard image='https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/h6_cat7.png' category={catCards[6]} /></SwiperSlide>
+                    <SwiperSlide><CategoryCard image='https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/h6_cat8.png' category={catCards[7]} /></SwiperSlide>
+                    <SwiperSlide><CategoryCard image='https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/h6_cat9.png' category={catCards[8]} /></SwiperSlide>
                 </Swiper>
             </Container>
         </div>

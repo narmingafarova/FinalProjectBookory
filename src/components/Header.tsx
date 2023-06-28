@@ -1,6 +1,6 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Button, Form, Offcanvas } from 'react-bootstrap';
-import { Bag, ChevronDown, ChevronUp, Facebook, GeoAlt, Grid3x3Gap, Heart, Instagram, MoonFill, Person, Pinterest, Search, TelephonePlus, Twitter } from 'react-bootstrap-icons';
+import { Bag, BrightnessHighFill, ChevronDown, ChevronUp, Facebook, GeoAlt, Grid3x3Gap, Heart, Instagram, MoonFill, Person, Pinterest, Search, TelephonePlus, Twitter } from 'react-bootstrap-icons';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -15,17 +15,19 @@ import useSharedUser from './sharedHook/useSharedUser';
 import Swal from 'sweetalert2';
 import useSharedCategory from './sharedHook/useSharedCategory';
 import { ThemeContext } from '../context/ThemeContext';
+import { LangContext } from '../context/LangContext';
+import { menu_az, menu_cat_az, menu_cat_en, menu_en } from '../data/lang';
 
 const Header: React.FC = () => {
     const { showCanvas, setShowCanvas } = useBetween(useSharedCanvas);
     const { setShowLogin } = useBetween(useSharedLogin);
     const { userStatus, setUserStatus, userName } = useBetween(useSharedUser);
     const { setActiveCat } = useBetween(useSharedCategory);
+    const { totalItems, items, removeItem, cartTotal, emptyCart } = useCart();
     const [logout, setLogout] = useState<string>("d-none");
 
     const [books] = useContext(BookContext);
 
-    const { totalItems, items, removeItem, cartTotal, emptyCart } = useCart();
     const [navbarAdd, setNavbarAdd] = useState(false)
     const navbarExtra = () => {
         if (window.scrollY >= 137.5) {
@@ -69,8 +71,8 @@ const Header: React.FC = () => {
         }
     }
 
+    // Dark & Light mode
     const [mode, setMode] = useContext(ThemeContext);
-
     const modeChange = () => {
         if (mode === 'light') {
             setMode("dark");
@@ -78,6 +80,28 @@ const Header: React.FC = () => {
         } else {
             setMode("light");
             localStorage.setItem('mode', 'light');
+        }
+    }
+
+    // En & Az language
+    const [lang, setLang] = useContext(LangContext);
+    const [menuData, setMenuData] = useState<any>([]);
+    const [menuCat, setMenuCat] = useState<any>([]);
+
+    useEffect(() => {
+        const menuData = lang === "en" ? menu_en : menu_az;
+        setMenuData(menuData)
+        const menuCat = lang === "en" ? menu_cat_en : menu_cat_az;
+        setMenuCat(menuCat)
+    }, [lang])
+
+    const langChange = () => {
+        if (lang === 'en') {
+            setLang("az");
+            localStorage.setItem('lang', 'az');
+        } else {
+            setLang("en");
+            localStorage.setItem('lang', 'en');
         }
     }
 
@@ -93,22 +117,23 @@ const Header: React.FC = () => {
                             navbarScroll
                         >
                             <button
-                                className="btn btn-func mode-btn ms-3"
+                                className="btn btn-func mode-btn"
                                 type="submit"
                                 onClick={modeChange}
                             >
-                                {mode === "dark" ? "🌞" : <MoonFill />}
+                                {mode === "dark" ? <BrightnessHighFill /> : <MoonFill />}
                             </button>
                             <button
-                                className="btn btn-func lang-btn ms-3"
+                                className="btn btn-func lang-btn ms-2"
                                 type="submit"
+                                onClick={langChange}
                             >
-                                AZ
+                                {lang === "en" ? "Az" : "En"}
                             </button>
                         </Nav>
                         {userStatus === "admin" ?
                             <LinkContainer to="/dashboard">
-                                <span className='admin-dash'>Dashboard</span>
+                                <span className='admin-dash'>{lang === "en" ? "Dashboard" : "Idarə paneli"}</span>
                             </LinkContainer>
                             :
                             <ul className="social-icons d-flex justify-content-center align-items-center ps-0 mb-0">
@@ -139,7 +164,7 @@ const Header: React.FC = () => {
                         </Navbar.Brand>
                         <div className="search-and-panel ms-auto d-flex justify-content-center align-items-center">
                             <Form className='position-relative'>
-                                <Form.Control type="search" placeholder='Search products...' onChange={(e) => { setSearchValue(e.target.value) }} />
+                                <Form.Control type="search" placeholder={lang === "en" ? "Search books..." : "Kitabları axtarın..."} onChange={(e) => { setSearchValue(e.target.value) }} />
                                 <Button className='d-flex align-items-center position-absolute'><Search /></Button>
                                 <div className={`searching-result ${searchValue === "" ? "d-none" : "d-block"}`}>
                                     {searchResult.length !== 0 ? searchResult.map((item: any) => {
@@ -162,7 +187,7 @@ const Header: React.FC = () => {
                             </Form>
                             <div className="admin-panel-icons ms-5 d-flex justify-content-center align-items-center">
                                 <a href='/' className="find-location text-decoration-none d-flex justify-content-center align-items-center">
-                                    <GeoAlt className='me-2' fontSize={16} /> <span>Find a Book Store</span>
+                                    <GeoAlt className='me-2' fontSize={16} /> <span>{lang === "en" ? "Find a Book Store" : "Kitab mağazası tapın"}</span>
                                 </a>
                                 <ul className='d-flex justify-content-center align-items-center mb-0'>
                                     {!userStatus ?
@@ -174,24 +199,26 @@ const Header: React.FC = () => {
                                         : userStatus === "admin" ?
                                             <li className='list-unstyled pe-3' onMouseEnter={() => { setLogout("d-block") }} onMouseLeave={() => { setLogout("d-none") }}>
                                                 <LinkContainer to={window.location.pathname}>
-                                                    <a href="/" className='d-flex align-items-center text-decoration-none'><p className='mb-0 me-1'>Hi, admin</p> <Person fontSize={18} /></a>
+                                                    <a href="/" className='d-flex align-items-center text-decoration-none'><p className='mb-0 me-1'>{lang === "en" ? "Hi" : "Salam"}, admin</p> <Person fontSize={18} /></a>
                                                 </LinkContainer>
                                                 <div className={`log-out ${logout}`} onClick={() => { setUserStatus(""); localStorage.removeItem("user") }}>
-                                                    <span>Log out</span>
+                                                    <span>{lang === "en" ? "Log out" : "Hesabdan çıx"}</span>
                                                 </div>
                                             </li>
                                             :
                                             <li className='list-unstyled pe-3' onMouseEnter={() => { setLogout("d-block") }} onMouseLeave={() => { setLogout("d-none") }}>
                                                 <LinkContainer to={window.location.pathname}>
-                                                    <a href="/" className='d-flex align-items-center text-decoration-none'><p className='mb-0 me-1'>Hi, {userName}</p> <Person fontSize={18} /></a>
+                                                    <a href="/" className='d-flex align-items-center text-decoration-none'><p className='mb-0 me-1'>{lang === "en" ? "Hi" : "Salam"}, {userName}</p> <Person fontSize={18} /></a>
                                                 </LinkContainer>
                                                 <div className={`log-out ${logout}`} onClick={() => { setUserStatus(""); localStorage.removeItem("user") }}>
-                                                    <span>Log out</span>
+                                                    <span>{lang === "en" ? "Log out" : "Hesabdan çıx"}</span>
                                                 </div>
                                             </li>
                                     }
                                     <li className='list-unstyled px-3'>
-                                        <a href="/"><Heart fontSize={14} /><span>0</span></a>
+                                        <LinkContainer to="/wish">
+                                            <a href="/"><Heart fontSize={14} /><span>0</span></a>
+                                        </LinkContainer>
                                     </li>
                                     <li className='list-unstyled ps-3' onClick={handleShow}>
                                         <div><Bag fontSize={15} /><span>{totalItems}</span></div>
@@ -210,7 +237,7 @@ const Header: React.FC = () => {
                         <div className="categories d-flex justify-content-between align-items-center">
                             <div className="cat-relative d-flex justify-content-between align-items-center w-100">
                                 <div className="main-part d-flex justify-content-center align-items-center">
-                                    <Grid3x3Gap className='me-2' fontSize={18} /> Categories
+                                    <Grid3x3Gap className='me-2' fontSize={18} /> {lang === "en" ? "Categories" : "Kateqoriyalar"}
                                 </div>
                                 <ChevronDown fontSize={10} />
                                 <ChevronUp fontSize={10} />
@@ -221,7 +248,7 @@ const Header: React.FC = () => {
                                         <LinkContainer to="/shop">
                                             <div className="cat-item d-flex align-items-center" onClick={() => { setActiveCat(1) }}>
                                                 <i className="fa-sharp fa-solid fa-mountain-sun me-2"></i>
-                                                Action & Adventure
+                                                {menuCat[0]}
                                             </div>
                                         </LinkContainer>
                                     </li>
@@ -229,7 +256,7 @@ const Header: React.FC = () => {
                                         <LinkContainer to="/shop">
                                             <div className="cat-item d-flex align-items-center" onClick={() => { setActiveCat(5) }}>
                                                 <i className="fa-solid fa-feather me-2"></i>
-                                                Arts & Photography
+                                                {menuCat[1]}
                                             </div>
                                         </LinkContainer>
                                     </li>
@@ -237,7 +264,7 @@ const Header: React.FC = () => {
                                         <LinkContainer to="/shop">
                                             <div className="cat-item d-flex align-items-center" onClick={() => { setActiveCat(8) }}>
                                                 <i className="fa-regular fa-flag me-2"></i>
-                                                Contemporary
+                                                {menuCat[2]}
                                             </div>
                                         </LinkContainer>
                                     </li>
@@ -245,7 +272,7 @@ const Header: React.FC = () => {
                                         <LinkContainer to="/shop">
                                             <div className="cat-item d-flex align-items-center" onClick={() => { setActiveCat(11) }}>
                                                 <i className="fas fa-book-open me-2"></i>
-                                                Foreign Language
+                                                {menuCat[3]}
                                             </div>
                                         </LinkContainer>
                                     </li>
@@ -253,7 +280,7 @@ const Header: React.FC = () => {
                                         <LinkContainer to="/shop">
                                             <div className="cat-item d-flex align-items-center" onClick={() => { setActiveCat(12) }}>
                                                 <i className="fa-solid fa-fan me-2"></i>
-                                                Genre Fiction
+                                                {menuCat[4]}
                                             </div>
                                         </LinkContainer>
                                     </li>
@@ -261,7 +288,7 @@ const Header: React.FC = () => {
                                         <LinkContainer to="/shop">
                                             <div className="cat-item d-flex align-items-center" onClick={() => { setActiveCat(13) }}>
                                                 <i className="fa-brands fa-canadian-maple-leaf me-2"></i>
-                                                Historical
+                                                {menuCat[5]}
                                             </div>
                                         </LinkContainer>
                                     </li>
@@ -275,29 +302,29 @@ const Header: React.FC = () => {
                             navbarScroll
                         >
                             <LinkContainer to="/">
-                                <Nav.Link className='me-4'>Home</Nav.Link>
+                                <Nav.Link className='me-4'>{menuData[0]}</Nav.Link>
                             </LinkContainer>
                             <LinkContainer to="/shop">
-                                <Nav.Link className='me-4'>Shop</Nav.Link>
+                                <Nav.Link className='me-4'>{menuData[1]}</Nav.Link>
                             </LinkContainer>
                             <LinkContainer to="/vendor">
-                                <Nav.Link className='me-4'>Vendor</Nav.Link>
+                                <Nav.Link className='me-4'>{menuData[2]}</Nav.Link>
                             </LinkContainer>
                             <LinkContainer to="/blog">
-                                <Nav.Link className='me-4'>Blog</Nav.Link>
+                                <Nav.Link className='me-4'>{menuData[3]}</Nav.Link>
                             </LinkContainer>
                             <LinkContainer to="/about">
-                                <Nav.Link className='me-4'>About us</Nav.Link>
+                                <Nav.Link className='me-4'>{menuData[4]}</Nav.Link>
                             </LinkContainer>
                             <LinkContainer to="/contact">
-                                <Nav.Link>Contact</Nav.Link>
+                                <Nav.Link>{menuData[5]}</Nav.Link>
                             </LinkContainer>
                         </Nav>
                         <div className={`support-center d-flex justify-content-center align-items-center ${navbarAdd ? "d-none" : ""}`}>
                             <div className="call-icon me-3"><TelephonePlus /></div>
                             <div className="support-context">
                                 <p className='mb-0'>+1 840 - 841 25 69</p>
-                                <span>24/7 Support Center</span>
+                                <span>{lang === "en" ? "24/7 Support Center" : "24/7 Dəstək mərkəzi"}</span>
                             </div>
                         </div>
                         <div className={`admin-panel-icons ${navbarAdd ? "" : "d-none"}`}>
@@ -311,19 +338,19 @@ const Header: React.FC = () => {
                                     : userStatus === "admin" ?
                                         <li className='list-unstyled pe-3' onMouseEnter={() => { setLogout("d-block") }} onMouseLeave={() => { setLogout("d-none") }}>
                                             <LinkContainer to="/">
-                                                <a href="/" className='d-flex align-items-center text-decoration-none'><p className='mb-0 me-1'>Hi, admin</p> <Person fontSize={18} /></a>
+                                                <a href="/" className='d-flex align-items-center text-decoration-none'><p className='mb-0 me-1'>{lang === "en" ? "Hi" : "Salam"}, admin</p> <Person fontSize={18} /></a>
                                             </LinkContainer>
-                                            <div className={`log-out ${logout}`} onClick={() => { setUserStatus("") }}>
-                                                <span>Log out</span>
+                                            <div className={`log-out ${logout}`} onClick={() => { setUserStatus(""); localStorage.removeItem("user") }}>
+                                                <span>{lang === "en" ? "Log out" : "Hesabdan çıx"}</span>
                                             </div>
                                         </li>
                                         :
                                         <li className='list-unstyled pe-3' onMouseEnter={() => { setLogout("d-block") }} onMouseLeave={() => { setLogout("d-none") }}>
                                             <LinkContainer to="/">
-                                                <a href="/" className='d-flex align-items-center text-decoration-none'><p className='mb-0 me-1'>Hi, {userName}</p> <Person fontSize={18} /></a>
+                                                <a href="/" className='d-flex align-items-center text-decoration-none'><p className='mb-0 me-1'>{lang === "en" ? "Hi" : "Salam"}, {userName}</p> <Person fontSize={18} /></a>
                                             </LinkContainer>
-                                            <div className={`log-out ${logout}`} onClick={() => { setUserStatus("") }}>
-                                                <span>Log out</span>
+                                            <div className={`log-out ${logout}`} onClick={() => { setUserStatus(""); localStorage.removeItem("user") }}>
+                                                <span>{lang === "en" ? "Log out" : "Hesabdan çıx"}</span>
                                             </div>
                                         </li>
                                 }
@@ -342,13 +369,13 @@ const Header: React.FC = () => {
             {/* Add to cart */}
             <Offcanvas show={showCanvas} onHide={handleClose} placement='end' className={mode === "dark" ? "off-dark" : ""}>
                 <Offcanvas.Header>
-                    <Offcanvas.Title>Shopping cart</Offcanvas.Title>
-                    <div className="closeBtn text-uppercase" onClick={handleClose}>Close</div>
+                    <Offcanvas.Title>{lang === "en" ? "Shopping cart" : "Alış-veriş səbəti"}</Offcanvas.Title>
+                    <div className="closeBtn text-uppercase" onClick={handleClose}>{lang === "en" ? "Close" : "Bağla"}</div>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
                     {totalItems === 0 ?
                         <div className='no-cart d-flex flex-column'>
-                            <p className='mb-0'>No products in the cart.</p>
+                            <p className='mb-0'>{lang === "en" ? "No books in the cart." : "Səbətdə kitab yoxdur."}</p>
                         </div>
                         :
                         <div className='shop-cart d-flex flex-column justify-content-between h-100'>
@@ -366,7 +393,7 @@ const Header: React.FC = () => {
                                                         <h5 onClick={() => setShowCanvas(false)}>{item.title}</h5>
                                                     </LinkContainer>
                                                     <div className="vendor-info">
-                                                        Vendor: <span>{item.vendorInfo.storeName}</span>
+                                                        {lang === "en" ? "Vendor" : "Satıcı"}: <span>{item.vendorInfo.storeName}</span>
                                                     </div>
                                                     <div className="quantity-price d-flex align-items-center">
                                                         <span className="quantity">{item.quantity} x &nbsp;</span><span className='price'>${item.price}</span>
@@ -379,16 +406,16 @@ const Header: React.FC = () => {
                             </div>
                             <div className="shop-submit">
                                 <div className="total-price d-flex justify-content-between">
-                                    Subtotal: <div className="total">${cartTotal.toFixed(2)}</div>
+                                    {lang === "en" ? "Subtotal" : "Ara cəmi"}: <div className="total">${cartTotal.toFixed(2)}</div>
                                 </div>
                                 <div className="cart-btns">
                                     <LinkContainer to="/cart">
                                         <button className="view-cart text-uppercase" onClick={() => setShowCanvas(false)}>
-                                            View Cart
+                                            {lang === "en" ? "View Cart" : "Səbətə bax"}
                                         </button>
                                     </LinkContainer>
                                     <button className="view-cart text-uppercase" onClick={cartCheckout}>
-                                        Checkout
+                                        {lang === "en" ? "Checkout" : "Alış-verişi tamamla"}
                                     </button>
                                 </div>
                             </div>
