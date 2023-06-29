@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { ArrowRightCircleFill, Search } from "react-bootstrap-icons";
 import { useSelector } from "react-redux";
+import { LangContext } from "../../context/LangContext";
 
 const BlogContent: React.FC = () => {
     const blogData = useSelector((blog: any) => blog);
@@ -22,6 +23,8 @@ const BlogContent: React.FC = () => {
         });
         setFiltered(catBlog);
     };
+
+    const [lang] = useContext(LangContext);
 
     return (
         <Container className="blog-content my-5">
@@ -136,7 +139,7 @@ const BlogContent: React.FC = () => {
                     <div className="blog-filters">
                         <div className="shop-category mb-4">
                             <div className="cat-title d-flex justify-content-between align-items-center">
-                                <h4 className="mb-0">Search</h4>
+                                <h4 className="mb-0">{lang === "en" ? "Search" : "Axtar"}</h4>
                             </div>
                             <div className="search-blog categories d-flex flex-row align-items-center">
                                 <form
@@ -146,7 +149,7 @@ const BlogContent: React.FC = () => {
                                 >
                                     <input
                                         type="text"
-                                        placeholder="Search ..."
+                                        placeholder={lang === "en" ? "Search ..." : "Axtar ..."}
                                         value={query}
                                         onChange={(e) => {
                                             setQuery(e.target.value);
@@ -168,7 +171,7 @@ const BlogContent: React.FC = () => {
                         </div>
                         <div className="shop-category">
                             <div className="cat-title d-flex justify-content-between align-items-center">
-                                <h4 className="mb-0">Categories</h4>
+                                <h4 className="mb-0">{lang === "en" ? "Categories" : "Kateqoriyalar"}</h4>
                             </div>
                             <div className="categories d-flex flex-column align-items-start">
                                 <div
@@ -189,7 +192,7 @@ const BlogContent: React.FC = () => {
                                             }
                                         }}
                                     >
-                                        Arts & Literature
+                                        {lang === "en" ? "Arts & Literature" : "İncəsənət & Ədəbiyyat"}
                                     </label>
                                 </div>
                                 <div
@@ -210,7 +213,7 @@ const BlogContent: React.FC = () => {
                                             }
                                         }}
                                     >
-                                        Cultural
+                                        {lang === "en" ? "Cultural" : "Mədəni"}
                                     </label>
                                 </div>
                                 <div
@@ -231,7 +234,7 @@ const BlogContent: React.FC = () => {
                                             }
                                         }}
                                     >
-                                        European
+                                        {lang === "en" ? "European" : "Avropalı"}
                                     </label>
                                 </div>
                                 <div
@@ -252,7 +255,7 @@ const BlogContent: React.FC = () => {
                                             }
                                         }}
                                     >
-                                        Historical
+                                        {lang === "en" ? "Historical" : "Tarixi"}
                                     </label>
                                 </div>
                                 <div
@@ -273,7 +276,7 @@ const BlogContent: React.FC = () => {
                                             }
                                         }}
                                     >
-                                        Uncategorized
+                                        {lang === "en" ? "Uncategorized" : "Kateqoriyasız"}
                                     </label>
                                 </div>
                             </div>

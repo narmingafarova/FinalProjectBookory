@@ -45,31 +45,6 @@ const Header: React.FC = () => {
     const [searchValue, setSearchValue] = useState<string>("");
     const searchResult = books.filter((value: any) => value.title.toLocaleLowerCase().includes(searchValue));
 
-    const cartCheckout = () => {
-        if (userStatus !== "") {
-            Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'The order of the books has been accepted',
-                showConfirmButton: false,
-                timer: 1000
-            })
-            emptyCart();
-            setTimeout(() => {
-                setShowCanvas(false);
-            }, 1000);
-        } else {
-            Swal.fire({
-                title: 'Please login first!',
-                timer: 1000,
-                timerProgressBar: false,
-                showConfirmButton: false,
-            })
-            setTimeout(() => {
-                setShowLogin(true);
-            }, 1200);
-        }
-    }
 
     // Dark & Light mode
     const [mode, setMode] = useContext(ThemeContext);
@@ -102,6 +77,35 @@ const Header: React.FC = () => {
         } else {
             setLang("en");
             localStorage.setItem('lang', 'en');
+        }
+    }
+
+    const swalTitle = lang === "en" ? "The order of the books has been accepted" : "Kitabların sifarişi qəbul olunub";
+    const swalLog = lang === "en" ? "Please login first!" : "Zəhmət olmasa əvvəlcə daxil olun!";
+
+    const cartCheckout = () => {
+        if (userStatus !== "") {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: swalTitle,
+                showConfirmButton: false,
+                timer: 1000
+            })
+            emptyCart();
+            setTimeout(() => {
+                setShowCanvas(false);
+            }, 1000);
+        } else {
+            Swal.fire({
+                title: swalLog,
+                timer: 1000,
+                timerProgressBar: false,
+                showConfirmButton: false,
+            })
+            setTimeout(() => {
+                setShowLogin(true);
+            }, 1200);
         }
     }
 

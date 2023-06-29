@@ -1,13 +1,19 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Container } from 'react-bootstrap'
 import { Facebook, Instagram, Pinterest, Twitter } from 'react-bootstrap-icons'
 import { ThemeContext } from '../context/ThemeContext'
 import { LangContext } from '../context/LangContext'
 import { LinkContainer } from 'react-router-bootstrap'
+import { footer_az, footer_en } from '../data/lang'
 
 const Footer: React.FC = () => {
     const [mode] = useContext(ThemeContext);
     const [lang] = useContext(LangContext)
+    const [footInfo, setFootInfo] = useState<any>([]);
+    useEffect(() => {
+        const foot = lang === "en" ? footer_en : footer_az;
+        setFootInfo(foot)
+    }, [lang])
     return (
         <>
             <div className="footer">
@@ -29,76 +35,76 @@ const Footer: React.FC = () => {
                                     </ul>
                                 </div>
                                 <div className="col-12 col-sm-6 col-md-6 px-5">
-                                    <h5 className="foot-title text-capitalize mb-3">Contact info</h5>
+                                    <h5 className="foot-title text-capitalize mb-3">{footInfo[0]}</h5>
                                     <ul className='ps-0 mb-4'>
                                         <li className='list-unstyled mb-3'>1418 River Drive, Suite 35 <br />
                                             Cottonhall, CA 9622</li>
-                                        <li className='list-unstyled'>Monday – Friday: 9:00-20:00 <br />
-                                            Saturday: 11:00 – 15:00</li>
+                                        <li className='list-unstyled'>{lang === "en" ? "Monday – Friday" : "Bazar ertəsi - Cümə"}: 9:00-20:00 <br />
+                                            {lang === "en" ? "Saturday" : "Şənbə"}: 11:00 – 15:00</li>
                                     </ul>
-                                    <p className='mb-0'>contact@example.com</p>
+                                    <p className='mb-0'>{lang === "en" ? "contact@example" : "əlaqə@nümunə"}.com</p>
                                 </div>
                             </div>
                         </div>
                         <div className="col-12 col-sm-6 col-md-6">
                             <div className="row">
                                 <div className="col-12 col-sm-6 col-md-4">
-                                    <h5 className="foot-title text-capitalize mb-3">Explore</h5>
+                                    <h5 className="foot-title text-capitalize mb-3">{footInfo[1]}</h5>
                                     <ul className='ps-0'>
                                         <li className='list-unstyled mb-1'>
-                                            <a href="/" className='text-decoration-none'>About Us</a>
+                                            <a href="/" className='text-decoration-none'>{footInfo[2]}</a>
                                         </li>
                                         <li className='list-unstyled mb-1'>
-                                            <a href="/" className='text-decoration-none'>Sitemap</a>
+                                            <a href="/" className='text-decoration-none'>{footInfo[3]}</a>
                                         </li>
                                         <li className='list-unstyled mb-1'>
-                                            <a href="/" className='text-decoration-none'>Bookmarks</a>
+                                            <a href="/" className='text-decoration-none'>{footInfo[4]}</a>
                                         </li>
                                         <li className='list-unstyled'>
-                                            <a href="/" className='text-decoration-none'>Sign in/Join</a>
+                                            <a href="/" className='text-decoration-none'>{footInfo[5]}</a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div className="col-12 col-sm-6 col-md-4">
-                                    <h5 className="foot-title text-capitalize mb-3">Our service</h5>
+                                    <h5 className="foot-title text-capitalize mb-3">{footInfo[6]}</h5>
                                     <ul className='ps-0'>
                                         <li className='list-unstyled mb-1'>
-                                            <a href="/" className='text-decoration-none'>Help Center</a>
+                                            <a href="/" className='text-decoration-none'>{footInfo[7]}</a>
                                         </li>
                                         <li className='list-unstyled mb-1'>
-                                            <a href="/" className='text-decoration-none'>Returns</a>
+                                            <a href="/" className='text-decoration-none'>{footInfo[8]}</a>
                                         </li>
                                         <li className='list-unstyled mb-1'>
-                                            <a href="/" className='text-decoration-none'>Product Recalls</a>
+                                            <a href="/" className='text-decoration-none'>{footInfo[9]}</a>
                                         </li>
                                         <li className='list-unstyled mb-1'>
-                                            <a href="/" className='text-decoration-none'>Accessibility</a>
+                                            <a href="/" className='text-decoration-none'>{footInfo[10]}</a>
                                         </li>
                                         <li className='list-unstyled mb-1'>
-                                            <a href="/" className='text-decoration-none'>Contact Us</a>
+                                            <a href="/" className='text-decoration-none'>{footInfo[11]}</a>
                                         </li>
                                         <li className='list-unstyled'>
-                                            <a href="/" className='text-decoration-none'>Store Pickup</a>
+                                            <a href="/" className='text-decoration-none'>{footInfo[12]}</a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div className="col-12 col-sm-6 col-md-4">
-                                    <h5 className="foot-title text-capitalize mb-3">Categories</h5>
+                                    <h5 className="foot-title text-capitalize mb-3">{footInfo[13]}</h5>
                                     <ul className='ps-0'>
                                         <li className='list-unstyled mb-1'>
-                                            <a href="/" className='text-decoration-none'>Action</a>
+                                            <a href="/" className='text-decoration-none'>{footInfo[14]}</a>
                                         </li>
                                         <li className='list-unstyled mb-1'>
-                                            <a href="/" className='text-decoration-none'>Comedy</a>
+                                            <a href="/" className='text-decoration-none'>{footInfo[15]}</a>
                                         </li>
                                         <li className='list-unstyled mb-1'>
-                                            <a href="/" className='text-decoration-none'>Drama</a>
+                                            <a href="/" className='text-decoration-none'>{footInfo[16]}</a>
                                         </li>
                                         <li className='list-unstyled mb-1'>
-                                            <a href="/" className='text-decoration-none'>Horror</a>
+                                            <a href="/" className='text-decoration-none'>{footInfo[17]}</a>
                                         </li>
                                         <li className='list-unstyled'>
-                                            <a href="/" className='text-decoration-none'>Kids</a>
+                                            <a href="/" className='text-decoration-none'>{footInfo[18]}</a>
                                         </li>
                                     </ul>
                                 </div>

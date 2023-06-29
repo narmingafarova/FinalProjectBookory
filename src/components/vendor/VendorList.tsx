@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import Rating from '../Rating'
 import { ChevronRight, Filter, GridFill, List, Telephone } from 'react-bootstrap-icons'
 import { LinkContainer } from 'react-router-bootstrap'
+import { LangContext } from '../../context/LangContext'
 
 const vendorData = [
     {
@@ -76,15 +77,16 @@ const VendorList = () => {
     const [searchDiv, setSearchDiv] = useState<string>("");
     const [query, setQuery] = useState<string>("");
     const [searchvalue, setSearchvalue] = useState<string>("");
+    const [lang] = useContext(LangContext);
     return (
         <Container className='vendor-page'>
             <div className="vendor-filter mb-2 d-flex justify-content-between align-items-center">
                 <div className="total-vendor">
-                    Total stores showing: {vendorData.length}
+                    {lang === "en" ? "Total stores showing" : "Ümumi göstərilən mağazalar"}: {vendorData.length}
                 </div>
                 <div className="vendor-filter-icons d-flex justify-content-between align-items-center">
                     <button className='filter-btn d-flex justify-content-center align-items-center me-3' onClick={() => { searchDiv === "" ? setSearchDiv("active-search") : setSearchDiv("") }}>
-                        <Filter className='me-1' /> Filter
+                        <Filter className='me-1' /> {lang === "en" ? "Filter" : "Filtr"}
                     </button>
                     <div className="vendor-list">
                         <button className={`me-0 ${activeCol === 4 ? "active-filter" : ""}`} onClick={() => { setActiveCol(4) }}><GridFill fontSize={17} /></button>
@@ -94,9 +96,9 @@ const VendorList = () => {
             </div>
             <div className={`vendor-search ${searchDiv}`}>
                 <form onSubmit={(e) => { e.preventDefault() }}>
-                    <input type="search" name="search" id="search" placeholder='Search Vendors' onChange={(e) => { setQuery(e.target.value) }} />
+                    <input type="search" name="search" id="search" placeholder={lang === "en" ? "Search Vendors" : "Satıcı Axtar"} onChange={(e) => { setQuery(e.target.value) }} />
                     <div className="search-btn d-flex justify-content-end">
-                        <button type='submit' onClick={() => { setSearchvalue(query) }}>Apply</button>
+                        <button type='submit' onClick={() => { setSearchvalue(query) }}>{lang === "en" ? "Apply" : "Tətbiq et"}</button>
                     </div>
                 </form>
             </div>

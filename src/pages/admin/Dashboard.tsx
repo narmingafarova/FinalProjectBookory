@@ -1,29 +1,31 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Button, Container, Table } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { LinkContainer } from 'react-router-bootstrap'
 import { removeBlogFromDatabase } from '../../managers/action/blogAction'
 import { PencilSquare, X } from 'react-bootstrap-icons'
+import { LangContext } from '../../context/LangContext'
 
 const Dashboard = () => {
     const blogData: any = useSelector((blog: any) => blog)
     const dispatch: any = useDispatch()
+    const [lang] = useContext(LangContext)
     return (
         <Container className='my-5 dashboard'>
-            <h1 className='text-center'>Dashboard</h1>
+            <h1 className='text-center'>{lang === "en" ? "Dashboard" : "Idarə Paneli"}</h1>
             <LinkContainer to="/dashboard/add">
-                <Button className='mb-2 add-btn' variant='none'>+ Add</Button>
+                <Button className='mb-2 add-btn' variant='none'>+ {lang === "en" ? "Add" : "Əlavə et"}</Button>
             </LinkContainer>
             <Table bordered>
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Photo</th>
-                        <th>Title</th>
-                        <th>Description</th>
-                        <th>Category</th>
-                        <th>Person</th>
-                        <th>Date</th>
+                        <th>{lang === "en" ? "Photo" : "Şəkil"}</th>
+                        <th>{lang === "en" ? "Title" : "Başlıq"}</th>
+                        <th>{lang === "en" ? "Description" : "Təsvir"}</th>
+                        <th>{lang === "en" ? "Category" : "Kateqoriya"}</th>
+                        <th>{lang === "en" ? "Person" : "Şəxs"}</th>
+                        <th>{lang === "en" ? "Date" : "Tarix"}</th>
                         <th></th>
                     </tr>
                 </thead>

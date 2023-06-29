@@ -5,6 +5,7 @@ import useSharedLogin from '../sharedHook/useSharedLogin';
 import { users } from '../../data/user';
 import useSharedUser from '../sharedHook/useSharedUser';
 import { ThemeContext } from '../../context/ThemeContext';
+import { LangContext } from '../../context/LangContext';
 
 const Login: React.FC = () => {
     const { showLogin, setShowLogin } = useBetween(useSharedLogin);
@@ -56,31 +57,32 @@ const Login: React.FC = () => {
         }
     }
 
+    const [lang] = useContext(LangContext);
     return (
         <Modal className={`login-modal ${mode === "dark" ? "login-dark" : ""}`} centered show={showLogin} onHide={() => { setShowLogin(false); setForgotPass("d-none") }}>
             <Modal.Header>
-                <Modal.Title>{forgotPass === "d-none" ? "Sign in" : "Forgot password"}</Modal.Title>
+                <Modal.Title>{forgotPass === "d-none" && lang === "en" ? "Sign in" : forgotPass === "d-none" && lang === "az" ? "Daxil ol" : lang === "en" ? "Forgot password" : "Şifrəmi unutdum"}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <div className={`login-form ${forgotPass === "d-none" ? "" : "d-none"}`}>
                     <Form onSubmit={loginSubmit}>
                         <Form.Group>
-                            <Form.Label>Username or email <span>*</span></Form.Label>
+                            <Form.Label>{lang === "en" ? "Username or email" : "Istifadəçi adı və ya e-poçt"} <span>*</span></Form.Label>
                             <Form.Control
                                 type="text"
                                 name="username"
-                                placeholder='Username'
+                                placeholder={lang === "en" ? "Username or email" : "Istifadəçi adı və ya e-poçt"}
                                 value={username}
                                 onChange={(e) => { setUsername(e.target.value) }}
                             />
                         </Form.Group>
                         <Form.Group>
-                            <Form.Label>Password <span>*</span></Form.Label>
+                            <Form.Label>{lang === "en" ? "Password" : "Şifrə"} <span>*</span></Form.Label>
                             <InputGroup className="mb-3">
                                 <Form.Control
                                     type={inputType}
                                     name="password"
-                                    placeholder='Password'
+                                    placeholder={lang === "en" ? "Password" : "Şifrə"}
                                     value={password}
                                     onChange={(e) => { setPassword(e.target.value) }}
                                 />
@@ -97,36 +99,36 @@ const Login: React.FC = () => {
                                 </Button>
                             </InputGroup>
                         </Form.Group>
-                        <Button type='submit' variant='none' className='submit-btn text-uppercase'>Login</Button>
+                        <Button type='submit' variant='none' className='submit-btn text-uppercase'>{lang === "en" ? "Login" : "Daxil ol"}</Button>
                     </Form>
                     <div className="forgot-pass d-flex justify-content-end mt-3">
-                        <span onClick={() => { setForgotPass("d-block") }}>Lost your password?</span>
+                        <span onClick={() => { setForgotPass("d-block") }}>{lang === "en" ? "Lost your password?" : "Şifrəni unutmusan?"}</span>
                     </div>
                 </div>
                 <div className={`forgot-div ${forgotPass}`}>
                     <Form onSubmit={forgotSubmit}>
                         <Form.Group>
-                            <Form.Label>Username or email <span>*</span></Form.Label>
+                            <Form.Label>{lang === "en" ? "Username or email" : "Istifadəçi adı və ya e-poçt"} <span>*</span></Form.Label>
                             <Form.Control
                                 type="text"
                                 name="username"
-                                placeholder='Username'
+                                placeholder={lang === "en" ? "Username or email" : "Istifadəçi adı və ya e-poçt"}
                                 onChange={(e: any) => { setFUsername(e.target.value) }}
                             />
                         </Form.Group>
                         <Form.Group>
-                            <Form.Label>Secret word <span>*</span></Form.Label>
+                            <Form.Label>{lang === "en" ? "Secret word" : "Gizli söz"} <span>*</span></Form.Label>
                             <Form.Control
                                 type="text"
                                 name="secret"
-                                placeholder='Secret Word'
+                                placeholder={lang === "en" ? "Secret word" : "Gizli söz"}
                                 onChange={(e: any) => { setFSecret(e.target.value) }}
                             />
                         </Form.Group>
-                        <Button type='submit' variant='none' className='submit-btn text-uppercase'>Submit</Button>
+                        <Button type='submit' variant='none' className='submit-btn text-uppercase'>{lang === "en" ? "Submit" : "Təqdim et"}</Button>
                     </Form>
                     <div className="forgot-pass d-flex justify-content-end mt-3">
-                        <span onClick={() => { setForgotPass("d-none") }}>Back to login</span>
+                        <span onClick={() => { setForgotPass("d-none") }}>{lang === "en" ? "Back to login" : "Giriş səhifəsinə qayıt"}</span>
                     </div>
                 </div>
             </Modal.Body>

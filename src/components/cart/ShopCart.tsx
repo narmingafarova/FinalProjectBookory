@@ -1,13 +1,47 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Button, Col, Container, Row, Table } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useCart } from 'react-use-cart';
 import ShoppingCard from '../cards/ShoppingCard';
+import { LangContext } from '../../context/LangContext';
+import { useBetween } from 'use-between';
+import useSharedUser from '../sharedHook/useSharedUser';
+import Swal from 'sweetalert2';
+import useSharedLogin from '../sharedHook/useSharedLogin';
 
 const ShopCart: React.FC = () => {
-    const { isEmpty, items, cartTotal } = useCart();
+    const { isEmpty, items, cartTotal, emptyCart } = useCart();
     const [coupon, setCoupon] = useState<string>("");
     const [sale, setSale] = useState<boolean>(false);
+    const [lang] = useContext(LangContext);
+    const { userStatus } = useBetween(useSharedUser);
+    const { setShowLogin } = useBetween(useSharedLogin);
+
+    const swalTitle = lang === "en" ? "The order of the books has been accepted" : "Kitabların sifarişi qəbul olunub";
+    const swalLog = lang === "en" ? "Please login first!" : "Zəhmət olmasa əvvəlcə daxil olun!";
+
+    const cartCheckout = () => {
+        if (userStatus !== "") {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: swalTitle,
+                showConfirmButton: false,
+                timer: 1000
+            })
+            emptyCart();
+        } else {
+            Swal.fire({
+                title: swalLog,
+                timer: 1000,
+                timerProgressBar: false,
+                showConfirmButton: false,
+            })
+            setTimeout(() => {
+                setShowLogin(true);
+            }, 1200);
+        }
+    }
     return (
         <>
             {isEmpty ?
@@ -15,10 +49,10 @@ const ShopCart: React.FC = () => {
                     <div className="empty-icon text-center">
                         <img src="https://icon-library.com/images/shoppingcart-icon/shoppingcart-icon-29.jpg" alt="empty" width="300px" />
                     </div>
-                    <h5 className='mb-4'>Your cart is currently empty.</h5>
+                    <h5 className='mb-4'>{lang === "en" ? "Your cart is currently empty." : "Səbətiniz hazırda boşdur."}</h5>
                     <LinkContainer to="/shop">
                         <a href="/" className='text-decoration-none section-btn'>
-                            Return to shop
+                            {lang === "en" ? "Return to shop" : "Alış-verişə geri dön"}
                         </a>
                     </LinkContainer>
                 </Container>
@@ -29,10 +63,10 @@ const ShopCart: React.FC = () => {
                                 <tr>
                                     <th></th>
                                     <th></th>
-                                    <th>Product</th>
-                                    <th>Price</th>
-                                    <th>Quantity</th>
-                                    <th>Subtotal</th>
+                                    <th>{lang === "en" ? "Product" : "Məhsul"}</th>
+                                    <th>{lang === "en" ? "Price" : "Qiymət"}</th>
+                                    <th>{lang === "en" ? "Quantity" : "Say"}</th>
+                                    <th>{lang === "en" ? "Subtotal" : "Ara Cəmi"}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -43,7 +77,7 @@ const ShopCart: React.FC = () => {
                                     <td colSpan={6}>
                                         <div className="coupon-update d-flex justify-content-between">
                                             <div className="coupon d-flex">
-                                                <input type="text" placeholder="Coupon Code" onChange={(e) => { setCoupon(e.target.value) }} />
+                                                <input type="text" placeholder={lang === "en" ? "Coupon Code" : "Kupon kodu"} onChange={(e) => { setCoupon(e.target.value) }} />
                                                 <Button
                                                     type="submit"
                                                     className="add-cart-btn ms-2 d-flex align-items-center"
@@ -55,7 +89,7 @@ const ShopCart: React.FC = () => {
                                                         }
                                                     }}
                                                 >
-                                                    Apply coupon
+                                                    {lang === "en" ? "Apply coupon" : "Kuponu tətbiq edin"}
                                                 </Button>
                                             </div>
                                         </div>
@@ -65,15 +99,15 @@ const ShopCart: React.FC = () => {
                         </Table>
                         <Row className="d-flex flex-row-reverse mt-4">
                             <Col sm={12} md={6}>
-                                <h5>Cart totals</h5>
+                                <h5>{lang === "en" ? "Cart totals" : "Səbət cəmi"}</h5>
                                 <Table bordered className="totals">
                                     <tbody>
                                         <tr>
-                                            <td>Subtotal</td>
+                                            <td>{lang === "en" ? "Subtotal" : "Ara Cəmi"}</td>
                                             <td>${cartTotal.toFixed(2)}</td>
                                         </tr>
                                         <tr>
-                                            <td>Total</td>
+                                            <td>{lang === "en" ? "Total" : "Cəmi"}</td>
                                             <td className='d-flex justify-content-between'>
                                                 ${sale ? (cartTotal - 50).toFixed(2) : cartTotal.toFixed(2)}
                                                 <span className={sale ? "" : "d-none"}>-$50</span>
@@ -84,8 +118,9 @@ const ShopCart: React.FC = () => {
                                 <Button
                                     type="submit"
                                     className="add-cart-btn d-flex align-items-center"
+                                    onClick={cartCheckout}
                                 >
-                                    Proceed to checkout
+                                    {lang === "en" ? "Proceed to checkout" : "Alış-verişi tamamla"}
                                 </Button>
                             </Col>
                         </Row>

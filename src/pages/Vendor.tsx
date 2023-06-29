@@ -1,15 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import BreadCrumb from '../components/BreadCrumb'
 import ScrollToTop from '../components/ScrollToTop'
 import VendorList from '../components/vendor/VendorList'
+import { LangContext } from '../context/LangContext'
 
 const Vendor: React.FC = () => {
+  const [lang] = useContext(LangContext)
   return (
     <>
       <ScrollToTop />
       {/* Main part */}
-      <BreadCrumb page='Store List' />
-      <VendorList/>
+      <BreadCrumb page={lang === "en" ? "Store List" : "Satıcılar"} />
+      <VendorList />
     </>
   )
 }

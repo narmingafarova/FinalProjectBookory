@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Container } from 'react-bootstrap'
 import ClientCards from '../cards/ClientCards'
 // import { Swiper, SwiperSlide } from "swiper/react";
@@ -13,6 +13,8 @@ import ClientCards from '../cards/ClientCards'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { LangContext } from '../../context/LangContext';
+import { test_az, test_en } from '../../data/lang';
 
 const Testimonials: React.FC = () => {
     const settings = {
@@ -50,13 +52,21 @@ const Testimonials: React.FC = () => {
             }
         ]
     };
+
+    const [lang] = useContext(LangContext)
+    const [test, setTest] = useState<any>([])
+    useEffect(()=>{
+        const test = lang === "en" ? test_en : test_az;
+        setTest(test);
+    },[lang])
+
     return (
         <div className='testimonials pb-5'>
             <Container>
                 <div className="section-header mb-5">
                     <div className="row">
                         <div className="col-4 col-sm-4 col-md-3">
-                            <h4 className='text-capitalize mb-0'>What Client Says</h4>
+                            <h4 className='text-capitalize mb-0'>{lang === "en" ? "What Client Says" : "Müştəri nə deyir"}</h4>
                         </div>
                         <div className="col-4 col-sm-4 col-md-7 d-flex justify-content-center align-items-center">
                             <div className="divider-line"></div>
@@ -66,16 +76,16 @@ const Testimonials: React.FC = () => {
                 </div>
                 <Slider {...settings}>
                     <div>
-                        <ClientCards image={"https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/test_01.png"} content='“This is the best book store!. The prices are great, and there is always a sale of some kind going on. You can find just what you are looking for.”' name='Pam Pruitt' job='New York' />
+                        <ClientCards image={"https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/test_01.png"} content={`“${test[0]}”`} name='Pam Pruitt' job='New York' />
                     </div>
                     <div>
-                        <ClientCards image={"https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/test_02.png"} content='“I am so happy to find a site where I can shop for unusual items. The packaging was phenomenal and my book arrived on time in perfect condition.”' name='Joel M.' job='New York' />
+                        <ClientCards image={"https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/test_02.png"} content={`“${test[1]}”`} name='Joel M.' job='New York' />
                     </div>
                     <div>
-                        <ClientCards image={"https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/test_03.png"} content='“Excellent service. The books were wrapped securely and arrived in pristine condition. I sent an email after to books arrived to ask about the author.”' name='Ellie A.' job='New York' />
+                        <ClientCards image={"https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/test_03.png"} content={`“${test[2]}”`} name='Ellie A.' job='New York' />
                     </div>
                     <div>
-                        <ClientCards image={"https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/test_03.png"} content='“I am so happy to find a site where I can shop for unusual items. The packaging was phenomenal and my book arrived on time in perfect condition.”' name='John Doe' job='New York' />
+                        <ClientCards image={"https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/test_03.png"} content={`“${test[1]}”`} name='John Doe' job='New York' />
                     </div>
                 </Slider>
             </Container>
