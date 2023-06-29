@@ -9,6 +9,8 @@ import Pagination from "../Pagination";
 import { Slider } from "@mui/material";
 import { useBetween } from "use-between";
 import useSharedCategory from "../sharedHook/useSharedCategory";
+import { LangContext } from "../../context/LangContext";
+import { shop_cat_az, shop_cat_en } from "../../data/lang";
 
 const ShopBooks = () => {
   const [books, setBooks] = useContext(BookContext);
@@ -81,7 +83,7 @@ const ShopBooks = () => {
       filterCategory("Genre Fiction")
     } else if (activeCat === 13) {
       filterCategory("Historical")
-    } 
+    }
   }, [books]);
 
   const filterCategory = (cat: string) => {
@@ -143,6 +145,13 @@ const ShopBooks = () => {
   const currentAuthors = authors?.slice(firstPostIndex, lastPostIndex);
   const currentRates = rateBooks?.slice(firstPostIndex, lastPostIndex);
 
+  const [lang] = useContext(LangContext);
+  const [langCat, setLangCat] = useState<any>([]);
+  useEffect(() => {
+    const cat = lang === "en" ? shop_cat_en : shop_cat_az;
+    setLangCat(cat);
+  }, [lang])
+
   return (
     <>
       <Container className="shop-books">
@@ -150,7 +159,7 @@ const ShopBooks = () => {
           <Col sm={12} md={3} className="pe-4">
             <div className="shop-category mb-4">
               <div className="cat-title d-flex justify-content-between align-items-center">
-                <h4 className="mb-0">Genre</h4>
+                <h4 className="mb-0">{lang === "en" ? "Genre" : "Janr"}</h4>
                 <Button
                   variant="none"
                   className="text-decoration-underline text-danger"
@@ -159,71 +168,71 @@ const ShopBooks = () => {
                     setActiveCat(null)
                   }}
                 >
-                  Reset
+                  {lang === "en" ? "Reset" : "Sıfırla"}
                 </Button>
               </div>
               <div className="categories d-flex flex-column align-items-start">
                 <div className={`category mb-3 d-flex w-100 align-items-center ${activeCat === 1 ? "activeCat" : ""}`}>
                   <Dot />
-                  <label htmlFor="action" onClick={() => { setAuthors(undefined); setActiveCat(1); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Action & Adventure"); }}>Action & Adventure</label>
+                  <label htmlFor="action" onClick={() => { setAuthors(undefined); setActiveCat(1); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Action & Adventure"); }}>{langCat[0]}</label>
                 </div>
                 <div className={`category mb-3 d-flex w-100 align-items-center ${activeCat === 2 ? "activeCat" : ""}`}>
                   <Dot />
-                  <label htmlFor="activity" onClick={() => { setAuthors(undefined); setActiveCat(2); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Activity Books"); }}>Activity Books</label>
+                  <label htmlFor="activity" onClick={() => { setAuthors(undefined); setActiveCat(2); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Activity Books"); }}>{langCat[1]}</label>
                 </div>
                 <div className={`category mb-3 d-flex w-100 align-items-center ${activeCat === 3 ? "activeCat" : ""}`}>
                   <Dot />
-                  <label htmlFor="animals" onClick={() => { setAuthors(undefined); setActiveCat(3); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Animals"); }}>Animals</label>
+                  <label htmlFor="animals" onClick={() => { setAuthors(undefined); setActiveCat(3); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Animals"); }}>{langCat[2]}</label>
                 </div>
                 <div className={`category mb-3 d-flex w-100 align-items-center ${activeCat === 4 ? "activeCat" : ""}`}>
                   <Dot />
-                  <label htmlFor="anthologies" onClick={() => { setAuthors(undefined); setActiveCat(4); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Anthologies"); }}>Anthologies</label>
+                  <label htmlFor="anthologies" onClick={() => { setAuthors(undefined); setActiveCat(4); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Anthologies"); }}>{langCat[3]}</label>
                 </div>
                 <div className={`category mb-3 d-flex w-100 align-items-center ${activeCat === 5 ? "activeCat" : ""}`}>
                   <Dot />
-                  <label htmlFor="art" onClick={() => { setAuthors(undefined); setActiveCat(5); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Arts & Literature"); }}>Arts & Literature</label>
+                  <label htmlFor="art" onClick={() => { setAuthors(undefined); setActiveCat(5); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Arts & Literature"); }}>{langCat[4]}</label>
                 </div>
                 <div className={`category mb-3 d-flex w-100 align-items-center ${activeCat === 6 ? "activeCat" : ""}`}>
                   <Dot />
-                  <label htmlFor="cars" onClick={() => { setAuthors(undefined); setActiveCat(6); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Cars & Trucks"); }}>Cars & Trucks</label>
+                  <label htmlFor="cars" onClick={() => { setAuthors(undefined); setActiveCat(6); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Cars & Trucks"); }}>{langCat[5]}</label>
                 </div>
                 <div className={`category mb-3 d-flex w-100 align-items-center ${activeCat === 7 ? "activeCat" : ""}`}>
                   <Dot />
-                  <label htmlFor="classics" onClick={() => { setAuthors(undefined); setActiveCat(7); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Classics"); }}>Classics</label>
+                  <label htmlFor="classics" onClick={() => { setAuthors(undefined); setActiveCat(7); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Classics"); }}>{langCat[6]}</label>
                 </div>
                 <div className={`category mb-3 d-flex w-100 align-items-center ${activeCat === 8 ? "activeCat" : ""}`}>
                   <Dot />
-                  <label htmlFor="contemporary" onClick={() => { setAuthors(undefined); setActiveCat(8); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Contemporary"); }}>Contemporary</label>
+                  <label htmlFor="contemporary" onClick={() => { setAuthors(undefined); setActiveCat(8); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Contemporary"); }}>{langCat[7]}</label>
                 </div>
                 <div className={`category mb-3 d-flex w-100 align-items-center ${activeCat === 9 ? "activeCat" : ""}`}>
                   <Dot />
-                  <label htmlFor="cultural" onClick={() => { setAuthors(undefined); setActiveCat(9); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Cultural"); }}>Cultural</label>
+                  <label htmlFor="cultural" onClick={() => { setAuthors(undefined); setActiveCat(9); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Cultural"); }}>{langCat[8]}</label>
                 </div>
                 <div className={`category mb-3 d-flex w-100 align-items-center ${activeCat === 10 ? "activeCat" : ""}`}>
                   <Dot />
-                  <label htmlFor="european" onClick={() => { setAuthors(undefined); setActiveCat(10); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("European"); }}>European</label>
+                  <label htmlFor="european" onClick={() => { setAuthors(undefined); setActiveCat(10); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("European"); }}>{langCat[9]}</label>
                 </div>
                 <div className={`category mb-3 d-flex w-100 align-items-center ${activeCat === 11 ? "activeCat" : ""}`}>
                   <Dot />
-                  <label htmlFor="foreign" onClick={() => { setAuthors(undefined); setActiveCat(11); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Foreign Language"); }}>Foreign Language</label>
+                  <label htmlFor="foreign" onClick={() => { setAuthors(undefined); setActiveCat(11); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Foreign Language"); }}>{langCat[10]}</label>
                 </div>
                 <div className={`category mb-3 d-flex w-100 align-items-center ${activeCat === 12 ? "activeCat" : ""}`}>
                   <Dot />
-                  <label htmlFor="fiction" onClick={() => { setAuthors(undefined); setActiveCat(12); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Genre Fiction"); }}>Genre Fiction</label>
+                  <label htmlFor="fiction" onClick={() => { setAuthors(undefined); setActiveCat(12); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Genre Fiction"); }}>{langCat[11]}</label>
                 </div>
                 <div className={`category mb-3 d-flex w-100 align-items-center ${activeCat === 13 ? "activeCat" : ""}`}>
                   <Dot />
-                  <label htmlFor="historical" onClick={() => { setAuthors(undefined); setActiveCat(13); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Historical"); }}>Historical</label>
+                  <label htmlFor="historical" onClick={() => { setAuthors(undefined); setActiveCat(13); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Historical"); }}>{langCat[12]}</label>
                 </div>
                 <div className={`category d-flex w-100 align-items-center ${activeCat === 14 ? "activeCat" : ""}`}>
                   <Dot />
-                  <label htmlFor="uncategorized" onClick={() => { setAuthors(undefined); setActiveCat(14); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Uncategorized"); }}>Uncategorized</label>
+                  <label htmlFor="uncategorized" onClick={() => { setAuthors(undefined); setActiveCat(14); setRateBooks(undefined); setPriceFilter(undefined); setRange([0, 100]); filterCategory("Uncategorized"); }}>{langCat[13]}</label>
                 </div>
               </div>
             </div>
             <div className="shop-category mb-4">
               <div className="cat-title d-flex justify-content-between align-items-center">
-                <h4 className="mb-0">Authors</h4>
+                <h4 className="mb-0">{lang === "en" ? "Authors" : "Yazıçılar"}</h4>
                 <Button
                   variant="none"
                   className="text-decoration-underline text-danger"
@@ -232,7 +241,7 @@ const ShopBooks = () => {
                     setActiveCat(null);
                   }}
                 >
-                  Reset
+                  {lang === "en" ? "Reset" : "Sıfırla"}
                 </Button>
               </div>
               <div className="categories d-flex flex-column align-items-start">
@@ -282,7 +291,7 @@ const ShopBooks = () => {
             </div>
             <div className="shop-category mb-4">
               <div className="cat-title d-flex justify-content-between align-items-center">
-                <h4 className="mb-0">Filter By Price</h4>
+                <h4 className="mb-0">{lang === "en" ? "Filter By Price" : "Qiymətə görə filtrlə"}</h4>
                 <Button
                   variant="none"
                   className="text-decoration-underline text-danger"
@@ -291,18 +300,18 @@ const ShopBooks = () => {
                     setPriceFilter(undefined);
                   }}
                 >
-                  Reset
+                  {lang === "en" ? "Reset" : "Sıfırla"}
                 </Button>
               </div>
               <div className="categories price-filter d-flex flex-column align-items-start">
                 <Slider value={range} onChange={priceChanges} />
-                <div className="range-show">Price: <span>${range[0] === 0 ? 10 : range[0] * 10}</span> - <span>${range[1] * 10}</span></div>
-                <p className="text-decoration-underline mb-0" onClick={() => { filterPrice(); setAuthors(undefined); setCategory(undefined); setRateBooks(undefined); setActiveCat(null) }}>Filter</p>
+                <div className="range-show">{lang === "en" ? "Price" : "Qiymət"}: <span>${range[0] === 0 ? 10 : range[0] * 10}</span> - <span>${range[1] * 10}</span></div>
+                <p className="text-decoration-underline mb-0" onClick={() => { filterPrice(); setAuthors(undefined); setCategory(undefined); setRateBooks(undefined); setActiveCat(null) }}>{lang === "en" ? "Filter" : "Filtrlə"}</p>
               </div>
             </div>
             <div className="shop-category mb-4">
               <div className="cat-title d-flex justify-content-between align-items-center">
-                <h4 className="mb-0">Review Ratings</h4>
+                <h4 className="mb-0">{lang === "en" ? "Review Ratings" : "Reytinqlərin icmalı"}</h4>
                 <Button
                   variant="none"
                   className="text-decoration-underline text-danger"
@@ -310,7 +319,7 @@ const ShopBooks = () => {
                     setRateBooks(undefined);
                   }}
                 >
-                  Reset
+                  {lang === "en" ? "Reset" : "Sıfırla"}
                 </Button>
               </div>
               <div className="categories d-flex flex-column align-items-start">
@@ -356,7 +365,7 @@ const ShopBooks = () => {
               </div>
             </div>
             <div className="shop-category feature-category">
-              <h4 className="mb-0">Featured Books</h4>
+              <h4 className="mb-0">{lang === "en" ? "Featured Books" : "Önə Çıxan Kitablar"}</h4>
               <div className="categories d-flex flex-column align-items-start">
                 {books.slice(15, 18).map((item: any) => {
                   return (
@@ -428,13 +437,12 @@ const ShopBooks = () => {
                   defaultValue={"menu_order"}
                   onChange={(e) => sortingProducts(e)}
                 >
-                  <option value="menu_order">Default sorting</option>
-                  <option value="price">Sort by price: low to high</option>
-                  <option value="price-desc">Sort by price: high to low</option>
-                  {/* <option value="rating">Sort by average rating</option> */}
+                  <option value="menu_order">{lang === "en" ? "Default sorting" : "Varsayılan çeşidləmə"}</option>
+                  <option value="price">{lang === "en" ? "Sort by price: low to high" : "Qiymətə görə çeşidləyin: azdan çoxa"}</option>
+                  <option value="price-desc">{lang === "en" ? "Sort by price: high to low" : "Qiymətə görə çeşidləyin: çoxdan aza"}</option>
                 </select>
                 <div className="page-item-count ps-3">
-                  <span>Show</span>
+                  <span>{lang === "en" ? "Show" : "Göstər"}</span>
                   <select
                     name="pageitem"
                     id="pageitem"

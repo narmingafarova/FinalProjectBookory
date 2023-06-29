@@ -91,7 +91,7 @@
       }
       .modal-actions {
         .modal-quantity {
-          width: 150px;
+          width: 120px;
           input {
             width: 65px;
           }
@@ -113,6 +113,9 @@
             color: $black;
             font-size: 15px;
           }
+        }
+        .section-btn {
+          padding: 0 25px;
         }
       }
     }

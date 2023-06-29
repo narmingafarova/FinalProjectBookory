@@ -26,6 +26,11 @@ export const story_az = ["Pərakəndə Mağazalar", "Topdan Paylaşma", "Elektro
 export const test_en = ["This is the best book store!. The prices are great, and there is always a sale of some kind going on. You can find just what you are looking for.", "I am so happy to find a site where I can shop for unusual items. The packaging was phenomenal and my book arrived on time in perfect condition.", "Excellent service. The books were wrapped securely and arrived in pristine condition. I sent an email after to books arrived to ask about the author."]
 export const test_az = ["Bu, ən yaxşı kitab mağazasıdır!. Qiymətlər əladır və hər zaman bir növ endirim, satış davam edir. Siz sadəcə axtardığınızı tapa bilərsiniz.", "Mən qeyri-adi əşyalar ala biləcəyim bir sayt tapdığım üçün çox xoşbəxtəm. Qablaşdırma fenomenal idi və kitabım vaxtında mükəmməl vəziyyətdə gəldi.", "Əla xidmət. Kitablar etibarlı şəkildə bükülüb və təmiz vəziyyətdə gəldi. Kitablar gələndən sonra müəllif haqqında soruşmaq üçün e-poçt göndərdim."]
 
+// * Shop Page
+// Categories
+export const shop_cat_en = ["Action & Adventure", "Activity Books", "Animals", "Anthologies", "Arts & Literature", "Cars & Trucks", "Classics", "Contemporary", "Cultural", "European", "Foreign Language", "Genre Fiction", "Historical", "Uncategorized"]
+export const shop_cat_az = ["Fəaliyyət & macəra", "Fəaliyyət kitabları", "Heyvanlar", "Antologiyalar", "İncəsənət & ədəbiyyat", "Maşınlar & yük maşınları", "Klassiklər", "Müasir", "Mədəni", "Avropa", "Xarici dil", "Janr fantastika", "Tarixi", "Kateqoriyasız"]
+
 // Footer
 export const footer_en = ["Contact info", "Explore", "About Us", "Sitemap", "Bookmarks", "Sign in/Join", "Our service", "Help Center", "Returns", "Product Recalls", "Accessibility", "Contact Us", "Store Pickup", "Categories", "Action", "Comedy", "Drama", "Horror", "Kids"]
 export const footer_az = ["Əlaqə məlumatı", "Kəşf et", "Haqqımızda", "Sayt xəritəsi", "Əlfəcinlər", "Daxil ol/Qoşul", "Xidmətimiz", "Yardım Mərkəzi", "Qaytarmalar", "Məhsulun Geri Qaytarılması", "Əlçatımlılıq", "Bizimlə əlaqə saxlayın", "Mağazadan götürmə", "Kateqoriyalar", "Fəaliyyət", "Komediya", "Dram", "Dəhşət", "Uşaqlar"]

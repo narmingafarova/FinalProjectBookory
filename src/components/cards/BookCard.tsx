@@ -8,6 +8,7 @@ import { useCart } from "react-use-cart";
 import useSharedCanvas from "../sharedHook/useSharedCanvas";
 import { useBetween } from "use-between";
 import { ThemeContext } from "../../context/ThemeContext";
+import { LangContext } from "../../context/LangContext";
 
 interface Book {
   item: any;
@@ -35,6 +36,7 @@ const BookCard: React.FC<Book> = ({ item, id, image, title, author, price, star,
   const handleShow = () => setShow(true);
 
   const [mode] = useContext(ThemeContext)
+  const [lang] = useContext(LangContext)
   return (
     <>
       <div className={`book-card d-flex ${flexStyle} justify-content-center ${listChange ? "align-items-center list-change" : ""}`}>
@@ -79,7 +81,7 @@ const BookCard: React.FC<Book> = ({ item, id, image, title, author, price, star,
           <div className={`cart-footer d-flex align-items-center ${listChange ? "" : "d-none"}`}>
             <LinkContainer to="/shop">
               <a href="/" className='text-decoration-none section-btn me-4' onClick={() => { addItem(item); setShowCanvas(true); }}>
-                <Basket /> &nbsp; Add to cart
+                <Basket /> &nbsp; {lang === "en" ? "Add to cart" : "Səbətə əlavə et"}
               </a>
             </LinkContainer>
             <Button variant="none" className="add-wish">
@@ -101,7 +103,7 @@ const BookCard: React.FC<Book> = ({ item, id, image, title, author, price, star,
                 <Rating star={star} count={0} />
                 <div className="book-price">${price}</div>
                 <div className="book-desc mb-3">{briefDesc}</div>
-                <label htmlFor="quantity">Quantity</label>
+                <label htmlFor="quantity">{lang === "en" ? "Quantity" : "Say"}</label>
                 <div className="modal-actions d-flex justify-content-start align-items-center pt-0 mt-1">
                   <div className="modal-quantity d-flex align-items-center me-3">
                     <button className="d-flex align-items-center justify-content-center" onClick={() => {
@@ -112,7 +114,7 @@ const BookCard: React.FC<Book> = ({ item, id, image, title, author, price, star,
                   </div>
                   <LinkContainer to={window.location.pathname}>
                     <a href="/" className='text-decoration-none section-btn me-3' onClick={() => { addItem(item, quantity); setShow(false); setShowCanvas(true); }}>
-                      <i className="fas fa-shopping-basket"></i> &nbsp; Add to cart
+                      <i className="fas fa-shopping-basket"></i> &nbsp; {lang === "en" ? "Add to cart" : "Səbətə əlavə et"}
                     </a>
                   </LinkContainer>
                   <Button variant="none" className="add-wish">
@@ -121,7 +123,7 @@ const BookCard: React.FC<Book> = ({ item, id, image, title, author, price, star,
                 </div>
                 <div className="modal-cat-tag">
                   <div className="categories d-flex align-items-start">
-                    <span>Categories: </span>
+                    <span>{lang === "en" ? "Categories" : "Kateqoriyalar"}: </span>
                     <div className="list ms-2 d-flex flex-wrap">
                       {category.map((item: any, id: any) => {
                         return (
@@ -136,7 +138,7 @@ const BookCard: React.FC<Book> = ({ item, id, image, title, author, price, star,
                     </div>
                   </div>
                   <div className="tags d-flex align-items-start">
-                    <span>Tags: &nbsp;</span>
+                    <span>{lang === "en" ? "Tags" : "Etiketlər"}: &nbsp;</span>
                     <div className="list ms-2 d-flex flex-wrap">
                       {tags.map((item: any, id: any) => {
                         return (

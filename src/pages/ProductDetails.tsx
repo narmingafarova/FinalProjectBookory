@@ -8,8 +8,8 @@ import { LinkContainer } from 'react-router-bootstrap'
 import { useCart } from 'react-use-cart'
 import { useBetween } from 'use-between'
 import useSharedCanvas from '../components/sharedHook/useSharedCanvas'
-import { ChevronRight } from 'react-bootstrap-icons'
 import BookCard from '../components/cards/BookCard'
+import { LangContext } from '../context/LangContext'
 
 const ProductDetails = () => {
   const [books] = useContext(BookContext);
@@ -24,6 +24,8 @@ const ProductDetails = () => {
 
   const { id } = useParams();
   const details = books.find((item: any) => item.id.toString() === id);
+
+  const [lang] = useContext(LangContext);
   return (
     <>
       <ScrollToTop />
@@ -31,11 +33,11 @@ const ProductDetails = () => {
         <Container className='my-5 no-details'>
           <div className="no-details-content d-flex align-items-center mb-3">
             <i className="fa-regular fa-calendar me-3"></i>
-            <p className='mb-0'>We don't have such a book</p>
+            <p className='mb-0'>{lang === "en" ? "We don't have such a book" : "Bizim belə bir kitabımız yoxdur"}</p>
           </div>
           <LinkContainer to="/shop">
             <a href="/" className='text-decoration-none section-btn'>
-              Return to shop
+              {lang === "en" ? "Return to shop" : "Alış-verişə qayıt"}
             </a>
           </LinkContainer>
         </Container>
@@ -43,7 +45,7 @@ const ProductDetails = () => {
         <Container className='details-page mb-5'>
           <div className="details-breadcrumb">
             <Breadcrumb className='pt-4 pb-3'>
-              <Breadcrumb.Item href="/" className='text-uppercase'>Home</Breadcrumb.Item>
+              <Breadcrumb.Item href="/" className='text-uppercase'>{lang === "en" ? "Home" : "Ana səhifə"}</Breadcrumb.Item>
               <Breadcrumb.Item href="/shop" className='text-uppercase'>{details.category[1] ?? details.category[0]}</Breadcrumb.Item>
               <Breadcrumb.Item active className='text-uppercase'>{details.title}</Breadcrumb.Item>
             </Breadcrumb>
@@ -56,14 +58,14 @@ const ProductDetails = () => {
               <Col sm={12} md={5} className='book-info'>
                 <div className="info-title">
                   <div className={`${details.stock ? "stock-mode sale" : "stock-mode sold"}`}>
-                    {details.stock ? "In Stock" : "Sold Out"}
+                    {details.stock && lang === "en" ? "In Stock" : details.stock && lang === "az" ? "Stokda var" : lang === "en" ? "Sold Out" : "Tükənib"}
                   </div>
                 </div>
                 <div className="book-title">
                   <div className="book-name">{details.title}</div>
                   <div className="book-author-rate d-flex">
                     <div className="author">
-                      Author: &nbsp;
+                      {lang === "en" ? "Author" : "Yazıçı"}: &nbsp;
                       <LinkContainer to={`/author/${details.author}`}>
                         <span>{details.author}</span>
                       </LinkContainer>
@@ -80,7 +82,7 @@ const ProductDetails = () => {
                   <div className="price">${details.price}</div>
                   <div className="brief-desc">{details.briefDescription}</div>
                 </div>
-                <label htmlFor="quantity">Quantity</label>
+                <label htmlFor="quantity">{lang === "en" ? "Quantity" : "Say"}</label>
                 <div className="modal-actions d-flex justify-content-start align-items-center pt-0 mt-1">
                   <div className="modal-quantity d-flex align-items-center me-2">
                     <button className="d-flex align-items-center justify-content-center" onClick={() => {
@@ -91,17 +93,17 @@ const ProductDetails = () => {
                   </div>
                   <LinkContainer to={`/shop/${details.id}`}>
                     <a href="/" className='text-decoration-none section-btn me-2' onClick={() => { addItem(details, quantity); setShowCanvas(true); }}>
-                      <i className="fas fa-shopping-basket"></i> &nbsp; Add to cart
+                      <i className="fas fa-shopping-basket"></i> &nbsp; {lang === "en" ? "Add to cart" : "Səbətə əlavə et"}
                     </a>
                   </LinkContainer>
                   <Button variant="none" className="detail-wish d-flex align-items-center">
                     <i className="fa-regular fa-heart me-1"></i>
-                    Add to wishlist
+                    {lang === "en" ? "Add to wishlist" : "Bəyənilənlərə əlavə et"}
                   </Button>
                 </div>
                 <div className="modal-cat-tag">
                   <div className="categories d-flex align-items-start">
-                    <span>Categories: </span>
+                    <span>{lang === "en" ? "Categories" : "Kateqoriyalar"}: </span>
                     <div className="list ms-2 d-flex flex-wrap">
                       {details.category.map((item: any, id: any) => {
                         return (
@@ -116,7 +118,7 @@ const ProductDetails = () => {
                     </div>
                   </div>
                   <div className="tags d-flex align-items-start">
-                    <span>Tags: &nbsp;</span>
+                    <span>{lang === "en" ? "Tags" : "Etiketlər"}: &nbsp;</span>
                     <div className="list ms-2 d-flex flex-wrap">
                       {details.tags.map((item: any, id: any) => {
                         return (
@@ -136,9 +138,9 @@ const ProductDetails = () => {
           </div>
           <div className="additional-data mb-5">
             <div className="data-titles d-flex justify-content-center">
-              <h3 className={`mb-0 ${activeTitle === 1 ? "active-title" : ""}`} onClick={() => { setActiveTitle(1) }}>Description</h3>
-              <h3 className={`mb-0 ${activeTitle === 2 ? "active-title" : ""}`} onClick={() => { setActiveTitle(2) }}>Reviews(5)</h3>
-              <h3 className={`mb-0 ${activeTitle === 3 ? "active-title" : ""}`} onClick={() => { setActiveTitle(3) }}>Vendor Info</h3>
+              <h3 className={`mb-0 ${activeTitle === 1 ? "active-title" : ""}`} onClick={() => { setActiveTitle(1) }}>{lang === "en" ? "Description" : "Təsvir"}</h3>
+              <h3 className={`mb-0 ${activeTitle === 2 ? "active-title" : ""}`} onClick={() => { setActiveTitle(2) }}>{lang === "en" ? "Reviews" : "Rəylər"}(5)</h3>
+              <h3 className={`mb-0 ${activeTitle === 3 ? "active-title" : ""}`} onClick={() => { setActiveTitle(3) }}>{lang === "en" ? "Vendor Info" : "Satıcı Haqqında"}</h3>
             </div>
             <div className="data-content">
               <div className={`desc-data ${activeTitle === 1 ? "d-block" : "d-none"}`}>
@@ -222,17 +224,17 @@ const ProductDetails = () => {
                 </div>
               </div>
               <div className={`vendor-data ${activeTitle === 3 ? "d-block" : "d-none"}`}>
-                <div className="name">Store Name: <span>{details.vendorInfo.storeName}</span></div>
-                <div className="vendor">Vendor: <span>{details.vendorInfo.vendor}</span></div>
-                <div className="address">Address: <span>{details.vendorInfo.address}</span></div>
-                <div className="rate d-flex align-items-center"><span className='me-3'>{details.vendorInfo.rating} rating from {details.vendorInfo.review} reviews</span> <Rating star={details.vendorInfo.rating} count={0} /></div>
+                <div className="name">{lang === "en" ? "Store Name" : "Mağaza Adı"}: <span>{details.vendorInfo.storeName}</span></div>
+                <div className="vendor">{lang === "en" ? "Vendor" : "Satıcı"}: <span>{details.vendorInfo.vendor}</span></div>
+                <div className="address">{lang === "en" ? "Address" : "Ünvan"}: <span>{details.vendorInfo.address}</span></div>
+                <div className="rate d-flex align-items-center"><span className='me-3'>{details.vendorInfo.rating} {lang === "en" ? "rating from" : "reytinq"} {details.vendorInfo.review} {lang === "en" ? "reviews" : "rəydən"}</span> <Rating star={details.vendorInfo.rating} count={0} /></div>
               </div>
             </div>
           </div>
           <div className="section-header mb-4">
             <div className="row">
               <div className="col-8 col-sm-4 col-md-3">
-                <h4 className='mb-0'>Related products</h4>
+                <h4 className='mb-0'>{lang === "en" ? "Related products" : "Əlaqəli məhsullar"}</h4>
               </div>
               <div className="col-4 col-sm-8 col-md-9 d-flex justify-content-center align-items-center">
                 <div className="divider-line"></div>
