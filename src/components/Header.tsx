@@ -45,7 +45,6 @@ const Header: React.FC = () => {
     const [searchValue, setSearchValue] = useState<string>("");
     const searchResult = books.filter((value: any) => value.title.toLocaleLowerCase().includes(searchValue));
 
-
     // Dark & Light mode
     const [mode, setMode] = useContext(ThemeContext);
     const modeChange = () => {
@@ -189,7 +188,7 @@ const Header: React.FC = () => {
                                     }) : <p className='no-book mb-0'>No such book was found</p>}
                                 </div>
                             </Form>
-                            <div className="admin-panel-icons ms-5 d-flex justify-content-center align-items-center">
+                            <div className="admin-panel-icons d-flex justify-content-center align-items-center">
                                 <a href='/' className="find-location text-decoration-none d-flex justify-content-center align-items-center">
                                     <GeoAlt className='me-2' fontSize={16} /> <span>{lang === "en" ? "Find a Book Store" : "Kitab mağazası tapın"}</span>
                                 </a>
@@ -301,7 +300,7 @@ const Header: React.FC = () => {
                             </div>
                         </div>
                         <Nav
-                            className="mx-auto my-2 my-lg-0"
+                            className="my-2 my-lg-0"
                             style={{ maxHeight: '100px' }}
                             navbarScroll
                         >
@@ -331,7 +330,7 @@ const Header: React.FC = () => {
                                 <span>{lang === "en" ? "24/7 Support Center" : "24/7 Dəstək mərkəzi"}</span>
                             </div>
                         </div>
-                        <div className={`admin-panel-icons ${navbarAdd ? "" : "d-none"}`}>
+                        <div className={`admin-panel-icons ${navbarAdd ? "normal" : "d-none"}`}>
                             <ul className='d-flex justify-content-center align-items-center mb-0'>
                                 {!userStatus ?
                                     <li className='list-unstyled pe-3' onClick={() => { setShowLogin(true) }}>

@@ -61,6 +61,8 @@
 // Dashboard
 @import "./sections/dashboard/dashboard";
 
+@import "./helpers/staticparts";
+
 ::selection {
   color: $white;
   background: $primary_orange;

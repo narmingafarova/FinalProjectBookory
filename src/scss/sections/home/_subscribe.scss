@@ -41,3 +41,67 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .subscribe {
+    .subscribe-bg {
+      form {
+        width: 480px !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 533px) {
+  .subscribe {
+    .subscribe-bg {
+      form {
+        width: 380px !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .subscribe {
+    .subscribe-bg {
+      padding: 75px 11px;
+      h4 {
+        font-size: 32px !important;
+      }
+      p {
+        font-size: 10px !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .subscribe {
+    .subscribe-bg {
+      form {
+        width: 330px !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .subscribe {
+    .subscribe-bg {
+      form {
+        width: 260px !important;
+        input {
+          padding: 12px 117px 12px 25px;
+          &::placeholder {
+            font-size: 12px !important;
+          }
+        }
+        button {
+          font-size: 10px;
+          line-height: 18px;
+        }
+      }
+    }
+  }
+}

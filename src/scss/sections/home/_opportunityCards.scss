@@ -1,6 +1,7 @@
 .opp-cards {
   font-family: "Sora", sans-serif;
   .opp-card-item {
+    width: 250px;
     .opp-img {
       display: inline-block;
       font-size: 30px;
@@ -36,6 +37,69 @@
     .opp-card-item {
       h4 {
         color: $white;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .opp-cards {
+    .container {
+      flex-wrap: wrap;
+      justify-content: center !important;
+      .opp-card-item {
+        width: 30% !important;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .opp-cards {
+    .container {
+      .opp-card-item {
+        width: 30% !important;
+        h4 {
+          font-size: 14px;
+        }
+        p {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 775px) {
+  .opp-cards {
+    .container {
+      .opp-card-item {
+        width: 50% !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .opp-cards {
+    .container {
+      .opp-card-item {
+        margin-left: 50px;
+        justify-content: start !important;
+        width: 100% !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .opp-cards {
+    .container {
+      .opp-card-item {
+        margin-left: 10px;
+        justify-content: start !important;
+        width: 100% !important;
       }
     }
   }

@@ -150,6 +150,7 @@
 }
 
 .admin-panel-icons {
+  margin-left: 48px;
   .find-location {
     font-size: 12px;
     font-weight: 500;
@@ -513,6 +514,8 @@
     }
   }
   .navbar-nav {
+    margin-left: auto;
+    margin-right: auto;
     .nav-link {
       font-size: 16px;
       font-weight: 500;
@@ -541,25 +544,6 @@
         font-weight: 300;
         color: $text;
       }
-    }
-  }
-}
-
-@media screen and (max-width: 991px) {
-  #top-nav {
-    .navbar-nav {
-      display: none;
-    }
-    .collapse:not(.show) {
-      display: block;
-    }
-  }
-}
-
-@media screen and (max-width: 767px) {
-  #top-nav {
-    .navbar-nav {
-      display: none;
     }
   }
 }
@@ -729,6 +713,236 @@
             color: $white;
           }
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  #search-nav {
+    .search-and-panel {
+      form {
+        width: 540px;
+      }
+    }
+  }
+  .admin-panel-icons {
+    .find-location {
+      display: none !important;
+    }
+  }
+  #menu-nav {
+    .categories {
+      width: 190px;
+      .cat-relative {
+        svg {
+          &:nth-child(2) {
+            transform: translate(20px, 0);
+          }
+          &:nth-child(3) {
+            transform: translate(3px, 40px);
+          }
+        }
+        .main-part {
+          font-size: 12px;
+        }
+      }
+      .category-hover {
+        ul {
+          li {
+            margin: 0px 21px;
+            font-size: 10px;
+          }
+        }
+      }
+      &:hover {
+        svg {
+          &:nth-child(2) {
+            transform: translate(20px, -40px);
+          }
+          &:nth-child(3) {
+            transform: translate(3px, 0);
+          }
+        }
+      }
+    }
+    .navbar-nav {
+      .nav-link {
+        font-size: 14px;
+      }
+    }
+    .support-center {
+      .support-context {
+        p {
+          font-size: 14px;
+        }
+        span {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  #top-nav {
+    .navbar-nav {
+      flex-direction: row;
+    }
+    .collapse:not(.show) {
+      display: flex;
+    }
+  }
+  #search-nav {
+    .collapse:not(.show) {
+      display: flex;
+    }
+    .search-and-panel {
+      form {
+        width: 400px;
+      }
+    }
+  }
+  .admin-panel-icons {
+    margin-left: 10px;
+    ul {
+      padding-left: 20px;
+    }
+  }
+  #menu-nav {
+    .collapse:not(.show) {
+      display: flex;
+    }
+    .navbar-nav {
+      flex-direction: row;
+      .nav-link {
+        font-size: 13px;
+      }
+    }
+    .support-center {
+      display: none !important;
+    }
+    &:has(.normal) {
+      .categories {
+        display: none !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #search-nav {
+    .search-and-panel {
+      form {
+        width: 250px;
+        button {
+          padding: 20px;
+        }
+      }
+    }
+    .navbar-brand {
+      img {
+        width: 120px;
+      }
+    }
+  }
+  #menu-nav {
+    .categories {
+      display: none !important;
+    }
+    .navbar-nav {
+      .nav-link {
+        font-size: 15px;
+      }
+    }
+    &:has(.normal) {
+      .nav-link {
+        font-size: 11px;
+      }
+      li {
+        &:first-child {
+          svg {
+            font-size: 15px;
+          }
+        }
+        svg {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #search-nav {
+    padding: 9px 0 !important;
+    .search-and-panel {
+      form {
+        display: none;
+      }
+    }
+  }
+  #menu-nav {
+    .navbar-nav {
+      .nav-link {
+        font-size: 13px;
+        padding: 0 !important;
+      }
+    }
+    .admin-panel-icons {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 424px) {
+  #menu-nav {
+    .navbar-nav {
+      .nav-link {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 396px) {
+  #menu-nav {
+    .navbar-nav {
+      .nav-link {
+        font-size: 10px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 352px) {
+  #menu-nav {
+    .navbar-nav {
+      flex-wrap: wrap;
+      // width: 100%;
+      .nav-link {
+        // width: 30px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 300px) {
+  #top-nav {
+    .navbar-nav {
+      .mode-btn {
+        padding: 3px 10px;
+      }
+      .lang-btn {
+        padding: 13px 10px;
+      }
+    }
+  }
+  #search-nav {
+    .navbar-brand {
+      img {
+        width: 95px;
       }
     }
   }

@@ -19,13 +19,6 @@
         width: 80px !important;
         margin-right: 20px;
       }
-      .main-fav-card {
-        padding-right: 0 !important;
-        img {
-          width: 100% !important;
-          margin-right: 0;
-        }
-      }
       .fav-card-div {
         margin: 0 15px;
         .book-card {
@@ -46,6 +39,17 @@
         }
       }
     }
+    .main-fav-card {
+      padding-right: 0 !important;
+      border-right: 1px solid $milk_white !important;
+      img {
+        width: 90% !important;
+        margin-right: 0;
+      }
+      .book-card {
+        border-right: none !important;
+      }
+    }
   }
 }
 
@@ -63,6 +67,167 @@
           &:not(:last-child) {
             border-bottom: 1px solid $text;
           }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .favourite-reads {
+    .favourite-cards {
+      [class^="col"] {
+        img {
+          width: 80px !important;
+          margin-right: 10px;
+        }
+      }
+    }
+    .mode-cards {
+      .book-card {
+        .book-info {
+          .book-name {
+            font-size: 13px;
+          }
+          .author {
+            display: none;
+          }
+          .price {
+            font-size: 15px;
+          }
+        }
+      }
+    }
+    .rating {
+      margin: 0;
+      span:not(:last-child) i {
+        font-size: 9px;
+      }
+      .total-star {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .favourite-reads {
+    .favourite-cards {
+      [class^="col"] {
+        img {
+          width: 80px !important;
+          margin-right: 10px;
+        }
+      }
+      .main-first {
+        border-right: none !important;
+      }
+    }
+    .mode-cards {
+      .book-card {
+        .book-info {
+          .book-name {
+            font-size: 13px;
+          }
+          .author {
+            display: block;
+            font-size: 12px;
+          }
+          .price {
+            font-size: 15px;
+          }
+        }
+      }
+    }
+    .rating {
+      margin: 3px 0 7px;
+      span:not(:last-child) i {
+        font-size: 9px;
+      }
+      .total-star {
+        display: block;
+        font-size: 10px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .favourite-reads {
+    .favourite-cards {
+      [class^="col"],
+      .main-fav-card {
+        width: 50%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .favourite-reads {
+    .favourite-cards {
+      [class^="col"] {
+        width: 60%;
+      }
+      .main-fav-card {
+        width: 40%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .favourite-reads {
+    .mode-cards {
+      .book-card {
+        .book-info {
+          .author {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+    .rating {
+      span:not(:last-child) i {
+        font-size: 9px;
+      }
+      .total-star {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .favourite-reads {
+    [class ^= "col"] {
+      width: 100% !important;
+      &:first-child {
+        display: none;
+      }
+    }
+    .mode-cards {
+      .book-card {
+        .book-info {
+          .author {
+            display: block;
+            font-size: 10px;
+          }
+          .price {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+    .main-second {
+      display: none !important;
+    }
+    .favourite-cards {
+      .main-fav-card {
+        width: 100% !important;
+        border-right: none !important;
+        .book-info {
+          display: none !important;
         }
       }
     }

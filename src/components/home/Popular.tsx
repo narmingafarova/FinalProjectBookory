@@ -78,7 +78,7 @@ const Popular = () => {
                         </div>
                     </div>
                 </div>
-                <Row className='mode-cards' data-aos="fade-up">
+                <Row className='mode-cards gy-4' data-aos="fade-up">
                     <Col sm={12} md={8}>
                         <Slider {...settings}>
                             {popular.map((item: any) => {

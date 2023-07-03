@@ -1,0 +1,145 @@
+@media screen and (max-width: 1400px) {
+  .section-header {
+    .row {
+      justify-content: space-between;
+      [class^="col"] {
+        width: 30%;
+        &:nth-child(2) {
+          width: 50%;
+          margin: 0 auto;
+        }
+        &:nth-child(3) {
+          width: 20%;
+        }
+      }
+    }
+  }
+  .section-btn {
+    font-size: 12px !important;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .section-header {
+    h4 {
+      font-size: 29px !important;
+    }
+  }
+  .section-main-card {
+    background-position: center !important;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .section-header {
+    .row {
+      [class^="col"] {
+        width: 40%;
+        &:nth-child(2) {
+          width: 20%;
+        }
+        &:nth-child(3) {
+          width: 30%;
+        }
+      }
+    }
+  }
+  .section-main-card {
+    padding: 39px !important;
+    .card-title {
+      h4 {
+        font-size: 14px !important;
+      }
+      h3 {
+        font-size: 37px !important;
+        line-height: 40px !important;
+      }
+      span {
+        font-size: 12px !important;
+        line-height: 9px !important;
+      }
+    }
+    .card-foot {
+      span {
+        font-size: 12px !important;
+      }
+      p {
+        font-size: 16px !important;
+      }
+    }
+  }
+  .section-btn {
+    font-size: 12px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .section-header {
+    .row {
+      [class^="col"] {
+        width: 50%;
+        &:nth-child(2) {
+          display: none !important;
+        }
+        &:nth-child(3) {
+          width: 50%;
+        }
+      }
+    }
+  }
+  .section-btn {
+    font-size: 12px !important;
+  }
+}
+
+@media screen and (max-width: 533px) {
+  .section-header {
+    .row {
+      h4 {
+        font-size: 23px !important;
+      }
+    }
+  }
+  .section-btn {
+    font-size: 9px !important;
+    line-height: 44px !important;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .section-header {
+    .row {
+      [class^="col"] {
+        width: auto;
+        &:nth-child(3) {
+          width: auto;
+        }
+      }
+    }
+  }
+  .section-btn {
+    font-size: 9px !important;
+    line-height: 44px !important;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .section-header {
+    .row {
+      flex-direction: column;
+      [class^="col"] {
+        &:nth-child(1) {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+        }
+        &:nth-child(3) {
+          justify-content: center !important;
+        }
+      }
+    }
+  }
+  .section-btn {
+    padding: 0 20px !important;
+  }
+}

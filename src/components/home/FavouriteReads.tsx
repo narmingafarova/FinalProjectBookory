@@ -16,13 +16,13 @@ const FavouriteReads: React.FC = () => {
             <Container>
                 <div className="section-header mb-4">
                     <div className="row">
-                        <div className="col-4 col-sm-4 col-md-3">
+                        <div className="col-6 col-sm-4 col-md-3">
                             <h4 className='text-capitalize mb-0'>{ lang === "en" ? "Our Favourite Reads" : "Sevimli Oxumalarımız"}</h4>
                         </div>
-                        <div className="col-4 col-sm-4 col-md-7 d-flex justify-content-center align-items-center">
+                        <div className="col-sm-4 col-md-7 d-flex justify-content-center align-items-center">
                             <div className="divider-line"></div>
                         </div>
-                        <div className="col-4 col-sm-4 col-md-2 d-flex justify-content-end">
+                        <div className="col-6 col-sm-4 col-md-2 d-flex justify-content-end">
                             <LinkContainer to="/shop">
                                 <a href="/" className='text-decoration-none section-btn'>
                                     {lang === "en" ? "View All" : "Hamısına bax"} &nbsp; <ChevronRight fontSize={11} />
@@ -32,8 +32,8 @@ const FavouriteReads: React.FC = () => {
                     </div>
                 </div>
                 <div className="favourite-cards mode-cards">
-                    <Row>
-                        <Col sm={12} md={3}>
+                    <Row className='gy-3'>
+                        <Col sm={6} md={3}>
                             {books.slice(24, 28).map((item: any) => {
                                 return (
                                     <div className='fav-card-div' onMouseEnter={() => { setFirstCard(item) }} key={item.id}>
@@ -42,7 +42,7 @@ const FavouriteReads: React.FC = () => {
                                 )
                             })}
                         </Col>
-                        <Col sm={12} md={3} className='main-fav-card d-flex justify-content-center align-items-center'>
+                        <Col sm={6} md={3} className='main-fav-card d-flex justify-content-center align-items-center main-first'>
                             <div>
                                 {firstCard ? <BookCard item={firstCard} id={firstCard.id} image={firstCard.image} title={firstCard.title} author={firstCard.author} price={firstCard.price} star={firstCard.star} category={firstCard.category} tags={firstCard.tags} cutTitle={false} flexStyle='flex-column' briefDesc={firstCard.briefDescription} listChange={false} />
                                     : books.slice(24, 25).map((item: any) => {
@@ -50,7 +50,7 @@ const FavouriteReads: React.FC = () => {
                                     })}
                             </div>
                         </Col>
-                        <Col sm={12} md={3} className='main-fav-card d-flex justify-content-center align-items-center'>
+                        <Col sm={6} md={3} className='main-fav-card d-flex justify-content-center align-items-center main-second'>
                             <div>
                                 {secondCard ? <BookCard item={secondCard} id={secondCard.id} image={secondCard.image} title={secondCard.title} author={secondCard.author} price={secondCard.price} star={secondCard.star} category={secondCard.category} tags={secondCard.tags} cutTitle={false} flexStyle='flex-column' briefDesc={secondCard.briefDescription} listChange={false} />
                                     : books.slice(12, 13).map((item: any) => {
@@ -58,7 +58,7 @@ const FavouriteReads: React.FC = () => {
                                     })}
                             </div>
                         </Col>
-                        <Col sm={12} md={3}>
+                        <Col sm={6} md={3}>
                             {books.slice(12, 16).map((item: any) => {
                                 return (
                                     <div className='fav-card-div' onMouseEnter={() => { setSecondCard(item) }} key={item.id}>

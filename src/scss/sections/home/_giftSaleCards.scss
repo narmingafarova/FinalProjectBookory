@@ -114,3 +114,82 @@
     }
   }
 }
+
+@media screen and (max-width: 1400px) {
+  .gift-sale-cards {
+    .row {
+      [class^="col"] {
+        width: 555px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1210px) {
+  .gift-sale-cards {
+    .row {
+      [class^="col"] {
+        width: 555px;
+        .card-item {
+          background-position: center;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .gift-sale-cards {
+    .row {
+      [class^="col"] {
+        width: 470px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .gift-sale-cards {
+    .row {
+      [class^="col"] {
+        width: 354px;
+        .card-sale {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .gift-sale-cards {
+    .row {
+      [class^="col"] {
+        width: 260px;
+        &:last-child {
+          .card-data {
+            right: 10px;
+          }
+        }
+        .card-data {
+          right: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 590px) {
+  .gift-sale-cards {
+    .row {
+      flex-direction: column;
+      align-items: center;
+      [class^="col"] {
+        width: 85%;
+        &:last-child {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}

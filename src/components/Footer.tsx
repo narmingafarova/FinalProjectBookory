@@ -18,8 +18,8 @@ const Footer: React.FC = () => {
         <>
             <div className="footer">
                 <Container>
-                    <div className="row">
-                        <div className="col-12 col-sm-6 col-md-6">
+                    <div className="row gy-4">
+                        <div className="col-12 col-sm-12 col-md-6">
                             <div className="row info-part">
                                 <div className="col-12 col-sm-6 col-md-6 d-flex flex-column align-items-start pb-4">
                                     <div className="foot-logo">
@@ -46,9 +46,9 @@ const Footer: React.FC = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-12 col-sm-6 col-md-6">
+                        <div className="col-12 col-sm-12 col-md-6">
                             <div className="row">
-                                <div className="col-12 col-sm-6 col-md-4">
+                                <div className="col-4 col-sm-4 col-md-4 resp-center">
                                     <h5 className="foot-title text-capitalize mb-3">{footInfo[1]}</h5>
                                     <ul className='ps-0'>
                                         <li className='list-unstyled mb-1'>
@@ -65,7 +65,7 @@ const Footer: React.FC = () => {
                                         </li>
                                     </ul>
                                 </div>
-                                <div className="col-12 col-sm-6 col-md-4">
+                                <div className="col-4 col-sm-4 col-md-4 resp-center">
                                     <h5 className="foot-title text-capitalize mb-3">{footInfo[6]}</h5>
                                     <ul className='ps-0'>
                                         <li className='list-unstyled mb-1'>
@@ -88,7 +88,7 @@ const Footer: React.FC = () => {
                                         </li>
                                     </ul>
                                 </div>
-                                <div className="col-12 col-sm-6 col-md-4">
+                                <div className="col-4 col-sm-4 col-md-4 resp-center">
                                     <h5 className="foot-title text-capitalize mb-3">{footInfo[13]}</h5>
                                     <ul className='ps-0'>
                                         <li className='list-unstyled mb-1'>
@@ -113,14 +113,14 @@ const Footer: React.FC = () => {
                     </div>
                 </Container>
             </div>
-            <div className="sub-footer">
+            {/* <div className="sub-footer">
                 <Container className='d-flex justify-content-between align-items-center'>
                     <p className='mb-0'>{lang === "en" ? "Copyright © 2023" : "Müəlliflik hüququ © 2023"} <LinkContainer to="/"><a href="/" className='text-decoration-none'>Bookory</a></LinkContainer>. {lang === "en" ? "All rights reserved." : "Bütün hüquqlar qorunur."}</p>
                     <div className="bank-cards">
                         <img src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/footer_img.png" alt="cards" />
                     </div>
                 </Container>
-            </div>
+            </div> */}
         </>
     )
 }

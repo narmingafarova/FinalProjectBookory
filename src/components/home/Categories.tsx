@@ -34,10 +34,36 @@ const Categories: React.FC = () => {
                         delay: 2500,
                         disableOnInteraction: false,
                     }}
+                    breakpoints={{
+                        280: {
+                            slidesPerView: 1,
+                            spaceBetween: 30,
+                        },
+                        550: {
+                            slidesPerView: 2,
+                            spaceBetween: 30,
+                        },
+                        640: {
+                            slidesPerView: 3,
+                            spaceBetween: 30,
+                        },
+                        768: {
+                            slidesPerView: 4,
+                            spaceBetween: 30,
+                        },
+                        1200: {
+                            slidesPerView: 5,
+                            spaceBetween: 30,
+                        },
+                        1440: {
+                            slidesPerView: 6,
+                            spaceBetween: 30,
+                        },
+                    }}
                     className="mySwiper"
                 >
                     <SwiperSlide><CategoryCard image='https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/h6_cat1.png' category={catCards[0]} /></SwiperSlide>
-                    <SwiperSlide><CategoryCard image='https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/h6_cat2.png' category={catCards[1]}/></SwiperSlide>
+                    <SwiperSlide><CategoryCard image='https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/h6_cat2.png' category={catCards[1]} /></SwiperSlide>
                     <SwiperSlide><CategoryCard image='https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/h6_cat3.png' category={catCards[2]} /></SwiperSlide>
                     <SwiperSlide><CategoryCard image='https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/h6_cat4.png' category={catCards[3]} /></SwiperSlide>
                     <SwiperSlide><CategoryCard image='https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/11/h6_cat5.png' category={catCards[4]} /></SwiperSlide>

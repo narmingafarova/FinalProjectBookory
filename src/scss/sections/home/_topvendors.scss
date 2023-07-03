@@ -70,3 +70,80 @@
   }
   @include sectionHeaderDark;
 }
+
+@media screen and (max-width: 1200px) {
+  .top-vendors {
+    .vendor-content {
+      .row {
+        row-gap: 30px;
+      }
+      .col-md-3 {
+        width: 50% !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 981px) {
+  .top-vendors {
+    .vendor-content {
+      .row {
+        row-gap: 30px;
+      }
+      .col-md-3 {
+        width: 50% !important;
+      }
+      .vendor-info {
+        .vendor-img {
+          img {
+            width: 65px;
+          }
+        }
+        .vendor-data {
+          .vendor-title {
+            .vendor-name {
+              font-size: 14px;
+            }
+            .products-length {
+              font-size: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .top-vendors {
+    .vendor-content {
+      .col-md-3 {
+        width: 100% !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .top-vendors {
+    .vendor-content {
+      .vendor-info {
+        .vendor-img {
+          img {
+            width: 55px;
+          }
+        }
+        .vendor-data {
+          .vendor-title {
+            .vendor-name {
+              font-size: 14px;
+            }
+            .products-length {
+              font-size: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

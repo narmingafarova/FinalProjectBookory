@@ -32,13 +32,13 @@ const TopVendors: React.FC = () => {
             <Container>
                 <div className="section-header mb-4">
                     <div className="row">
-                        <div className="col-4 col-sm-4 col-md-3">
+                        <div className="col-6 col-sm-5 col-md-3">
                             <h4 className='text-capitalize mb-0'>{lang === "en" ? "Top Selling Vendor" : "Çox satılan satıcı"}</h4>
                         </div>
-                        <div className="col-4 col-sm-4 col-md-7 d-flex justify-content-center align-items-center">
+                        <div className="col-sm-2 col-md-7 d-flex justify-content-center align-items-center">
                             <div className="divider-line"></div>
                         </div>
-                        <div className="col-4 col-sm-4 col-md-2 d-flex justify-content-end">
+                        <div className="col-6 col-sm-5 col-md-2 d-flex justify-content-end">
                             <LinkContainer to="/vendor">
                                 <a href="/" className='text-decoration-none section-btn'>
                                     {lang === "en" ? "View All" : "Hamısına bax"} &nbsp; <ChevronRight fontSize={11} />

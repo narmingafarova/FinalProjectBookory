@@ -9,7 +9,7 @@ const GiftSaleCards: React.FC = () => {
     return (
         <div className='gift-sale-cards py-4'>
             <Container>
-                <div className="row justify-content-between g-5">
+                <div className="row justify-content-between gy-5">
                     <div className="col-12 col-sm-6 col-md-6 ps-0">
                         <div className="card-item d-flex justify-content-end">
                         </div>
