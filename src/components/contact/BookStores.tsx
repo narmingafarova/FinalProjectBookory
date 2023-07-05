@@ -8,7 +8,7 @@ const BookStores:React.FC = () => {
         <div className="book-stores">
             <Container>
                 <h3 className='text-center mb-5'>{lang === "en" ? "Our Book Store" : "Bizim Kitab Mağazalarımız"}</h3>
-                <div className="row">
+                <div className="row gy-5">
                     <div className="col-12 col-sm-6 col-md-4">
                         <div className="store-img mb-4">
                             <img src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/contact_pic_1.png" alt="contact" />

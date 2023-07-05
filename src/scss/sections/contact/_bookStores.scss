@@ -52,3 +52,75 @@
     }
   }
 }
+
+@media screen and (max-width: 1400px) {
+  .book-stores {
+    .row {
+      .store-img {
+        width: 350px;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .book-stores {
+    .row {
+      .store-img {
+        width: 300px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .book-stores {
+    .row {
+      .store-img {
+        width: 210px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .book-stores {
+    .row {
+      .store-img {
+        width: 250px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .book-stores {
+    .row {
+      [class^="col"] {
+        text-align: center;
+        .store-img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .book-stores {
+    .row {
+      h4 {
+        font-size: 18px;
+      }
+      h6 {
+        font-size: 16px;
+      }
+      p {
+        font-size: 12px;
+      }
+    }
+  }
+}
