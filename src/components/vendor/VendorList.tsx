@@ -125,7 +125,7 @@ const VendorList = () => {
                                         <img src={item.vendorLogo} alt="vendor" width={64} />
                                     </div>
                                     <div className="vendor-link">
-                                        <LinkContainer to="/vendor">
+                                        <LinkContainer to="/shop">
                                             <span><ChevronRight fontSize={14} /></span>
                                         </LinkContainer>
                                     </div>
@@ -147,7 +147,7 @@ const VendorList = () => {
                                 </div>
                                 <Rating star={item.vendorStar} count={0} />
                                 <div className="vendor-link me-4">
-                                    <LinkContainer to="/vendor">
+                                    <LinkContainer to="/shop">
                                         <span><ChevronRight fontSize={14} /></span>
                                     </LinkContainer>
                                 </div>
@@ -175,7 +175,7 @@ const VendorList = () => {
                                         <img src={item.vendorLogo} alt="vendor" width={64} />
                                     </div>
                                     <div className="vendor-link">
-                                        <LinkContainer to="/vendor">
+                                        <LinkContainer to="/shop">
                                             <span><ChevronRight fontSize={14} /></span>
                                         </LinkContainer>
                                     </div>
@@ -197,7 +197,7 @@ const VendorList = () => {
                                 </div>
                                 <Rating star={item.vendorStar} count={0} />
                                 <div className="vendor-link me-4">
-                                    <LinkContainer to="/vendor">
+                                    <LinkContainer to="/shop">
                                         <span><ChevronRight fontSize={14} /></span>
                                     </LinkContainer>
                                 </div>

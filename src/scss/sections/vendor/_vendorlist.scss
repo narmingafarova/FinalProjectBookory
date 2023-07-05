@@ -256,3 +256,187 @@
     }
   }
 }
+
+@media screen and (max-width: 991px) {
+  .vendor-page {
+    .vendors {
+      [class^="col"] {
+        .vendor-card {
+          .vendor-header {
+            padding: 35px 18px;
+          }
+          .vendor-name {
+            margin-bottom: 8px;
+          }
+          .address,
+          .contact {
+            font-size: 12px;
+          }
+        }
+        .inline-card {
+          .vendor-info {
+            width: 250px;
+          }
+        }
+      }
+      .col-md-12 {
+        .vendor-link {
+          display: none !important;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .vendor-page {
+    .vendors {
+      [class^="col"] {
+        .vendor-card {
+          .vendor-header {
+            padding: 35px 40px;
+          }
+          .address,
+          .contact {
+            font-size: 15px;
+            margin-top: 10px;
+          }
+        }
+        .inline-card {
+          .vendor-info {
+            width: 250px;
+          }
+          .rating {
+            display: none !important;
+          }
+          .vendor-img-info {
+            img {
+              width: 200px;
+            }
+          }
+          .address,
+          .contact {
+            font-size: 12px;
+            line-height: 23px;
+          }
+        }
+      }
+      .col-md-12 {
+        .vendor-link {
+          display: none !important;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .vendor-page {
+    .vendors {
+      [class^="col"] {
+        .inline-card {
+          padding: 25px 20px;
+          .vendor-info {
+            width: 200px;
+          }
+          .vendor-img-info {
+            img {
+              width: 150px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .vendor-page {
+    .vendor-filter {
+      .total-vendor {
+        font-size: 11px;
+      }
+      .vendor-filter-icons {
+        .filter-btn {
+          font-size: 12px;
+          padding: 6px 17px;
+          margin-right: 10px !important;
+        }
+      }
+    }
+    .vendors {
+      [class^="col"] {
+        .inline-card {
+          padding: 15px 10px;
+          .vendor-info {
+            width: 160px;
+          }
+          .vendor-img-info {
+            img {
+              width: 150px;
+            }
+          }
+          .address,
+          .contact {
+            font-size: 12px;
+            line-height: 23px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .vendor-page {
+    .vendor-filter {
+      flex-direction: column;
+      .total-vendor {
+        font-size: 13px;
+        margin-bottom: 10px;
+      }
+      .vendor-filter-icons {
+        .filter-btn {
+          font-size: 14px;
+          padding: 6px 20px;
+        }
+      }
+    }
+    .vendors {
+      [class^="col"] {
+        .inline-card {
+          padding: 15px 10px;
+          .vendor-info {
+            width: 160px;
+            margin-left: 10px !important;
+          }
+          .vendor-img-info {
+            img {
+              width: 120px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .vendor-page {
+    .vendors {
+      [class^="col"] {
+        .inline-card {
+          .vendor-info {
+            width: 115px;
+            margin-left: 7px !important;
+          }
+          .vendor-img-info {
+            img {
+              width: 120px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
