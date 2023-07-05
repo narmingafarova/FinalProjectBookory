@@ -28,12 +28,17 @@ const Testimonials: React.FC = () => {
         cssEase: "linear",
         responsive: [
             {
-                breakpoint: 1024,
+                breakpoint: 1216,
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 1,
-                    infinite: true,
-                    dots: true
+                }
+            },
+            {
+                breakpoint: 991,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
                 }
             },
             {

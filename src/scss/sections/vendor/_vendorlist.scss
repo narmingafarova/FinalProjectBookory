@@ -332,6 +332,19 @@
 
 @media screen and (max-width: 520px) {
   .vendor-page {
+    .vendor-filter {
+      flex-direction: column;
+      .total-vendor {
+        font-size: 13px;
+        margin-bottom: 10px;
+      }
+      .vendor-filter-icons {
+        .filter-btn {
+          font-size: 14px;
+          padding: 6px 20px;
+        }
+      }
+    }
     .vendors {
       [class^="col"] {
         .inline-card {
@@ -352,18 +365,6 @@
 
 @media screen and (max-width: 425px) {
   .vendor-page {
-    .vendor-filter {
-      .total-vendor {
-        font-size: 11px;
-      }
-      .vendor-filter-icons {
-        .filter-btn {
-          font-size: 12px;
-          padding: 6px 17px;
-          margin-right: 10px !important;
-        }
-      }
-    }
     .vendors {
       [class^="col"] {
         .inline-card {
@@ -389,19 +390,6 @@
 
 @media screen and (max-width: 370px) {
   .vendor-page {
-    .vendor-filter {
-      flex-direction: column;
-      .total-vendor {
-        font-size: 13px;
-        margin-bottom: 10px;
-      }
-      .vendor-filter-icons {
-        .filter-btn {
-          font-size: 14px;
-          padding: 6px 20px;
-        }
-      }
-    }
     .vendors {
       [class^="col"] {
         .inline-card {

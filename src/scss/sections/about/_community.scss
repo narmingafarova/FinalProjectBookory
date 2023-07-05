@@ -50,3 +50,123 @@
     }
   }
 }
+
+@media screen and (max-width: 1200px) {
+  .community {
+    .community-bar {
+      .community-text {
+        z-index: 2;
+      }
+      .community-img {
+        background-position: top center;
+        z-index: 1;
+        img {
+          width: 60%;
+          top: 120px;
+          left: 190px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .community {
+    .community-bar {
+      .community-text {
+        h4 {
+          font-size: 32px;
+        }
+        p {
+          font-size: 12px;
+        }
+        form {
+          width: 450px;
+        }
+      }
+      .community-img {
+        background-position: left center;
+        background-size: cover;
+        img {
+          top: 220px;
+          left: 165px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .community {
+    .community-bar {
+      .community-text {
+        background-image: url("https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/h2_bg.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top center;
+        position: relative;
+        text-align: center;
+        form {
+          width: 400px;
+          z-index: 5;
+        }
+      }
+      .community-img {
+        img {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .community {
+    .community-bar {
+      .community-text {
+        padding: 80px 30px;
+        form {
+          width: 350px;
+          margin: 0 auto;
+          z-index: 5;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .community {
+    .community-bar {
+      .community-text {
+        form {
+          width: 290px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .community {
+    .community-bar {
+      .community-text {
+        form {
+          width: 200px;
+          input {
+            padding: 12px 0 12px 25px;
+          }
+          button {
+            padding: 17px 8px;
+            span {
+              display: none;
+            }
+            svg {
+              margin-left: 0 !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}

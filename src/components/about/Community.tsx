@@ -19,7 +19,7 @@ const Community = () => {
                                     placeholder={lang === "en" ? "Your email address" : "Sizin e-poçtunuz"}
                                 />
                             </Form.Group>
-                            <Button type='submit'>{lang === "en" ? "Subscribe" : "Abunə ol"} <ChevronRight className='ms-2' fontSize={11} /></Button>
+                            <Button type='submit'><span>{lang === "en" ? "Subscribe" : "Abunə ol"}</span> <ChevronRight className='ms-2' fontSize={11} /></Button>
                         </Form>
                     </Col>
                     <Col sm={12} md={6} className='community-img'>

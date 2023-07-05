@@ -156,3 +156,30 @@
     }
   }
 }
+
+@media screen and (max-width: 767px) {
+  .blog-content {
+    .row {
+      flex-direction: column-reverse;
+    }
+    .blog-filters {
+      .shop-category {
+        margin-bottom: 25px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 578px) {
+  .blog-content {
+    .row {
+      flex-direction: column-reverse;
+    }
+    .blog-filters {
+      .shop-category {
+        display: block !important;
+        margin-bottom: 25px;
+      }
+    }
+  }
+}

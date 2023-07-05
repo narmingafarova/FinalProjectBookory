@@ -14,26 +14,24 @@ import TrendingNow from '../components/home/TrendingNow'
 import Bestselling from '../components/home/Bestselling'
 import Popular from '../components/home/Popular'
 
-const Home: React.FC = () => {
-    return (
-        <>
-            <ScrollToTop />
-            {/* Main part */}
-            <HomeCarousel />
-            <Categories />
-            <GiftSaleCards />
-            <TopVendors />
-            <SaleInfoBar />
-            <FavouriteReads />
-            <TrendingNow />
-            <Bestselling/>
-            <Popular/>
-            <Brands />
-            <Subscribe />
-            <Gallery />
-            <OpportunityCards />
-        </>
-    )
-}
+const Home: React.FC = () => (
+    <>
+        <ScrollToTop />
+        {/* Main part */}
+        <HomeCarousel />
+        <Categories />
+        <GiftSaleCards />
+        <TopVendors />
+        <SaleInfoBar />
+        <FavouriteReads />
+        {/* <TrendingNow />
+        <Bestselling />
+        <Popular /> */}
+        <Brands />
+        <Subscribe />
+        <Gallery />
+        <OpportunityCards />
+    </>
+)
 
 export default Home

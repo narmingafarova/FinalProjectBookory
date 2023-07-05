@@ -48,7 +48,7 @@
     @include sectionHeaderDark;
     .slick-slider {
       .slick-arrow {
-        display: none !important; 
+        display: none !important;
       }
       .slick-dots {
         li {
@@ -62,5 +62,21 @@
         }
       }
     }
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .testimonials {
+    .slick-slider {
+      .slick-dots {
+        display: none !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .testimonials {
+    margin-bottom: 130px;
   }
 }

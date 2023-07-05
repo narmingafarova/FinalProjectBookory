@@ -150,3 +150,281 @@
     }
   }
 }
+
+@media screen and (max-width: 1400px) {
+  .about-story {
+    .init-about {
+      h4 {
+        width: auto;
+      }
+    }
+    .our-story {
+      .main-img {
+        width: 1100px;
+        img {
+          width: 100%;
+        }
+      }
+      .col-images {
+        [class^="col"] {
+          display: flex;
+          justify-content: center;
+          img {
+            width: 550px;
+          }
+        }
+      }
+      .foot-img {
+        img {
+          width: 80%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .about-story {
+    .our-story {
+      .main-img {
+        top: -200px;
+        width: 950px;
+      }
+      .col-images {
+        [class^="col"] {
+          img {
+            width: 450px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .about-story {
+    .init-about {
+      padding-bottom: 250px;
+    }
+    .our-story {
+      padding-top: 200px;
+      .main-img {
+        top: -180px;
+        width: 750px;
+      }
+      .story-cards-part {
+        .row {
+          width: 750px;
+        }
+      }
+      .col-images {
+        [class^="col"] {
+          img {
+            width: 350px;
+          }
+        }
+      }
+      .quote-story {
+        .row {
+          width: 750px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 830px) {
+  .about-story {
+    .our-story {
+      .main-img {
+        width: 700px;
+      }
+      .story-cards-part {
+        .row {
+          width: 700px;
+        }
+      }
+      .quote-story {
+        .row {
+          width: 560px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .about-story {
+    margin-bottom: 50px;
+    .init-about {
+      padding-bottom: 200px;
+    }
+    .our-story {
+      padding-top: 170px;
+      .main-img {
+        top: -150px;
+        left: 5%;
+        width: 600px;
+      }
+      .story-cards-part {
+        .row {
+          width: 530px;
+        }
+      }
+      .col-images {
+        [class^="col"] {
+          img {
+            width: 250px;
+          }
+        }
+      }
+      .foot-img {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .about-story {
+    .our-story {
+      .main-img {
+        top: -130px;
+        left: 10%;
+        width: 500px;
+      }
+      .quote-story {
+        .row {
+          width: auto;
+        }
+        [class^="col"] {
+          &:first-child {
+            h5 {
+              margin-bottom: 15px !important;
+            }
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .about-story {
+    .init-about {
+      padding-bottom: 150px;
+    }
+    .our-story {
+      padding-top: 130px;
+      .main-img {
+        top: -110px;
+        left: 10%;
+        width: 450px;
+      }
+      .story-cards-part {
+        .row {
+          width: auto;
+        }
+      }
+      .col-images {
+        [class^="col"] {
+          img {
+            width: 250px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 522px) {
+  .about-story {
+    .our-story {
+      .main-img {
+        top: -110px;
+        left: 10%;
+        width: 400px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 507px) {
+  .about-story {
+    .our-story {
+      .col-images {
+        [class^="col"] {
+          img {
+            width: 200px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .about-story {
+    .our-story {
+      .col-images {
+        [class^="col"] {
+          &:last-child {
+            display: none;
+          }
+          &:first-child {
+            width: 100%;
+            img {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 455px) {
+  .about-story {
+    .our-story {
+      .main-img {
+        top: -90px;
+        left: 8%;
+        width: 350px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .about-story {
+    .init-about {
+      padding-bottom: 110px;
+    }
+    .our-story {
+      .main-img {
+        top: -60px;
+        left: 9%;
+        width: 300px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .about-story {
+    .init-about {
+      padding-bottom: 110px;
+      h4 {
+        font-size: 20px;
+      }
+    }
+    .our-story {
+      .main-img {
+        top: -60px;
+        left: 8%;
+        width: 250px;
+      }
+    }
+  }
+}

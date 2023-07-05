@@ -51,10 +51,10 @@ const Story: React.FC = () => {
                     </div>
                     <div className="col-images">
                         <div className="row">
-                            <div className="col-12 col-sm-6 col-md-6">
+                            <div className="col-6 col-sm-6 col-md-6">
                                 <img src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/About_03.png" alt="about" />
                             </div>
-                            <div className="col-12 col-sm-6 col-md-6">
+                            <div className="col-6 col-sm-6 col-md-6">
                                 <img src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/About_02.png" alt="about" />
                             </div>
                         </div>
