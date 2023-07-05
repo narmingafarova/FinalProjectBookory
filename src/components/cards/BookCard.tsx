@@ -81,7 +81,7 @@ const BookCard: React.FC<Book> = ({ item, id, image, title, author, price, star,
           <div className={`cart-footer d-flex align-items-center ${listChange ? "" : "d-none"}`}>
             <LinkContainer to="/shop">
               <a href="/" className='text-decoration-none section-btn me-4' onClick={() => { addItem(item); setShowCanvas(true); }}>
-                <Basket /> &nbsp; {lang === "en" ? "Add to cart" : "Səbətə əlavə et"}
+                <Basket /> <span>&nbsp; {lang === "en" ? "Add to cart" : "Səbətə əlavə et"}</span>
               </a>
             </LinkContainer>
             <Button variant="none" className="add-wish">

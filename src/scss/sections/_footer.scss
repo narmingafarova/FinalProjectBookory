@@ -140,6 +140,21 @@
   }
 }
 
+@media screen and (max-width: 780px) {
+  .sub-footer {
+    p {
+      font-size: 12px;
+    }
+    .bank-cards {
+      display: flex;
+      justify-content: end;
+      img {
+        width: 80%;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 768px) {
   .footer {
     [class^="col"] {
@@ -147,6 +162,20 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+      }
+    }
+  }
+  .sub-footer {
+    & > div {
+      flex-direction: column;
+      p {
+        margin-bottom: 20px !important;
+      }
+    }
+    .bank-cards {
+      justify-content: center;
+      img {
+        width: 100%;
       }
     }
   }
@@ -160,6 +189,15 @@
         flex-direction: column;
         align-items: center !important;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .sub-footer {
+    p {
+      font-size: 9px;
+      text-align: center;
     }
   }
 }

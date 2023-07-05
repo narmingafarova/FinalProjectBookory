@@ -8,6 +8,11 @@
     line-height: 1.125;
     color: $black;
   }
+  nav {
+    ol {
+      margin-bottom: 0;
+    }
+  }
 }
 .breadcrumb-item {
   font-size: 12px;
@@ -34,6 +39,33 @@
     background-color: $text;
     h2 {
       color: $white;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .breadcrumb-bg {
+    h2 {
+      font-size: 55px;
+    }
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .breadcrumb-bg {
+    h2 {
+      font-size: 40px;
+    }
+    .breadcrumb-item {
+      font-size: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .breadcrumb-bg {
+    h2 {
+      font-size: 30px;
     }
   }
 }

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { BookContext } from "../../context/BookContext";
 import BookCard from "../cards/BookCard";
-import { GridFill, Dot } from "react-bootstrap-icons";
+import { GridFill, Dot, Filter } from "react-bootstrap-icons";
 import Rating from "../Rating";
 import { LinkContainer } from "react-router-bootstrap";
 import Pagination from "../Pagination";
@@ -17,6 +17,7 @@ const ShopBooks = () => {
 
   // For categories
   const [category, setCategory] = useState<any>();
+  const [filterResp, setFilterResp] = useState<string>("");
 
   // For authors
   const [authors, setAuthors] = useState<any>();
@@ -156,8 +157,11 @@ const ShopBooks = () => {
     <>
       <Container className="shop-books">
         <Row className="mt-5">
-          <Col sm={12} md={3} className="pe-4">
-            <div className="shop-category mb-4">
+          <Col sm={5} md={3} className="pe-4">
+            <button className='filter-btn d-flex justify-content-center align-items-center me-3 mb-2' onClick={()=>{filterResp === "" ? setFilterResp("d-block") : setFilterResp("")}}>
+              <Filter className='me-1' /> {lang === "en" ? "Filter" : "Filtr"}
+            </button>
+            <div className={`shop-category mb-4 ${filterResp}`}>
               <div className="cat-title d-flex justify-content-between align-items-center">
                 <h4 className="mb-0">{lang === "en" ? "Genre" : "Janr"}</h4>
                 <Button
@@ -230,7 +234,7 @@ const ShopBooks = () => {
                 </div>
               </div>
             </div>
-            <div className="shop-category mb-4">
+            <div className={`shop-category mb-4 ${filterResp}`}>
               <div className="cat-title d-flex justify-content-between align-items-center">
                 <h4 className="mb-0">{lang === "en" ? "Authors" : "Yazıçılar"}</h4>
                 <Button
@@ -289,7 +293,7 @@ const ShopBooks = () => {
                 </div>
               </div>
             </div>
-            <div className="shop-category mb-4">
+            <div className={`shop-category mb-4 ${filterResp}`}>
               <div className="cat-title d-flex justify-content-between align-items-center">
                 <h4 className="mb-0">{lang === "en" ? "Filter By Price" : "Qiymətə görə filtrlə"}</h4>
                 <Button
@@ -309,7 +313,7 @@ const ShopBooks = () => {
                 <p className="text-decoration-underline mb-0" onClick={() => { filterPrice(); setAuthors(undefined); setCategory(undefined); setRateBooks(undefined); setActiveCat(null) }}>{lang === "en" ? "Filter" : "Filtrlə"}</p>
               </div>
             </div>
-            <div className="shop-category mb-4">
+            <div className={`shop-category mb-4 ${filterResp}`}>
               <div className="cat-title d-flex justify-content-between align-items-center">
                 <h4 className="mb-0">{lang === "en" ? "Review Ratings" : "Reytinqlərin icmalı"}</h4>
                 <Button
@@ -364,7 +368,7 @@ const ShopBooks = () => {
                 </div>
               </div>
             </div>
-            <div className="shop-category feature-category">
+            <div className={`shop-category feature-category ${filterResp}`}>
               <h4 className="mb-0">{lang === "en" ? "Featured Books" : "Önə Çıxan Kitablar"}</h4>
               <div className="categories d-flex flex-column align-items-start">
                 {books.slice(15, 18).map((item: any) => {
@@ -395,7 +399,7 @@ const ShopBooks = () => {
               </div>
             </div>
           </Col>
-          <Col sm={12} md={9} className="mode-cards">
+          <Col sm={7} md={9} className="mode-cards">
             <div className="shop-title-filter d-flex justify-content-between align-items-center mx-3">
               <div className="list-style-icon d-flex justify-content-center align-items-center">
                 <Button

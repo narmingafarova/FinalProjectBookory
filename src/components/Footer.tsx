@@ -113,14 +113,14 @@ const Footer: React.FC = () => {
                     </div>
                 </Container>
             </div>
-            {/* <div className="sub-footer">
+            <div className="sub-footer">
                 <Container className='d-flex justify-content-between align-items-center'>
                     <p className='mb-0'>{lang === "en" ? "Copyright © 2023" : "Müəlliflik hüququ © 2023"} <LinkContainer to="/"><a href="/" className='text-decoration-none'>Bookory</a></LinkContainer>. {lang === "en" ? "All rights reserved." : "Bütün hüquqlar qorunur."}</p>
                     <div className="bank-cards">
                         <img src="https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/footer_img.png" alt="cards" />
                     </div>
                 </Container>
-            </div> */}
+            </div>
         </>
     )
 }
