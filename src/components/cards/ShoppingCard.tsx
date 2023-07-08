@@ -34,6 +34,7 @@ const ShoppingCard = ({ item }: any) => {
             <td>${item.price}</td>
             <td className="position-relative">
                 <input
+                    readOnly
                     id="number"
                     type="number"
                     className="quantity text-center"

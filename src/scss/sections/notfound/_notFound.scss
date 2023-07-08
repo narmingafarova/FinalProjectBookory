@@ -8,7 +8,7 @@
   font-family: "Sora", sans-serif;
   h2 {
     font-size: 160px;
-    font-style: norma;
+    font-style: normal;
     font-weight: 600;
     color: $primary_orange;
     margin: 0;
@@ -21,7 +21,6 @@
   }
   p {
     max-width: 700px;
-    width: 680px;
     font-size: 18px;
     font-weight: 300;
     margin: 0 auto 40px;
@@ -41,6 +40,54 @@
         transition: 0.3s ease;
         background-color: $primary_orange_hover;
       }
+    }
+  }
+}
+
+.dark {
+  .not-found {
+    h2 {
+      color: $primary_orange;
+    }
+    h3 {
+      color: $white;
+    }
+    p {
+      color: $milk_white;
+      background-color: $primary_orange_hover;
+    }
+    .error-btn {
+      .btn-content {
+        color: $white;
+        background-color: $primary_orange;
+        cursor: pointer;
+        &:hover {
+          transition: 0.3s ease;
+          background-color: $primary_orange_hover;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .not-found {
+    h2 {
+      font-size: 140px;
+    }
+    h3 {
+      font-size: 44px;
+    }
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .not-found {
+    h2 {
+      font-size: 130px;
+    }
+    h3 {
+      font-size: 40px;
     }
   }
 }

@@ -17,6 +17,7 @@ import useSharedCategory from './sharedHook/useSharedCategory';
 import { ThemeContext } from '../context/ThemeContext';
 import { LangContext } from '../context/LangContext';
 import { menu_az, menu_cat_az, menu_cat_en, menu_en } from '../data/lang';
+import { useNavigate } from 'react-router-dom';
 
 const Header: React.FC = () => {
     const { showCanvas, setShowCanvas } = useBetween(useSharedCanvas);
@@ -27,6 +28,8 @@ const Header: React.FC = () => {
     const [logout, setLogout] = useState<string>("d-none");
 
     const [books] = useContext(BookContext);
+
+    const navigate = useNavigate()
 
     const [navbarAdd, setNavbarAdd] = useState(false)
     const navbarExtra = () => {
@@ -204,7 +207,7 @@ const Header: React.FC = () => {
                                                 <LinkContainer to={window.location.pathname}>
                                                     <a href="/" className='d-flex align-items-center text-decoration-none'><p className='mb-0 me-1'>{lang === "en" ? "Hi" : "Salam"}, admin</p> <Person fontSize={18} /></a>
                                                 </LinkContainer>
-                                                <div className={`log-out ${logout}`} onClick={() => { setUserStatus(""); localStorage.removeItem("user") }}>
+                                                <div className={`log-out ${logout}`} onClick={() => { setUserStatus(""); localStorage.removeItem("user"); if (window.location.pathname === "/dashboard" || window.location.pathname === "/dashboard/add" || window.location.pathname === "/dashboard/edit") navigate("/") }}>
                                                     <span>{lang === "en" ? "Log out" : "Hesabdan çıx"}</span>
                                                 </div>
                                             </li>
@@ -219,12 +222,12 @@ const Header: React.FC = () => {
                                             </li>
                                     }
                                     <li className='list-unstyled px-3'>
-                                        <LinkContainer to="/wish">
+                                        <LinkContainer to="/wishlist">
                                             <a href="/"><Heart fontSize={14} /><span>0</span></a>
                                         </LinkContainer>
                                     </li>
                                     <li className='list-unstyled ps-3' onClick={handleShow}>
-                                        <div><Bag fontSize={15} /><span>{totalItems}</span></div>
+                                        <div><Bag fontSize={15} /><span className={totalItems ? "" : "d-none"}>{totalItems}</span></div>
                                     </li>
                                 </ul>
                             </div>
@@ -343,7 +346,7 @@ const Header: React.FC = () => {
                                             <LinkContainer to="/">
                                                 <a href="/" className='d-flex align-items-center text-decoration-none'><p className='mb-0 me-1'>{lang === "en" ? "Hi" : "Salam"}, admin</p> <Person fontSize={18} /></a>
                                             </LinkContainer>
-                                            <div className={`log-out ${logout}`} onClick={() => { setUserStatus(""); localStorage.removeItem("user") }}>
+                                            <div className={`log-out ${logout}`} onClick={() => { setUserStatus(""); localStorage.removeItem("user"); if (window.location.pathname === "/dashboard" || window.location.pathname === "/dashboard/add" || window.location.pathname === "/dashboard/edit") navigate("/") }}>
                                                 <span>{lang === "en" ? "Log out" : "Hesabdan çıx"}</span>
                                             </div>
                                         </li>
@@ -358,10 +361,12 @@ const Header: React.FC = () => {
                                         </li>
                                 }
                                 <li className='list-unstyled px-3'>
-                                    <a href="/"><Heart fontSize={14} /><span>0</span></a>
+                                    <LinkContainer to="/wishlist">
+                                        <a href="/"><Heart fontSize={14} /><span>0</span></a>
+                                    </LinkContainer>
                                 </li>
                                 <li className='list-unstyled ps-3' onClick={handleShow}>
-                                    <div><Bag fontSize={15} /><span>{totalItems}</span></div>
+                                    <div><Bag fontSize={15} /><span className={totalItems ? "" : "d-none"}>{totalItems}</span></div>
                                 </li>
                             </ul>
                         </div>

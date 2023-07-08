@@ -32,7 +32,7 @@ const Main = () => {
         <Route path='/shop' element={<Shop />} />
         <Route path='/shop/:id' element={<ProductDetails />} />
         <Route path='/cart' element={<Cart />} />
-        <Route path='/wish' element={<Wishlist />} />
+        <Route path='/wishlist' element={<Wishlist />} />
         <Route path='/about' element={<About />} />
         <Route path='/vendor' element={<Vendor />} />
         <Route path='/blog' element={<Blog />} />

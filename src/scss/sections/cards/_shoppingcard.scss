@@ -62,7 +62,6 @@
               border: 2px solid $primary_orange;
               color: $primary_orange;
               border-radius: 5px;
-              margin: 0 6px 15px 0;
               padding: 10px 30px 10px 10px;
               outline: none;
               &::-webkit-inner-spin-button {
@@ -70,7 +69,7 @@
               }
             }
             .input-btns {
-              top: 15px;
+              top: 25px;
               left: 75px;
               button {
                 background-color: transparent;
@@ -99,6 +98,7 @@
         }
       }
       td {
+        vertical-align: middle;
         border-bottom: 0;
         padding: 15px 20px;
       }
