@@ -58,7 +58,7 @@ const ShopCart: React.FC = () => {
                 </Container>
                 : <div className='shopping-card mt-5'>
                     <Container className="add-table mb-5">
-                        <Table className="shop-cart-items w-75 my-0 mx-auto">
+                        <Table responsive className="shop-cart-items w-75 my-0 mx-auto">
                             <thead>
                                 <tr>
                                     <th></th>
@@ -97,7 +97,7 @@ const ShopCart: React.FC = () => {
                                 </tr>
                             </tbody>
                         </Table>
-                        <Row className="d-flex flex-row-reverse mt-4">
+                        <Row className="d-flex flex-row-reverse mt-4 total-part">
                             <Col sm={12} md={6}>
                                 <h5>{lang === "en" ? "Cart totals" : "Səbət cəmi"}</h5>
                                 <Table bordered className="totals">

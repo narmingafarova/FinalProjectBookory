@@ -855,6 +855,9 @@
         font-size: 15px;
       }
     }
+    .admin-panel-icons {
+      display: none;
+    }
     &:has(.normal) {
       .nav-link {
         font-size: 11px;
@@ -906,6 +909,18 @@
 }
 
 @media screen and (max-width: 396px) {
+  #search-nav {
+    &:has(.admin-panel-icons ul li a p) {
+      .navbar-brand {
+        img {
+          width: 80px;
+        }
+      }
+      ul {
+        padding-left: 0;
+      }
+    }
+  }
   #menu-nav {
     .navbar-nav {
       .nav-link {

@@ -16,7 +16,7 @@ const Dashboard = () => {
             <LinkContainer to="/dashboard/add">
                 <Button className='mb-2 add-btn' variant='none'>+ {lang === "en" ? "Add" : "Əlavə et"}</Button>
             </LinkContainer>
-            <Table bordered>
+            <Table bordered responsive>
                 <thead>
                     <tr>
                         <th>#</th>

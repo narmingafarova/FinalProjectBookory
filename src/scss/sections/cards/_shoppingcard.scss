@@ -28,7 +28,7 @@
           td {
             font-size: 13px;
             font-weight: 500;
-            line-height: 45px;
+            line-height: 20px;
             color: $light_grey;
             padding: 15px 20px;
             a {
@@ -194,5 +194,106 @@
       }
     }
     @include sectionBtns;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .shopping-card {
+    .add-table {
+      .totals {
+        tr {
+          td {
+            &:first-child {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .shopping-card {
+    .add-table {
+      .shop-cart-items {
+        width: 100% !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .shopping-card {
+    .add-table {
+      .row {
+        [class^="col"] {
+          justify-content: center;
+          align-items: center;
+          display: flex;
+          flex-direction: column;
+        }
+      }
+      .totals {
+        border-color: $milk_white;
+        width: 50%;
+        tr {
+          td {
+            padding: 15px 20px;
+            &:first-child {
+              font-size: 15px;
+              font-weight: 600;
+              color: $black;
+              width: 40%;
+            }
+            &:last-child {
+              font-size: 14px;
+              font-weight: 500;
+              color: $primary_orange;
+            }
+            span {
+              color: $light_grey;
+            }
+          }
+        }
+      }
+      .add-cart-btn {
+        font-size: 10px;
+        font-weight: 700;
+        line-height: 26px;
+        padding: 10px 20px;
+        border-radius: 4px;
+        color: #fff;
+        border: 1px solid transparent;
+        background-color: $primary_orange;
+        letter-spacing: 0.5px;
+        height: 40px;
+        transition: 0.5s;
+        &:hover {
+          background-color: $primary_orange_hover;
+          color: #fff;
+          border-color: transparent;
+        }
+      }
+    }
+    @include sectionBtns;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .shopping-card {
+    .add-table {
+      .coupon-update {
+        .coupon {
+          flex-direction: column;
+          text-align: center;
+          button {
+            margin-left: 0 !important;
+            justify-content: center;
+            margin-top: 5px;
+          }
+        }
+      }
+    }
   }
 }

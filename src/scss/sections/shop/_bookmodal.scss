@@ -374,3 +374,41 @@ label {
     max-width: 900px;
   }
 }
+
+@media (max-width: 415px) {
+  .modal {
+    .modal-body {
+      .row {
+        .modal-img {
+          img {
+            width: 250px;
+          }
+        }
+        .book-info {
+          padding: 0 20px 0 30px;
+        }
+        .modal-actions {
+          .section-btn {
+            padding: 0 13px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .modal {
+    .modal-body {
+      .row {
+        .modal-actions {
+          flex-direction: column !important;
+          align-items: start !important;
+          .section-btn {
+            padding: 0 25px !important;
+          }
+        }
+      }
+    }
+  }
+}

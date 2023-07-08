@@ -20,3 +20,13 @@
     }
   }
 }
+
+@media screen and (max-width: 396px) {
+  .add-cart {
+   .empty-icon {
+    img {
+      width: 200px !important;
+    }
+   }
+  }
+}

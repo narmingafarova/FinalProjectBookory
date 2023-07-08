@@ -131,3 +131,22 @@
     }
   }
 }
+
+@media screen and (max-width: 991px) {
+  .dashboard {
+    table {
+      .edit-btn {
+        margin-right: 0 !important;
+        margin-bottom: 5px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .add-dashboard {
+    [class^="col"] {
+      width: 80%;
+    }
+  }
+}

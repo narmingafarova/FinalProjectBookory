@@ -163,7 +163,7 @@ const Header: React.FC = () => {
                 <Container>
                     <Navbar.Collapse id="navbarScroll">
                         <Navbar.Brand href="/">
-                            <img src={mode === "light" ? "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/logo-1.svg" : "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/logo.svg"} alt="" />
+                            <img src={mode === "light" || mode === null ? "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/logo-1.svg" : "https://demo2.pavothemes.com/bookory/wp-content/uploads/2022/02/logo.svg"} alt="" />
                         </Navbar.Brand>
                         <div className="search-and-panel ms-auto d-flex justify-content-center align-items-center">
                             <Form className='position-relative'>

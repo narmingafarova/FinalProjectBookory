@@ -112,14 +112,16 @@ const BookCard: React.FC<Book> = ({ item, id, image, title, author, price, star,
                     <input type="number" readOnly id="quantity" name="quantity" min="1" max="999" value={quantity} />
                     <button className="d-flex align-items-center justify-content-center" onClick={() => { setQuantity(quantity + 1) }}>+</button>
                   </div>
-                  <LinkContainer to={window.location.pathname}>
-                    <a href="/" className='text-decoration-none section-btn me-3' onClick={() => { addItem(item, quantity); setShow(false); setShowCanvas(true); }}>
-                      <i className="fas fa-shopping-basket"></i> &nbsp; {lang === "en" ? "Add to cart" : "Səbətə əlavə et"}
-                    </a>
-                  </LinkContainer>
-                  <Button variant="none" className="add-wish">
-                    <i className="fa-regular fa-heart"></i>
-                  </Button>
+                  <div className="modal-res d-flex align-items-center">
+                    <LinkContainer to={window.location.pathname}>
+                      <a href="/" className='text-decoration-none section-btn me-3' onClick={() => { addItem(item, quantity); setShow(false); setShowCanvas(true); }}>
+                        <i className="fas fa-shopping-basket"></i> &nbsp; {lang === "en" ? "Add to cart" : "Səbətə əlavə et"}
+                      </a>
+                    </LinkContainer>
+                    <Button variant="none" className="add-wish">
+                      <i className="fa-regular fa-heart"></i>
+                    </Button>
+                  </div>
                 </div>
                 <div className="modal-cat-tag">
                   <div className="categories d-flex align-items-start">
