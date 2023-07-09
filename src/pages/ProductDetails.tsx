@@ -91,15 +91,17 @@ const ProductDetails = () => {
                     <input type="number" readOnly id="quantity" name="quantity" min="1" max="999" value={quantity} />
                     <button className="d-flex align-items-center justify-content-center" onClick={() => { setQuantity(quantity + 1) }}>+</button>
                   </div>
-                  <LinkContainer to={`/shop/${details.id}`}>
-                    <a href="/" className='text-decoration-none section-btn me-2' onClick={() => { addItem(details, quantity); setShowCanvas(true); }}>
-                      <i className="fas fa-shopping-basket"></i> &nbsp; {lang === "en" ? "Add to cart" : "Səbətə əlavə et"}
-                    </a>
-                  </LinkContainer>
-                  <Button variant="none" className="detail-wish d-flex align-items-center">
-                    <i className="fa-regular fa-heart me-1"></i>
-                    {lang === "en" ? "Add to wishlist" : "Bəyənilənlərə əlavə et"}
-                  </Button>
+                  <div className="resp-btns d-flex align-items-center">
+                    <LinkContainer to={`/shop/${details.id}`}>
+                      <a href="/" className='text-decoration-none section-btn me-2' onClick={() => { addItem(details, quantity); setShowCanvas(true); }}>
+                        <i className="fas fa-shopping-basket"></i>  <span>&nbsp;{lang === "en" ? "Add to cart" : "Səbətə əlavə et"}</span>
+                      </a>
+                    </LinkContainer>
+                    <Button variant="none" className="detail-wish d-flex align-items-center">
+                      <i className="fa-regular fa-heart me-1"></i>
+                      <span>{lang === "en" ? "Add to wishlist" : "Bəyənilənlərə əlavə et"}</span>
+                    </Button>
+                  </div>
                 </div>
                 <div className="modal-cat-tag">
                   <div className="categories d-flex align-items-start">
@@ -241,9 +243,9 @@ const ProductDetails = () => {
               </div>
             </div>
           </div>
-          <Row className='mode-cards'>
+          <Row className='mode-cards gy-4'>
             {books.slice(random, random + 6).map((item: any) => {
-              return (<Col sm={12} md={2} className='px-0'>
+              return (<Col sm={6} md={2} className='px-0 detail-mode'>
                 <BookCard key={item.id} item={item} id={item.id} image={item.image} title={item.title} author={item.author} price={item.price} star={item.star} category={item.category} tags={item.tags} cutTitle={true} flexStyle='flex-column' briefDesc={item.briefDescription} listChange={false} />
               </Col>)
             })}

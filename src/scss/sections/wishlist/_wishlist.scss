@@ -1,0 +1,104 @@
+.wishlist {
+  font-family: "Sora", sans-serif;
+  .table {
+    tr {
+      td {
+        vertical-align: middle;
+        &:first-child {
+          width: 98px;
+        }
+        &:nth-child(3) {
+          width: 203px;
+        }
+        &:last-child {
+          width: 20px;
+        }
+      }
+      .wish-info {
+        strong {
+          font-size: 14px;
+          font-weight: 700;
+          line-height: 1.8;
+          color: $black;
+          cursor: pointer;
+          transition: 0.3s;
+          &:hover {
+            color: $primary-orange;
+          }
+        }
+        span {
+          font-size: 14px;
+          font-weight: 300;
+          line-height: 1.8;
+          color: $text;
+        }
+      }
+      @include sectionBtns;
+      .section-btn {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        svg {
+          margin-bottom: 5px;
+        }
+      }
+      .delete-btn {
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 21px;
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        color: red;
+        border-radius: 30px;
+        border: 1px solid $milk_white;
+        text-align: center;
+        transition: 0.5s;
+        &:hover {
+          background-color: $primary_orange;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .wishlist {
+    .table {
+      tr {
+        td {
+          &:nth-child(3) {
+            width: 80px;
+          }
+          .section-btn {
+            padding: 10px 20px;
+            span {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .wishlist {
+    .table {
+      tr {
+        td {
+          &:nth-child(3) {
+            width: 80px;
+          }
+          .section-btn {
+            padding: 10px 20px !important;
+            span {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -378,3 +378,506 @@
     @include modeCardsDark;
   }
 }
+
+@media screen and (max-width: 1400px) {
+  .details-page {
+    .book-detail {
+      .book-info {
+        padding: 15px !important;
+        .book-title {
+          .book-author-rate {
+            div {
+              font-size: 11px;
+            }
+          }
+        }
+        .modal-actions {
+          flex-direction: column;
+          align-items: start !important;
+          .modal-quantity {
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .details-page {
+    .book-detail {
+      .book-info,
+      .book-photo {
+        padding: 24px;
+      }
+      .book-info {
+        .book-title {
+          .book-name {
+            font-size: 33px;
+          }
+          .book-author-rate {
+            div {
+              font-size: 10px;
+              line-height: 16px !important;
+            }
+            .author {
+              display: flex;
+              flex-direction: column;
+            }
+            .rate {
+              .total-star {
+                margin: 0;
+              }
+            }
+          }
+        }
+        .price-desc {
+          .brief-desc {
+            padding: 0;
+          }
+        }
+      }
+      .modal-actions {
+        padding-bottom: 10px;
+      }
+      .modal-cat-tag {
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .details-page {
+    .book-detail {
+      .book-info,
+      .book-photo {
+        padding: 14px;
+      }
+      .book-photo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .book-info {
+        .book-title {
+          .book-name {
+            font-size: 33px;
+          }
+          .book-author-rate {
+            div {
+              font-size: 10px;
+              line-height: 16px !important;
+            }
+            .author {
+              display: flex;
+              flex-direction: column;
+            }
+            .rate {
+              .total-star {
+                margin: 0;
+              }
+            }
+          }
+        }
+        .price-desc {
+          margin: 18px 0;
+          .brief-desc {
+            font-size: 12px;
+            padding: 0;
+          }
+        }
+        .modal-actions {
+          padding-bottom: 10px;
+          flex-direction: row !important;
+          .modal-quantity {
+            button,
+            input {
+              height: 40px !important;
+            }
+          }
+          .detail-wish {
+            span {
+              display: none !important;
+            }
+          }
+          .section-btn {
+            line-height: 40px;
+            span {
+              display: none;
+            }
+          }
+        }
+        .modal-cat-tag {
+          margin-top: 5px;
+          div {
+            span {
+              font-size: 11px;
+            }
+          }
+        }
+      }
+    }
+    .mode-cards {
+      .book-card {
+        .book-info {
+          .rating {
+            .total-star {
+              display: none !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .details-page {
+    .book-detail {
+      .book-info,
+      .book-photo {
+        padding: 30px;
+      }
+      .book-photo {
+        margin-right: 0 !important;
+        margin-bottom: 10px;
+      }
+      .book-info {
+        .book-title {
+          .book-name {
+            font-size: 36px;
+          }
+          .book-author-rate {
+            div {
+              font-size: 13px;
+              line-height: 25px !important;
+            }
+            .author {
+              flex-direction: row;
+            }
+            .rate {
+              .total-star {
+                margin: 0;
+              }
+            }
+          }
+        }
+        .price-desc {
+          .brief-desc {
+            padding: 0 30px 0 0;
+          }
+        }
+      }
+      .modal-actions {
+        flex-direction: row;
+        align-items: center !important;
+        padding-bottom: 20px !important;
+        .modal-quantity {
+          margin-bottom: 10px;
+        }
+        .section-btn {
+          span {
+            display: initial !important;
+          }
+        }
+      }
+      .modal-cat-tag {
+        margin-top: 20px !important;
+        div {
+          span {
+            font-size: 14px !important;
+          }
+        }
+      }
+    }
+    .additional-data {
+      .data-titles {
+        h3 {
+          font-size: 17px;
+          line-height: 1.3;
+        }
+      }
+    }
+    .mode-cards {
+      .detail-mode {
+        &:nth-child(even) {
+          .book-card {
+            border-right: none !important;
+          }
+        }
+      }
+      .book-card {
+        .book-info {
+          text-align: center;
+          .rating {
+            justify-content: center;
+            .total-star {
+              display: flex !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .details-page {
+    .mode-cards {
+      .detail-mode {
+        width: 50%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .details-page {
+    .book-detail {
+      .book-info {
+        .book-title {
+          .book-author-rate {
+            .author {
+              display: flex;
+              flex-direction: column;
+            }
+          }
+        }
+      }
+    }
+    .additional-data {
+      .data-titles {
+        h3 {
+          padding: 0 17px 13px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .details-page {
+    .book-detail {
+      .book-info,
+      .book-photo {
+        padding: 20px;
+      }
+      .book-info {
+        .book-title {
+          .book-name {
+            font-size: 33px;
+          }
+          .book-author-rate {
+            div {
+              line-height: 20px !important;
+            }
+            .rate {
+              .total-star {
+                margin: 0;
+              }
+            }
+          }
+        }
+        .price-desc {
+          .brief-desc {
+            padding: 0 30px 0 0;
+          }
+        }
+      }
+      .modal-actions {
+        flex-direction: row;
+        align-items: center !important;
+        padding-bottom: 20px !important;
+        .modal-quantity {
+          margin-bottom: 10px;
+        }
+        .section-btn {
+          span {
+            display: initial !important;
+          }
+        }
+      }
+      .modal-cat-tag {
+        margin-top: 20px !important;
+        div {
+          span {
+            font-size: 11px !important;
+          }
+        }
+      }
+    }
+    .additional-data {
+      .data-titles {
+        h3 {
+          font-size: 13px;
+          padding: 0 17px 13px;
+        }
+      }
+      .data-content {
+        .desc-data {
+          p {
+            font-size: 12px;
+          }
+        }
+        .review-data {
+          .review-item {
+            .person-info {
+              .person-name {
+                h4 {
+                  font-size: 14px;
+                  line-height: 25px;
+                }
+                span {
+                  font-size: 12px;
+                }
+              }
+            }
+            .person-review {
+              font-size: 12px;
+              line-height: 22px;
+            }
+          }
+        }
+        .vendor-data {
+          div {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+    .mode-cards {
+      .book-card {
+        .book-info {
+          .book-name {
+            font-size: 14px;
+          }
+          .price {
+            font-size: 17px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .details-page {
+    .book-detail {
+      .book-info {
+        .book-title {
+          .book-name {
+            font-size: 30px;
+          }
+          .book-author-rate {
+            div {
+              font-size: 10px !important;
+              line-height: 18px !important;
+            }
+          }
+        }
+      }
+      .modal-actions {
+        flex-direction: row;
+        align-items: center !important;
+        padding-bottom: 20px !important;
+        .modal-quantity {
+          margin-bottom: 5px !important;
+        }
+        .section-btn {
+          line-height: 40px !important;
+          span {
+            display: none !important;
+          }
+        }
+      }
+    }
+    .additional-data {
+      .data-titles {
+        h3 {
+          font-size: 12px;
+          padding: 0 10px 13px;
+        }
+      }
+      .data-content {
+        .desc-data {
+          p {
+            font-size: 12px;
+          }
+        }
+        .review-data {
+          .review-item {
+            .person-info {
+              .person-name {
+                h4 {
+                  font-size: 14px;
+                  line-height: 25px;
+                }
+                span {
+                  font-size: 12px;
+                }
+              }
+              .rating {
+                span {
+                  i {
+                    font-size: 9px !important;
+                  }
+                }
+              }
+            }
+            .person-review {
+              font-size: 12px;
+              line-height: 22px;
+            }
+          }
+        }
+        .vendor-data {
+          div {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 305px) {
+  .details-page {
+    .book-detail {
+      .book-info {
+        .info-title {
+          margin-bottom: 10px;
+        }
+        .book-title {
+          .book-name {
+            font-size: 27px;
+          }
+          .book-author-rate {
+            div {
+              font-size: 10px !important;
+              line-height: 18px !important;
+              &:not(:last-child) {
+                padding-right: 10px;
+                margin-right: 10px;
+              }
+            }
+          }
+        }
+      }
+      .modal-actions {
+        flex-direction: row;
+        align-items: center !important;
+        padding-bottom: 20px !important;
+        .modal-quantity {
+          margin-bottom: 5px !important;
+        }
+        .section-btn {
+          line-height: 40px !important;
+          span {
+            display: none !important;
+          }
+        }
+      }
+    }
+  }
+}

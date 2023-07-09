@@ -24,9 +24,9 @@ const Home: React.FC = () => (
         <TopVendors />
         <SaleInfoBar />
         <FavouriteReads />
-        {/* <TrendingNow />
+        <TrendingNow />
         <Bestselling />
-        <Popular /> */}
+        <Popular />
         <Brands />
         <Subscribe />
         <Gallery />

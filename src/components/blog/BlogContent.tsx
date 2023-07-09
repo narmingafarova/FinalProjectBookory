@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { LangContext } from "../../context/LangContext";
 
 const BlogContent: React.FC = () => {
-    const blogData = useSelector((blog: any) => blog);
+    const blogData = useSelector((blog: any) => blog.blog);
     // prettier-ignore
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December",];
 

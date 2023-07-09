@@ -7,7 +7,7 @@ import { PencilSquare, X } from 'react-bootstrap-icons'
 import { LangContext } from '../../context/LangContext'
 
 const Dashboard = () => {
-    const blogData: any = useSelector((blog: any) => blog)
+    const blogData: any = useSelector((blog: any) => blog.blog)
     const dispatch: any = useDispatch()
     const [lang] = useContext(LangContext)
     return (
