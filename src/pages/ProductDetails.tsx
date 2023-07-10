@@ -10,6 +10,8 @@ import { useBetween } from 'use-between'
 import useSharedCanvas from '../components/sharedHook/useSharedCanvas'
 import BookCard from '../components/cards/BookCard'
 import { LangContext } from '../context/LangContext'
+import { useDispatch } from 'react-redux'
+import { addWish } from '../managers/action/wishAction'
 
 const ProductDetails = () => {
   const [books] = useContext(BookContext);
@@ -26,6 +28,8 @@ const ProductDetails = () => {
   const details = books.find((item: any) => item.id.toString() === id);
 
   const [lang] = useContext(LangContext);
+
+  const dispatch = useDispatch()
   return (
     <>
       <ScrollToTop />
@@ -97,7 +101,7 @@ const ProductDetails = () => {
                         <i className="fas fa-shopping-basket"></i>  <span>&nbsp;{lang === "en" ? "Add to cart" : "Səbətə əlavə et"}</span>
                       </a>
                     </LinkContainer>
-                    <Button variant="none" className="detail-wish d-flex align-items-center">
+                    <Button variant="none" className="detail-wish d-flex align-items-center" onClick={()=>{dispatch(addWish(details))}}>
                       <i className="fa-regular fa-heart me-1"></i>
                       <span>{lang === "en" ? "Add to wishlist" : "Bəyənilənlərə əlavə et"}</span>
                     </Button>

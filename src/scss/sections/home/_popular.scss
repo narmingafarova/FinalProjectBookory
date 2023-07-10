@@ -20,3 +20,59 @@
     @include modeCardsDark;
   }
 }
+
+@media screen and (max-width: 991px) {
+  .popular {
+    .mode-cards {
+      .book-card {
+        .book-img-div {
+          .book-img-hover {
+            right: 18px !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .popular {
+    .mode-cards {
+      .book-card {
+        .book-img-div {
+          .book-img-hover {
+            right: 30px !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .popular {
+    .mode-cards {
+      .book-card {
+        .book-img-div {
+          .book-img-hover {
+            right: 40px !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .popular {
+    .mode-cards {
+      .book-card {
+        .book-img-div {
+          .book-img-hover {
+            right: 30px !important;
+          }
+        }
+      }
+    }
+  }
+}

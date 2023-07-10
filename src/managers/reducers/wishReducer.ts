@@ -1,29 +1,35 @@
-const blogState: any = [];
+const comingLSdata: any = localStorage.getItem("wish");
+const convertLSdata: any = JSON.parse(comingLSdata);
 
-const wishReducer = (state = blogState, action: any) => {
+const intialWish: any = convertLSdata ?? [];
+
+const wishReducer = (state = intialWish, action: any) => {
   switch (action.type) {
-    case "ADD_BLOG":
-      return [...state, action.blog];
-    case "EDIT_BLOG":
-      return state.map((b: any) => {
-        if (b.id === action.id) {
-          return {
-            ...b,
-            ...action.update,
-          };
-        } else {
-          return b;
-        }
-      });
-    case "REMOVE_BLOG":
-      return state.filter(({ id }: any) => {
+    case "ADD_WISH":
+      if (localStorage.getItem("wish") == null) {
+        localStorage.setItem("wish", "[]");
+      } else {
+        let ld: any = localStorage.getItem("wish");
+        let old_data: any = JSON.parse(ld);
+        old_data.push(action.wish);
+        localStorage.setItem("wish", JSON.stringify(old_data));
+      }
+
+      const y: any = localStorage.getItem("wish");
+      const yl = JSON.parse(y);
+      return [...yl];
+
+    case "REMOVE_WISH":
+      const removewish: any = state.filter(({ id }: any) => {
         return id !== action.id;
       });
-    case "SET_BLOGS":
-      return action.blogs;
+      const tyu = JSON.stringify(removewish);
+      localStorage.setItem("wish", tyu);
+      return removewish;
+
     default:
       return state;
   }
 };
 
-export default wishReducer;
+export default wishReducer

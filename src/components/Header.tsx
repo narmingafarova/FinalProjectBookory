@@ -18,6 +18,7 @@ import { ThemeContext } from '../context/ThemeContext';
 import { LangContext } from '../context/LangContext';
 import { menu_az, menu_cat_az, menu_cat_en, menu_en } from '../data/lang';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Header: React.FC = () => {
     const { showCanvas, setShowCanvas } = useBetween(useSharedCanvas);
@@ -71,6 +72,8 @@ const Header: React.FC = () => {
         const menuCat = lang === "en" ? menu_cat_en : menu_cat_az;
         setMenuCat(menuCat)
     }, [lang])
+
+    const data: any = useSelector((a: any) => a.wish);
 
     const langChange = () => {
         if (lang === 'en') {
@@ -223,7 +226,7 @@ const Header: React.FC = () => {
                                     }
                                     <li className='list-unstyled px-3'>
                                         <LinkContainer to="/wishlist">
-                                            <a href="/"><Heart fontSize={14} /><span>0</span></a>
+                                            <a href="/"><Heart fontSize={14} /><span className={data.length ? "" : "d-none"}>{data.length}</span></a>
                                         </LinkContainer>
                                     </li>
                                     <li className='list-unstyled ps-3' onClick={handleShow}>
@@ -362,7 +365,7 @@ const Header: React.FC = () => {
                                 }
                                 <li className='list-unstyled px-3'>
                                     <LinkContainer to="/wishlist">
-                                        <a href="/"><Heart fontSize={14} /><span>0</span></a>
+                                        <a href="/"><Heart fontSize={14} /><span className={data.length ? "" : "d-none"}>{data.length}</span></a>
                                     </LinkContainer>
                                 </li>
                                 <li className='list-unstyled ps-3' onClick={handleShow}>

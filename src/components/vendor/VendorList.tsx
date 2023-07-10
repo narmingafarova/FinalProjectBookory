@@ -82,7 +82,7 @@ const VendorList = () => {
         <Container className='vendor-page'>
             <div className="vendor-filter mb-2 d-flex justify-content-between align-items-center">
                 <div className="total-vendor">
-                    {lang === "en" ? "Total stores showing" : "Ümumi göstərilən mağazalar"}: {vendorData.length}
+                    {lang === "en" ? "Total stores showing" : "Ümumi göstərilən mağazalar"}: {searchvalue === "" ? vendorData.length : vendorData.filter(value => value.vendorName.toLocaleLowerCase().includes(searchvalue)).length}
                 </div>
                 <div className="vendor-filter-icons d-flex justify-content-between align-items-center">
                     <button className='filter-btn d-flex justify-content-center align-items-center me-3' onClick={() => { searchDiv === "" ? setSearchDiv("active-search") : setSearchDiv("") }}>

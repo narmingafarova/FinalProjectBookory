@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import Rating from "../Rating";
 import { LinkContainer } from "react-router-bootstrap";
 import { Basket } from "react-bootstrap-icons";
@@ -9,6 +9,8 @@ import useSharedCanvas from "../sharedHook/useSharedCanvas";
 import { useBetween } from "use-between";
 import { ThemeContext } from "../../context/ThemeContext";
 import { LangContext } from "../../context/LangContext";
+import { useDispatch } from "react-redux";
+import { addWish, removeWish } from "../../managers/action/wishAction";
 
 interface Book {
   item: any;
@@ -37,6 +39,40 @@ const BookCard: React.FC<Book> = ({ item, id, image, title, author, price, star,
 
   const [mode] = useContext(ThemeContext)
   const [lang] = useContext(LangContext)
+
+  const local: any = localStorage.getItem("wish");
+  const [wishStatus, setWishStatus] = useState<string>(JSON.parse(local)?.find((item: any) => item.id === id) ? "solid" : "regular");
+
+  // const [wishStatus, setWishStatus] = useState<boolean>()
+  const dispatch = useDispatch();
+
+  // const wishClick = useCallback(() => {
+  //   wishStatus === "solid" ? dispatch(removeWish({ id: item.id })) : dispatch(addWish(item));
+  //   console.log(wishStatus);
+  // }, [wishStatus, item, dispatch])
+
+  // useEffect(() => {
+  //   const findWish = () => {
+  //     const localWish: any = localStorage.getItem("wish");
+  //     const wish = JSON.parse(localWish).find((item: any) => item.id === id);
+  //     return wish ? setWishStatus("solid") : setWishStatus("regular");
+  //   }
+  //   findWish();
+  // }, [wishClick, id])
+
+  const findWish = (id:any) => {
+    const localWish: any = localStorage.getItem("wish");
+    const wish = JSON.parse(localWish)?.find((item: any) => item.id === id);
+    wish ? setWishStatus("solid") : setWishStatus("regular");
+    return wish ? true : false;
+  }
+
+  const wishClick = useCallback(() => {
+    findWish(id) ? dispatch(removeWish({ id: item.id })) : dispatch(addWish(item));
+    console.log(wishStatus);
+  }, [])
+
+
   return (
     <>
       <div className={`book-card d-flex ${flexStyle} justify-content-center ${listChange ? "align-items-center list-change" : ""}`}>
@@ -48,8 +84,8 @@ const BookCard: React.FC<Book> = ({ item, id, image, title, author, price, star,
             <img src={image} alt="book" />
           </LinkContainer>
           <div className={`book-img-hover flex-column ${flexStyle === "flex-column" ? "d-flex" : "d-none"}`}>
-            <Button variant="none" className="wish-icon mb-2">
-              <i className="fa-regular fa-heart"></i>
+            <Button variant="none" className="wish-icon mb-2" onClick={() => { wishClick() }}>
+              <i className={`fa-${wishStatus} fa-heart`}></i>
             </Button>
             <Button variant="none" className="view-icon mb-2" onClick={handleShow}>
               <i className="fa-regular fa-eye" />
@@ -84,7 +120,7 @@ const BookCard: React.FC<Book> = ({ item, id, image, title, author, price, star,
                 <Basket /> <span>&nbsp; {lang === "en" ? "Add to cart" : "Səbətə əlavə et"}</span>
               </a>
             </LinkContainer>
-            <Button variant="none" className="add-wish">
+            <Button variant="none" className="add-wish" onClick={() => { dispatch(addWish(item)) }}>
               <i className="fa-regular fa-heart"></i>
             </Button>
           </div>
@@ -118,7 +154,7 @@ const BookCard: React.FC<Book> = ({ item, id, image, title, author, price, star,
                         <i className="fas fa-shopping-basket"></i> &nbsp; {lang === "en" ? "Add to cart" : "Səbətə əlavə et"}
                       </a>
                     </LinkContainer>
-                    <Button variant="none" className="add-wish">
+                    <Button variant="none" className="add-wish" onClick={() => { dispatch(addWish(item)) }}>
                       <i className="fa-regular fa-heart"></i>
                     </Button>
                   </div>

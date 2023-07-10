@@ -5,11 +5,14 @@ import { useCart } from 'react-use-cart';
 import { useBetween } from 'use-between';
 import useSharedCanvas from '../sharedHook/useSharedCanvas';
 import { Basket } from 'react-bootstrap-icons';
+import { useDispatch } from 'react-redux';
+import { removeWish } from '../../managers/action/wishAction';
 
 const WishListCard = ({ item }: any) => {
     const [lang] = useContext(LangContext)
     const { addItem } = useCart();
     const { setShowCanvas } = useBetween(useSharedCanvas);
+    const dispatch = useDispatch()
     return (
         <tr>
             <td><img src={item.image} alt="book" width={80} /></td>
@@ -33,6 +36,7 @@ const WishListCard = ({ item }: any) => {
                     <a
                         href="/"
                         className="text-decoration-none delete-btn"
+                        onClick={()=>{dispatch(removeWish({id: item.id}))}}
                     >
                         x
                     </a>

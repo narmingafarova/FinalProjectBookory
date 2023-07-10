@@ -33,7 +33,7 @@ const BlogContent: React.FC = () => {
                     {filtered !== ""
                         ? filtered.map((item: any) => {
                             return (
-                                <div className="blog-card">
+                                <div className="blog-card" key={item.id}>
                                     <div className="blog-img">
                                         <img src={item.photo} alt="" width="100%" height="100%" />
                                     </div>
@@ -69,7 +69,7 @@ const BlogContent: React.FC = () => {
                                 )
                                 .map((item: any) => {
                                     return (
-                                        <div className="blog-card">
+                                        <div className="blog-card" key={item.id}>
                                             <div className="blog-img">
                                                 <img
                                                     src={item.photo}
@@ -105,7 +105,7 @@ const BlogContent: React.FC = () => {
                                 })
                             : blogData.map((item: any) => {
                                 return (
-                                    <div className="blog-card">
+                                    <div className="blog-card" key={item.id}>
                                         <div className="blog-img">
                                             <img src={item.photo} alt="" width="100%" height="100%" />
                                         </div>

@@ -26,7 +26,7 @@ const EditDashboard = ({ pvalue }: any) => {
 const mapStateToProps = (state: any) => {
     const link = window.location.pathname.slice(16);
     return {
-        pvalue: state.find((p: any) => p.id === link),
+        pvalue: state.blog.find((p: any) => p.id === link),
     };
 };
 
