@@ -65,9 +65,15 @@
               margin: 4px 0;
               font-weight: 500;
             }
+            .fa-solid {
+              color: $primary_orange;
+            }
             &:hover {
               background-color: $primary_orange;
-              color: #fff;
+              color: $white;
+              &:has(.fa-solid) {
+                background-color: $white !important;
+              }
             }
           }
         }

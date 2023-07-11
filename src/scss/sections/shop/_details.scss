@@ -108,10 +108,16 @@
           transition: 0.3s;
           &:hover {
             color: $black;
+            &:has(.fa-solid) {
+              color: $primary_orange !important;
+            }
           }
           i {
             color: $black;
             font-size: 15px;
+          }
+          .fa-solid {
+            color: $primary_orange;
           }
         }
         .section-btn {

@@ -190,9 +190,15 @@
             transition: all ease 0.3s;
             color: $black;
             background-color: $white;
+            .fa-solid {
+              color: $primary_orange;
+            }
             &:hover {
               background-color: $primary_orange;
               color: $white;
+              &:has(.fa-solid) {
+                background-color: $white;
+              }
             }
           }
         }

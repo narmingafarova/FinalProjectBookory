@@ -111,9 +111,15 @@
             margin: 4px 0;
             font-weight: 500;
           }
+          .fa-solid {
+            color: $primary_orange;
+          }
           &:hover {
             background-color: $primary_orange;
-            color: #fff;
+            color: $white;
+            &:has(.fa-solid) {
+              background-color: $white !important;
+            }
           }
         }
       }
@@ -205,14 +211,20 @@ label {
     border: 1px solid $milk_white;
     margin-left: 5px;
     transition: 0.3s;
-    background-color: transparent;
+    background-color: $white;
     i {
       margin: 4px 0;
       font-weight: 500;
     }
+    .fa-solid {
+      color: $primary_orange;
+    }
     &:hover {
       background-color: $primary_orange;
-      color: #fff;
+      color: $white;
+      &:has(.fa-solid) {
+        background-color: $white !important;
+      }
     }
   }
 }

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useCallback, useContext, useState } from 'react'
 import { Breadcrumb, Button, Col, Container, Row } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 import { BookContext } from '../context/BookContext'
@@ -11,7 +11,7 @@ import useSharedCanvas from '../components/sharedHook/useSharedCanvas'
 import BookCard from '../components/cards/BookCard'
 import { LangContext } from '../context/LangContext'
 import { useDispatch } from 'react-redux'
-import { addWish } from '../managers/action/wishAction'
+import { addWish, removeWish } from '../managers/action/wishAction'
 
 const ProductDetails = () => {
   const [books] = useContext(BookContext);
@@ -30,6 +30,28 @@ const ProductDetails = () => {
   const [lang] = useContext(LangContext);
 
   const dispatch = useDispatch()
+
+  const local: any = localStorage.getItem("wish");
+  const wishData: any = local ? JSON.parse(local).find((item: any) => item.id == id) : false;
+
+  const [wishStatus, setWishStatus] = useState<string>(wishData ? "solid" : "regular");
+
+  const findWish = (id: any) => {
+    const local: any = localStorage.getItem("wish");
+    const wishData: any = local ? JSON.parse(local).find((item: any) => item.id == id) : false;
+    return wishData ? true : false;
+  }
+
+  const wishClick = useCallback(() => {
+    if (findWish(id)) {
+      dispatch(removeWish({ id: details.id }));
+      setWishStatus("regular");
+    } else {
+      dispatch(addWish(details));
+      setWishStatus("solid");
+    }
+  }, [])
+
   return (
     <>
       <ScrollToTop />
@@ -101,8 +123,8 @@ const ProductDetails = () => {
                         <i className="fas fa-shopping-basket"></i>  <span>&nbsp;{lang === "en" ? "Add to cart" : "Səbətə əlavə et"}</span>
                       </a>
                     </LinkContainer>
-                    <Button variant="none" className="detail-wish d-flex align-items-center" onClick={()=>{dispatch(addWish(details))}}>
-                      <i className="fa-regular fa-heart me-1"></i>
+                    <Button variant="none" className="detail-wish d-flex align-items-center" onClick={() => { wishClick() }}>
+                      <i className={`fa-${wishStatus} fa-heart me-1`}></i>
                       <span>{lang === "en" ? "Add to wishlist" : "Bəyənilənlərə əlavə et"}</span>
                     </Button>
                   </div>

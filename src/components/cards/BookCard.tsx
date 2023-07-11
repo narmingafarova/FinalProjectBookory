@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, { useCallback, useContext, useState } from "react";
 import Rating from "../Rating";
 import { LinkContainer } from "react-router-bootstrap";
 import { Basket } from "react-bootstrap-icons";
@@ -41,35 +41,29 @@ const BookCard: React.FC<Book> = ({ item, id, image, title, author, price, star,
   const [lang] = useContext(LangContext)
 
   const local: any = localStorage.getItem("wish");
-  const [wishStatus, setWishStatus] = useState<string>(JSON.parse(local)?.find((item: any) => item.id === id) ? "solid" : "regular");
+  const wishData: any = local ? JSON.parse(local).find((item: any) => item.id === id) : false;
 
-  // const [wishStatus, setWishStatus] = useState<boolean>()
+  const [wishStatus, setWishStatus] = useState<string>(wishData ? "solid" : "regular");
+
   const dispatch = useDispatch();
 
-  // const wishClick = useCallback(() => {
-  //   wishStatus === "solid" ? dispatch(removeWish({ id: item.id })) : dispatch(addWish(item));
-  //   console.log(wishStatus);
-  // }, [wishStatus, item, dispatch])
-
-  // useEffect(() => {
-  //   const findWish = () => {
-  //     const localWish: any = localStorage.getItem("wish");
-  //     const wish = JSON.parse(localWish).find((item: any) => item.id === id);
-  //     return wish ? setWishStatus("solid") : setWishStatus("regular");
-  //   }
-  //   findWish();
-  // }, [wishClick, id])
-
-  const findWish = (id:any) => {
-    const localWish: any = localStorage.getItem("wish");
-    const wish = JSON.parse(localWish)?.find((item: any) => item.id === id);
-    wish ? setWishStatus("solid") : setWishStatus("regular");
-    return wish ? true : false;
+  const findWish = (id: any) => {
+    // const localWish: any = localStorage.getItem("wish");
+    const local: any = localStorage.getItem("wish");
+    const wishData: any = local ? JSON.parse(local).find((item: any) => item.id === id) : false;
+    // const wish = JSON.parse(localWish)?.find((item: any) => item.id === id);
+    // wishData ? setWishStatus("solid") : setWishStatus("regular");
+    return wishData ? true : false;
   }
 
   const wishClick = useCallback(() => {
-    findWish(id) ? dispatch(removeWish({ id: item.id })) : dispatch(addWish(item));
-    console.log(wishStatus);
+    if (findWish(id)) {
+      dispatch(removeWish({ id: item.id }));
+      setWishStatus("regular");
+    } else {
+      dispatch(addWish(item));
+      setWishStatus("solid")
+    }
   }, [])
 
 
@@ -120,8 +114,8 @@ const BookCard: React.FC<Book> = ({ item, id, image, title, author, price, star,
                 <Basket /> <span>&nbsp; {lang === "en" ? "Add to cart" : "Səbətə əlavə et"}</span>
               </a>
             </LinkContainer>
-            <Button variant="none" className="add-wish" onClick={() => { dispatch(addWish(item)) }}>
-              <i className="fa-regular fa-heart"></i>
+            <Button variant="none" className="add-wish" onClick={() => { wishClick() }}>
+              <i className={`fa-${wishStatus} fa-heart`}></i>
             </Button>
           </div>
         </div>
@@ -154,8 +148,8 @@ const BookCard: React.FC<Book> = ({ item, id, image, title, author, price, star,
                         <i className="fas fa-shopping-basket"></i> &nbsp; {lang === "en" ? "Add to cart" : "Səbətə əlavə et"}
                       </a>
                     </LinkContainer>
-                    <Button variant="none" className="add-wish" onClick={() => { dispatch(addWish(item)) }}>
-                      <i className="fa-regular fa-heart"></i>
+                    <Button variant="none" className="add-wish" onClick={() => { wishClick() }}>
+                      <i className={`fa-${wishStatus} fa-heart`}></i>
                     </Button>
                   </div>
                 </div>
