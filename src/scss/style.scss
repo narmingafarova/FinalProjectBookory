@@ -71,6 +71,18 @@
   background: $primary_orange;
 }
 
+.disable-btn {
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.disable-hover {
+  pointer-events: none;
+  opacity: 0.3;
+  background-color: rgba(179, 173, 173, 0.758) !important;
+  color: $white !important;
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 8px;

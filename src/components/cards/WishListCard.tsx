@@ -21,12 +21,16 @@ const WishListCard = ({ item }: any) => {
                     <LinkContainer to={`/shop/${item.id}`}>
                         <strong>{item.title}</strong>
                     </LinkContainer>
-                    <span>${item.price}</span>
+                    <span>${!item.price.toString().split(".")[1]
+                        ? item.price.toString().concat(".00")
+                        : item.price.toString().split(".")[1].length === 1
+                            ? item.price.toString().concat("0")
+                            : item.price}</span>
                 </div>
             </td>
             <td>
                 <LinkContainer to={window.location.pathname}>
-                    <a href="/" className='text-decoration-none section-btn' onClick={() => { addItem(item); setShowCanvas(true); }}>
+                    <a href="/" className={`text-decoration-none section-btn ${item.stock ? "" : "disable-btn"}`} onClick={() => { addItem(item); setShowCanvas(true); }}>
                         <Basket /> <span>&nbsp; {lang === "en" ? "Add to cart" : "Səbətə əlavə et"}</span>
                     </a>
                 </LinkContainer>
@@ -36,7 +40,7 @@ const WishListCard = ({ item }: any) => {
                     <a
                         href="/"
                         className="text-decoration-none delete-btn"
-                        onClick={()=>{dispatch(removeWish({id: item.id}))}}
+                        onClick={() => { dispatch(removeWish({ id: item.id })) }}
                     >
                         x
                     </a>

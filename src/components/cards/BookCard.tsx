@@ -26,9 +26,10 @@ interface Book {
   flexStyle: string;
   briefDesc: string;
   listChange: boolean;
+  stock: boolean;
 }
 
-const BookCard: React.FC<Book> = ({ item, id, image, title, author, price, star, category, tags, cutTitle, flexStyle, briefDesc, listChange }) => {
+const BookCard: React.FC<Book> = ({ item, id, image, title, author, price, star, category, tags, cutTitle, flexStyle, briefDesc, listChange, stock }) => {
   const [show, setShow] = useState(false);
   const [quantity, setQuantity] = useState<number>(1);
   const { addItem } = useCart();
@@ -84,8 +85,8 @@ const BookCard: React.FC<Book> = ({ item, id, image, title, author, price, star,
             <Button variant="none" className="view-icon mb-2" onClick={handleShow}>
               <i className="fa-regular fa-eye" />
             </Button>
-            <Button variant="none" className="add-cart-icon" onClick={() => { addItem(item); setShowCanvas(true); }}>
-              <Basket />
+            <Button variant="none" className={`add-cart-icon ${stock ? "" : "disable-hover"}`} onClick={() => { addItem(item); setShowCanvas(true); }}>
+              <Basket className="mb-1"/>
             </Button>
           </div>
         </div>
@@ -110,7 +111,7 @@ const BookCard: React.FC<Book> = ({ item, id, image, title, author, price, star,
           </div>
           <div className={`cart-footer d-flex align-items-center ${listChange ? "" : "d-none"}`}>
             <LinkContainer to="/shop">
-              <a href="/" className='text-decoration-none section-btn me-4' onClick={() => { addItem(item); setShowCanvas(true); }}>
+              <a href="/" className={`text-decoration-none section-btn me-4 ${stock ? "" : "disable-btn"}`} onClick={() => { addItem(item); setShowCanvas(true); }}>
                 <Basket /> <span>&nbsp; {lang === "en" ? "Add to cart" : "Səbətə əlavə et"}</span>
               </a>
             </LinkContainer>
@@ -131,7 +132,11 @@ const BookCard: React.FC<Book> = ({ item, id, image, title, author, price, star,
                   <p>{title}</p>
                 </LinkContainer>
                 <Rating star={star} count={0} />
-                <div className="book-price">${price}</div>
+                <div className="book-price">${!price.toString().split(".")[1]
+                  ? price.toString().concat(".00")
+                  : price.toString().split(".")[1].length === 1
+                    ? price.toString().concat("0")
+                    : price}</div>
                 <div className="book-desc mb-3">{briefDesc}</div>
                 <label htmlFor="quantity">{lang === "en" ? "Quantity" : "Say"}</label>
                 <div className="modal-actions d-flex justify-content-start align-items-center pt-0 mt-1">
@@ -144,7 +149,7 @@ const BookCard: React.FC<Book> = ({ item, id, image, title, author, price, star,
                   </div>
                   <div className="modal-res d-flex align-items-center">
                     <LinkContainer to={window.location.pathname}>
-                      <a href="/" className='text-decoration-none section-btn me-3' onClick={() => { addItem(item, quantity); setShow(false); setShowCanvas(true); }}>
+                      <a href="/" className={`text-decoration-none section-btn me-3 ${stock ? "" : "disable-btn"}`} onClick={() => { addItem(item, quantity); setShow(false); setShowCanvas(true); }}>
                         <i className="fas fa-shopping-basket"></i> &nbsp; {lang === "en" ? "Add to cart" : "Səbətə əlavə et"}
                       </a>
                     </LinkContainer>

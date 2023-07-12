@@ -82,7 +82,7 @@ const Bestselling: React.FC = () => {
                     <Col sm={12} md={8}>
                         <Slider {...settings}>
                             {best.map((item: any) => {
-                                return <BookCard key={item.id} item={item} id={item.id} image={item.image} title={item.title} author={item.author} price={item.price} star={item.star} category={item.category} tags={item.tags} cutTitle={true} flexStyle='flex-column' briefDesc={item.briefDescription} listChange={false} />
+                                return <BookCard key={item.id} item={item} id={item.id} image={item.image} title={item.title} author={item.author} price={item.price} star={item.star} category={item.category} tags={item.tags} cutTitle={true} flexStyle='flex-column' briefDesc={item.briefDescription} listChange={false} stock={item.stock} />
                             })}
                         </Slider>
                     </Col>

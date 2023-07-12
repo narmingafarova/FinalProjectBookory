@@ -158,7 +158,7 @@ const ShopBooks = () => {
       <Container className="shop-books">
         <Row className="mt-5">
           <Col sm={5} md={3} className="pe-4">
-            <button className='filter-btn d-flex justify-content-center align-items-center me-3 mb-2' onClick={()=>{filterResp === "" ? setFilterResp("d-block") : setFilterResp("")}}>
+            <button className='filter-btn d-flex justify-content-center align-items-center me-3 mb-2' onClick={() => { filterResp === "" ? setFilterResp("d-block") : setFilterResp("") }}>
               <Filter className='me-1' /> {lang === "en" ? "Filter" : "Filtr"}
             </button>
             <div className={`shop-category mb-4 ${filterResp}`}>
@@ -484,6 +484,7 @@ const ShopBooks = () => {
                         flexStyle={flexMode}
                         briefDesc={item.briefDescription}
                         listChange={flexMode === "flex-column" ? false : true}
+                        stock={item.stock}
                       />
                     </Col>
                   );
@@ -506,6 +507,7 @@ const ShopBooks = () => {
                           flexStyle={flexMode}
                           briefDesc={item.briefDescription}
                           listChange={flexMode === "flex-column" ? false : true}
+                          stock={item.stock}
                         />
                       </Col>
                     );
@@ -528,6 +530,7 @@ const ShopBooks = () => {
                             flexStyle={flexMode}
                             briefDesc={item.briefDescription}
                             listChange={flexMode === "flex-column" ? false : true}
+                            stock={item.stock}
                           />
                         </Col>
                       );
@@ -550,6 +553,7 @@ const ShopBooks = () => {
                               flexStyle={flexMode}
                               briefDesc={item.briefDescription}
                               listChange={flexMode === "flex-column" ? false : true}
+                              stock={item.stock}
                             />
                           </Col>
                         );
@@ -571,6 +575,7 @@ const ShopBooks = () => {
                               flexStyle={flexMode}
                               briefDesc={item.briefDescription}
                               listChange={flexMode === "flex-column" ? false : true}
+                              stock={item.stock}
                             />
                           </Col>
                         );

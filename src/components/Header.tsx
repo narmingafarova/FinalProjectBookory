@@ -404,10 +404,15 @@ const Header: React.FC = () => {
                                                         <h5 onClick={() => setShowCanvas(false)}>{item.title}</h5>
                                                     </LinkContainer>
                                                     <div className="vendor-info">
-                                                        {lang === "en" ? "Vendor" : "Satıcı"}: <span>{item.vendorInfo.storeName}</span>
+                                                        {lang === "en" ? "Vendor" : "Satıcı"}: <span>{item.storeWish}</span>
                                                     </div>
                                                     <div className="quantity-price d-flex align-items-center">
-                                                        <span className="quantity">{item.quantity} x &nbsp;</span><span className='price'>${item.price}</span>
+                                                        <span className="quantity">{item.quantity} x &nbsp;</span>
+                                                        <span className='price'>${!item.price.toString().split(".")[1]
+                                                            ? item.price.toString().concat(".00")
+                                                            : item.price.toString().split(".")[1].length === 1
+                                                                ? item.price.toString().concat("0")
+                                                                : item.price}</span>
                                                     </div>
                                                 </div>
                                             </div>

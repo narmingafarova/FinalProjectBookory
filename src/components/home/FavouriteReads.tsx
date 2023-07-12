@@ -37,24 +37,24 @@ const FavouriteReads: React.FC = () => {
                             {books.slice(24, 28).map((item: any) => {
                                 return (
                                     <div className='fav-card-div' onMouseEnter={() => { setFirstCard(item) }} key={item.id}>
-                                        <BookCard item={item} id={item.id} image={item.image} title={item.title} author={item.author} price={item.price} star={item.star} category={item.category} tags={item.tags} cutTitle={true} flexStyle='flex-row' briefDesc={item.briefDescription} listChange={false} />
+                                        <BookCard item={item} id={item.id} image={item.image} title={item.title} author={item.author} price={item.price} star={item.star} category={item.category} tags={item.tags} cutTitle={true} flexStyle='flex-row' briefDesc={item.briefDescription} listChange={false} stock={item.stock}/>
                                     </div>
                                 )
                             })}
                         </Col>
                         <Col sm={6} md={3} className='main-fav-card d-flex justify-content-center align-items-center main-first'>
                             <div>
-                                {firstCard ? <BookCard item={firstCard} id={firstCard.id} image={firstCard.image} title={firstCard.title} author={firstCard.author} price={firstCard.price} star={firstCard.star} category={firstCard.category} tags={firstCard.tags} cutTitle={false} flexStyle='flex-column' briefDesc={firstCard.briefDescription} listChange={false} />
+                                {firstCard ? <BookCard item={firstCard} id={firstCard.id} image={firstCard.image} title={firstCard.title} author={firstCard.author} price={firstCard.price} star={firstCard.star} category={firstCard.category} tags={firstCard.tags} cutTitle={false} flexStyle='flex-column' briefDesc={firstCard.briefDescription} listChange={false} stock={firstCard.stock}/>
                                     : books.slice(24, 25).map((item: any) => {
-                                        return <BookCard key={item.id} item={item} id={item.id} image={item.image} title={item.title} author={item.author} price={item.price} star={item.star} category={item.category} tags={item.tags} cutTitle={false} flexStyle='flex-column' briefDesc={item.briefDescription} listChange={false} />
+                                        return <BookCard key={item.id} item={item} id={item.id} image={item.image} title={item.title} author={item.author} price={item.price} star={item.star} category={item.category} tags={item.tags} cutTitle={false} flexStyle='flex-column' briefDesc={item.briefDescription} listChange={false} stock={item.stock}/>
                                     })}
                             </div>
                         </Col>
                         <Col sm={6} md={3} className='main-fav-card d-flex justify-content-center align-items-center main-second'>
                             <div>
-                                {secondCard ? <BookCard item={secondCard} id={secondCard.id} image={secondCard.image} title={secondCard.title} author={secondCard.author} price={secondCard.price} star={secondCard.star} category={secondCard.category} tags={secondCard.tags} cutTitle={false} flexStyle='flex-column' briefDesc={secondCard.briefDescription} listChange={false} />
+                                {secondCard ? <BookCard item={secondCard} id={secondCard.id} image={secondCard.image} title={secondCard.title} author={secondCard.author} price={secondCard.price} star={secondCard.star} category={secondCard.category} tags={secondCard.tags} cutTitle={false} flexStyle='flex-column' briefDesc={secondCard.briefDescription} listChange={false} stock={secondCard.stock}/>
                                     : books.slice(12, 13).map((item: any) => {
-                                        return <BookCard key={item.id} item={item} id={item.id} image={item.image} title={item.title} author={item.author} price={item.price} star={item.star} category={item.category} tags={item.tags} cutTitle={false} flexStyle='flex-column' briefDesc={item.briefDescription} listChange={false} />
+                                        return <BookCard key={item.id} item={item} id={item.id} image={item.image} title={item.title} author={item.author} price={item.price} star={item.star} category={item.category} tags={item.tags} cutTitle={false} flexStyle='flex-column' briefDesc={item.briefDescription} listChange={false} stock={item.stock}/>
                                     })}
                             </div>
                         </Col>
@@ -62,7 +62,7 @@ const FavouriteReads: React.FC = () => {
                             {books.slice(12, 16).map((item: any) => {
                                 return (
                                     <div className='fav-card-div' onMouseEnter={() => { setSecondCard(item) }} key={item.id}>
-                                        <BookCard item={item} id={item.id} image={item.image} title={item.title} author={item.author} price={item.price} star={item.star} category={item.category} tags={item.tags} cutTitle={true} flexStyle='flex-row' briefDesc={item.briefDescription} listChange={false} />
+                                        <BookCard item={item} id={item.id} image={item.image} title={item.title} author={item.author} price={item.price} star={item.star} category={item.category} tags={item.tags} cutTitle={true} flexStyle='flex-row' briefDesc={item.briefDescription} listChange={false} stock={item.stock}/>
                                     </div>
                                 )
                             })}

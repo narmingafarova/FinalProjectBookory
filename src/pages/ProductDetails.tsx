@@ -105,7 +105,11 @@ const ProductDetails = () => {
                   </div>
                 </div>
                 <div className="price-desc">
-                  <div className="price">${details.price}</div>
+                  <div className="price">${!details.price.toString().split(".")[1]
+                    ? details.price.toString().concat(".00")
+                    : details.price.toString().split(".")[1].length === 1
+                      ? details.price.toString().concat("0")
+                      : details.price}</div>
                   <div className="brief-desc">{details.briefDescription}</div>
                 </div>
                 <label htmlFor="quantity">{lang === "en" ? "Quantity" : "Say"}</label>
@@ -119,7 +123,7 @@ const ProductDetails = () => {
                   </div>
                   <div className="resp-btns d-flex align-items-center">
                     <LinkContainer to={`/shop/${details.id}`}>
-                      <a href="/" className='text-decoration-none section-btn me-2' onClick={() => { addItem(details, quantity); setShowCanvas(true); }}>
+                      <a href="/" className={`text-decoration-none section-btn me-2 ${details.stock ? "" : "disable-btn"}`} onClick={() => { addItem(details, quantity); setShowCanvas(true); }}>
                         <i className="fas fa-shopping-basket"></i>  <span>&nbsp;{lang === "en" ? "Add to cart" : "Səbətə əlavə et"}</span>
                       </a>
                     </LinkContainer>
@@ -272,7 +276,7 @@ const ProductDetails = () => {
           <Row className='mode-cards gy-4'>
             {books.slice(random, random + 6).map((item: any) => {
               return (<Col sm={6} md={2} className='px-0 detail-mode'>
-                <BookCard key={item.id} item={item} id={item.id} image={item.image} title={item.title} author={item.author} price={item.price} star={item.star} category={item.category} tags={item.tags} cutTitle={true} flexStyle='flex-column' briefDesc={item.briefDescription} listChange={false} />
+                <BookCard key={item.id} item={item} id={item.id} image={item.image} title={item.title} author={item.author} price={item.price} star={item.star} category={item.category} tags={item.tags} cutTitle={true} flexStyle='flex-column' briefDesc={item.briefDescription} listChange={false} stock={item.stock}/>
               </Col>)
             })}
           </Row>

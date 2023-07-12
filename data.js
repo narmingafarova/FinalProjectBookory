@@ -11,6 +11,7 @@ export const data = [
       "Aut quidem cupiditate qui. Quod laudantium et quos dignissimos. Magni ea ad delectus mollitia fuga porro. Voluptate ipsum magnam eos voluptas omnis voluptates et. Quasi exercitationem ea ipsa consectetur aut laborum veniam voluptatem. Labore aut esse nulla explicabo ut similique incidunt cum. Eaque dolorem eum soluta ad exercitationem quibusdam unde. Ducimus vel voluptatem iure qui aspernatur sit voluptatum. Consequatur quia aperiam aliquid reiciendis quasi culpa sit. Expedita eos voluptatum eum.",
     price: 439.83,
     star: 4.0,
+    storeWish: "Arlene",
     vendorInfo: {
       storeName: "Arlene",
       storeLogo:
@@ -42,6 +43,7 @@ export const data = [
     },
     price: 814.66,
     star: 4.0,
+    storeWish: "Gregstore",
     vendorInfo: {
       storeName: "Gregstore",
       storeLogo:
@@ -79,6 +81,7 @@ export const data = [
     },
     price: 216.98,
     star: 3.7,
+    storeWish: "Library",
     vendorInfo: {
       storeName: "Library",
       storeLogo:
@@ -109,6 +112,7 @@ export const data = [
     },
     price: 264.0,
     star: 4.0,
+    storeWish: "Library",
     vendorInfo: {
       storeName: "Library",
       storeLogo:
@@ -120,7 +124,7 @@ export const data = [
     },
     category: ["Action & Adventure", "Cultural"],
     tags: ["Books", "Fiction", "Romance - Contemporary"],
-    stock: true,
+    stock: false,
     sku: "INT280",
     mode: "best",
   },
@@ -140,6 +144,7 @@ export const data = [
     },
     price: 938.78,
     star: 3.8,
+    storeWish: "Library",
     vendorInfo: {
       storeName: "Library",
       storeLogo:
@@ -171,6 +176,7 @@ export const data = [
     },
     price: 50.89,
     star: 3.6,
+    storeWish: "Library",
     vendorInfo: {
       storeName: "Library",
       storeLogo:
@@ -207,6 +213,7 @@ export const data = [
     },
     price: 283.47,
     star: 4.0,
+    storeWish: "BookPlace",
     vendorInfo: {
       storeName: "BookPlace",
       storeLogo:
@@ -237,6 +244,7 @@ export const data = [
     },
     price: 628.28,
     star: 3.1,
+    storeWish: "Arlene",
     vendorInfo: {
       storeName: "Arlene",
       storeLogo:
@@ -263,6 +271,7 @@ export const data = [
       "Et enim assumenda blanditiis officia rerum sed non. Error ipsum doloribus quia ut iure odit. Atque vel nam amet. Id eaque quo temporibus quis dolore incidunt. Quia repudiandae nam doloribus ratione iure deserunt provident. Hic architecto placeat corrupti. Corrupti quam officiis ad praesentium ea magnam.",
     price: 997.03,
     star: 4.0,
+    storeWish: "Online Store",
     vendorInfo: {
       storeName: "Online Store",
       storeLogo:
@@ -280,7 +289,7 @@ export const data = [
       "Historical",
     ],
     tags: ["Books", "Fiction", "Romance - Contemporary"],
-    stock: true,
+    stock: false,
     sku: "97712725",
   },
   {
@@ -295,6 +304,7 @@ export const data = [
       "Vel odit dolores voluptatem quis assumenda consectetur. Qui maiores aut sint quia rerum non nesciunt. Aut cupiditate architecto quia cupiditate. Cupiditate sit delectus adipisci sed delectus magnam velit dolore. Incidunt et et earum aliquam fuga voluptatibus voluptas. Ut ut repellat eum occaecati quos beatae. Eveniet quasi rem occaecati impedit ut. Qui rem quod quae quaerat. Deleniti hic alias enim eum odit. Nisi et explicabo rerum perspiciatis.",
     price: 802.88,
     star: 3.7,
+    storeWish: "Online Store",
     vendorInfo: {
       storeName: "Online Store",
       storeLogo:
@@ -322,6 +332,7 @@ export const data = [
       "Dolore explicabo aperiam consequatur ut possimus veritatis animi. Quas nostrum exercitationem nam dolor dolorum. Quasi laborum sit voluptatem non voluptatem. Et est odit quo nobis et fugit iure quia. Sequi quo quod nostrum porro aspernatur sint facere. Qui incidunt aut iure doloribus autem placeat reiciendis. Maiores quasi et dignissimos in. Deleniti corporis et soluta animi. Nulla commodi dolor numquam maxime non atque enim. Amet quae perferendis voluptatem qui unde modi. Libero maxime enim cum magni et eum quia. Eligendi quia aspernatur nostrum necessitatibus. Dolore id officia qui ipsum. Officia soluta sequi est omnis neque autem et. Dolor molestiae optio eos voluptatem dicta. Sunt harum nesciunt in soluta aperiam vel dolor. Aperiam accusamus similique sunt doloribus magnam debitis natus.",
     price: 390.64,
     star: 3.7,
+    storeWish: "BookPlace",
     vendorInfo: {
       storeName: "BookPlace",
       storeLogo:
@@ -349,6 +360,7 @@ export const data = [
       "Dolor porro autem ut quasi dolorem autem. Cumque cum est maxime optio et facere dolore. Voluptatum modi ex earum accusantium et. Magnam quia ipsam delectus in sint eius. Et mollitia voluptates quia ipsa deserunt. Consectetur quia ut est sunt modi non sint. Sit magnam reiciendis earum nisi. Aliquid veritatis ad expedita. Aut consequuntur aperiam itaque aperiam atque id sequi. Placeat voluptate officia aliquid hic. Ut nisi velit delectus. Blanditiis esse aut distinctio ea quo saepe nemo est. Est quas reiciendis et perferendis. Aut explicabo voluptatem labore accusamus quidem. Corporis dolorum quae quia cum.",
     price: 72.99,
     star: 3.7,
+    storeWish: "Online Store",
     vendorInfo: {
       storeName: "Online Store",
       storeLogo:
@@ -381,6 +393,7 @@ export const data = [
     },
     price: 664.55,
     star: 4.6,
+    storeWish: "Gregstore",
     vendorInfo: {
       storeName: "Gregstore",
       storeLogo:
@@ -409,6 +422,7 @@ export const data = [
       "Eos et et quasi id est rem ut. Quisquam molestias molestiae est delectus libero qui est. Eaque eos omnis molestias soluta aut.",
     price: 914.53,
     star: 3.1,
+    storeWish: "Barone LLC.",
     vendorInfo: {
       storeName: "Barone LLC.",
       storeLogo:
@@ -425,7 +439,7 @@ export const data = [
       "Cultural",
     ],
     tags: ["Books", "Fiction", "Romance - Contemporary"],
-    stock: true,
+    stock: false,
     sku: "B6185579",
     mode: "trend",
   },
@@ -445,6 +459,7 @@ export const data = [
     },
     price: 115.72,
     star: 5.0,
+    storeWish: "Book Store",
     vendorInfo: {
       storeName: "Book Store",
       storeLogo:
@@ -478,6 +493,7 @@ export const data = [
       "Deserunt incidunt minus blanditiis. Eos qui eius est inventore. Enim cupiditate quis omnis consequatur. Qui vitae at eveniet quo eos cum. Voluptatem iusto enim itaque excepturi. Excepturi sequi natus ad architecto qui consequuntur saepe facere. Aut id corrupti nulla vel enim eum. Sit consequatur aut id reprehenderit quam. Esse id quibusdam quidem ullam. Aut et recusandae corrupti quia. In quam molestiae provident sint eum animi magnam. Similique dicta quo qui omnis iusto quisquam sed est. Necessitatibus aut iste et. Totam ea et fuga eligendi voluptatem voluptatibus.",
     price: 60.87,
     star: 4.6,
+    storeWish: "Arlene",
     vendorInfo: {
       storeName: "Arlene",
       storeLogo:
@@ -509,6 +525,7 @@ export const data = [
     },
     price: 906.29,
     star: 4.0,
+    storeWish: "Book Store",
     vendorInfo: {
       storeName: "Book Store",
       storeLogo:
@@ -540,6 +557,7 @@ export const data = [
     },
     price: 33.52,
     star: 3.1,
+    storeWish: "BookPlace",
     vendorInfo: {
       storeName: "BookPlace",
       storeLogo:
@@ -576,6 +594,7 @@ export const data = [
     },
     price: 414.1,
     star: 3.6,
+    storeWish: "Book House",
     vendorInfo: {
       storeName: "Book House",
       storeLogo:
@@ -603,6 +622,7 @@ export const data = [
       "Possimus earum ut dolorem aperiam excepturi dolore fugiat. At similique sapiente amet quia est est officia omnis. In aspernatur soluta dolore quis dolores aut nemo. Voluptate odit officia ad repudiandae distinctio. Dolorem voluptatem ut eligendi voluptatibus hic dolore vero. Qui ad voluptatem occaecati cumque voluptatum optio. Distinctio corporis totam non error quia atque sit. Est quidem saepe sunt magni repudiandae. Cum et dolorem rerum. Quisquam consequatur maxime dolores consequuntur omnis iste. Porro sed provident ab soluta. Dolor nobis aut saepe labore dolorem. Repudiandae quod cumque id fugiat adipisci eos culpa. Adipisci reiciendis et odio qui vel rem. Est doloremque voluptatem aut. Enim sequi sunt pariatur qui minus asperiores. Impedit officia id molestias suscipit consequatur dignissimos beatae. Dignissimos iste velit error repellat. Aut omnis voluptatibus sapiente dolore eos impedit.",
     price: 7.29,
     star: 4.6,
+    storeWish: "Book House",
     vendorInfo: {
       storeName: "Book House",
       storeLogo:
@@ -630,6 +650,7 @@ export const data = [
       "Id dicta dolore nemo quia labore accusantium qui. Quas soluta qui aliquid non. Omnis soluta et rerum ut nobis iusto. Rerum quod illo nobis illo blanditiis. Nisi voluptatibus praesentium iure atque. Cum est consequatur et et. Vel recusandae nulla vel necessitatibus adipisci.",
     price: 741.23,
     star: 4.0,
+    storeWish: "Arlene",
     vendorInfo: {
       storeName: "Arlene",
       storeLogo:
@@ -641,7 +662,7 @@ export const data = [
     },
     category: ["Anthologies", "Cultural"],
     tags: ["Books", "Fiction", "Romance - Contemporary"],
-    stock: true,
+    stock: false,
     sku: "42460251",
     mode: "best",
   },
@@ -657,6 +678,7 @@ export const data = [
       "Ut earum iure dolor tenetur. Et sit et est deserunt. Cumque voluptatum recusandae molestiae recusandae velit. Eaque quam repellat omnis. Nulla excepturi iure nobis rerum. Voluptatum aut doloribus quos amet ipsa voluptatibus eius aperiam. Occaecati reiciendis dicta adipisci eum aut velit. Consequuntur occaecati in maxime ab numquam voluptatem. Quo cumque harum quam dolorem. Suscipit quos ratione et nemo dolore. Et voluptatem molestiae sit vel. Libero qui rerum cum quo nesciunt et dolorem.",
     price: 170.03,
     star: 4.1,
+    storeWish: "BookPlace",
     vendorInfo: {
       storeName: "BookPlace",
       storeLogo:
@@ -689,6 +711,7 @@ export const data = [
       "Quo inventore nulla dolorum aliquam et eligendi illum. Quisquam est soluta eos et. Eum aut qui id vel ipsam. Voluptatum quia ut maiores et neque voluptas.Fuga hic ratione enim dolores. Iste rerum explicabo et est. Amet itaque laborum voluptatem veniam. In iusto ipsum placeat eaque et. Tempora perspiciatis reiciendis officia aut itaque quibusdam. Et voluptas enim ipsam in.",
     price: 989.56,
     star: 4.6,
+    storeWish: "Barone LLC.",
     vendorInfo: {
       storeName: "Barone LLC.",
       storeLogo:
@@ -716,6 +739,7 @@ export const data = [
       "Necessitatibus eum omnis explicabo explicabo. Alias hic possimus aut ipsa. Asperiores et voluptate commodi quia qui. Culpa ab velit dolorem sit. Aliquam tenetur delectus dolor vero ipsa dolor. Qui voluptatem ex eos magnam et necessitatibus. Eius necessitatibus sit id mollitia sunt ea ut ea. Facilis recusandae rerum sed numquam sunt enim. Aut dolorem ea sed exercitationem placeat nihil. Enim labore sapiente quisquam recusandae. Ipsum est suscipit rerum et. Labore aliquam occaecati est unde nemo. Molestias labore recusandae perferendis impedit consequatur. Maiores eum aut dolore non consequuntur ut et. Voluptatem aut et aperiam sed. Sit omnis sed voluptas molestiae autem magnam ea.",
     price: 642.94,
     star: 4.1,
+    storeWish: "Barone LLC.",
     vendorInfo: {
       storeName: "Barone LLC.",
       storeLogo:
@@ -743,6 +767,7 @@ export const data = [
       "Doloremque aut provident quaerat soluta delectus. Cum sed harum sunt fugiat temporibus. Vitae aut earum expedita quia rem cum.",
     price: 489.44,
     star: 4.1,
+    storeWish: "Arlene",
     vendorInfo: {
       storeName: "Arlene",
       storeLogo:
@@ -769,6 +794,7 @@ export const data = [
       "Nesciunt dignissimos distinctio odit nihil saepe qui aliquam. Optio tempore cumque natus et ab. Ut eligendi perspiciatis officiis magni. Praesentium qui earum aut dolores dolores officia provident debitis. Ab quod porro architecto nulla. Fugit est architecto nulla molestias. Consectetur commodi commodi nisi dignissimos velit praesentium. Et tempora ipsam enim delectus. Est vitae voluptatem dolores quia hic. Aut sed voluptatibus et culpa voluptas. Iure eveniet vitae corrupti ipsum. Necessitatibus sunt molestiae dolores culpa qui necessitatibus harum.",
     price: 185.28,
     star: 4.0,
+    storeWish: "Gregstore",
     vendorInfo: {
       storeName: "Gregstore",
       storeLogo:
@@ -781,7 +807,7 @@ export const data = [
     },
     category: ["Cultural", "Genre Fiction"],
     tags: ["Books", "Fiction", "Romance - Contemporary"],
-    stock: true,
+    stock: false,
     sku: "76360237",
   },
   {
@@ -800,6 +826,7 @@ export const data = [
     },
     price: 289.38,
     star: 4.6,
+    storeWish: "Barone LLC.",
     vendorInfo: {
       storeName: "Barone LLC.",
       storeLogo:
@@ -827,6 +854,7 @@ export const data = [
       "Voluptas sed magni modi et incidunt temporibus. Dignissimos perspiciatis et laudantium sunt qui soluta. Quia architecto neque dolore eligendi repellendus voluptas. Ut voluptates qui velit provident. Nam similique occaecati sed natus. Voluptatem culpa itaque voluptatem quae repellat blanditiis rem. Fuga cumque temporibus cumque eum molestiae. Consequatur odit voluptatem voluptatem atque tempore. Ut animi explicabo autem occaecati ea consequuntur. Qui perspiciatis doloremque temporibus hic et perferendis quo.",
     price: 289.6,
     star: 4.7,
+    storeWish: "Online Store",
     vendorInfo: {
       storeName: "Online Store",
       storeLogo:
@@ -856,6 +884,7 @@ export const data = [
       "Libero optio tempora numquam assumenda non. Est aut et error voluptatibus. Ut hic qui perferendis eos. Hic perspiciatis reiciendis quia est rerum sit. Explicabo quia vel et quaerat eos. Excepturi et ipsa sed itaque. Qui magni quisquam vel facilis. Laboriosam et eum corrupti quia recusandae. Nulla amet blanditiis maiores. Ipsum molestiae exercitationem ratione ducimus est ipsa. Atque aut quaerat unde quia sed eum qui.",
     price: 71.65,
     star: 4.1,
+    storeWish: "Arlene",
     vendorInfo: {
       storeName: "Arlene",
       storeLogo:
@@ -883,6 +912,7 @@ export const data = [
       "Expedita officia et quasi in. Quod impedit est et et. Velit consequuntur doloribus tenetur blanditiis et maiores. Qui totam recusandae aut incidunt. Quis odio et accusamus reprehenderit quis dolorem. Inventore magni qui earum consequatur commodi ut quod.",
     price: 71.65,
     star: 4.0,
+    storeWish: "Online Store",
     vendorInfo: {
       storeName: "Online Store",
       storeLogo:
@@ -911,6 +941,7 @@ export const data = [
       "Ipsum molestiae voluptatem sit illo. Aut ex vero est velit qui excepturi aut rerum. Quis rerum autem voluptas animi facere. Alias saepe ut accusamus similique. Praesentium aut impedit perferendis rerum sit rerum. Et nihil est et totam sed accusamus autem. Sunt non reiciendis expedita ex. Assumenda velit sequi delectus repellat. Praesentium non nihil et recusandae vel praesentium iusto quod. Nihil voluptatem aperiam ratione voluptas nam nisi a ut. Voluptas ea illo est in soluta. Nam voluptates illo libero vitae in optio. Quas beatae et a ut asperiores nisi est. Amet nostrum voluptas aut molestias cumque autem odit fugiat. Illum atque laborum laboriosam aut ipsum. Nisi vitae maxime nesciunt quasi recusandae. Placeat veniam incidunt sequi nihil aliquam et.",
     price: 791.2,
     star: 4.1,
+    storeWish: "Barone LLC.",
     vendorInfo: {
       storeName: "Barone LLC.",
       storeLogo:
@@ -922,7 +953,7 @@ export const data = [
     },
     category: ["Anthologies"],
     tags: ["Books", "Fiction", "Romance - Contemporary"],
-    stock: true,
+    stock: false,
     sku: "65377017",
   },
   {
@@ -937,6 +968,7 @@ export const data = [
       "Aliquam quisquam provident illum reiciendis atque debitis rerum. Ex magnam sequi officiis non. Pariatur vitae expedita tenetur. Quod autem reprehenderit alias. Nulla dicta quo aut perspiciatis. Aut modi et mollitia est.",
     price: 606.79,
     star: 3.0,
+    storeWish: "Barone LLC.",
     vendorInfo: {
       storeName: "Barone LLC.",
       storeLogo:
@@ -963,6 +995,7 @@ export const data = [
       "Magni quia odio animi nihil sunt quisquam fugiat. Vitae dolorem incidunt molestiae reiciendis ut et quibusdam est. Aut nemo adipisci ipsum ut eum est omnis labore.",
     price: 316.15,
     star: 4.0,
+    storeWish: "Barone LLC.",
     vendorInfo: {
       storeName: "Barone LLC.",
       storeLogo:
@@ -991,6 +1024,7 @@ export const data = [
       "Similique ut illo saepe rerum blanditiis ab dignissimos. In voluptatum et sed quisquam. Consequatur debitis aut quam repellat veritatis voluptatum. Iure consectetur blanditiis pariatur nihil est qui nam. Et laboriosam nihil quod autem. Quo repellendus officia hic. Fugit facilis voluptatibus porro numquam aut qui id. Autem expedita veritatis odio voluptatem nulla dolorum aliquid. Quod ipsa sequi est qui qui. Dicta provident sint ab dolor ea. Mollitia exercitationem iusto id enim ipsum veniam. Laudantium odio doloremque non ut quod maiores itaque. Dolore nesciunt perferendis fugiat quisquam aliquid provident. Esse veritatis perspiciatis cumque non cum aut. Fuga minima aliquam sint nulla labore. Eius esse sed esse sed explicabo a. Quia voluptas quod eum reiciendis aut qui. Eum delectus non quas laborum esse vitae rerum. Et libero sed ipsum maxime laboriosam cupiditate.",
     price: 761.67,
     star: 0,
+    storeWish: "Library",
     vendorInfo: {
       storeName: "Library",
       storeLogo:
@@ -1002,7 +1036,7 @@ export const data = [
     },
     category: ["Genre Fiction"],
     tags: ["Books", "Fiction", "Romance - Contemporary"],
-    stock: true,
+    stock: false,
     sku: "03081341",
   },
   {
@@ -1017,6 +1051,7 @@ export const data = [
       "Iusto consequatur eligendi sint ex. Et velit delectus et. Esse est itaque optio culpa omnis nemo. Omnis repellendus odio aut veniam nesciunt numquam in repellat. Et fuga pariatur incidunt voluptate aut molestiae. Id nihil hic tenetur. Magnam quasi consequatur eum quod at nulla.",
     price: 664.55,
     star: 3.8,
+    storeWish: "Library",
     vendorInfo: {
       storeName: "Library",
       storeLogo:

@@ -1,10 +1,12 @@
-export const addWish = ({ id, image, title, price }: any) => ({
+export const addWish = ({ id, image, title, price, storeWish, stock }: any) => ({
   type: "ADD_WISH",
   wish: {
     id,
     image,
     title,
     price,
+    storeWish,
+    stock
   },
 });
 

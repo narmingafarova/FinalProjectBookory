@@ -16,7 +16,7 @@ const WislistBooks = () => {
                         <Table responsive striped bordered hover className="w-75 my-0 mx-auto">
                             <tbody>
                                 {data.map((item: any) => {
-                                    return <WishListCard item={item} />
+                                    return <WishListCard item={item} key={item.id}/>
                                 })}
                             </tbody>
                         </Table>

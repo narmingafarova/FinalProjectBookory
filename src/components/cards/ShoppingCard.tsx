@@ -31,7 +31,11 @@ const ShoppingCard = ({ item }: any) => {
                     {item.title}
                 </a>
             </td>
-            <td>${item.price}</td>
+            <td>${!item.price.toString().split(".")[1]
+                ? item.price.toString().concat(".00")
+                : item.price.toString().split(".")[1].length === 1
+                    ? item.price.toString().concat("0")
+                    : item.price}</td>
             <td className="position-relative">
                 <input
                     readOnly
