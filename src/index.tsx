@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
@@ -8,30 +7,8 @@ import 'aos/dist/aos.css';
 import configureStore from './managers/store/configureStore';
 import { Provider } from 'react-redux';
 import { getBlogsFromDatabase } from './managers/action/blogAction';
-// import { addWish } from './managers/action/wishAction';
-// import { BookContext } from './context/BookContext';
 
 const store: any = configureStore();
-
-// const MyProd = () => {
-//   const [books] = useContext(BookContext)
-//   return (
-//     <>
-//       {books.map((item: any) =>
-//         store.dispatch(
-//           addWish({
-//             id: item.id,
-//             image: item.image,
-//             title: item.title,
-//             price: item.price,
-//           })
-//         )
-//       )}
-//     </>
-//   );
-// };
-// MyProd()
-// console.log(store.getState());
 
 const result = (
   <Provider store={store}>

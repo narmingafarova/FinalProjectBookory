@@ -23,6 +23,11 @@
         margin: 0 15px;
         .book-card {
           border-right: 0 !important;
+          .book-img-div {
+            span {
+              display: none !important;
+            }
+          }
           .book-info {
             padding-top: 0 !important;
           }
@@ -73,6 +78,34 @@
   }
 }
 
+@media screen and (max-width: 1400px) {
+  .favourite-reads {
+    .favourite-cards {
+      .main-fav-card {
+        .book-img-div {
+          span {
+            right: 13px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .favourite-reads {
+    .favourite-cards {
+      .main-fav-card {
+        .book-img-div {
+          span {
+            right: 11px;
+          }
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 991px) {
   .favourite-reads {
     .favourite-cards {
@@ -80,6 +113,13 @@
         img {
           width: 80px !important;
           margin-right: 10px;
+        }
+      }
+      .main-fav-card {
+        .book-img-div {
+          span {
+            right: 8px;
+          }
         }
       }
     }
@@ -121,6 +161,13 @@
       }
       .main-first {
         border-right: none !important;
+      }
+      .main-fav-card {
+        .book-img-div {
+          span {
+            right: 12px;
+          }
+        }
       }
     }
     .mode-cards {
@@ -171,6 +218,11 @@
       }
       .main-fav-card {
         width: 40%;
+        .book-img-div {
+          span {
+            right: 9px;
+          }
+        }
       }
     }
   }
@@ -178,6 +230,15 @@
 
 @media screen and (max-width: 430px) {
   .favourite-reads {
+    .favourite-cards {
+      .main-fav-card {
+        .book-img-div {
+          span {
+            right: 8px;
+          }
+        }
+      }
+    }
     .mode-cards {
       .book-card {
         .book-info {
@@ -200,7 +261,7 @@
 
 @media screen and (max-width: 380px) {
   .favourite-reads {
-    [class ^= "col"] {
+    [class^="col"] {
       width: 100% !important;
       &:first-child {
         display: none;

@@ -78,6 +78,7 @@ const BookCard: React.FC<Book> = ({ item, id, image, title, author, price, star,
           >
             <img src={image} alt="book" />
           </LinkContainer>
+          <span className={`text-uppercase ${stock ? "d-none" : ""}`}>Sold out</span>
           <div className={`book-img-hover flex-column ${flexStyle === "flex-column" ? "d-flex" : "d-none"}`}>
             <Button variant="none" className="wish-icon mb-2" onClick={() => { wishClick() }}>
               <i className={`fa-${wishStatus} fa-heart`}></i>
@@ -86,7 +87,7 @@ const BookCard: React.FC<Book> = ({ item, id, image, title, author, price, star,
               <i className="fa-regular fa-eye" />
             </Button>
             <Button variant="none" className={`add-cart-icon ${stock ? "" : "disable-hover"}`} onClick={() => { addItem(item); setShowCanvas(true); }}>
-              <Basket className="mb-1"/>
+              <Basket className="mb-1" />
             </Button>
           </div>
         </div>

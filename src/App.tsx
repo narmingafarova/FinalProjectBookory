@@ -60,6 +60,9 @@ const App: React.FC = () => {
         setUserName(user)
       }
     }
+    if (localStorage.getItem("wish") == null) {
+      localStorage.setItem("wish", "[]");
+    }
   }, [])
 
 

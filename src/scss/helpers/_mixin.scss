@@ -169,6 +169,18 @@
       border-right: 1px solid $milk_white;
       .book-img-div {
         position: relative;
+        span {
+          position: absolute;
+          top: 0;
+          right: 15px;
+          font-size: 14px;
+          font-weight: 400;
+          color: $primary_orange_hover;
+          background-color: $white;
+          padding: 2px 10px;
+          border: 1px dashed $primary_orange;
+          border-radius: 0 15px 0 15px;
+        }
         .book-img {
           cursor: pointer;
           width: 85%;

@@ -21,6 +21,34 @@
   }
 }
 
+@media screen and (max-width: 1200px) {
+  .popular {
+    .mode-cards {
+      .book-card {
+        .book-img-div {
+          span {
+            right: 11px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .popular {
+    .mode-cards {
+      .book-card {
+        .book-img-div {
+          span {
+            right: 15px;
+          }
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 991px) {
   .popular {
     .mode-cards {
@@ -28,6 +56,23 @@
         .book-img-div {
           .book-img-hover {
             right: 18px !important;
+          }
+          span {
+            right: 11px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .popular {
+    .mode-cards {
+      .book-card {
+        .book-img-div {
+          span {
+            right: 13px;
           }
         }
       }
@@ -43,6 +88,9 @@
           .book-img-hover {
             right: 30px !important;
           }
+          span {
+            right: 19px;
+          }
         }
       }
     }
@@ -57,6 +105,23 @@
           .book-img-hover {
             right: 40px !important;
           }
+          span {
+            right: 33px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .popular {
+    .mode-cards {
+      .book-card {
+        .book-img-div {
+          span {
+            right: 29px;
+          }
         }
       }
     }
@@ -70,6 +135,23 @@
         .book-img-div {
           .book-img-hover {
             right: 30px !important;
+          }
+          span {
+            right: 24px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 305px) {
+  .popular {
+    .mode-cards {
+      .book-card {
+        .book-img-div {
+          span {
+            right: 21px;
           }
         }
       }

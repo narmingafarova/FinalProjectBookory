@@ -15,6 +15,7 @@ const Login: React.FC = () => {
     // For login
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
+    const [errmsg, setErrMsg] = useState<string>("")
 
     // For password visibility
     const [inputType, setInputType] = useState<string>("password");
@@ -28,22 +29,29 @@ const Login: React.FC = () => {
     const loginSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         const user = users.find((user: any) => { return user.username === username && user.password === password });
-        if (user && user.isAdmin) {
-            setUserStatus("admin");
-            setShowLogin(false);
-            setUsername("");
-            setPassword("");
-            localStorage.setItem("user", "admin");
-        } else if (user && !user.isAdmin) {
-            setUserStatus("user");
-            setUserName(user.user);
-            setShowLogin(false);
-            setUsername("");
-            setPassword("");
-            localStorage.setItem("user", user.user);
-        }
-        else {
-            setUserStatus("");
+        if (!username || !password) {
+            setErrMsg("Please fill the inputs!")
+        } else {
+            if (user && user.isAdmin) {
+                setUserStatus("admin");
+                setShowLogin(false);
+                setUsername("");
+                setPassword("");
+                localStorage.setItem("user", "admin");
+                setErrMsg("")
+            } else if (user && !user.isAdmin) {
+                setUserStatus("user");
+                setUserName(user.user);
+                setShowLogin(false);
+                setUsername("");
+                setPassword("");
+                localStorage.setItem("user", user.user);
+                setErrMsg("")
+            }
+            else {
+                setUserStatus("");
+                setErrMsg("Username or password is wrong!")
+            }
         }
     }
 
@@ -59,7 +67,7 @@ const Login: React.FC = () => {
 
     const [lang] = useContext(LangContext);
     return (
-        <Modal className={`login-modal ${mode === "dark" ? "login-dark" : ""}`} centered show={showLogin} onHide={() => { setShowLogin(false); setForgotPass("d-none") }}>
+        <Modal className={`login-modal ${mode === "dark" ? "login-dark" : ""}`} centered show={showLogin} onHide={() => { setShowLogin(false); setErrMsg(""); setUserName(""); setPassword(""); setForgotPass("d-none") }}>
             <Modal.Header>
                 <Modal.Title>{forgotPass === "d-none" && lang === "en" ? "Sign in" : forgotPass === "d-none" && lang === "az" ? "Daxil ol" : lang === "en" ? "Forgot password" : "Şifrəmi unutdum"}</Modal.Title>
             </Modal.Header>
@@ -78,7 +86,7 @@ const Login: React.FC = () => {
                         </Form.Group>
                         <Form.Group>
                             <Form.Label>{lang === "en" ? "Password" : "Şifrə"} <span>*</span></Form.Label>
-                            <InputGroup className="mb-3">
+                            <InputGroup className="mb-0">
                                 <Form.Control
                                     type={inputType}
                                     name="password"
@@ -99,6 +107,7 @@ const Login: React.FC = () => {
                                 </Button>
                             </InputGroup>
                         </Form.Group>
+                        <p className='wrong-login'>{errmsg}</p>
                         <Button type='submit' variant='none' className='submit-btn text-uppercase'>{lang === "en" ? "Login" : "Daxil ol"}</Button>
                     </Form>
                     <div className="forgot-pass d-flex justify-content-end mt-3">

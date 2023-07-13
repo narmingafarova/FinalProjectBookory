@@ -27,6 +27,9 @@
           width: 240px !important;
           position: relative;
         }
+        span {
+          right: 0 !important;
+        }
         .book-img-hover {
           right: 10px;
         }
@@ -275,7 +278,7 @@
         color: $primary_orange;
       }
     }
-    .css-eg0mwd-MuiSlider-thumb {
+    .MuiSlider-thumb {
       width: 12px;
       height: 12px;
       background-color: $white;
@@ -285,19 +288,19 @@
         box-shadow: 0 0 0 0.236em rgba(0, 0, 0, 0.1);
       }
     }
-    .css-187mznn-MuiSlider-root {
+    .MuiSlider-root {
       color: $black;
       cursor: default;
     }
-    .css-1gv0vcd-MuiSlider-track,
-    .css-14pt78w-MuiSlider-rail {
+    .MuiSlider-track,
+    .MuiSlider-rail {
       height: 2px;
       border: 0;
     }
-    .css-1gv0vcd-MuiSlider-track {
+    .MuiSlider-track {
       background-color: $black;
     }
-    .css-14pt78w-MuiSlider-rail {
+    .MuiSlider-rail {
       background-color: #e5e5e5;
       cursor: default;
     }
@@ -486,6 +489,9 @@
           .book-img {
             width: 240px !important;
           }
+          span {
+            right: 19px;
+          }
         }
       }
       .feature-category {
@@ -511,6 +517,9 @@
         .book-img-div {
           .book-img {
             width: 200px !important;
+          }
+          span {
+            right: 17px;
           }
         }
       }
@@ -567,6 +576,9 @@
         .book-img-div {
           .book-img {
             width: 150px !important;
+          }
+          span {
+            right: 12px;
           }
           .book-img-hover {
             right: 17px !important;
@@ -667,7 +679,10 @@
           .book-img-div {
             width: 100%;
             .book-img {
-              width: 120px !important;
+              width: 150px !important;
+            }
+            span {
+              right: 75px;
             }
           }
           .book-info {
@@ -738,6 +753,9 @@
             .book-img {
               width: 170px !important;
             }
+            span {
+              right: 15px;
+            }
           }
           .book-info {
             width: 100% !important;
@@ -754,6 +772,11 @@
           }
         }
         .list-change {
+          .book-img-div {
+            span {
+              right: 18% !important;
+            }
+          }
           .book-info {
             text-align: left;
             padding-left: 10px !important;
@@ -826,6 +849,11 @@
           }
         }
         .list-change {
+          .book-img-div {
+            span {
+              right: 10% !important;
+            }
+          }
           .book-info {
             text-align: left;
             padding-left: 10px !important;
@@ -913,6 +941,9 @@
             width: 100%;
             .book-img {
               width: 100px !important;
+            }
+            span {
+              font-size: 10px;
             }
           }
         }
