@@ -7,7 +7,7 @@ interface propsType {
 }
 
 export const ThemeProvider = (props: propsType) => {
-    const localMode = localStorage.getItem('mode');
+    const localMode = localStorage.getItem('mode') ?? "light";
     const [mode, setMode] = useState<any>(localMode);
     return (
         <ThemeContext.Provider value={[mode, setMode]}>

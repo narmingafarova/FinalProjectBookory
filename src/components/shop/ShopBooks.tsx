@@ -112,7 +112,7 @@ const ShopBooks = () => {
   const sortingProducts = (e: any) => {
     setSortState(e.target.value);
     switch (sortState) {
-      case "price-desc":
+      case "price_desc":
         setBooks(books.sort((a: any, b: any) => a.price - b.price));
         console.log("low");
         break;
@@ -443,7 +443,7 @@ const ShopBooks = () => {
                 >
                   <option value="menu_order">{lang === "en" ? "Default sorting" : "Varsayılan çeşidləmə"}</option>
                   <option value="price">{lang === "en" ? "Sort by price: low to high" : "Qiymətə görə çeşidləyin: azdan çoxa"}</option>
-                  <option value="price-desc">{lang === "en" ? "Sort by price: high to low" : "Qiymətə görə çeşidləyin: çoxdan aza"}</option>
+                  <option value="price_desc">{lang === "en" ? "Sort by price: high to low" : "Qiymətə görə çeşidləyin: çoxdan aza"}</option>
                 </select>
                 <div className="page-item-count ps-3">
                   <span>{lang === "en" ? "Show" : "Göstər"}</span>
